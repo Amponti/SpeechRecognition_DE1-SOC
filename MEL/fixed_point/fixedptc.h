@@ -1,5 +1,3 @@
-//Hola
-
 #ifndef _FIXEDPTC_H_
 #define _FIXEDPTC_H_
 

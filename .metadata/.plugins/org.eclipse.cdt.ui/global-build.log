@@ -1,26 +1,41 @@
-16:11:20 **** Build of configuration Debug for project MEL ****
+17:31:16 **** Build of configuration Debug for project MEL ****
 make all 
 'Building file: ../MEL_includes.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -O1 -g3 -Wall -lm -c -fmessage-length=0 -MMD -MP -MF"MEL_includes.d" -MT"MEL_includes.d" -o "MEL_includes.o" "../MEL_includes.c"
+arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O1 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"MEL_includes.d" -MT"MEL_includes.d" -o "MEL_includes.o" "../MEL_includes.c"
 'Finished building: ../MEL_includes.c'
 ' '
 'Building file: ../fixedptc.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -O1 -g3 -Wall -lm -c -fmessage-length=0 -MMD -MP -MF"fixedptc.d" -MT"fixedptc.d" -o "fixedptc.o" "../fixedptc.c"
+arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O1 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fixedptc.d" -MT"fixedptc.d" -o "fixedptc.o" "../fixedptc.c"
 'Finished building: ../fixedptc.c'
 ' '
 'Building file: ../main.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -O1 -g3 -Wall -lm -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O1 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+../main.c: In function 'print_message_function':
+../main.c:33:3: warning: implicit declaration of function 'sin' [-Wimplicit-function-declaration]
+   float jejej=  sin((double)2.05);
+   ^
+../main.c:33:17: warning: incompatible implicit declaration of built-in function 'sin' [enabled by default]
+   float jejej=  sin((double)2.05);
+                 ^
+../main.c: In function 'main':
+../main.c:95:8: warning: unused variable 'ho' [-Wunused-variable]
+  float ho= 3.145454;
+        ^
+../main.c: In function 'print_message_function':
+../main.c:36:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+../main.c: In function 'main':
+../main.c:200:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
 'Finished building: ../main.c'
 ' '
 'Building target: MEL'
 'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc  -o "MEL"  ./MEL_includes.o ./fixedptc.o ./main.o   
-./MEL_includes.o: In function `melcepstrum_conversion':
-C:\Users\jdani\Documents\GitHub\SpeechRecognition_DE1-SOC\MEL\Debug/../MEL_includes.c:35: undefined reference to `log10f'
-./MEL_includes.o: In function `dct':
-C:\Users\jdani\Documents\GitHub\SpeechRecognition_DE1-SOC\MEL\Debug/../MEL_includes.c:56: undefined reference to `cos'
-collect2.exe: error: ld returned 1 exit status
-make: *** [MEL] Error 1
+arm-linux-gnueabihf-gcc -lm -lpthread -o "MEL"  ./MEL_includes.o ./fixedptc.o ./main.o   
+'Finished building target: MEL'
+' '

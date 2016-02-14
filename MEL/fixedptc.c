@@ -9,10 +9,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/mman.h>
-#include "./include/hwlib.h"
-#include "./include/socal/socal.h"
-#include "./include/socal/hps.h"
-#include "./include/socal/alt_gpio.h"
+#include "hwlib.h"
+#include "socal.h"
+#include "hps.h"
+#include "alt_gpio.h"
+#include "fixedptc.h"
 
 /* Multiplies two fixedpt numbers, returns the result. */
 int fixedpt_mul(fixedpt A, fixedpt B)

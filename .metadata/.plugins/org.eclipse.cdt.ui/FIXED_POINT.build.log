@@ -1,4 +1,4 @@
-15:26:18 **** Build of configuration Debug for project FIXED_POINT ****
+16:38:25 **** Build of configuration Debug for project FIXED_POINT ****
 make all 
 'Building file: ../fixedptc.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
@@ -21,5 +21,5 @@ arm-linux-gnueabihf-gcc  -o "FIXED_POINT"  ./fixedptc.o ./test.o ./verify.o
 'Finished building target: FIXED_POINT'
 ' '
 
-15:26:19 Build Finished (took 779ms)
+16:38:29 Build Finished (took 3s.718ms)
 

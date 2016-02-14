@@ -57,6 +57,9 @@ int main()
 	fixedpt_print(C);
 	puts("");
 
+	printf("EL valor de B es: %x,%d",(unsigned int)B,(unsigned int)B);
+
+
 	fixedpt_print(A);
 	puts("*");
 	fixedpt_print(B);

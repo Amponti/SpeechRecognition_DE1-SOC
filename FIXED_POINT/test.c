@@ -40,6 +40,12 @@ int main()
 	fixedpt_print(FIXEDPT_E);
 	puts("");
 
+	int i=0;
+	fixedpt fc[] = {0,fixedpt_rconst(132.83),fixedpt_rconst(290.87)};
+	for(i=0;i<3;i++)
+	{
+		fixedpt_print(fc[i]);
+	}
 	A = fixedpt_rconst(2.5);
 	B = fixedpt_fromint(3);
 

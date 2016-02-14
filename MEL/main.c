@@ -72,6 +72,7 @@ int main()
   //FFTSTART(0);
   while(1)
   {
+	  LEDR = M_PI;
       //FFTSTART(1);
       while (!FFTCOMPLETE);  // Wait until FFT operation to finish
       //FFTSTART(0);

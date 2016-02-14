@@ -1,7 +1,29 @@
-10:24:10 **** Clean-only build of configuration Debug for project MEL ****
-make clean 
-rm -rf  ./MEL_includes.o ./main.o   ./MEL_includes.d ./main.d   MEL 
+16:11:20 **** Build of configuration Debug for project MEL ****
+make all 
+'Building file: ../MEL_includes.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -O1 -g3 -Wall -lm -c -fmessage-length=0 -MMD -MP -MF"MEL_includes.d" -MT"MEL_includes.d" -o "MEL_includes.o" "../MEL_includes.c"
+'Finished building: ../MEL_includes.c'
 ' '
+'Building file: ../fixedptc.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -O1 -g3 -Wall -lm -c -fmessage-length=0 -MMD -MP -MF"fixedptc.d" -MT"fixedptc.d" -o "fixedptc.o" "../fixedptc.c"
+'Finished building: ../fixedptc.c'
+' '
+'Building file: ../main.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -O1 -g3 -Wall -lm -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+'Finished building: ../main.c'
+' '
+'Building target: MEL'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "MEL"  ./MEL_includes.o ./fixedptc.o ./main.o   
+./MEL_includes.o: In function `melcepstrum_conversion':
+C:\Users\jdani\Documents\GitHub\SpeechRecognition_DE1-SOC\MEL\Debug/../MEL_includes.c:35: undefined reference to `log10f'
+./MEL_includes.o: In function `dct':
+C:\Users\jdani\Documents\GitHub\SpeechRecognition_DE1-SOC\MEL\Debug/../MEL_includes.c:56: undefined reference to `cos'
+collect2.exe: error: ld returned 1 exit status
+make: *** [MEL] Error 1
 
-10:24:10 Build Finished (took 128ms)
+16:11:21 Build Finished (took 1s.425ms)
 

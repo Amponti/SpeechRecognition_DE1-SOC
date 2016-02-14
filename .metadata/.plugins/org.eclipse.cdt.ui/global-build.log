@@ -1,22 +1,26 @@
-13:25:28 **** Build of configuration Debug for project FIXED_POINT ****
+16:11:20 **** Build of configuration Debug for project MEL ****
 make all 
+'Building file: ../MEL_includes.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -O1 -g3 -Wall -lm -c -fmessage-length=0 -MMD -MP -MF"MEL_includes.d" -MT"MEL_includes.d" -o "MEL_includes.o" "../MEL_includes.c"
+'Finished building: ../MEL_includes.c'
+' '
 'Building file: ../fixedptc.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fixedptc.d" -MT"fixedptc.d" -o "fixedptc.o" "../fixedptc.c"
+arm-linux-gnueabihf-gcc -O1 -g3 -Wall -lm -c -fmessage-length=0 -MMD -MP -MF"fixedptc.d" -MT"fixedptc.d" -o "fixedptc.o" "../fixedptc.c"
 'Finished building: ../fixedptc.c'
 ' '
-'Building file: ../test.c'
+'Building file: ../main.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test.d" -MT"test.d" -o "test.o" "../test.c"
-'Finished building: ../test.c'
+arm-linux-gnueabihf-gcc -O1 -g3 -Wall -lm -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+'Finished building: ../main.c'
 ' '
-'Building file: ../verify.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"verify.d" -MT"verify.d" -o "verify.o" "../verify.c"
-'Finished building: ../verify.c'
-' '
-'Building target: FIXED_POINT'
+'Building target: MEL'
 'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc  -o "FIXED_POINT"  ./fixedptc.o ./test.o ./verify.o   
-'Finished building target: FIXED_POINT'
-' '
+arm-linux-gnueabihf-gcc  -o "MEL"  ./MEL_includes.o ./fixedptc.o ./main.o   
+./MEL_includes.o: In function `melcepstrum_conversion':
+C:\Users\jdani\Documents\GitHub\SpeechRecognition_DE1-SOC\MEL\Debug/../MEL_includes.c:35: undefined reference to `log10f'
+./MEL_includes.o: In function `dct':
+C:\Users\jdani\Documents\GitHub\SpeechRecognition_DE1-SOC\MEL\Debug/../MEL_includes.c:56: undefined reference to `cos'
+collect2.exe: error: ld returned 1 exit status
+make: *** [MEL] Error 1

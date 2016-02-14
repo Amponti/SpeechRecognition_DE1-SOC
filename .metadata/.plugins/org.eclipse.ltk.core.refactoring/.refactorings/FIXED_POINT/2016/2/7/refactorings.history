@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;FIXED_POINT/filtroFIR.c&apos; to &apos;fixedptc.c&apos;" description="Rename resource &apos;filtroFIR.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="filtroFIR.c" name="fixedptc.c" stamp="1455463778278" updateReferences="true"/>
+</session>

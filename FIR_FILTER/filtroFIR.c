@@ -456,7 +456,5 @@ void apply_FIR_whole_signal(FIR_filter * filtro, SIGNAL * FIR_signal, SIGNAL * F
 			resultado=(int)filter;
 			FIR_output->signal[i]=resultado;
 		}
-
-
 	}
 }

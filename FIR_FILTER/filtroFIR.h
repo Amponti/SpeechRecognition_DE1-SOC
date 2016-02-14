@@ -14,7 +14,6 @@
 double int_cos( int deg );
 double int_sin( int deg );
 
-
 #define SW_MODE 0
 #define HW_MODE 1
 
@@ -56,7 +55,6 @@ void save_signal( SIGNAL * FIR_signal, char * filename);
 void load_signal( SIGNAL * FIR_signal, char * filename);
 void apply_FIR(FIR_filter * filtro, int data, int * FIR_output);
 void apply_FIR_whole_signal(FIR_filter * filtro, SIGNAL * FIR_signal, SIGNAL * FIR_output);
-
 void apply_FFT( FIR_filter * filtro, SIGNAL * FIR_signal, SIGNAL * FIR_output );
 
 #endif /* FILTROFIR_H_ */

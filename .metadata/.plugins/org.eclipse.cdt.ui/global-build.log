@@ -1,0 +1,82 @@
+10:01:20 **** Build of configuration Debug for project FFT_WAV ****
+make all 
+'Building file: ../FFT_includes.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FFT_includes.d" -MT"FFT_includes.d" -o "FFT_includes.o" "../FFT_includes.c"
+../FFT_includes.c: In function 'save_type':
+../FFT_includes.c:143:2: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  length = strlen(inpfile);
+  ^
+../FFT_includes.c:143:11: warning: incompatible implicit declaration of built-in function 'strlen' [enabled by default]
+  length = strlen(inpfile);
+           ^
+../FFT_includes.c:154:9: warning: assignment makes pointer from integer without a cast [enabled by default]
+   enable=1;
+         ^
+../FFT_includes.c:158:9: warning: assignment makes pointer from integer without a cast [enabled by default]
+   enable=2;
+         ^
+../FFT_includes.c: At top level:
+../FFT_includes.c:18:14: warning: 'A' defined but not used [-Wunused-variable]
+ static float A[2*N];
+              ^
+../FFT_includes.c:19:14: warning: 'Z' defined but not used [-Wunused-variable]
+ static float Z[2*N];
+              ^
+'Finished building: ../FFT_includes.c'
+' '
+'Building file: ../fft2048.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fft2048.d" -MT"fft2048.d" -o "fft2048.o" "../fft2048.c"
+'Finished building: ../fft2048.c'
+' '
+'Building file: ../fft256.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fft256.d" -MT"fft256.d" -o "fft256.o" "../fft256.c"
+'Finished building: ../fft256.c'
+' '
+'Building file: ../fft4096.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fft4096.d" -MT"fft4096.d" -o "fft4096.o" "../fft4096.c"
+'Finished building: ../fft4096.c'
+' '
+'Building file: ../fft64.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fft64.d" -MT"fft64.d" -o "fft64.o" "../fft64.c"
+'Finished building: ../fft64.c'
+' '
+'Building file: ../ifft64.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ifft64.d" -MT"ifft64.d" -o "ifft64.o" "../ifft64.c"
+'Finished building: ../ifft64.c'
+' '
+'Building file: ../main.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:108:3: warning: passing argument 3 of 'save_type' makes pointer from integer without a cast [enabled by default]
+   save_type(argv[2], type, enable);
+   ^
+In file included from ../main.c:25:0:
+../FFT_includes.h:41:6: note: expected 'int *' but argument is of type 'int'
+ void save_type(char * inpfile, char * outpfile, int * enb);
+      ^
+../main.c:222:4: warning: implicit declaration of function 'fft256' [-Wimplicit-function-declaration]
+    fft256(Z); /* transform */
+    ^
+../main.c:70:49: warning: unused variable 'ibyte' [-Wunused-variable]
+  char riff[4],wave[4],fmt[4],stuf,data[4],sbyte,ibyte,more[4];
+                                                 ^
+../main.c:69:12: warning: variable 'swrite' set but not used [-Wunused-but-set-variable]
+  int sread,swrite,k,i,sect,sectcnt,first;
+            ^
+../main.c:325:8: warning: 'outp2' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  fclose(outp2);
+        ^
+'Finished building: ../main.c'
+' '
+'Building target: FFT_WAV'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "FFT_WAV"  ./FFT_includes.o ./fft2048.o ./fft256.o ./fft4096.o ./fft64.o ./ifft64.o ./main.o   
+'Finished building target: FFT_WAV'
+' '

@@ -80,89 +80,47 @@ void init_system()
 	wr_addr 		= virtual_base + (( unsigned long )( REG_BASE + WR_BASE ) & ( unsigned long)( REG_SPAN-1 ));
 	result_addr 	= virtual_base + (( unsigned long )( REG_BASE + RESULT_SPAN ) & ( unsigned long)( REG_SPAN-1 ));
 
-	alt_write_word( p2h_div_time_addr, 24 );
+	alt_write_word( p2h_div_time_addr, 240 );
 	alt_write_word( h2p_start_timer_addr, 0 );
 
 }
 //=======================================================================================
 // EJECUCIÓN FILTRO FIR
 //=======================================================================================
-int main(int argc, char *argv[])
+int main()
 {
 
-	pthread_t thread1;
-	int  iret1;
+	int time_cont=0;
 
-	if (argc > 1)
-	{
-	}
-	else
-	{
-		printf("The command had no other arguments.\n");
-		return 0;
-	}
-
-	//<><><><><><><><><><><><><><><><><>//
-	// 		SYSTEM INITIALIZING			//
-	//<><><><><><><><><><><><><><><><><>//
 	init_system();
 
-	//<><><><><><><><><><><><><><><><><>//
-	// 		  SIGNALS DECLARATION		//
-	//<><><><><><><><><><><><><><><><><>//
-	FIR_filter filtro,filtro2,filtro3;
+
+
+	FIR_filter filtro;
 	SIGNAL signal1;
 	SIGNAL signal1_output;
 	SIGNAL signal2_output;
-	SIGNAL signal3_output;
 
-	sscanf (argv[1],"%d",&filtro.F1);
-	sscanf (argv[2],"%d",&filtro.F2);
-	sscanf (argv[3],"%d",&filtro.order);
-	sscanf (argv[4],"%d",&filtro.FS);
-	sscanf (argv[5],"%d",&filtro.window_type);
-	sscanf (argv[6],"%d",&filtro.filter_type);
-	sscanf (argv[7],"%d",&filtro.sw_hw);
 
-//	filtro.F1=12071;
-//	filtro.F2=12171;
-//	filtro.order=200;
-//	filtro.FS=44100;
-//	filtro.window_type=BLACKMAN_HARRIS;
-//	filtro.filter_type=BS_FILTER;
-
-	//<><><><><><><><><><><><><><><><><>//
-	// FILTER COEFFICIENTS CALCULATION	//
-	//<><><><><><><><><><><><><><><><><>//
-
-//	iret1 = pthread_create( &thread1, NULL, calc_FIR_coefs, (void*) filtro);
-//	     if(iret1)
-//	     {
-//	         fprintf(stderr,"Error - pthread_create() return code: %d\n",iret1);
-//	         exit(EXIT_FAILURE);
-//	     }
-//
-//	     printf("pthread_create() for thread 1 returns: %d\n",iret1);
-//	     pthread_join( thread1, NULL);
+	filtro.F1=6500;
+	filtro.F2=9500;
+	filtro.order=100;
+	filtro.FS=44100;
+	filtro.window_type=2;
+	filtro.filter_type=2;
+	filtro.sw_hw=0;
 
 	calc_FIR_coefs(&filtro);
-//	calc_FIR_coefs(&filtro2);
-//	calc_FIR_coefs(&filtro3);
-
-	//<><><><><><><><><><><><><><><><><>//
-	// 			 LOAD FILE 				//
-	//<><><><><><><><><><><><><><><><><>//
-	load_signal(&signal1,argv[8]);
+	load_signal(&signal1,"song.bin");
 
 	//<><><><><><><><><><><><><><><><><>//
 	// 		 SIGNAL REPLICATION 		//
 	//<><><><><><><><><><><><><><><><><>//
 	signal1_output.lenght=signal1.lenght;
-//	signal2_output.lenght=signal1.lenght;
-//	signal3_output.lenght=signal1.lenght;
 	signal1_output.signal=(int*) malloc (sizeof(int)*signal1.lenght);
-//	signal2_output.signal=(int*) malloc (sizeof(int)*signal1.lenght);
-//	signal3_output.signal=(int*) malloc (sizeof(int)*signal1.lenght);
+
+	signal2_output.lenght=signal1.lenght;
+	signal2_output.signal=(int*) malloc (sizeof(int)*signal2_output.lenght);
 
 	//<><><><><><><><><><><><><><><><><>//
 	// 			START TIMER				//
@@ -173,28 +131,55 @@ int main(int argc, char *argv[])
 	// APPLY FILTER & NORMALIZE SIGNAL	//
 	//<><><><><><><><><><><><><><><><><>//
 	normalize_signal( &signal1, 128);
+
+	//<><><><><><><><><><><><><><><><><>//
+	// 			START TIMER				//
+	//<><><><><><><><><><><><><><><><><>//
+	alt_write_word(h2p_start_timer_addr, 1 );  //0:ligh, 1:unlight
+
 	apply_FIR_whole_signal(&filtro, &signal1, &signal1_output);
-	normalize_signal( &signal1_output, 128);
-//	apply_FIR_whole_signal(&filtro2, &signal1_output, &signal2_output);
-//	normalize_signal( &signal2_output, 128);
-//	apply_FIR_whole_signal(&filtro3, &signal2_output, &signal3_output);
-//	normalize_signal( &signal3_output, 128);
+
 
 	//<><><><><><><><><><><><><><><><><>//
 	// 		   GET TICK <TIMER>			//
 	//<><><><><><><><><><><><><><><><><>//
-	int time_cont;
+
 	time_cont = alt_read_word(p2h_get_tick_addr);
-	printf("valor del timer: %d\n",time_cont);
+	printf("valor del timer1: %d\n",time_cont);
+
 
 	//<><><><><><><><><><><><><><><><><>//
 	// 		   TIMER SHUTDOWN			//
 	//<><><><><><><><><><><><><><><><><>//
 	alt_write_word(h2p_start_timer_addr, 0 );
 
-	save_signal( &signal1_output, argv[9]);
-//	save_signal( &signal2_output, "filtrito2.bin");
-//	save_signal( &signal3_output, "filtrito3.bin");
+	time_cont=0;
+	//<><><><><><><><><><><><><><><><><>//
+	// 			START TIMER				//
+	//<><><><><><><><><><><><><><><><><>//
+	alt_write_word(h2p_start_timer_addr, 1 );  //0:ligh, 1:unlight
+
+	apply_FIR_whole_signal_pthreads(&filtro, &signal1, &signal2_output);
+
+	//<><><><><><><><><><><><><><><><><>//
+	// 		   GET TICK <TIMER>			//
+	//<><><><><><><><><><><><><><><><><>//
+
+	time_cont = alt_read_word(p2h_get_tick_addr);
+	printf("valor del timer2: %d\n",time_cont);
+	//<><><><><><><><><><><><><><><><><>//
+	// 		   TIMER SHUTDOWN			//
+	//<><><><><><><><><><><><><><><><><>//
+	alt_write_word(h2p_start_timer_addr, 0 );
+
+	normalize_signal( &signal1_output, 128);
+	normalize_signal( &signal2_output, 128);
+
+
+
+
+	save_signal( &signal1_output, "nonpthreads.bin");
+	save_signal( &signal2_output, "pthreads.bin");
 
 	printf("Finalizando Ejecucion.\n");
 	return 0;

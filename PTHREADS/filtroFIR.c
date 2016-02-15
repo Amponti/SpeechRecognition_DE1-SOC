@@ -122,7 +122,7 @@ double hd[3000];//=(float*) malloc (sizeof(float)*N);
 
 
 extern volatile unsigned long *val1_addr;
-extern volatile unsigned long *val2_addr;
+//extern volatile unsigned long *val2_addr;
 extern volatile unsigned long *select_addr;
 extern volatile unsigned long *wr_addr;
 extern volatile unsigned long *result_addr;
@@ -396,12 +396,6 @@ double acc_multi(FIR_filter * filtro, SIGNAL * FIR_signal,int offset,int offset2
 }
 
 
-void *thread_fir( void *ptr ){
-	SIGNALTHREAD *signalthread;
-	signalthread = (SIGNALTHREAD *) ptr;
-	signalthread->results = (signalthread->coef->coefs[signalthread->id] * signalthread->signal->signal[signalthread->id+signalthread->offset]);
-
-}
 
 void apply_FIR_whole_signal(FIR_filter * filtro, SIGNAL * FIR_signal, SIGNAL * FIR_output)
 {
@@ -411,11 +405,9 @@ void apply_FIR_whole_signal(FIR_filter * filtro, SIGNAL * FIR_signal, SIGNAL * F
 	int 	size = FIR_signal->lenght;
 	int 	N = filtro->order+1;
 
-	SIGNALTHREAD * tempThreads;
-	pthread_t thr;
-
-	tempThreads=malloc(sizeof(SIGNALTHREAD)*N);
-	thr=malloc(sizeof(pthread_t)*N);
+	SIGNALTHREAD * tempThreads1;
+	SIGNALTHREAD * tempThreads2;
+	pthread_t * thr1,thr2;
 
 
 
@@ -435,53 +427,75 @@ void apply_FIR_whole_signal(FIR_filter * filtro, SIGNAL * FIR_signal, SIGNAL * F
 		}
 
 	}
-	else{
-		for(i=0;i<(size-N);i++)
-		{
-			filter=0;
-			for(j=0;j<N;j++)
-			{
-				tempThreads[j]->coef=filtro;
-				tempThreads[j]->signal=FIR_signal;
-				tempThreads[j]->id=j;
-				tempThreads[j]->offset=i;
-
-				pthread_create(&thr[i], NULL, thread_fir, &tempThreads[i]);
-				//data=(double)FIR_signal->signal[i+(j)];
-
-			}
-			for(j=0;j<N;j++)
-			{
-				pthread_join(thr[i], NULL);
-			}
-			for(j=0;j<N;j++)
-			{
-				filter = filter+(tempThreads[i]->results);
-			}
-
-			resultado=(int)filter;
-			FIR_output->signal[i]=resultado;
-		}
-
-
-		//HW
-
-//
-//
-//		for(i=0;i<(size-N);i++)
-//		{
-//			filter=0;
-//			for(j=0;j<N;j=j+4)
-//			{
-//
-//				filter=filter+acc_multi(filtro, FIR_signal,i,j);
-////				data=(double)FIR_signal->signal[i+(j)];
-////				filter = filter+(filtro->coefs[j] * data);
-//			}
-//			resultado=(int)filter;
-//			FIR_output->signal[i]=resultado;
-//		}
-
 
 	}
+
+
+void * fir_thread(void *shared){
+	SIGNALTHREAD * tempThreads= (SIGNALTHREAD *)shared ;
+
+	int 	i,j;
+	double 	filter;
+	int	 	resultado;
+	int 	size = tempThreads->signal_in->lenght;
+	int 	N = tempThreads->filter->order+1;
+
+
+	double data;
+	for(i=(tempThreads->offset);i<((tempThreads->offset+size/2)-N);i++)
+	{
+		filter=0;
+		for(j=0;j<N;j++)
+		{
+			data=(double)tempThreads->signal_in->signal[i+(j)];
+			filter = filter+(tempThreads->filter->coefs[j] * data);
+		}
+		resultado=(int)filter;
+		tempThreads->signal_out->signal[i]=resultado;
+	}
+
 }
+
+void apply_FIR_whole_signal_pthreads(FIR_filter * filtro, SIGNAL * FIR_signal, SIGNAL * FIR_output)
+{
+
+	int 	size = FIR_signal->lenght;
+	int 	N = filtro->order+1;
+
+	SIGNALTHREAD  tempThreads1;
+	SIGNALTHREAD  tempThreads2;
+	pthread_t * thr1,thr2;
+
+	tempThreads1.signal_in=FIR_signal;
+	tempThreads1.signal_out=FIR_output;
+	tempThreads1.filter=filtro;
+	tempThreads1.offset=0;
+	tempThreads1.id=1;
+
+
+	tempThreads2.signal_in=FIR_signal;
+	tempThreads2.signal_out=FIR_output;
+	tempThreads2.filter=filtro;
+	tempThreads2.offset=size>>1-N;
+	tempThreads2.id=2;
+
+
+	pthread_create(&thr1, NULL, fir_thread, &tempThreads1);
+	pthread_create(&thr2, NULL, fir_thread, &tempThreads2);
+
+
+
+	pthread_join(thr1, NULL);
+	pthread_join(thr2, NULL);
+
+
+}
+
+
+
+
+
+
+
+
+

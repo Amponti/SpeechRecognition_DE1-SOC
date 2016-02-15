@@ -53,9 +53,9 @@ typedef struct FIR_filters
 
 typedef struct signalsthreads
 {
-	SIGNAL * signal;
-	FIR_filter * coef;
-	int results;
+	SIGNAL * signal_in;
+	SIGNAL * signal_out;
+	FIR_filter * filter;
 	int offset;
 	char id;
 }SIGNALTHREAD;
@@ -69,7 +69,8 @@ void load_signal( SIGNAL * FIR_signal, char * filename);
 void *thread_fir( void *ptr );
 void apply_FIR(FIR_filter * filtro, int data, int * FIR_output);
 void apply_FIR_whole_signal(FIR_filter * filtro, SIGNAL * FIR_signal, SIGNAL * FIR_output);
-
+void * fir_thread(void *data);
+void apply_FIR_whole_signal_pthreads(FIR_filter * filtro, SIGNAL * FIR_signal, SIGNAL * FIR_output);
 void apply_FFT( FIR_filter * filtro, SIGNAL * FIR_signal, SIGNAL * FIR_output );
 
 #endif /* FILTROFIR_H_ */

@@ -1,8 +1,22 @@
-17:31:16 **** Build of configuration Debug for project MEL ****
+17:49:20 **** Build of configuration Debug for project MEL ****
 make all 
 'Building file: ../MEL_includes.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
 arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O1 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"MEL_includes.d" -MT"MEL_includes.d" -o "MEL_includes.o" "../MEL_includes.c"
+../MEL_includes.c: In function 'melcepstrum_conversion':
+../MEL_includes.c:35:9: warning: implicit declaration of function 'log10' [-Wimplicit-function-declaration]
+         mel[i] = log10(mel[i]);
+         ^
+../MEL_includes.c:35:18: warning: incompatible implicit declaration of built-in function 'log10' [enabled by default]
+         mel[i] = log10(mel[i]);
+                  ^
+../MEL_includes.c: In function 'dct':
+../MEL_includes.c:58:13: warning: implicit declaration of function 'sin' [-Wimplicit-function-declaration]
+             out[i] += in[j]*sin(i*pn*(j+0.5));
+             ^
+../MEL_includes.c:58:29: warning: incompatible implicit declaration of built-in function 'sin' [enabled by default]
+             out[i] += in[j]*sin(i*pn*(j+0.5));
+                             ^
 'Finished building: ../MEL_includes.c'
 ' '
 'Building file: ../fixedptc.c'
@@ -13,25 +27,13 @@ arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwli
 'Building file: ../main.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
 arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O1 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
-../main.c: In function 'print_message_function':
-../main.c:33:3: warning: implicit declaration of function 'sin' [-Wimplicit-function-declaration]
-   float jejej=  sin((double)2.05);
-   ^
-../main.c:33:17: warning: incompatible implicit declaration of built-in function 'sin' [enabled by default]
-   float jejej=  sin((double)2.05);
-                 ^
 ../main.c: In function 'main':
-../main.c:95:8: warning: unused variable 'ho' [-Wunused-variable]
-  float ho= 3.145454;
-        ^
-../main.c: In function 'print_message_function':
-../main.c:36:1: warning: control reaches end of non-void function [-Wreturn-type]
- }
- ^
-../main.c: In function 'main':
-../main.c:200:1: warning: control reaches end of non-void function [-Wreturn-type]
- }
- ^
+../main.c:111:5: warning: implicit declaration of function 'fabs' [-Wimplicit-function-declaration]
+     sum_mel = (mfcc[0] + fabs(mfcc[1]));
+     ^
+../main.c:111:26: warning: incompatible implicit declaration of built-in function 'fabs' [enabled by default]
+     sum_mel = (mfcc[0] + fabs(mfcc[1]));
+                          ^
 'Finished building: ../main.c'
 ' '
 'Building target: MEL'
@@ -40,5 +42,5 @@ arm-linux-gnueabihf-gcc -lm -lpthread -o "MEL"  ./MEL_includes.o ./fixedptc.o ./
 'Finished building target: MEL'
 ' '
 
-17:31:17 Build Finished (took 1s.28ms)
+17:49:21 Build Finished (took 977ms)
 

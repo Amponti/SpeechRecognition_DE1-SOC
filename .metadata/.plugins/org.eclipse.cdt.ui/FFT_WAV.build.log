@@ -1,4 +1,4 @@
-10:09:07 **** Build of configuration Debug for project FFT_WAV ****
+19:05:22 **** Build of configuration Debug for project FFT_WAV ****
 make all 
 'Building file: ../FFT_includes.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
@@ -10,10 +10,10 @@ arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FFT_inc
 ../FFT_includes.c:143:11: warning: incompatible implicit declaration of built-in function 'strlen' [enabled by default]
   length = strlen(inpfile);
            ^
-../FFT_includes.c:154:9: warning: assignment makes pointer from integer without a cast [enabled by default]
+../FFT_includes.c:153:9: warning: assignment makes pointer from integer without a cast [enabled by default]
    enable=1;
          ^
-../FFT_includes.c:158:9: warning: assignment makes pointer from integer without a cast [enabled by default]
+../FFT_includes.c:157:9: warning: assignment makes pointer from integer without a cast [enabled by default]
    enable=2;
          ^
 ../FFT_includes.c: At top level:
@@ -61,7 +61,7 @@ In file included from ../main.c:25:0:
 ../FFT_includes.h:41:6: note: expected 'int *' but argument is of type 'int'
  void save_type(char * inpfile, char * outpfile, int * enb);
       ^
-../main.c:222:4: warning: implicit declaration of function 'fft256' [-Wimplicit-function-declaration]
+../main.c:219:4: warning: implicit declaration of function 'fft256' [-Wimplicit-function-declaration]
     fft256(Z); /* transform */
     ^
 ../main.c:70:49: warning: unused variable 'ibyte' [-Wunused-variable]
@@ -70,9 +70,9 @@ In file included from ../main.c:25:0:
 ../main.c:69:12: warning: variable 'swrite' set but not used [-Wunused-but-set-variable]
   int sread,swrite,k,i,sect,sectcnt,first;
             ^
-../main.c:325:8: warning: 'outp2' may be used uninitialized in this function [-Wmaybe-uninitialized]
-  fclose(outp2);
-        ^
+../main.c:68:9: warning: unused variable 'outp2' [-Wunused-variable]
+  FILE * outp2;
+         ^
 'Finished building: ../main.c'
 ' '
 'Building target: FFT_WAV'
@@ -81,5 +81,5 @@ arm-linux-gnueabihf-gcc  -o "FFT_WAV"  ./FFT_includes.o ./fft2048.o ./fft256.o .
 'Finished building target: FFT_WAV'
 ' '
 
-10:09:10 Build Finished (took 2s.385ms)
+19:05:24 Build Finished (took 1s.476ms)
 

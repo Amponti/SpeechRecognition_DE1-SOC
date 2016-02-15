@@ -16,7 +16,6 @@
 #include "alt_gpio.h"
 #include "fixedptc.h"
 
-extern float sin_pri(float jojo);
 float fc[] = {0,132.83,290.87,478.9,702.61,968.77,1285.4,1662.2,2110.5,2643.8,3278.3,4033.2,4931.4,6000}; //14 Valores
 //fixedpt fc[] = {0,fixedpt_rconst(132.83),fixedpt_rconst(290.87),fixedpt_rconst(478.9),fixedpt_rconst(702.61),fixedpt_rconst(968.77),fixedpt_rconst(1285.4),fixedpt_rconst(1662.2),fixedpt_rconst(2110.5),fixedpt_rconst(2643.8),fixedpt_rconst(3278.3),fixedpt_rconst(4033.2),fixedpt_rconst(4931.4),fixedpt_rconst(6000)}; //14 Valores
 
@@ -33,7 +32,7 @@ void melcepstrum_conversion(float in[], int n, float mel[], int m, float fs)
         {
             mel[i] += in[j]*melH(j*deltaf, i+1);
         }
-        //mel[i] = log10(mel[i]);
+        mel[i] = log10(mel[i]);
     }
 }
 
@@ -51,10 +50,12 @@ void dct(float in[], float out[], int n)
     int i,j;
 
     double pn = PI / n;
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < n; i++)
+    {
         out[i] = 0.0;
-        for (j = 0; j < n; j++) {
-            out[i] += in[j]*sin_pri(i*pn*(j+0.5));
+        for (j = 0; j < n; j++)
+        {
+            out[i] += in[j]*sin(i*pn*(j+0.5));
         }
     }
 }

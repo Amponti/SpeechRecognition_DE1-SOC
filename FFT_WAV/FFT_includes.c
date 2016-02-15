@@ -148,7 +148,6 @@ void save_type(char * inpfile, char * outpfile, int * enable)
 	{
 		outpfile[i]=inpfile[i+num_code];
 	}
-	printf("\nEl tipo de archivo es: %s",outpfile);
 	if(outpfile[0]=='w' && outpfile[1]=='a' && outpfile[2]=='v')
 	{
 		enable=1;

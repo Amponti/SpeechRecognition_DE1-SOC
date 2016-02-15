@@ -21,30 +21,12 @@
 #include "hps.h"
 #include "alt_gpio.h"
 #include "fixedptc.h"
-#include <pthread.h>
-
-void *print_message_function( void *ptr );
-void *print_message_function( void *ptr )
-{
-     char *message;
-     message = (char *) ptr;
-     printf("%s \n", message);
-
-		float jejej=  sin((double)2.05);
-		printf("%f",jejej);
-}
-float sin_pri(float jojo){
-
-	 return 0;
-	//
-}
-
-//#include "MEL_includes.h"
+#include "MEL_includes.h"
 
 float mel[12];
 float mfcc[12];
 
-//float fftcoeff[SAMPLE_SIZE*NUM_SAMPLES];
+float fftcoeff[SAMPLE_SIZE*NUM_SAMPLES];
 
 //=======================================================================================
 // PARÁMETROS
@@ -86,114 +68,79 @@ int FFTSTART,LEDR;
 
 int main()
 {
+  //FFTSTART(0);
+  while(1)
+  {
+	  //FFTSTART(1);
+      while (!FFTCOMPLETE);  // Wait until FFT operation to finish
+      //FFTSTART(0);
 
-	pthread_t thread1, thread2;
-	 const char *message1 = "Thread 1";
-	 const char *message2 = "Thread 2";
-	 int  iret1, iret2;
-	float ho= 3.145454;
-	 /* Create independent threads each of which will execute function */
+	  //Read the level signal to determine start of the command
+      level = FFTLEVEL;
+	  //Clear the led outputs
+	  //LEDR(0);
+	  //Check if something is being Spoken
+      if (level >60)
+      {
+    	  //Glow a LED to indicate start of voice
+    	  //LEDR(2);
+    	  //Save the fft of next 32 samples
+		  for(i=0;i<NUM_SAMPLES;i++)
+		  {
+			  //FFTSTART(1);
+			  while(!FFTCOMPLETE)  // Wait until FFT operation to finish
+		      //FFTSTART(0);
 
-	     iret1 = pthread_create( &thread1, NULL, print_message_function, (void*) message1);
-	     if(iret1)
-	     {
-	         fprintf(stderr,"Error - pthread_create() return code: %d\n",iret1);
-	         exit(EXIT_FAILURE);
-	     }
-
-	     iret2 = pthread_create( &thread2, NULL, print_message_function, (void*) message2);
-	     if(iret2)
-	     {
-	         fprintf(stderr,"Error - pthread_create() return code: %d\n",iret2);
-	         exit(EXIT_FAILURE);
-	     }
-
-	     printf("pthread_create() for thread 1 returns: %d\n",iret1);
-	     printf("pthread_create() for thread 2 returns: %d\n",iret2);
-
-	     /* Wait till threads are complete before main continues. Unless we  */
-	     /* wait we run the risk of executing an exit which will terminate   */
-	     /* the process and all threads before the threads have completed.   */
-
-	     pthread_join( thread1, NULL);
-	     pthread_join( thread2, NULL);
-
-//  //FFTSTART(0);
-//  while(1)
-//  {
-
-
-//	  LEDR = M_PI;
-//      //FFTSTART(1);
-//      while (!FFTCOMPLETE);  // Wait until FFT operation to finish
-//      //FFTSTART(0);
-//
-//	  //Read the level signal to determine start of the command
-//      level = FFTLEVEL;
-//	  //Clear the led outputs
-//	  //LEDR(0);
-//	  //Check if something is being Spoken
-//      if (level >60)
-//      {
-//		//Glow a LED to indicate start of voice
-//    	  //LEDR(2);
-//		//Save the fft of next 32 samples
-//		  for(i=0;i<NUM_SAMPLES;i++)
-//		  {
-//		      //FFTSTART(1);
-//		      while(!FFTCOMPLETE)  // Wait until FFT operation to finish
-//		      //FFTSTART(0);
-//
-//			//Save the fftoutput from the fft memory into the array
-//			  for (j = 0; j < SAMPLE_SIZE; j++)
-//			  {
-//				  //FFTADDRESS(j);
-//				  fftcoeff[i*SAMPLE_SIZE+j] = (float)(short)FFTCOEFF;
-//			  }
-//		  }
-//		  //1 sec sample stored
-//		  //LEDR(4);
-//		  // shift the spectrum into the mel scale
-//		  melcepstrum_conversion(fftcoeff, SAMPLE_SIZE*NUM_SAMPLES, mel, 12, 8000);
-//		  //LEDR(8);
-//		  // compute the dct of the mel spectrum
-//		  dct(mel, mfcc, 12);
-//		  float sum_mel;
-//		  //Take the sum of first two coefficients of the dct output
-//		  //The first two coefficients contains the maximum information
-//		  sum_mel = (mfcc[0] + fabs(mfcc[1]));
-//		  //LEDG(0);		//Clear the output LEDs
-//			if(SWITCH & 1){
-//		          if(sum_mel > 59) {
-//		  			  printf("\nYou said Yes");
-//		  			  printf("\t %f",sum_mel);
-//		  			  //LEDG(128);
-//		  		  }
-//		  		  else if(sum_mel> 50 && sum_mel<58) {
-//		  			  printf("\nYou said No");
-//		  			  printf("\t %f",sum_mel);
-//		  			  //LEDG(1);
-//		  		  }
-//		  		  else if(sum_mel < 60 && sum_mel > 58){
-//		  			  printf("\nPlease be loud and clear!!");
-//		  			  printf("\t %f",sum_mel);
-//		  		  }
-//		  		  else if(sum_mel < 51 && sum_mel > 45){
-//		  			  printf("\nPlease be loud and clear");
-//		  			  printf("\t %f",sum_mel);
-//		  		  }
-//		  		  else {
-//		  		     printf("\nPlease be loud and clear");
-//		  		     printf("\t %f",sum_mel);
-//		  		  }
-//		  }//switch end
-//		  printf("\n");
-//	  }
-//      else
-//      {
-//	  //this represent silence
-//		  //LEDG(0);
-//		  //LEDR(1);
-//      }
-//  }
+				  //Save the fftoutput from the fft memory into the array
+			  for (j = 0; j < SAMPLE_SIZE; j++)
+			  {
+				  //FFTADDRESS(j);
+				  fftcoeff[i*SAMPLE_SIZE+j] = (float)(short)FFTCOEFF;
+			  }
+		  }
+		  //1 sec sample stored
+		  //LEDR(4);
+		  // shift the spectrum into the mel scale
+		  melcepstrum_conversion(fftcoeff, SAMPLE_SIZE*NUM_SAMPLES, mel, 12, 8000);
+		  //LEDR(8);
+		  // compute the dct of the mel spectrum
+		  dct(mel, mfcc, 12);
+		  float sum_mel;
+		  //Take the sum of first two coefficients of the dct output
+		  //The first two coefficients contains the maximum information
+		  sum_mel = (mfcc[0] + fabs(mfcc[1]));
+		  //LEDG(0);		//Clear the output LEDs
+			if(SWITCH & 1){
+		          if(sum_mel > 59) {
+		  			  printf("\nYou said Yes");
+		  			  printf("\t %f",sum_mel);
+		  			  //LEDG(128);
+		  		  }
+		  		  else if(sum_mel> 50 && sum_mel<58) {
+		  			  printf("\nYou said No");
+		  			  printf("\t %f",sum_mel);
+		  			  //LEDG(1);
+		  		  }
+		  		  else if(sum_mel < 60 && sum_mel > 58){
+		  			  printf("\nPlease be loud and clear!!");
+		  			  printf("\t %f",sum_mel);
+		  		  }
+		  		  else if(sum_mel < 51 && sum_mel > 45){
+		  			  printf("\nPlease be loud and clear");
+		  			  printf("\t %f",sum_mel);
+		  		  }
+		  		  else {
+		  		     printf("\nPlease be loud and clear");
+		  		     printf("\t %f",sum_mel);
+		  		  }
+		  }//switch end
+		  printf("\n");
+	  }
+      else
+      {
+	  //this represent silence
+		  //LEDG(0);
+		  //LEDR(1);
+      }
+  }
 }

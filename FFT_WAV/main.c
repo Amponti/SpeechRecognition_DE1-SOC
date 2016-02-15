@@ -112,56 +112,56 @@ int main(int argc, char *argv[])
 			exit(1);
 		}
 	}
-	printf("Formato de escritura: %s",type);
+	printf("Formato de escritura: %s\n",type);
 	printf("Leyendo %s ...\n", argv[1]);
 
 	sread = fread(&riff[0], 1, 4, inp);
-	if(enable) swrite = fwrite(&riff[0], 1, 4, outp);
+	swrite = fwrite(&riff[0], 1, 4, outp);
 	printf("first 4 bytes should be RIFF: <%c%c%c%c>\n",riff[0],riff[1],riff[2],riff[3]);
 
 	sread = fread(&fsize, 1, 4, inp);
-	if(enable) swrite = fwrite(&fsize, 1, 4, outp);
+	swrite = fwrite(&fsize, 1, 4, outp);
 	printf("file has: %d +8 bytes \n", fsize);
 
 	sread = fread(&wave[0], 1, 4, inp);
-	if(enable) swrite = fwrite(&wave[0], 1, 4, outp);
+	swrite = fwrite(&wave[0], 1, 4, outp);
 	printf("should be WAVE: <%c%c%c%c>\n",wave[0],wave[1],wave[2],wave[3]);
 
 	sread = fread(&fmt[0], 1, 4, inp);
-	if(enable) swrite = fwrite(&fmt[0], 1, 4, outp);
+	swrite = fwrite(&fmt[0], 1, 4, outp);
 	printf("should be fmt: <%c%c%c%c>\n",fmt[0],fmt[1],fmt[2],fmt[3]);
 
 	sread = fread(&nbytes, 1, 4, inp);
-	if(enable) swrite = fwrite(&nbytes, 1, 4, outp);
+	swrite = fwrite(&nbytes, 1, 4, outp);
 	printf("block has: %d more bytes \n", nbytes);
 
 	sread = fread(&ccode, 1, 2, inp);
-	if(enable) swrite = fwrite(&ccode, 1, 2, outp);
+	swrite = fwrite(&ccode, 1, 2, outp);
 	printf("compression code = %d \n", ccode);
 	nbytes = nbytes-2;
 
 	sread = fread(&channels, 1, 2, inp);
-	if(enable) swrite = fwrite(&channels, 1, 2, outp);
+	swrite = fwrite(&channels, 1, 2, outp);
 	printf("channels = %d \n", channels);
 	nbytes = nbytes-2;
 
 	sread = fread(&rate, 1, 4, inp);
-	if(enable) swrite = fwrite(&rate, 1, 4, outp);
+	swrite = fwrite(&rate, 1, 4, outp);
 	printf("rate = %d  \n", rate);
 	nbytes = nbytes-4;
 
 	sread = fread(&avgrate, 1, 4, inp);
-	if(enable) swrite = fwrite(&avgrate, 1, 4, outp);
+	swrite = fwrite(&avgrate, 1, 4, outp);
 	printf("avg rate = %d \n", avgrate);
 	nbytes = nbytes-4;
 
 	sread = fread(&blockalign, 1, 2, inp);
-	if(enable) swrite = fwrite(&blockalign, 1, 2, outp);
+	swrite = fwrite(&blockalign, 1, 2, outp);
 	printf("blockalign = %d  \n", blockalign);
 	nbytes = nbytes-2;
 
 	sread = fread(&bps, 1, 2, inp);
-	if(enable) swrite = fwrite(&bps, 1, 2, outp);
+	swrite = fwrite(&bps, 1, 2, outp);
 	printf("bits per sample = %d \n", bps);
 	nbytes = nbytes-2;
 
@@ -170,18 +170,15 @@ int main(int argc, char *argv[])
 	for(i=0; i<nbytes; i++)
 	{
 		sread = fread(&stuf, 1, 1, inp);
-		if(enable)
-		{
-			swrite = fwrite(&stuf, 1, 1, outp);
-		}
+		swrite = fwrite(&stuf, 1, 1, outp);
 	}
 
 	sread = fread(&data[0], 1, 4, inp);
-	if(enable) swrite = fwrite(&data[0], 1, 4, outp);
+	swrite = fwrite(&data[0], 1, 4, outp);
 	printf("should be data: <%c%c%c%c>\n",data[0],data[1],data[2],data[3]);
 
 	sread = fread(&csize, 1, 4, inp);
-	if(enable) swrite = fwrite(&csize, 1, 4, outp);
+	swrite = fwrite(&csize, 1, 4, outp);
 	printf("chunk has: %d more bytes \n", csize);
 
 	nbread = 44+nbytes;
@@ -191,7 +188,7 @@ int main(int argc, char *argv[])
 	savg = 0;
 	sect = 0;
 	sectcnt = 0;
-	first = 1; /* control some debug print */
+	first = 0; /* control some debug print */
 
 	for(i=0; i<csize; i++)
 	{
@@ -322,9 +319,7 @@ int main(int argc, char *argv[])
 	fclose(inp);
 	fflush(outp);
 	fclose(outp);
-	fclose(outp2);
 	printf("fft1_wave done. new %s file written \n", argv[2]);
 
-	//decoding_wav(inp_filename, outp_filename);
 	return 0;
 }

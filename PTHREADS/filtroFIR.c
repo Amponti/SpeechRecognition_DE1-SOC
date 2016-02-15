@@ -426,6 +426,7 @@ void apply_FIR_whole_signal(FIR_filter * filtro, SIGNAL * FIR_signal, SIGNAL * F
 	}
 
 
+#define NTHREADS 4
 void * fir_thread(void *shared){
 	SIGNALTHREAD * tempThreads= (SIGNALTHREAD *)shared ;
 
@@ -440,7 +441,7 @@ void * fir_thread(void *shared){
 	
 	printf("Thread[%d] %d %d\n",tempThreads->id,tempThreads->offset,size);
 	
-	for(i=(tempThreads->offset);i<((tempThreads->offset+(size/2))-N);i++)
+	for(i=(tempThreads->offset);i<((tempThreads->offset+(size/NTHREADS))-N);i++)
 	{
 		filter=0;
 		for(j=0;j<N;j++)
@@ -454,38 +455,55 @@ void * fir_thread(void *shared){
 
 }
 
+
 void apply_FIR_whole_signal_pthreads(FIR_filter * filtro, SIGNAL * FIR_signal, SIGNAL * FIR_output)
 {
 
 	int 	size = FIR_signal->lenght;
 	int 	N = filtro->order+1;
 
-	SIGNALTHREAD  tempThreads1;
-	SIGNALTHREAD  tempThreads2;
-	pthread_t * thr1,thr2;
+	SIGNALTHREAD  tempThreads[4];
+	pthread_t * thr[4];
 
-	tempThreads1.signal_in=FIR_signal;
-	tempThreads1.signal_out=FIR_output;
-	tempThreads1.filter=filtro;
-	tempThreads1.offset=0;
-	tempThreads1.id=1;
+	tempThreads[0].signal_in=FIR_signal;
+	tempThreads[0].signal_out=FIR_output;
+	tempThreads[0].filter=filtro;
+	tempThreads[0].offset=0;
+	tempThreads[0].id=1;
 
 
-	tempThreads2.signal_in=FIR_signal;
-	tempThreads2.signal_out=FIR_output;
-	tempThreads2.filter=filtro;
-	tempThreads2.offset=(size/2)+N;
-	tempThreads2.id=2;
+	tempThreads[1].signal_in=FIR_signal;
+	tempThreads[1].signal_out=FIR_output;
+	tempThreads[1].filter=filtro;
+	tempThreads[1].offset=(size/NTHREADS)+N;
+	tempThreads[1].id=2;
+	
+	tempThreads[2].signal_in=FIR_signal;
+	tempThreads[2].signal_out=FIR_output;
+	tempThreads[2].filter=filtro;
+	tempThreads[2].offset=tempThreads[1].offset+(size/NTHREADS)+N;
+	tempThreads[2].id=3;
+	
+	
+	tempThreads[3].signal_in=FIR_signal;
+	tempThreads[3].signal_out=FIR_output;
+	tempThreads[3].filter=filtro;
+	tempThreads[3].offset=tempThreads[2].offset+(size/NTHREADS)+N;
+	tempThreads[3].id=4;
+	
 
 
 	printf("size real %d \n",size);
-	pthread_create(&thr1, NULL, fir_thread, (void *)&tempThreads1);
-	pthread_create(&thr2, NULL, fir_thread, (void *)&tempThreads2);
+	pthread_create(&thr[0], NULL, fir_thread, (void *)&tempThreads[0]);
+	pthread_create(&thr[1], NULL, fir_thread, (void *)&tempThreads[1]);
+	pthread_create(&thr[2], NULL, fir_thread, (void *)&tempThreads[2]);
+	pthread_create(&thr[3], NULL, fir_thread, (void *)&tempThreads[3]);
 
 
-
-	pthread_join(thr1, NULL);
-	pthread_join(thr2, NULL);
+	pthread_join(thr[0], NULL);
+	pthread_join(thr[1], NULL);
+	pthread_join(thr[2], NULL);
+	pthread_join(thr[3], NULL);
 
 
 }

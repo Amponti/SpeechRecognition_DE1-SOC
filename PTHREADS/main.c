@@ -173,6 +173,24 @@ int main()
     elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;   // us to ms
     printf ("%f ms.\n",elapsedTime);
 
+	
+	// start timer
+    gettimeofday(&t1, NULL);
+
+	
+	apply_FIR_whole_signal_pthreads(&filtro, &signal1, &signal2_output);
+
+	// do something
+    // ...
+
+    // stop timer
+    gettimeofday(&t2, NULL);
+
+    // compute and print the elapsed time in millisec
+    elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;      // sec to ms
+    elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;   // us to ms
+    printf ("%f ms.\n",elapsedTime);
+
 
 	normalize_signal( &signal1_output, 128);
 	normalize_signal( &signal2_output, 128);

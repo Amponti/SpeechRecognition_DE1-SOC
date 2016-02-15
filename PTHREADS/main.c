@@ -17,6 +17,8 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/mman.h>
+#include <sys/time.h>
+#include <time.h>
 #include "./include/hwlib.h"
 #include "./include/socal/socal.h"
 #include "./include/socal/hps.h"
@@ -24,6 +26,8 @@
 
 #include "hps_0.h"
 #include "filtroFIR.h"
+
+
 
 //=======================================================================================
 // PARÁMETROS
@@ -89,10 +93,14 @@ void init_system()
 //=======================================================================================
 int main()
 {
+ struct timeval t1, t2;
+    double elapsedTime;
+	
+	
 
 	int time_cont=0;
 
-	init_system();
+//	init_system();
 
 
 
@@ -122,55 +130,49 @@ int main()
 	signal2_output.lenght=signal1.lenght;
 	signal2_output.signal=(int*) malloc (sizeof(int)*signal2_output.lenght);
 
-	//<><><><><><><><><><><><><><><><><>//
-	// 			START TIMER				//
-	//<><><><><><><><><><><><><><><><><>//
-	alt_write_word(h2p_start_timer_addr, 1 );  //0:ligh, 1:unlight
 
 	//<><><><><><><><><><><><><><><><><>//
 	// APPLY FILTER & NORMALIZE SIGNAL	//
 	//<><><><><><><><><><><><><><><><><>//
 	normalize_signal( &signal1, 128);
 
-	//<><><><><><><><><><><><><><><><><>//
-	// 			START TIMER				//
-	//<><><><><><><><><><><><><><><><><>//
-	alt_write_word(h2p_start_timer_addr, 1 );  //0:ligh, 1:unlight
+	
+	  // start timer
+    gettimeofday(&t1, NULL);
 
+	
 	apply_FIR_whole_signal(&filtro, &signal1, &signal1_output);
+	
+    // do something
+    // ...
 
+    // stop timer
+    gettimeofday(&t2, NULL);
 
-	//<><><><><><><><><><><><><><><><><>//
-	// 		   GET TICK <TIMER>			//
-	//<><><><><><><><><><><><><><><><><>//
+    // compute and print the elapsed time in millisec
+    elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;      // sec to ms
+    elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;   // us to ms
+    printf ("%f ms.\n",elapsedTime);
 
-	time_cont = alt_read_word(p2h_get_tick_addr);
-	printf("valor del timer1: %d\n",time_cont);
+	
+	
+	  // start timer
+    gettimeofday(&t1, NULL);
 
-
-	//<><><><><><><><><><><><><><><><><>//
-	// 		   TIMER SHUTDOWN			//
-	//<><><><><><><><><><><><><><><><><>//
-	alt_write_word(h2p_start_timer_addr, 0 );
-
-	time_cont=0;
-	//<><><><><><><><><><><><><><><><><>//
-	// 			START TIMER				//
-	//<><><><><><><><><><><><><><><><><>//
-	alt_write_word(h2p_start_timer_addr, 1 );  //0:ligh, 1:unlight
-
+	
 	apply_FIR_whole_signal_pthreads(&filtro, &signal1, &signal2_output);
 
-	//<><><><><><><><><><><><><><><><><>//
-	// 		   GET TICK <TIMER>			//
-	//<><><><><><><><><><><><><><><><><>//
+	// do something
+    // ...
 
-	time_cont = alt_read_word(p2h_get_tick_addr);
-	printf("valor del timer2: %d\n",time_cont);
-	//<><><><><><><><><><><><><><><><><>//
-	// 		   TIMER SHUTDOWN			//
-	//<><><><><><><><><><><><><><><><><>//
-	alt_write_word(h2p_start_timer_addr, 0 );
+    // stop timer
+    gettimeofday(&t2, NULL);
+
+    // compute and print the elapsed time in millisec
+    elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;      // sec to ms
+    elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;   // us to ms
+    printf ("%f ms.\n",elapsedTime);
+
 
 	normalize_signal( &signal1_output, 128);
 	normalize_signal( &signal2_output, 128);

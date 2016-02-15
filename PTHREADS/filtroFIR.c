@@ -405,11 +405,6 @@ void apply_FIR_whole_signal(FIR_filter * filtro, SIGNAL * FIR_signal, SIGNAL * F
 	int 	size = FIR_signal->lenght;
 	int 	N = filtro->order+1;
 
-	SIGNALTHREAD * tempThreads1;
-	SIGNALTHREAD * tempThreads2;
-	pthread_t * thr1,thr2;
-
-
 
 	double data;
 	if(filtro->sw_hw==0){//SW
@@ -442,7 +437,10 @@ void * fir_thread(void *shared){
 
 
 	double data;
-	for(i=(tempThreads->offset);i<((tempThreads->offset+size/2)-N);i++)
+	
+	printf("Thread[%d] %d %d\n",tempThreads->id,tempThreads->offset,size);
+	
+	for(i=(tempThreads->offset);i<((tempThreads->offset+(size/2))-N);i++)
 	{
 		filter=0;
 		for(j=0;j<N;j++)
@@ -476,12 +474,13 @@ void apply_FIR_whole_signal_pthreads(FIR_filter * filtro, SIGNAL * FIR_signal, S
 	tempThreads2.signal_in=FIR_signal;
 	tempThreads2.signal_out=FIR_output;
 	tempThreads2.filter=filtro;
-	tempThreads2.offset=size>>1-N;
+	tempThreads2.offset=(size/2)+N;
 	tempThreads2.id=2;
 
 
-	pthread_create(&thr1, NULL, fir_thread, &tempThreads1);
-	pthread_create(&thr2, NULL, fir_thread, &tempThreads2);
+	printf("size real %d \n",size);
+	pthread_create(&thr1, NULL, fir_thread, (void *)&tempThreads1);
+	pthread_create(&thr2, NULL, fir_thread, (void *)&tempThreads2);
 
 
 

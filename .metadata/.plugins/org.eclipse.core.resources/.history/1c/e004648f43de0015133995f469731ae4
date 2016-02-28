@@ -197,6 +197,7 @@ void melcepstrum_conversion(float in[], int n, float mel[], int m, float fs)
 		dato=*float_2_int;
 		fwrite(&dato, 1, 4, outp);
     }
+
 	fclose(outp);
 }
 
@@ -225,10 +226,9 @@ void dct(float in[], float out[], int n)
         {
             out[i] += in[j]*sin(i*pn*(j+0.5));
         }
-        float_2_int=(int *)&out[i];
-		dato=*float_2_int;
-		fwrite(&dato, 1, 4, outp);
     }
-	fclose(outp);
+
+
+
 }
 

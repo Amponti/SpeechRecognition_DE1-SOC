@@ -74,8 +74,8 @@ int main(int argc, char *argv[])
 
 	float fftcoefs[N*NUM_SAMPLES];
 
-	float mel[256];
-	float mfcc[256];
+	float mel[12];
+	float mfcc[12];
 
 	printf("fft1_wave.c running \n");
 	if(argc<2)
@@ -200,7 +200,7 @@ int main(int argc, char *argv[])
 				bad=1;
 				printf("no read on byte %d \n", i);
 			}
-			Z[2*sect] = (float)(sbyte<<8);
+			Z[2*sect] = (float)sbyte;
 			Z[2*sect+1] = 0.0; /* no complex component */
 			sect++;
 		}
@@ -329,12 +329,12 @@ int main(int argc, char *argv[])
 	// MEL!!!!
 
 	printf("\nProbando?? antes de MEL");
-	melcepstrum_conversion(&fftcoefs[0], N*NUM_SAMPLES, &mel[0], 12, 8000);
+	melcepstrum_conversion(&fftcoefs[0], N*NUM_SAMPLES, mel, 12, 8000);
 	printf("\nProbando despues de MEL");
 	printf("\n");
 	//LEDR(8);
 	// compute the dct of the mel spectrum
-	dct(&mel[0], &mfcc[0], 12);
+	dct(mel, mfcc, 12);
 	float sum_mel;
 	//Take the sum of first two coefficients of the dct output
 	//The first two coefficients contains the maximum information

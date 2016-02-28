@@ -3862,3 +3862,84 @@ Binding(CTRL+SHIFT+H,
 
 !ENTRY org.eclipse.cdt.core 1 0 2016-02-28 09:57:23.137
 !MESSAGE Indexed 'FFT_MEL' (0 sources, 0 headers) in 0,00 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00%)
+!SESSION 2016-02-28 10:29:59.266 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CO
+Framework arguments:  -product com.arm.ds.altera
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.arm.ds.altera
+
+!ENTRY com.arm.newsfeed 4 0 2016-02-28 10:46:26.021
+!MESSAGE Error when reading RSS feed "http://community.arm.com/view-browse-feed.jspa?containerType=700&userID=-1&browseSite=place-content&filterID=contentstatus[published]~objecttype~objecttype[blogpost]&browseViewID=placeContent&containerID=1060"
+!STACK 0
+com.sun.syndication.io.ParsingFeedException: Invalid XML: Error on line 1: El contenido no está permitido en el prólogo.
+	at com.sun.syndication.io.WireFeedInput.build(WireFeedInput.java:182)
+	at com.sun.syndication.io.SyndFeedInput.build(SyndFeedInput.java:122)
+	at com.arm.newsfeed.rss.AggregatedFeed.fetch(AggregatedFeed.java:226)
+	at com.arm.newsfeed.rss.AggregatedFeed.access$3(AggregatedFeed.java:222)
+	at com.arm.newsfeed.rss.AggregatedFeed$3.run(AggregatedFeed.java:201)
+Caused by: org.jdom.input.JDOMParseException: Error on line 1: El contenido no está permitido en el prólogo.
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:468)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:851)
+	at com.sun.syndication.io.WireFeedInput.build(WireFeedInput.java:178)
+	... 4 more
+Caused by: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; El contenido no está permitido en el prólogo.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:198)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:177)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:441)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:368)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1436)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:999)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:117)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:648)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:453)
+	... 6 more
+!SESSION 2016-02-28 12:45:42.869 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CO
+Framework arguments:  -product com.arm.ds.altera
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.arm.ds.altera
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-02-28 12:45:48.588
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.arm.newsfeed 4 0 2016-02-28 12:46:25.333
+!MESSAGE Error when reading RSS feed "http://community.arm.com/view-browse-feed.jspa?containerType=700&userID=-1&browseSite=place-content&filterID=contentstatus[published]~objecttype~objecttype[blogpost]&browseViewID=placeContent&containerID=1060"
+!STACK 0
+com.sun.syndication.io.ParsingFeedException: Invalid XML: Error on line 1: El contenido no está permitido en el prólogo.
+	at com.sun.syndication.io.WireFeedInput.build(WireFeedInput.java:182)
+	at com.sun.syndication.io.SyndFeedInput.build(SyndFeedInput.java:122)
+	at com.arm.newsfeed.rss.AggregatedFeed.fetch(AggregatedFeed.java:226)
+	at com.arm.newsfeed.rss.AggregatedFeed.access$3(AggregatedFeed.java:222)
+	at com.arm.newsfeed.rss.AggregatedFeed$3.run(AggregatedFeed.java:201)
+Caused by: org.jdom.input.JDOMParseException: Error on line 1: El contenido no está permitido en el prólogo.
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:468)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:851)
+	at com.sun.syndication.io.WireFeedInput.build(WireFeedInput.java:178)
+	... 4 more
+Caused by: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; El contenido no está permitido en el prólogo.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:198)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:177)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:441)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:368)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1436)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:999)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:117)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:648)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:453)
+	... 6 more

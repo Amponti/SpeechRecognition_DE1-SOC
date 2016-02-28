@@ -329,12 +329,12 @@ int main(int argc, char *argv[])
 	// MEL!!!!
 
 	printf("\nProbando?? antes de MEL");
-	melcepstrum_conversion(&fftcoefs[0], N*NUM_SAMPLES, &mel[0], 12, 8000);
+	melcepstrum_conversion(&fftcoefs[0], N*NUM_SAMPLES, &mel[0], 256, 8000);
 	printf("\nProbando despues de MEL");
 	printf("\n");
 	//LEDR(8);
 	// compute the dct of the mel spectrum
-	dct(&mel[0], &mfcc[0], 12);
+	dct(&mel[0], &mfcc[0], 256);
 	float sum_mel;
 	//Take the sum of first two coefficients of the dct output
 	//The first two coefficients contains the maximum information

@@ -43,5 +43,5 @@ void save_type(char * inpfile, char * outpfile, int * enb);
 void save_signal( SIGNAL * FFT_signal, char * filename);
 void dct(float in[], float out[], int n);
 double melH(int f, int i);
-void melcepstrum_conversion(float in[], int n, float mel[], int m, float fs);
+void melcepstrum_conversion(int in[], int n, float mel[], int m, float fs);
 #endif /* FILTROFIR_H_ */

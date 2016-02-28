@@ -1,6 +1,6 @@
 //=======================================================================================
 //=======================================================================================
-// PROGRAMA 		: Filtros Digitales (FIR)
+// PROGRAMA 		: Filtro Digitales (FIR)
 // FUNCIÓN 			: Práctica Proyecto de Grado
 // REALIZADO POR	: Holguer A. Becerra D. - Jefferson M. García P. - Juan D. Prieto A.
 // ORGANIZACIÓN		: Universidad pontificia Bolivariana

@@ -1,6 +1,6 @@
 //=======================================================================================
 //=======================================================================================
-// PROGRAMA 		: Filtros Digitales (FIR)
+// PROGRAMA 		: Transformada Especto MEL y Transformada Discreta del Coseno (DFT)
 // FUNCIÓN 			: Práctica Proyecto de Grado
 // REALIZADO POR	: Holguer A. Becerra D. - Jefferson M. García P. - Juan D. Prieto A.
 // ORGANIZACIÓN		: Universidad pontificia Bolivariana
@@ -26,6 +26,7 @@
 float mel[12];
 float mfcc[12];
 
+float fc[] = {0,132.83,290.87,478.9,702.61,968.77,1285.4,1662.2,2110.5,2643.8,3278.3,4033.2,4931.4,6000}; //14 Valores
 float fftcoeff[SAMPLE_SIZE*NUM_SAMPLES];
 
 //=======================================================================================

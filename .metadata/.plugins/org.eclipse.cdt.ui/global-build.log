@@ -1,82 +1,71 @@
-19:05:22 **** Build of configuration Debug for project FFT_WAV ****
+09:05:20 **** Build of configuration Debug for project MEL_FP ****
 make all 
-'Building file: ../FFT_includes.c'
+'Building file: ../MEL_includes.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FFT_includes.d" -MT"FFT_includes.d" -o "FFT_includes.o" "../FFT_includes.c"
-../FFT_includes.c: In function 'save_type':
-../FFT_includes.c:143:2: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
-  length = strlen(inpfile);
-  ^
-../FFT_includes.c:143:11: warning: incompatible implicit declaration of built-in function 'strlen' [enabled by default]
-  length = strlen(inpfile);
-           ^
-../FFT_includes.c:153:9: warning: assignment makes pointer from integer without a cast [enabled by default]
-   enable=1;
+arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"MEL_includes.d" -MT"MEL_includes.d" -o "MEL_includes.o" "../MEL_includes.c"
+../MEL_includes.c: In function 'melcepstrum_conversion':
+../MEL_includes.c:34:9: warning: implicit declaration of function 'log10' [-Wimplicit-function-declaration]
+         mel[i] = log10(mel[i]);
          ^
-../FFT_includes.c:157:9: warning: assignment makes pointer from integer without a cast [enabled by default]
-   enable=2;
-         ^
-../FFT_includes.c: At top level:
-../FFT_includes.c:18:14: warning: 'A' defined but not used [-Wunused-variable]
- static float A[2*N];
-              ^
-../FFT_includes.c:19:14: warning: 'Z' defined but not used [-Wunused-variable]
- static float Z[2*N];
-              ^
-'Finished building: ../FFT_includes.c'
+../MEL_includes.c:34:18: warning: incompatible implicit declaration of built-in function 'log10' [enabled by default]
+         mel[i] = log10(mel[i]);
+                  ^
+../MEL_includes.c: In function 'dct':
+../MEL_includes.c:57:13: warning: implicit declaration of function 'sin' [-Wimplicit-function-declaration]
+             out[i] += in[j]*sin(i*pn*(j+0.5));
+             ^
+../MEL_includes.c:57:29: warning: incompatible implicit declaration of built-in function 'sin' [enabled by default]
+             out[i] += in[j]*sin(i*pn*(j+0.5));
+                             ^
+'Finished building: ../MEL_includes.c'
 ' '
-'Building file: ../fft2048.c'
+'Building file: ../fixedptc.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fft2048.d" -MT"fft2048.d" -o "fft2048.o" "../fft2048.c"
-'Finished building: ../fft2048.c'
-' '
-'Building file: ../fft256.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fft256.d" -MT"fft256.d" -o "fft256.o" "../fft256.c"
-'Finished building: ../fft256.c'
-' '
-'Building file: ../fft4096.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fft4096.d" -MT"fft4096.d" -o "fft4096.o" "../fft4096.c"
-'Finished building: ../fft4096.c'
-' '
-'Building file: ../fft64.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fft64.d" -MT"fft64.d" -o "fft64.o" "../fft64.c"
-'Finished building: ../fft64.c'
-' '
-'Building file: ../ifft64.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ifft64.d" -MT"ifft64.d" -o "ifft64.o" "../ifft64.c"
-'Finished building: ../ifft64.c'
+arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fixedptc.d" -MT"fixedptc.d" -o "fixedptc.o" "../fixedptc.c"
+'Finished building: ../fixedptc.c'
 ' '
 'Building file: ../main.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
 ../main.c: In function 'main':
-../main.c:108:3: warning: passing argument 3 of 'save_type' makes pointer from integer without a cast [enabled by default]
-   save_type(argv[2], type, enable);
-   ^
-In file included from ../main.c:25:0:
-../FFT_includes.h:41:6: note: expected 'int *' but argument is of type 'int'
- void save_type(char * inpfile, char * outpfile, int * enb);
+../main.c:104:5: warning: passing argument 1 of 'melcepstrum_conversion' from incompatible pointer type [enabled by default]
+     melcepstrum_conversion(fftcoeff, SAMPLE_SIZE*NUM_SAMPLES, mel, 12, 8000);
+     ^
+In file included from ../main.c:24:0:
+../MEL_includes.h:21:6: note: expected 'float *' but argument is of type 'fixedpt *'
+ void melcepstrum_conversion(float in[], int n, float mel[], int m, float fs);
       ^
-../main.c:219:4: warning: implicit declaration of function 'fft256' [-Wimplicit-function-declaration]
-    fft256(Z); /* transform */
-    ^
-../main.c:70:49: warning: unused variable 'ibyte' [-Wunused-variable]
-  char riff[4],wave[4],fmt[4],stuf,data[4],sbyte,ibyte,more[4];
-                                                 ^
-../main.c:69:12: warning: variable 'swrite' set but not used [-Wunused-but-set-variable]
-  int sread,swrite,k,i,sect,sectcnt,first;
-            ^
-../main.c:68:9: warning: unused variable 'outp2' [-Wunused-variable]
-  FILE * outp2;
-         ^
+../main.c:104:5: warning: passing argument 3 of 'melcepstrum_conversion' from incompatible pointer type [enabled by default]
+     melcepstrum_conversion(fftcoeff, SAMPLE_SIZE*NUM_SAMPLES, mel, 12, 8000);
+     ^
+In file included from ../main.c:24:0:
+../MEL_includes.h:21:6: note: expected 'float *' but argument is of type 'fixedpt *'
+ void melcepstrum_conversion(float in[], int n, float mel[], int m, float fs);
+      ^
+../main.c:107:5: warning: passing argument 1 of 'dct' from incompatible pointer type [enabled by default]
+     dct(mel, mfcc, 12);
+     ^
+In file included from ../main.c:24:0:
+../MEL_includes.h:19:6: note: expected 'float *' but argument is of type 'fixedpt *'
+ void dct(float in[], float out[], int n);
+      ^
+../main.c:107:5: warning: passing argument 2 of 'dct' from incompatible pointer type [enabled by default]
+     dct(mel, mfcc, 12);
+     ^
+In file included from ../main.c:24:0:
+../MEL_includes.h:19:6: note: expected 'float *' but argument is of type 'fixedpt *'
+ void dct(float in[], float out[], int n);
+      ^
+../main.c:111:5: warning: implicit declaration of function 'fabs' [-Wimplicit-function-declaration]
+     sum_mel = (mfcc[0] + fabs(mfcc[1]));
+     ^
+../main.c:111:26: warning: incompatible implicit declaration of built-in function 'fabs' [enabled by default]
+     sum_mel = (mfcc[0] + fabs(mfcc[1]));
+                          ^
 'Finished building: ../main.c'
 ' '
-'Building target: FFT_WAV'
+'Building target: MEL_FP'
 'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc  -o "FFT_WAV"  ./FFT_includes.o ./fft2048.o ./fft256.o ./fft4096.o ./fft64.o ./ifft64.o ./main.o   
-'Finished building target: FFT_WAV'
+arm-linux-gnueabihf-gcc -lm -lpthread -o "MEL_FP"  ./MEL_includes.o ./fixedptc.o ./main.o   
+'Finished building target: MEL_FP'
 ' '

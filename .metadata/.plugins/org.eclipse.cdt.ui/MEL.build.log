@@ -1,46 +1,7 @@
-17:49:20 **** Build of configuration Debug for project MEL ****
-make all 
-'Building file: ../MEL_includes.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O1 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"MEL_includes.d" -MT"MEL_includes.d" -o "MEL_includes.o" "../MEL_includes.c"
-../MEL_includes.c: In function 'melcepstrum_conversion':
-../MEL_includes.c:35:9: warning: implicit declaration of function 'log10' [-Wimplicit-function-declaration]
-         mel[i] = log10(mel[i]);
-         ^
-../MEL_includes.c:35:18: warning: incompatible implicit declaration of built-in function 'log10' [enabled by default]
-         mel[i] = log10(mel[i]);
-                  ^
-../MEL_includes.c: In function 'dct':
-../MEL_includes.c:58:13: warning: implicit declaration of function 'sin' [-Wimplicit-function-declaration]
-             out[i] += in[j]*sin(i*pn*(j+0.5));
-             ^
-../MEL_includes.c:58:29: warning: incompatible implicit declaration of built-in function 'sin' [enabled by default]
-             out[i] += in[j]*sin(i*pn*(j+0.5));
-                             ^
-'Finished building: ../MEL_includes.c'
-' '
-'Building file: ../fixedptc.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O1 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fixedptc.d" -MT"fixedptc.d" -o "fixedptc.o" "../fixedptc.c"
-'Finished building: ../fixedptc.c'
-' '
-'Building file: ../main.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O1 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
-../main.c: In function 'main':
-../main.c:111:5: warning: implicit declaration of function 'fabs' [-Wimplicit-function-declaration]
-     sum_mel = (mfcc[0] + fabs(mfcc[1]));
-     ^
-../main.c:111:26: warning: incompatible implicit declaration of built-in function 'fabs' [enabled by default]
-     sum_mel = (mfcc[0] + fabs(mfcc[1]));
-                          ^
-'Finished building: ../main.c'
-' '
-'Building target: MEL'
-'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -lm -lpthread -o "MEL"  ./MEL_includes.o ./fixedptc.o ./main.o   
-'Finished building target: MEL'
+10:12:32 **** Clean-only build of configuration Debug for project MEL ****
+make clean 
+rm -rf  ./MEL_includes.o ./fixedptc.o ./main.o   ./MEL_includes.d ./fixedptc.d ./main.d   MEL 
 ' '
 
-17:49:21 Build Finished (took 977ms)
+10:12:34 Build Finished (took 1s.235ms)
 

@@ -1,0 +1,74 @@
+09:05:20 **** Build of configuration Debug for project MEL_FP ****
+make all 
+'Building file: ../MEL_includes.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"MEL_includes.d" -MT"MEL_includes.d" -o "MEL_includes.o" "../MEL_includes.c"
+../MEL_includes.c: In function 'melcepstrum_conversion':
+../MEL_includes.c:34:9: warning: implicit declaration of function 'log10' [-Wimplicit-function-declaration]
+         mel[i] = log10(mel[i]);
+         ^
+../MEL_includes.c:34:18: warning: incompatible implicit declaration of built-in function 'log10' [enabled by default]
+         mel[i] = log10(mel[i]);
+                  ^
+../MEL_includes.c: In function 'dct':
+../MEL_includes.c:57:13: warning: implicit declaration of function 'sin' [-Wimplicit-function-declaration]
+             out[i] += in[j]*sin(i*pn*(j+0.5));
+             ^
+../MEL_includes.c:57:29: warning: incompatible implicit declaration of built-in function 'sin' [enabled by default]
+             out[i] += in[j]*sin(i*pn*(j+0.5));
+                             ^
+'Finished building: ../MEL_includes.c'
+' '
+'Building file: ../fixedptc.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fixedptc.d" -MT"fixedptc.d" -o "fixedptc.o" "../fixedptc.c"
+'Finished building: ../fixedptc.c'
+' '
+'Building file: ../main.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:104:5: warning: passing argument 1 of 'melcepstrum_conversion' from incompatible pointer type [enabled by default]
+     melcepstrum_conversion(fftcoeff, SAMPLE_SIZE*NUM_SAMPLES, mel, 12, 8000);
+     ^
+In file included from ../main.c:24:0:
+../MEL_includes.h:21:6: note: expected 'float *' but argument is of type 'fixedpt *'
+ void melcepstrum_conversion(float in[], int n, float mel[], int m, float fs);
+      ^
+../main.c:104:5: warning: passing argument 3 of 'melcepstrum_conversion' from incompatible pointer type [enabled by default]
+     melcepstrum_conversion(fftcoeff, SAMPLE_SIZE*NUM_SAMPLES, mel, 12, 8000);
+     ^
+In file included from ../main.c:24:0:
+../MEL_includes.h:21:6: note: expected 'float *' but argument is of type 'fixedpt *'
+ void melcepstrum_conversion(float in[], int n, float mel[], int m, float fs);
+      ^
+../main.c:107:5: warning: passing argument 1 of 'dct' from incompatible pointer type [enabled by default]
+     dct(mel, mfcc, 12);
+     ^
+In file included from ../main.c:24:0:
+../MEL_includes.h:19:6: note: expected 'float *' but argument is of type 'fixedpt *'
+ void dct(float in[], float out[], int n);
+      ^
+../main.c:107:5: warning: passing argument 2 of 'dct' from incompatible pointer type [enabled by default]
+     dct(mel, mfcc, 12);
+     ^
+In file included from ../main.c:24:0:
+../MEL_includes.h:19:6: note: expected 'float *' but argument is of type 'fixedpt *'
+ void dct(float in[], float out[], int n);
+      ^
+../main.c:111:5: warning: implicit declaration of function 'fabs' [-Wimplicit-function-declaration]
+     sum_mel = (mfcc[0] + fabs(mfcc[1]));
+     ^
+../main.c:111:26: warning: incompatible implicit declaration of built-in function 'fabs' [enabled by default]
+     sum_mel = (mfcc[0] + fabs(mfcc[1]));
+                          ^
+'Finished building: ../main.c'
+' '
+'Building target: MEL_FP'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -lm -lpthread -o "MEL_FP"  ./MEL_includes.o ./fixedptc.o ./main.o   
+'Finished building target: MEL_FP'
+' '
+
+09:05:24 Build Finished (took 4s.338ms)
+

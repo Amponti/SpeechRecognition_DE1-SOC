@@ -1,0 +1,49 @@
+/*
+ * filtroFIR.h
+ *
+ *  Created on: 26/08/2015
+ *      Author: jdani
+ */
+
+#ifndef FILTROFIR_H_
+#define FILTROFIR_H_
+
+#define N 256
+#define NUM_SAMPLES 173
+#define PI		3.14159265358979323846	/* pi */
+#define TODEGREE(x) x*(180/PI)
+
+double int_cos( int deg );
+double int_sin( int deg );
+
+#define SW_MODE 0
+#define HW_MODE 1
+
+#define HANN				0
+#define BARTLETT			1
+#define HAMMING				2
+#define BOHMAN				3
+#define BLACKMAN			4
+#define BLACKMAN_HARRIS		5
+
+#define LP_FILTER			0
+#define HP_FILTER			1
+#define BP_FILTER			2
+#define BS_FILTER			3
+
+typedef struct signals
+{
+	int * signal;
+	int lenght;
+}SIGNAL;
+
+float fc[] = {0,132.83,290.87,478.9,702.61,968.77,1285.4,1662.2,2110.5,2643.8,3278.3,4033.2,4931.4,6000}; //14 Valores
+
+void init_system();
+void normalize_signal( SIGNAL * FFT_signal, int center);
+void save_type(char * inpfile, char * outpfile, int * enb);
+void save_signal( SIGNAL * FFT_signal, char * filename);
+void dct(float in[], float out[], int n);
+double melH(int f, int i);
+void melcepstrum_conversion(int in[], int n, float mel[], int m, float fs);
+#endif /* FILTROFIR_H_ */

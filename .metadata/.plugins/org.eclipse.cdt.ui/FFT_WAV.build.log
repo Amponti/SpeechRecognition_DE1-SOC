@@ -1,4 +1,4 @@
-19:05:22 **** Build of configuration Debug for project FFT_WAV ****
+09:27:54 **** Build of configuration Debug for project FFT_WAV ****
 make all 
 'Building file: ../FFT_includes.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
@@ -81,5 +81,5 @@ arm-linux-gnueabihf-gcc  -o "FFT_WAV"  ./FFT_includes.o ./fft2048.o ./fft256.o .
 'Finished building target: FFT_WAV'
 ' '
 
-19:05:24 Build Finished (took 1s.476ms)
+09:27:56 Build Finished (took 1s.641ms)
 

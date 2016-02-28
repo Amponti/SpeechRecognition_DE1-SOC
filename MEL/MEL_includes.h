@@ -15,7 +15,14 @@
 #define PI		3.14159265358979323846	/* pi */
 #endif
 
+typedef struct signals
+{
+	int * signal;
+	int lenght;
+}SIGNAL;
+
 void init_system();
+void load_signal( SIGNAL * FIR_signal, char * filename);
 void dct(float in[], float out[], int n);
 double melH(int f, int i);
 void melcepstrum_conversion(float in[], int n, float mel[], int m, float fs);

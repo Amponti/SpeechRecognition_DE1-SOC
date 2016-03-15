@@ -2,3 +2,6 @@ https://sourceforge.net/projects/cmusphinx/files/sphinxbase/5prealpha/
 http://cmusphinx.sourceforge.net/wiki/tutorialconcepts
 https://github.com/cmusphinx/pocketsphinx-python
 https://github.com/michaelgundlach/pyspeech
+
+
+http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/

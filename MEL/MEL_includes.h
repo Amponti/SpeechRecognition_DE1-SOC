@@ -8,8 +8,8 @@
 #ifndef MELSPECTRUM_H_
 #define MELSPECTRUM_H_
 
-#define SAMPLE_SIZE 256
-#define NUM_SAMPLES 173
+#define SAMPLE_SIZE 200 //256
+#define NUM_SAMPLES 40 //173
 
 #ifndef PI
 #define PI		3.14159265358979323846	/* pi */

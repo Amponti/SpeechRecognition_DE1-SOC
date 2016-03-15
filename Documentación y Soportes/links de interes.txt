@@ -19,3 +19,6 @@ http://dmr.ath.cx/sound/window/
 
 FFT LIBRARY
 http://userpages.umbc.edu/~squire/cs455_l18.html
+
+// MEL
+http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/

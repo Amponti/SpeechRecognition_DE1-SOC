@@ -53,7 +53,7 @@ los siguientes directorios o las rutas donde se encuentran las librerias del sis
 
 10) usando compandos en el Shell de el ARM usando putty, registre las variables
 
-	ACOU=voxforge-es-0.2/model_parameters/voxforge_es_sphinx.cd_cont_1500/
+	ACOU=voxforge-es-0.2/model_parameters/voxforge_es_sphinx.cd_ptm_3000/
 	DICT=voxforge-es-0.2/etc/voxforge_es_sphinx.dic
 	LANG=voxforge-es-0.2/etc/voxforge_es_sphinx.transcription.lm
 	OUTDIR=~/results

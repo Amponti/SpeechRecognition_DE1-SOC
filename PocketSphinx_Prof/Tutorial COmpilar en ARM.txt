@@ -1,4 +1,4 @@
-/*
+﻿/*
 Libreria adaptada por: Holguer A. Becerra.
 Tutorial Escrito por : Holguer A. Becerra. 
 Email: Holguer.becerra@upb.edu.co, Hbecerra@ece.ubc.ca, Hbecerradaza@triumf.ca, Adrizcorp@gmail.com
@@ -31,7 +31,7 @@ los siguientes directorios o las rutas donde se encuentran las librerias del sis
 
 -lm -lpthread
 
-5) Copie las carpetas siguientes en la carpeta del proyecto proyecto Eclipse creado.
+5) Copie las carpetas siguientes en la carpeta del proyecto Eclipse creado.
 	include/
 	libpocketsphinx/
 	sphinxbase/
@@ -55,7 +55,11 @@ los siguientes directorios o las rutas donde se encuentran las librerias del sis
 
 	ACOU=voxforge-es-0.2/model_parameters/voxforge_es_sphinx.cd_ptm_3000/
 	DICT=voxforge-es-0.2/etc/voxforge_es_sphinx1.dic
+<<<<<<< HEAD
 	LANG=voxforge-es-0.2/etc/voxforge_es_sphinx.transcription.lm
+=======
+	LANG=voxforge-es-0.2/etc/voxforge_es_sphinx.transcription.test.lm
+>>>>>>> c42051dc901552e9ebda69eba04d722b4f9e2949
 	OUTDIR=results
 
 11) Ejecute la aplicacion de la siguiente manera

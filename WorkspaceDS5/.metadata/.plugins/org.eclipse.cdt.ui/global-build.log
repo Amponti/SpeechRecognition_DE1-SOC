@@ -1,4 +1,4 @@
-16:42:22 **** Build of configuration Debug for project PTHREADS ****
+17:27:02 **** Build of configuration Debug for project PTHREADS ****
 make all 
 'Building file: ../filtroFIR.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'

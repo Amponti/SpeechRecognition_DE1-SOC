@@ -2,6 +2,8 @@
 Libreria adaptada por: Holguer A. Becerra.
 Tutorial Escrito por : Holguer A. Becerra. 
 Email: Holguer.becerra@upb.edu.co, Hbecerra@ece.ubc.ca, Hbecerradaza@triumf.ca, Adrizcorp@gmail.com
+
+Agradecimientos: 
 */
 
 

@@ -9,8 +9,10 @@ Pasos para compilar PocketSphinx para ARM-FPGA SoC:
 
 Requisitos, tener en el sistema instalado 
 
-SoC EDS 15.0 Command Shell, para poder usar el arm-linux-gnueabi-gcc,
-y Eclipse ARM DS-5.0
+-Quartus Version 15.0
+-Eclipse ARM DS-5.0.
+
+Pasos:
 
 1) Descargar el PocketSphinx y sphinxbase desde el GitHub
 	git clone https://github.com/Amponti/SpeechRecognition_DE1-SOC/tree/master/PocketSphinx_Prof/ARM_SOC_POCKETSPHINX

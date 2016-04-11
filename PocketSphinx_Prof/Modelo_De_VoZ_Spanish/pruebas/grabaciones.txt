@@ -1,3 +1,8 @@
-grabacion1
-grabacion2
-grabacion3
+abajo
+adelante
+arriba
+atras
+derecha
+hola
+holguer
+izquierda

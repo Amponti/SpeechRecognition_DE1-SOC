@@ -67,9 +67,9 @@
 #pragma warning (disable: 4996 4018)
 #endif
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
+//#ifdef HAVE_CONFIG_H
+#include "config.h"
+//#endif
 
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
@@ -917,6 +917,10 @@ cmd_ln_print_values_r(cmd_ln_t *cmdln, FILE *fp, arg_t const* defn)
 {
     if (defn == NULL)
         return;
+#ifdef NODEBUG
+	return;
+#endif
+
     fprintf(fp, "Current configuration:\n");
     arg_dump_r(cmdln, fp, defn, FALSE);
 }

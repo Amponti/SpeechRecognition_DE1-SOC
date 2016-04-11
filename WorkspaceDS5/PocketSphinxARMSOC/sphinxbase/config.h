@@ -4,6 +4,9 @@
 /* Default radix point for fixed-point */
 /* #undef DEFAULT_RADIX */
 
+
+#define NODEBUG
+
 /* Enable thread safety */
 #define ENABLE_THREADS /**/
 

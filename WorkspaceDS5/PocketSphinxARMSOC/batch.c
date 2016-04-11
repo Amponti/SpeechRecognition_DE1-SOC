@@ -788,9 +788,196 @@ done:
         fclose(ctmfh);
 }
 
+
+
+static void
+process_ctl2(ps_decoder_t *ps, cmd_ln_t *config, FILE *ctlfh, char * hypfh)
+{
+    int32 ctloffset, ctlcount, ctlincr;
+    int32 i;
+    char *line;
+    size_t len;
+    FILE *hypsegfh = NULL, *ctmfh = NULL;
+    FILE *mllrfh = NULL, *lmfh = NULL, *fsgfh = NULL;
+    double n_speech, n_cpu, n_wall;
+    char const *outlatdir;
+    char const *nbestdir;
+    char const *str;
+    int frate;
+
+    ctloffset = cmd_ln_int32_r(config, "-ctloffset");
+    ctlcount = cmd_ln_int32_r(config, "-ctlcount");
+    ctlincr = cmd_ln_int32_r(config, "-ctlincr");
+    outlatdir = cmd_ln_str_r(config, "-outlatdir");
+    nbestdir = cmd_ln_str_r(config, "-nbestdir");
+    frate = cmd_ln_int32_r(config, "-frate");
+
+    if ((str = cmd_ln_str_r(config, "-mllrctl"))) {
+        mllrfh = fopen(str, "r");
+        if (mllrfh == NULL) {
+            E_ERROR_SYSTEM("Failed to open MLLR control file file %s", str);
+            goto done;
+        }
+    }
+    if ((str = cmd_ln_str_r(config, "-fsgctl"))) {
+        fsgfh = fopen(str, "r");
+        if (fsgfh == NULL) {
+            E_ERROR_SYSTEM("Failed to open FSG control file file %s", str);
+            goto done;
+        }
+    }
+    if ((str = cmd_ln_str_r(config, "-lmnamectl"))) {
+        lmfh = fopen(str, "r");
+        if (lmfh == NULL) {
+            E_ERROR_SYSTEM("Failed to open LM name control file file %s", str);
+            goto done;
+        }
+    }
+
+    if ((str = cmd_ln_str_r(config, "-ctm"))) {
+        ctmfh = fopen(str, "w");
+        if (ctmfh == NULL) {
+            E_ERROR_SYSTEM("Failed to open hypothesis file %s for writing", str);
+            goto done;
+        }
+        setbuf(ctmfh, NULL);
+    }
+
+    i = 0;
+    while ((line = fread_line(ctlfh, &len))) {
+        char *wptr[4];
+        int32 nf, sf, ef;
+        char *mllrline = NULL, *lmline = NULL, *fsgline = NULL;
+        char *fsgfile = NULL, *lmname = NULL, *mllrfile = NULL;
+
+        if (mllrfh) {
+            mllrline = fread_line(mllrfh, &len);
+            if (mllrline == NULL) {
+
+                ckd_free(line);
+                ckd_free(mllrline);
+                goto done;
+            }
+            mllrfile = string_trim(mllrline, STRING_BOTH);
+        }
+        if (lmfh) {
+            lmline = fread_line(lmfh, &len);
+            if (lmline == NULL) {
+
+                ckd_free(line);
+                ckd_free(lmline);
+                goto done;
+            }
+            lmname = string_trim(lmline, STRING_BOTH);
+        }
+        if (fsgfh) {
+            fsgline = fread_line(fsgfh, &len);
+            if (fsgline == NULL) {
+
+                ckd_free(line);
+                ckd_free(fsgline);
+                goto done;
+            }
+            fsgfile = string_trim(fsgline, STRING_BOTH);
+        }
+
+        if (i < ctloffset) {
+            i += ctlincr;
+            goto nextline;
+        }
+        if (ctlcount != -1 && i >= ctloffset + ctlcount) {
+            goto nextline;
+        }
+
+        sf = 0;
+        ef = -1;
+        nf = str2words(line, wptr, 4);
+        if (nf == 0) {
+            /* Do nothing. */
+        }
+        else if (nf < 0) {
+
+        }
+        else {
+            char const *hyp, *file, *uttid;
+            int32 score;
+
+            file = wptr[0];
+            if (nf > 1)
+                sf = atoi(wptr[1]);
+            if (nf > 2)
+                ef = atoi(wptr[2]);
+            if (nf > 3)
+                uttid = wptr[3];
+            else
+        	uttid = file;
+
+
+
+            /* Do actual decoding. */
+            if(process_mllrctl_line(ps, config, mllrfile) < 0)
+                continue;
+            if(process_lmnamectl_line(ps, config, lmname) < 0)
+                continue;
+            if(process_fsgctl_line(ps, config, fsgfile) < 0)
+                continue;
+            if(process_ctl_line(ps, config, file, uttid, sf, ef) < 0)
+                continue;
+            hyp = ps_get_hyp(ps, &score);
+
+            /* Write out results and such. */
+
+            sprintf(hypfh, "%s", hyp ? hyp : "");
+            printf("resultado: %s\n",hypfh);
+            if (strcmp(hypfh,"adelante")==0)
+            {
+            	printf("Silla moviendose adelante\n");
+            }
+            else if (strcmp(hypfh,"atr\xe1s")==0)
+            {
+            	printf("Silla moviendose atrás\n");
+            }
+            else if (strcmp(hypfh,"derecha")==0)
+            {
+            	printf("Silla girando a la derecha\n");
+           	}
+            else if (strcmp(hypfh,"izquierda")==0)
+			{
+            	printf("Silla girando a la izquierda\n");
+			}
+            else if (strcmp(hypfh,"parar")==0)
+			{
+            	printf("Silla deteniendose\n");
+			}
+            else
+            {
+            	printf("Hable claro y fuerte\n");
+            }
+
+
+
+
+        }
+        i += ctlincr;
+    nextline:
+        ckd_free(mllrline);
+        ckd_free(fsgline);
+        ckd_free(lmline);
+        ckd_free(line);
+    }
+
+
+done:
+    if (hypsegfh)
+    {}
+
+}
+
+
 int
 main(int32 argc, char *argv[])
 {
+	char text[100];
     ps_decoder_t *ps;
     cmd_ln_t *config;
     char const *ctl;
@@ -809,7 +996,7 @@ main(int32 argc, char *argv[])
     }
 
     if ((ctl = cmd_ln_str_r(config, "-ctl")) == NULL) {
-        E_FATAL("-ctl argument not present, nothing to do in batch mode!\n");
+        //E_FATAL("-ctl argument not present, nothing to do in batch mode!\n");
     }
     if ((ctlfh = fopen(ctl, "r")) == NULL) {
         E_FATAL_SYSTEM("Failed to open control file '%s'", ctl);
@@ -819,37 +1006,13 @@ main(int32 argc, char *argv[])
     if (!(ps = ps_init(config))) {
         cmd_ln_free_r(config);
         fclose(ctlfh);
-        E_FATAL("PocketSphinx decoder init failed\n");
+        //E_FATAL("PocketSphinx decoder init failed\n");
     }
 
-    process_ctl(ps, config, ctlfh);
+    process_ctl2(ps, config, ctlfh, &text[0]);
 
     fclose(ctlfh);
     ps_free(ps);
     cmd_ln_free_r(config);
     return 0;
 }
-
-#if defined(_WIN32_WCE)
-#pragma comment(linker,"/entry:mainWCRTStartup")
-#include <windows.h>
-
-/* Windows Mobile has the Unicode main only */
-int wmain(int32 argc, wchar_t *wargv[]) {
-    char** argv;
-    size_t wlen;
-    size_t len;
-    int i;
-
-    argv = malloc(argc*sizeof(char*));
-    for (i = 0; i < argc; i++){
-        wlen = lstrlenW(wargv[i]);
-        len = wcstombs(NULL, wargv[i], wlen);
-        argv[i] = malloc(len+1);
-        wcstombs(argv[i], wargv[i], wlen);
-    }
-
-    /* assuming ASCII parameters */
-    return main(argc, argv);
-}
-#endif

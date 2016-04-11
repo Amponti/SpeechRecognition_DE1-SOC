@@ -111,6 +111,7 @@ extern "C" {
 /**
  * Print logging information to standard error stream
  */
+
 #define E_INFO(...)      err_msg(ERR_INFO, FILELINE, __VA_ARGS__)
 
 /**

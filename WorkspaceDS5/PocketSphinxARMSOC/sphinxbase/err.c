@@ -39,9 +39,9 @@
  * @brief Somewhat antiquated logging and error interface.
  */
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
+//#ifdef HAVE_CONFIG_H
+#include "config.h"
+//#endif
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -53,6 +53,8 @@
 #include "prim_type.h"
 #include "filename.h"
 #include "ckd_alloc.h"
+
+
 
 static FILE*  logfp = NULL;
 static int    logfp_disabled = FALSE;
@@ -79,9 +81,15 @@ static err_cb_f err_cb = err_logfp_cb;
 #endif
 static void* err_user_data;
 
+
+
 void
 err_msg(err_lvl_t lvl, const char *path, long ln, const char *fmt, ...)
 {
+#ifdef NODEBUG
+	return;
+#endif
+
     static const char *err_prefix[ERR_MAX] = {
         "DEBUG", "INFO", "INFOCONT", "WARN", "ERROR", "FATAL"
     };
@@ -159,6 +167,10 @@ err_msg_system(err_lvl_t lvl, const char *path, long ln, const char *fmt, ...)
 void
 err_msg_system(err_lvl_t lvl, const char *path, long ln, const char *fmt, ...)
 {
+#ifdef NODEBUG
+	return;
+#endif
+
     int local_errno = errno;
     
     static const char *err_prefix[ERR_MAX] = {

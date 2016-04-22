@@ -1,6 +1,6 @@
 TimeQuest Timing Analyzer report for E_Audio
-Thu Aug 20 11:07:29 2015
-Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
+Fri Apr 22 10:09:37 2016
+Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
 
 
 ---------------------
@@ -20,54 +20,64 @@ Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
  12. Slow 1100mV 85C Model Minimum Pulse Width Summary
  13. Clock to Output Times
  14. Minimum Clock to Output Times
- 15. Slow 1100mV 85C Model Metastability Report
- 16. Slow 1100mV 0C Model Fmax Summary
- 17. Slow 1100mV 0C Model Setup Summary
- 18. Slow 1100mV 0C Model Hold Summary
- 19. Slow 1100mV 0C Model Recovery Summary
- 20. Slow 1100mV 0C Model Removal Summary
- 21. Slow 1100mV 0C Model Minimum Pulse Width Summary
- 22. Clock to Output Times
- 23. Minimum Clock to Output Times
- 24. Slow 1100mV 0C Model Metastability Report
- 25. Fast 1100mV 85C Model Setup Summary
- 26. Fast 1100mV 85C Model Hold Summary
- 27. Fast 1100mV 85C Model Recovery Summary
- 28. Fast 1100mV 85C Model Removal Summary
- 29. Fast 1100mV 85C Model Minimum Pulse Width Summary
- 30. Clock to Output Times
- 31. Minimum Clock to Output Times
- 32. Fast 1100mV 85C Model Metastability Report
- 33. Fast 1100mV 0C Model Setup Summary
- 34. Fast 1100mV 0C Model Hold Summary
- 35. Fast 1100mV 0C Model Recovery Summary
- 36. Fast 1100mV 0C Model Removal Summary
- 37. Fast 1100mV 0C Model Minimum Pulse Width Summary
- 38. Clock to Output Times
- 39. Minimum Clock to Output Times
- 40. Fast 1100mV 0C Model Metastability Report
- 41. Multicorner Timing Analysis Summary
- 42. Clock to Output Times
- 43. Minimum Clock to Output Times
- 44. Board Trace Model Assignments
- 45. Input Transition Times
- 46. Signal Integrity Metrics (Slow 1100mv 0c Model)
- 47. Signal Integrity Metrics (Slow 1100mv 85c Model)
- 48. Signal Integrity Metrics (Fast 1100mv 0c Model)
- 49. Signal Integrity Metrics (Fast 1100mv 85c Model)
- 50. Setup Transfers
- 51. Hold Transfers
- 52. Report TCCS
- 53. Report RSKM
- 54. Unconstrained Paths
- 55. TimeQuest Timing Analyzer Messages
+ 15. Propagation Delay
+ 16. Minimum Propagation Delay
+ 17. Slow 1100mV 85C Model Metastability Summary
+ 18. Slow 1100mV 0C Model Fmax Summary
+ 19. Slow 1100mV 0C Model Setup Summary
+ 20. Slow 1100mV 0C Model Hold Summary
+ 21. Slow 1100mV 0C Model Recovery Summary
+ 22. Slow 1100mV 0C Model Removal Summary
+ 23. Slow 1100mV 0C Model Minimum Pulse Width Summary
+ 24. Clock to Output Times
+ 25. Minimum Clock to Output Times
+ 26. Propagation Delay
+ 27. Minimum Propagation Delay
+ 28. Slow 1100mV 0C Model Metastability Summary
+ 29. Fast 1100mV 85C Model Setup Summary
+ 30. Fast 1100mV 85C Model Hold Summary
+ 31. Fast 1100mV 85C Model Recovery Summary
+ 32. Fast 1100mV 85C Model Removal Summary
+ 33. Fast 1100mV 85C Model Minimum Pulse Width Summary
+ 34. Clock to Output Times
+ 35. Minimum Clock to Output Times
+ 36. Propagation Delay
+ 37. Minimum Propagation Delay
+ 38. Fast 1100mV 85C Model Metastability Summary
+ 39. Fast 1100mV 0C Model Setup Summary
+ 40. Fast 1100mV 0C Model Hold Summary
+ 41. Fast 1100mV 0C Model Recovery Summary
+ 42. Fast 1100mV 0C Model Removal Summary
+ 43. Fast 1100mV 0C Model Minimum Pulse Width Summary
+ 44. Clock to Output Times
+ 45. Minimum Clock to Output Times
+ 46. Propagation Delay
+ 47. Minimum Propagation Delay
+ 48. Fast 1100mV 0C Model Metastability Summary
+ 49. Multicorner Timing Analysis Summary
+ 50. Clock to Output Times
+ 51. Minimum Clock to Output Times
+ 52. Propagation Delay
+ 53. Minimum Propagation Delay
+ 54. Board Trace Model Assignments
+ 55. Input Transition Times
+ 56. Signal Integrity Metrics (Slow 1100mv 0c Model)
+ 57. Signal Integrity Metrics (Slow 1100mv 85c Model)
+ 58. Signal Integrity Metrics (Fast 1100mv 0c Model)
+ 59. Signal Integrity Metrics (Fast 1100mv 85c Model)
+ 60. Setup Transfers
+ 61. Hold Transfers
+ 62. Report TCCS
+ 63. Report RSKM
+ 64. Unconstrained Paths
+ 65. TimeQuest Timing Analyzer Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -87,7 +97,7 @@ agreement for further details.
 +-------------------------------------------------------------------------+
 ; TimeQuest Timing Analyzer Summary                                       ;
 +--------------------+----------------------------------------------------+
-; Quartus II Version ; Version 14.1.0 Build 186 12/03/2014 SJ Web Edition ;
+; Quartus II Version ; Version 15.0.0 Build 145 04/22/2015 SJ Web Edition ;
 ; Revision Name      ; E_Audio                                            ;
 ; Device Family      ; Cyclone V                                          ;
 ; Device Name        ; 5CSEMA5F31C6                                       ;
@@ -97,15 +107,22 @@ agreement for further details.
 +--------------------+----------------------------------------------------+
 
 
-Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
-+-------------------------------------+
-; Parallel Compilation                ;
-+----------------------------+--------+
-; Processors                 ; Number ;
-+----------------------------+--------+
-; Number detected on machine ; 8      ;
-; Maximum allowed            ; 1      ;
-+----------------------------+--------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.86        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;  28.6%      ;
+;     Processors 5-8         ;   0.0%      ;
++----------------------------+-------------+
 
 
 +---------------------------------------------------+
@@ -113,7 +130,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------+--------+--------------------------+
 ; SDC File Path ; Status ; Read at                  ;
 +---------------+--------+--------------------------+
-; E_Audio.SDC   ; OK     ; Thu Aug 20 11:07:23 2015 ;
+; E_Audio.SDC   ; OK     ; Fri Apr 22 10:09:25 2016 ;
 +---------------+--------+--------------------------+
 
 
@@ -133,14 +150,14 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +------------------------------------------------------------------------------------+-----------+--------+-------------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+----------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Slow 1100mV 85C Model Fmax Summary                                                                                      ;
-+-----------+-----------------+------------------------------------------------------------------------------------+------+
-; Fmax      ; Restricted Fmax ; Clock Name                                                                         ; Note ;
-+-----------+-----------------+------------------------------------------------------------------------------------+------+
-; 363.9 MHz ; 363.9 MHz       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
-; 388.5 MHz ; 388.5 MHz       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
-+-----------+-----------------+------------------------------------------------------------------------------------+------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Slow 1100mV 85C Model Fmax Summary                                                                                       ;
++------------+-----------------+------------------------------------------------------------------------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name                                                                         ; Note ;
++------------+-----------------+------------------------------------------------------------------------------------+------+
+; 272.03 MHz ; 272.03 MHz      ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 304.88 MHz ; 304.88 MHz      ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
++------------+-----------------+------------------------------------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -155,8 +172,8 @@ HTML report is unavailable in plain text report export.
 +------------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                              ; Slack  ; End Point TNS ;
 +------------------------------------------------------------------------------------+--------+---------------+
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 17.481 ; 0.000         ;
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 51.678 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 16.553 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 50.972 ; 0.000         ;
 +------------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -165,8 +182,8 @@ HTML report is unavailable in plain text report export.
 +------------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                              ; Slack ; End Point TNS ;
 +------------------------------------------------------------------------------------+-------+---------------+
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.373 ; 0.000         ;
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.373 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.435 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.679 ; 0.000         ;
 +------------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -190,23 +207,23 @@ No paths to report.
 ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 0.459  ; 0.000         ;
 ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 9.402  ; 0.000         ;
 ; CLOCK_50                                                                           ; 9.670  ; 0.000         ;
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 26.412 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 26.427 ; 0.000         ;
 +------------------------------------------------------------------------------------+--------+---------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Clock to Output Times                                                                                                                        ;
-+---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
-; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                    ;
-+---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
-; AUD_ADCLRCK   ; CLOCK_50   ; 7.587 ; 7.745 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_BCLK      ; CLOCK_50   ; 7.136 ; 7.159 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACDAT    ; CLOCK_50   ; 8.117 ; 8.179 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACLRCK   ; CLOCK_50   ; 7.919 ; 8.130 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ; 6.508 ;       ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ;       ; 6.363 ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; FPGA_I2C_SCLK ; CLOCK_50   ; 8.041 ; 8.169 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
-+---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                                                                          ;
++---------------+------------+--------+--------+------------+------------------------------------------------------------------------------------+
+; Data Port     ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference                                                                    ;
++---------------+------------+--------+--------+------------+------------------------------------------------------------------------------------+
+; AUD_ADCLRCK   ; CLOCK_50   ; 9.989  ; 10.893 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_BCLK      ; CLOCK_50   ; 9.208  ; 9.621  ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACDAT    ; CLOCK_50   ; 10.911 ; 12.084 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACLRCK   ; CLOCK_50   ; 9.503  ; 10.370 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ; 6.680  ;        ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ;        ; 6.536  ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; FPGA_I2C_SCLK ; CLOCK_50   ; 8.857  ; 9.082  ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
++---------------+------------+--------+--------+------------+------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------+
@@ -214,19 +231,41 @@ No paths to report.
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
 ; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                    ;
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
-; AUD_ADCLRCK   ; CLOCK_50   ; 5.269 ; 5.370 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_BCLK      ; CLOCK_50   ; 4.884 ; 4.907 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACDAT    ; CLOCK_50   ; 5.562 ; 5.635 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACLRCK   ; CLOCK_50   ; 5.552 ; 5.692 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ; 4.331 ;       ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ;       ; 4.201 ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; FPGA_I2C_SCLK ; CLOCK_50   ; 5.634 ; 5.744 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_ADCLRCK   ; CLOCK_50   ; 7.491 ; 8.271 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_BCLK      ; CLOCK_50   ; 6.751 ; 7.068 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACDAT    ; CLOCK_50   ; 8.222 ; 9.205 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACLRCK   ; CLOCK_50   ; 7.062 ; 7.832 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ; 4.515 ;       ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ;       ; 4.385 ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; FPGA_I2C_SCLK ; CLOCK_50   ; 6.405 ; 6.562 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
 
 
-----------------------------------------------
-; Slow 1100mV 85C Model Metastability Report ;
-----------------------------------------------
++----------------------------------------------------+
+; Propagation Delay                                  ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; SW[0]      ; LEDR[0]     ; 8.299 ;    ;    ; 8.695 ;
+; SW[1]      ; LEDR[1]     ; 8.705 ;    ;    ; 9.223 ;
+; SW[2]      ; LEDR[2]     ; 9.012 ;    ;    ; 9.515 ;
++------------+-------------+-------+----+----+-------+
+
+
++----------------------------------------------------+
+; Minimum Propagation Delay                          ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; SW[0]      ; LEDR[0]     ; 6.735 ;    ;    ; 7.123 ;
+; SW[1]      ; LEDR[1]     ; 7.128 ;    ;    ; 7.631 ;
+; SW[2]      ; LEDR[2]     ; 7.394 ;    ;    ; 7.867 ;
++------------+-------------+-------+----+----+-------+
+
+
+-----------------------------------------------
+; Slow 1100mV 85C Model Metastability Summary ;
+-----------------------------------------------
 No synchronizer chains to report.
 
 
@@ -235,8 +274,8 @@ No synchronizer chains to report.
 +------------+-----------------+------------------------------------------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                                                         ; Note ;
 +------------+-----------------+------------------------------------------------------------------------------------+------+
-; 365.5 MHz  ; 365.5 MHz       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
-; 402.09 MHz ; 402.09 MHz      ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 273.52 MHz ; 273.52 MHz      ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 311.53 MHz ; 311.53 MHz      ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
 +------------+-----------------+------------------------------------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -246,8 +285,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +------------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                              ; Slack  ; End Point TNS ;
 +------------------------------------------------------------------------------------+--------+---------------+
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 17.493 ; 0.000         ;
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 51.765 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 16.573 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 51.042 ; 0.000         ;
 +------------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -256,8 +295,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +------------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                              ; Slack ; End Point TNS ;
 +------------------------------------------------------------------------------------+-------+---------------+
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.389 ; 0.000         ;
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.390 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.418 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.719 ; 0.000         ;
 +------------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -279,25 +318,25 @@ No paths to report.
 ; Clock                                                                              ; Slack  ; End Point TNS ;
 +------------------------------------------------------------------------------------+--------+---------------+
 ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 0.459  ; 0.000         ;
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 9.347  ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 9.355  ; 0.000         ;
 ; CLOCK_50                                                                           ; 9.673  ; 0.000         ;
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 26.363 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 26.375 ; 0.000         ;
 +------------------------------------------------------------------------------------+--------+---------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Clock to Output Times                                                                                                                        ;
-+---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
-; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                    ;
-+---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
-; AUD_ADCLRCK   ; CLOCK_50   ; 7.247 ; 7.397 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_BCLK      ; CLOCK_50   ; 6.839 ; 6.838 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACDAT    ; CLOCK_50   ; 7.771 ; 7.808 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACLRCK   ; CLOCK_50   ; 7.578 ; 7.771 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ; 6.288 ;       ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ;       ; 6.099 ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; FPGA_I2C_SCLK ; CLOCK_50   ; 7.738 ; 7.870 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
-+---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                                                                          ;
++---------------+------------+--------+--------+------------+------------------------------------------------------------------------------------+
+; Data Port     ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference                                                                    ;
++---------------+------------+--------+--------+------------+------------------------------------------------------------------------------------+
+; AUD_ADCLRCK   ; CLOCK_50   ; 9.519  ; 10.385 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_BCLK      ; CLOCK_50   ; 8.716  ; 9.125  ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACDAT    ; CLOCK_50   ; 10.423 ; 11.562 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACLRCK   ; CLOCK_50   ; 9.076  ; 9.885  ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ; 6.439  ;        ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ;        ; 6.250  ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; FPGA_I2C_SCLK ; CLOCK_50   ; 8.452  ; 8.684  ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
++---------------+------------+--------+--------+------------+------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------+
@@ -305,19 +344,41 @@ No paths to report.
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
 ; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                    ;
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
-; AUD_ADCLRCK   ; CLOCK_50   ; 5.010 ; 5.123 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_BCLK      ; CLOCK_50   ; 4.661 ; 4.661 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACDAT    ; CLOCK_50   ; 5.315 ; 5.368 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACLRCK   ; CLOCK_50   ; 5.294 ; 5.431 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ; 4.180 ;       ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ;       ; 4.002 ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; FPGA_I2C_SCLK ; CLOCK_50   ; 5.400 ; 5.527 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_ADCLRCK   ; CLOCK_50   ; 7.102 ; 7.840 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_BCLK      ; CLOCK_50   ; 6.346 ; 6.655 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACDAT    ; CLOCK_50   ; 7.808 ; 8.754 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACLRCK   ; CLOCK_50   ; 6.711 ; 7.410 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ; 4.339 ;       ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ;       ; 4.161 ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; FPGA_I2C_SCLK ; CLOCK_50   ; 6.082 ; 6.227 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
 
 
----------------------------------------------
-; Slow 1100mV 0C Model Metastability Report ;
----------------------------------------------
++----------------------------------------------------+
+; Propagation Delay                                  ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; SW[0]      ; LEDR[0]     ; 7.859 ;    ;    ; 8.316 ;
+; SW[1]      ; LEDR[1]     ; 8.299 ;    ;    ; 8.850 ;
+; SW[2]      ; LEDR[2]     ; 8.525 ;    ;    ; 9.098 ;
++------------+-------------+-------+----+----+-------+
+
+
++----------------------------------------------------+
+; Minimum Propagation Delay                          ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; SW[0]      ; LEDR[0]     ; 6.341 ;    ;    ; 6.782 ;
+; SW[1]      ; LEDR[1]     ; 6.766 ;    ;    ; 7.288 ;
+; SW[2]      ; LEDR[2]     ; 6.956 ;    ;    ; 7.494 ;
++------------+-------------+-------+----+----+-------+
+
+
+----------------------------------------------
+; Slow 1100mV 0C Model Metastability Summary ;
+----------------------------------------------
 No synchronizer chains to report.
 
 
@@ -326,8 +387,8 @@ No synchronizer chains to report.
 +------------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                              ; Slack  ; End Point TNS ;
 +------------------------------------------------------------------------------------+--------+---------------+
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 18.792 ; 0.000         ;
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 52.807 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 18.127 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 52.148 ; 0.000         ;
 +------------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -336,8 +397,8 @@ No synchronizer chains to report.
 +------------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                              ; Slack ; End Point TNS ;
 +------------------------------------------------------------------------------------+-------+---------------+
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.181 ; 0.000         ;
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.182 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.197 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.303 ; 0.000         ;
 +------------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -361,7 +422,7 @@ No paths to report.
 ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 0.459  ; 0.000         ;
 ; CLOCK_50                                                                           ; 9.336  ; 0.000         ;
 ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 9.660  ; 0.000         ;
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 26.669 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 26.676 ; 0.000         ;
 +------------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -370,13 +431,13 @@ No paths to report.
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
 ; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                    ;
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
-; AUD_ADCLRCK   ; CLOCK_50   ; 4.345 ; 4.512 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_BCLK      ; CLOCK_50   ; 4.059 ; 4.098 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACDAT    ; CLOCK_50   ; 4.751 ; 4.820 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACLRCK   ; CLOCK_50   ; 4.593 ; 4.805 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ; 3.711 ;       ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ;       ; 3.639 ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; FPGA_I2C_SCLK ; CLOCK_50   ; 4.516 ; 4.625 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_ADCLRCK   ; CLOCK_50   ; 6.019 ; 6.864 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_BCLK      ; CLOCK_50   ; 5.326 ; 5.723 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACDAT    ; CLOCK_50   ; 6.549 ; 7.592 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACLRCK   ; CLOCK_50   ; 5.703 ; 6.495 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ; 3.823 ;       ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ;       ; 3.751 ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; FPGA_I2C_SCLK ; CLOCK_50   ; 5.095 ; 5.225 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
 
 
@@ -385,19 +446,41 @@ No paths to report.
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
 ; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                    ;
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
-; AUD_ADCLRCK   ; CLOCK_50   ; 3.229 ; 3.350 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_BCLK      ; CLOCK_50   ; 2.981 ; 3.017 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACDAT    ; CLOCK_50   ; 3.418 ; 3.486 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACLRCK   ; CLOCK_50   ; 3.439 ; 3.591 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ; 2.671 ;       ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ;       ; 2.595 ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; FPGA_I2C_SCLK ; CLOCK_50   ; 3.367 ; 3.457 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_ADCLRCK   ; CLOCK_50   ; 4.778 ; 5.522 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_BCLK      ; CLOCK_50   ; 4.121 ; 4.440 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACDAT    ; CLOCK_50   ; 5.212 ; 6.127 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACLRCK   ; CLOCK_50   ; 4.497 ; 5.211 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ; 2.780 ;       ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ;       ; 2.704 ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; FPGA_I2C_SCLK ; CLOCK_50   ; 3.894 ; 3.995 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
 
 
-----------------------------------------------
-; Fast 1100mV 85C Model Metastability Report ;
-----------------------------------------------
++----------------------------------------------------+
+; Propagation Delay                                  ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; SW[0]      ; LEDR[0]     ; 4.936 ;    ;    ; 5.751 ;
+; SW[1]      ; LEDR[1]     ; 5.185 ;    ;    ; 6.090 ;
+; SW[2]      ; LEDR[2]     ; 5.369 ;    ;    ; 6.307 ;
++------------+-------------+-------+----+----+-------+
+
+
++----------------------------------------------------+
+; Minimum Propagation Delay                          ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; SW[0]      ; LEDR[0]     ; 4.114 ;    ;    ; 4.916 ;
+; SW[1]      ; LEDR[1]     ; 4.357 ;    ;    ; 5.243 ;
+; SW[2]      ; LEDR[2]     ; 4.518 ;    ;    ; 5.422 ;
++------------+-------------+-------+----+----+-------+
+
+
+-----------------------------------------------
+; Fast 1100mV 85C Model Metastability Summary ;
+-----------------------------------------------
 No synchronizer chains to report.
 
 
@@ -406,8 +489,8 @@ No synchronizer chains to report.
 +------------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                              ; Slack  ; End Point TNS ;
 +------------------------------------------------------------------------------------+--------+---------------+
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 18.877 ; 0.000         ;
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 52.919 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 18.291 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 52.358 ; 0.000         ;
 +------------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -416,8 +499,8 @@ No synchronizer chains to report.
 +------------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                              ; Slack ; End Point TNS ;
 +------------------------------------------------------------------------------------+-------+---------------+
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.171 ; 0.000         ;
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.171 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.190 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.294 ; 0.000         ;
 +------------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -441,7 +524,7 @@ No paths to report.
 ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 0.459  ; 0.000         ;
 ; CLOCK_50                                                                           ; 9.286  ; 0.000         ;
 ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 9.650  ; 0.000         ;
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 26.658 ; 0.000         ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 26.667 ; 0.000         ;
 +------------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -450,13 +533,13 @@ No paths to report.
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
 ; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                    ;
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
-; AUD_ADCLRCK   ; CLOCK_50   ; 4.002 ; 4.130 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_BCLK      ; CLOCK_50   ; 3.749 ; 3.768 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACDAT    ; CLOCK_50   ; 4.354 ; 4.401 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACLRCK   ; CLOCK_50   ; 4.214 ; 4.384 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ; 3.474 ;       ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ;       ; 3.381 ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; FPGA_I2C_SCLK ; CLOCK_50   ; 4.165 ; 4.256 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_ADCLRCK   ; CLOCK_50   ; 5.490 ; 6.154 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_BCLK      ; CLOCK_50   ; 4.808 ; 5.149 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACDAT    ; CLOCK_50   ; 5.972 ; 6.805 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACLRCK   ; CLOCK_50   ; 5.216 ; 5.826 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ; 3.572 ;       ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ;       ; 3.479 ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; FPGA_I2C_SCLK ; CLOCK_50   ; 4.649 ; 4.766 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
 
 
@@ -465,19 +548,41 @@ No paths to report.
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
 ; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                    ;
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
-; AUD_ADCLRCK   ; CLOCK_50   ; 2.927 ; 3.028 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_BCLK      ; CLOCK_50   ; 2.707 ; 2.724 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACDAT    ; CLOCK_50   ; 3.102 ; 3.149 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACLRCK   ; CLOCK_50   ; 3.106 ; 3.232 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ; 2.464 ;       ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ;       ; 2.366 ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; FPGA_I2C_SCLK ; CLOCK_50   ; 3.055 ; 3.135 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_ADCLRCK   ; CLOCK_50   ; 4.298 ; 4.874 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_BCLK      ; CLOCK_50   ; 3.655 ; 3.928 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACDAT    ; CLOCK_50   ; 4.696 ; 5.413 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACLRCK   ; CLOCK_50   ; 4.054 ; 4.590 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ; 2.555 ;       ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ;       ; 2.457 ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; FPGA_I2C_SCLK ; CLOCK_50   ; 3.498 ; 3.576 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
 
 
----------------------------------------------
-; Fast 1100mV 0C Model Metastability Report ;
----------------------------------------------
++----------------------------------------------------+
+; Propagation Delay                                  ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; SW[0]      ; LEDR[0]     ; 4.571 ;    ;    ; 5.443 ;
+; SW[1]      ; LEDR[1]     ; 4.814 ;    ;    ; 5.752 ;
+; SW[2]      ; LEDR[2]     ; 4.975 ;    ;    ; 5.955 ;
++------------+-------------+-------+----+----+-------+
+
+
++----------------------------------------------------+
+; Minimum Propagation Delay                          ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; SW[0]      ; LEDR[0]     ; 3.760 ;    ;    ; 4.615 ;
+; SW[1]      ; LEDR[1]     ; 3.995 ;    ;    ; 4.909 ;
+; SW[2]      ; LEDR[2]     ; 4.138 ;    ;    ; 5.087 ;
++------------+-------------+-------+----+----+-------+
+
+
+----------------------------------------------
+; Fast 1100mV 0C Model Metastability Summary ;
+----------------------------------------------
 No synchronizer chains to report.
 
 
@@ -486,11 +591,11 @@ No synchronizer chains to report.
 +-------------------------------------------------------------------------------------+--------+-------+----------+---------+---------------------+
 ; Clock                                                                               ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +-------------------------------------------------------------------------------------+--------+-------+----------+---------+---------------------+
-; Worst-case Slack                                                                    ; 17.481 ; 0.171 ; N/A      ; N/A     ; 0.459               ;
+; Worst-case Slack                                                                    ; 16.553 ; 0.190 ; N/A      ; N/A     ; 0.459               ;
 ;  CLOCK_50                                                                           ; N/A    ; N/A   ; N/A      ; N/A     ; 9.286               ;
 ;  clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; N/A    ; N/A   ; N/A      ; N/A     ; 0.459               ;
-;  clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 51.678 ; 0.171 ; N/A      ; N/A     ; 26.363              ;
-;  clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 17.481 ; 0.171 ; N/A      ; N/A     ; 9.347               ;
+;  clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 50.972 ; 0.190 ; N/A      ; N/A     ; 26.375              ;
+;  clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 16.553 ; 0.294 ; N/A      ; N/A     ; 9.355               ;
 ; Design-wide TNS                                                                     ; 0.0    ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
 ;  CLOCK_50                                                                           ; N/A    ; N/A   ; N/A      ; N/A     ; 0.000               ;
 ;  clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; N/A    ; N/A   ; N/A      ; N/A     ; 0.000               ;
@@ -499,19 +604,19 @@ No synchronizer chains to report.
 +-------------------------------------------------------------------------------------+--------+-------+----------+---------+---------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Clock to Output Times                                                                                                                        ;
-+---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
-; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                    ;
-+---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
-; AUD_ADCLRCK   ; CLOCK_50   ; 7.587 ; 7.745 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_BCLK      ; CLOCK_50   ; 7.136 ; 7.159 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACDAT    ; CLOCK_50   ; 8.117 ; 8.179 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACLRCK   ; CLOCK_50   ; 7.919 ; 8.130 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ; 6.508 ;       ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ;       ; 6.363 ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; FPGA_I2C_SCLK ; CLOCK_50   ; 8.041 ; 8.169 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
-+---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                                                                          ;
++---------------+------------+--------+--------+------------+------------------------------------------------------------------------------------+
+; Data Port     ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference                                                                    ;
++---------------+------------+--------+--------+------------+------------------------------------------------------------------------------------+
+; AUD_ADCLRCK   ; CLOCK_50   ; 9.989  ; 10.893 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_BCLK      ; CLOCK_50   ; 9.208  ; 9.621  ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACDAT    ; CLOCK_50   ; 10.911 ; 12.084 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACLRCK   ; CLOCK_50   ; 9.503  ; 10.370 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ; 6.680  ;        ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ;        ; 6.536  ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; FPGA_I2C_SCLK ; CLOCK_50   ; 8.857  ; 9.082  ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
++---------------+------------+--------+--------+------------+------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------+
@@ -519,14 +624,36 @@ No synchronizer chains to report.
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
 ; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                    ;
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
-; AUD_ADCLRCK   ; CLOCK_50   ; 2.927 ; 3.028 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_BCLK      ; CLOCK_50   ; 2.707 ; 2.724 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACDAT    ; CLOCK_50   ; 3.102 ; 3.149 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_DACLRCK   ; CLOCK_50   ; 3.106 ; 3.232 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ; 2.464 ;       ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; AUD_XCK       ; CLOCK_50   ;       ; 2.366 ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
-; FPGA_I2C_SCLK ; CLOCK_50   ; 3.055 ; 3.135 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_ADCLRCK   ; CLOCK_50   ; 4.298 ; 4.874 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_BCLK      ; CLOCK_50   ; 3.655 ; 3.928 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACDAT    ; CLOCK_50   ; 4.696 ; 5.413 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_DACLRCK   ; CLOCK_50   ; 4.054 ; 4.590 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ; 2.555 ;       ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; AUD_XCK       ; CLOCK_50   ;       ; 2.457 ; Fall       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;
+; FPGA_I2C_SCLK ; CLOCK_50   ; 3.498 ; 3.576 ; Rise       ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ;
 +---------------+------------+-------+-------+------------+------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------+
+; Propagation Delay                                  ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; SW[0]      ; LEDR[0]     ; 8.299 ;    ;    ; 8.695 ;
+; SW[1]      ; LEDR[1]     ; 8.705 ;    ;    ; 9.223 ;
+; SW[2]      ; LEDR[2]     ; 9.012 ;    ;    ; 9.515 ;
++------------+-------------+-------+----+----+-------+
+
+
++----------------------------------------------------+
+; Minimum Propagation Delay                          ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; SW[0]      ; LEDR[0]     ; 3.760 ;    ;    ; 4.615 ;
+; SW[1]      ; LEDR[1]     ; 3.995 ;    ;    ; 4.909 ;
+; SW[2]      ; LEDR[2]     ; 4.138 ;    ;    ; 5.087 ;
++------------+-------------+-------+----+----+-------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -565,22 +692,22 @@ No synchronizer chains to report.
 ; KEY[1]        ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; KEY[2]        ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; KEY[3]        ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
-; SW[1]         ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
-; SW[2]         ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; SW[3]         ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; SW[4]         ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; SW[5]         ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; SW[6]         ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; SW[7]         ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
-; SW[8]         ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
-; SW[9]         ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; AUD_ADCLRCK   ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; AUD_BCLK      ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; AUD_DACLRCK   ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; FPGA_I2C_SDAT ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; SW[0]         ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; SW[1]         ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; SW[2]         ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; KEY[0]        ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; CLOCK_50      ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
-; SW[0]         ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; SW[8]         ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; SW[9]         ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; AUD_ADCDAT    ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 +---------------+--------------+-----------------+-----------------+
 
@@ -690,8 +817,8 @@ No synchronizer chains to report.
 +------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                                                         ; To Clock                                                                           ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+----------+----------+----------+----------+
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 149      ; 0        ; 0        ; 0        ;
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 401      ; 0        ; 0        ; 0        ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 152      ; 0        ; 0        ; 0        ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 375      ; 0        ; 0        ; 0        ;
 +------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -701,8 +828,8 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                                                         ; To Clock                                                                           ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+----------+----------+----------+----------+
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 149      ; 0        ; 0        ; 0        ;
-; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 401      ; 0        ; 0        ; 0        ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 152      ; 0        ; 0        ; 0        ;
+; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk ; 375      ; 0        ; 0        ; 0        ;
 +------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -726,10 +853,10 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 3     ; 3    ;
-; Unconstrained Input Ports       ; 4     ; 4    ;
-; Unconstrained Input Port Paths  ; 195   ; 195  ;
-; Unconstrained Output Ports      ; 7     ; 7    ;
-; Unconstrained Output Port Paths ; 50    ; 50   ;
+; Unconstrained Input Ports       ; 8     ; 8    ;
+; Unconstrained Input Port Paths  ; 693   ; 693  ;
+; Unconstrained Output Ports      ; 12    ; 12   ;
+; Unconstrained Output Port Paths ; 87    ; 87   ;
 +---------------------------------+-------+------+
 
 
@@ -738,18 +865,18 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +------------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
-    Info: Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
-    Info: Processing started: Thu Aug 20 11:07:19 2015
+    Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
+    Info: Processing started: Fri Apr 22 10:09:21 2016
 Info: Command: quartus_sta E_Audio -c E_Audio
-Info: qsta_default_script.tcl version: #3
-Warning (20028): Parallel compilation is not licensed and has been disabled
+Info: qsta_default_script.tcl version: #11
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
 Info (332104): Reading SDC File: 'E_Audio.SDC'
 Warning (332049): Ignored create_clock at E_Audio.sdc(16): Time value "1.536 MH" is not valid
     Info (332050): create_clock -period "1.536 MH" -name clk_audbck [get_ports AUD_BCLK]
 Warning (332049): Ignored create_clock at E_Audio.sdc(16): Option -period: Invalid clock period
-Warning (332174): Ignored filter at E_Audio.sdc(19): altera_reserved_tck could not be matched with a port or pin or register or keeper or net
+Warning (332174): Ignored filter at E_Audio.sdc(19): altera_reserved_tck could not be matched with a port or pin or register or keeper or net or combinational node or node
 Warning (332049): Ignored create_clock at E_Audio.sdc(19): Argument <targets> is not an object ID
     Info (332050): create_clock -name {altera_reserved_tck} -period 40 {altera_reserved_tck}
 Warning (332174): Ignored filter at E_Audio.sdc(20): altera_reserved_tdi could not be matched with a port
@@ -775,7 +902,7 @@ Warning (332060): Node: AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|LRCK_1X was determined 
 Warning (332060): Node: AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|oAUD_BCK was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_inR[11] is being clocked by AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|oAUD_BCK
 Warning (332060): Node: I2C_AV_Config:u3|mI2C_CTRL_CLK was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[4] is being clocked by I2C_AV_Config:u3|mI2C_CTRL_CLK
+    Info (13166): Register I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[2] is being clocked by I2C_AV_Config:u3|mI2C_CTRL_CLK
 Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
     Info (332098): Cell: clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  from: refclkin  to: fbclk
     Info (332098): Cell: clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
@@ -784,16 +911,16 @@ Info (332097): The following timing edges are non-unate.  TimeQuest will assume 
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1100mV 85C Model
-Info (332146): Worst-case setup slack is 17.481
+Info (332146): Worst-case setup slack is 16.553
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    17.481               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):    51.678               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-Info (332146): Worst-case hold slack is 0.373
+    Info (332119):    16.553               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    50.972               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is 0.435
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.373               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.373               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.435               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.679               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is 0.459
@@ -802,7 +929,7 @@ Info (332146): Worst-case minimum pulse width slack is 0.459
     Info (332119):     0.459               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
     Info (332119):     9.402               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
     Info (332119):     9.670               0.000 CLOCK_50 
-    Info (332119):    26.412               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    26.427               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
 Info: Analyzing Slow 1100mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
@@ -811,32 +938,32 @@ Warning (332060): Node: AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|LRCK_1X was determined 
 Warning (332060): Node: AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|oAUD_BCK was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_inR[11] is being clocked by AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|oAUD_BCK
 Warning (332060): Node: I2C_AV_Config:u3|mI2C_CTRL_CLK was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[4] is being clocked by I2C_AV_Config:u3|mI2C_CTRL_CLK
+    Info (13166): Register I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[2] is being clocked by I2C_AV_Config:u3|mI2C_CTRL_CLK
 Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
     Info (332098): Cell: clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  from: refclkin  to: fbclk
     Info (332098): Cell: clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
     Info (332098): Cell: clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
     Info (332098): Cell: clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
-Info (332146): Worst-case setup slack is 17.493
+Info (332146): Worst-case setup slack is 16.573
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    17.493               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):    51.765               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-Info (332146): Worst-case hold slack is 0.389
+    Info (332119):    16.573               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    51.042               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is 0.418
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.389               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.390               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.418               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.719               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is 0.459
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.459               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
-    Info (332119):     9.347               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     9.355               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
     Info (332119):     9.673               0.000 CLOCK_50 
-    Info (332119):    26.363               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    26.375               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
 Info: Analyzing Fast 1100mV 85C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
@@ -845,23 +972,23 @@ Warning (332060): Node: AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|LRCK_1X was determined 
 Warning (332060): Node: AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|oAUD_BCK was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_inR[11] is being clocked by AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|oAUD_BCK
 Warning (332060): Node: I2C_AV_Config:u3|mI2C_CTRL_CLK was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[4] is being clocked by I2C_AV_Config:u3|mI2C_CTRL_CLK
+    Info (13166): Register I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[2] is being clocked by I2C_AV_Config:u3|mI2C_CTRL_CLK
 Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
     Info (332098): Cell: clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  from: refclkin  to: fbclk
     Info (332098): Cell: clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
     Info (332098): Cell: clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
     Info (332098): Cell: clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
-Info (332146): Worst-case setup slack is 18.792
+Info (332146): Worst-case setup slack is 18.127
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    18.792               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):    52.807               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-Info (332146): Worst-case hold slack is 0.181
+    Info (332119):    18.127               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    52.148               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is 0.197
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.181               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.182               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.197               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.303               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is 0.459
@@ -870,30 +997,30 @@ Info (332146): Worst-case minimum pulse width slack is 0.459
     Info (332119):     0.459               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
     Info (332119):     9.336               0.000 CLOCK_50 
     Info (332119):     9.660               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):    26.669               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    26.676               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
 Info: Analyzing Fast 1100mV 0C Model
 Warning (332060): Node: AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|LRCK_1X was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outR[11] is being clocked by AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|LRCK_1X
 Warning (332060): Node: AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|oAUD_BCK was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_inR[11] is being clocked by AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|oAUD_BCK
 Warning (332060): Node: I2C_AV_Config:u3|mI2C_CTRL_CLK was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[4] is being clocked by I2C_AV_Config:u3|mI2C_CTRL_CLK
+    Info (13166): Register I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[2] is being clocked by I2C_AV_Config:u3|mI2C_CTRL_CLK
 Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
     Info (332098): Cell: clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  from: refclkin  to: fbclk
     Info (332098): Cell: clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
     Info (332098): Cell: clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
     Info (332098): Cell: clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
-Info (332146): Worst-case setup slack is 18.877
+Info (332146): Worst-case setup slack is 18.291
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    18.877               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):    52.919               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-Info (332146): Worst-case hold slack is 0.171
+    Info (332119):    18.291               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    52.358               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is 0.190
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.171               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.171               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.190               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.294               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is 0.459
@@ -902,13 +1029,13 @@ Info (332146): Worst-case minimum pulse width slack is 0.459
     Info (332119):     0.459               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
     Info (332119):     9.286               0.000 CLOCK_50 
     Info (332119):     9.650               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):    26.658               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    26.667               0.000 clk_18_4_inst|clk_18_4_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
-Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 27 warnings
-    Info: Peak virtual memory: 1000 megabytes
-    Info: Processing ended: Thu Aug 20 11:07:29 2015
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:09
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 26 warnings
+    Info: Peak virtual memory: 1176 megabytes
+    Info: Processing ended: Fri Apr 22 10:09:37 2016
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:27
 
 

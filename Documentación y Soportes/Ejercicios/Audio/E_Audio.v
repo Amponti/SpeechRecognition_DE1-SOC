@@ -39,15 +39,38 @@ module E_Audio(
 //  REG/WIRE declarations
 //=======================================================
  
-wire [15:0]ADC_L;
+wire		   AUD_CTRL_CLK;	//	For Audio Controller
+ 
+wire [15:0]ADC_L; //= 16'hffff;
 wire [15:0]ADC_R;
 wire [15:0]DAC_L;
 wire [15:0]DAC_R;
 wire clock_50;
 wire clk_18_4;
+wire signed_data;
+wire signed_data1;
+wire signed_data2;
 
-assign	AUD_ADCLRCK	=	AUD_DACLRCK;   // PREGUNTAR Q ES ESTO!!
-assign	AUD_XCK		=	clk_18_4;
+assign AUD_XCK	       =	clk_18_4;
+assign AUD_ADCLRCK	 =	AUD_DACLRCK;
+
+
+//.iAUD_extR((SW[1]==0)? 16'd0:ADC_R) ,			// input [DATA_WIDTH-1:0] iAUD_extR_sig
+//.iAUD_extL((SW[2]==0)? 16'd0:ADC_L) ,			// input [DATA_WIDTH-1:0] iAUD_extL_sig
+
+
+assign signed_data =(SW[0]==0)? 1'b0: 
+							1'b1;
+							
+assign signed_data1 =(SW[1]==0)? 1'b0: ////ESCRITURA 
+							1'b1;
+
+assign signed_data2 =(SW[2]==0)? 1'b0: //LECTURA
+							1'b1;
+						  					
+assign LEDR[0]= signed_data;
+assign LEDR[1]= signed_data1;
+assign LEDR[2]= signed_data2;
 
 //=======================================================
 //  Structural coding
@@ -56,7 +79,7 @@ assign	AUD_XCK		=	clk_18_4;
 clk_18_4 clk_18_4_inst
 (
 	.refclk(CLOCK_50) ,	// input  refclk_sig
-	.rst(1'b0) ,	// input  rst_sig
+	.rst(~KEY[0]) ,			// input  rst_sig
 	.outclk_0(clk_18_4) ,	// output  outclk_0_sig
 	.outclk_1(clock_50) 
 );
@@ -65,7 +88,7 @@ I2C_AV_Config 		u3			//	Host Side
 (		
 	.iCLK		(clock_50),
 	.iRST_N		(KEY[0]),
-								   //	I2C Side
+	//	I2C Side
 	.I2C_SCLK	( FPGA_I2C_SCLK ),
 	.I2C_SDAT	( FPGA_I2C_SDAT )		
 );
@@ -82,11 +105,26 @@ AUDIO_DAC_ADC AUDIO_DAC_ADC_inst
 	.oAUD_inR(ADC_R) ,			// output [DATA_WIDTH-1:0] oAUD_inR_sig
 	
 	// DAC L and R
-	.iAUD_extR((SW[0]==0)?ADC_R:16'd0) ,			// input [DATA_WIDTH-1:0] iAUD_extR_sig
-	.iAUD_extL((SW[0]==1)?ADC_L:16'd0) ,			// input [DATA_WIDTH-1:0] iAUD_extL_sig
+	.iAUD_extR((SW[8]==0)? 16'd0:ADC_R) ,			// input [DATA_WIDTH-1:0] iAUD_extR_sig
+	.iAUD_extL((SW[9]==0)? 16'd0:DAC_L) ,			// input [DATA_WIDTH-1:0] iAUD_extL_sig
 
 	.iCLK_18_4(clk_18_4) ,		// input  iCLK_18_4_sig
 	.iRST_N(KEY[0]) 				// input  iRST_N_sig
+);
+
+
+syn_fifo syn_fifo_inst
+(
+	.clk(AUD_BCLK) ,	// input  clk_sig
+	.rst(~KEY[0]) ,	// input  rst_sig //si se reinicia emite ruido
+	.wr_cs(signed_data1) ,	// input  wr_cs_sig
+	.rd_cs(signed_data2) ,	// input  rd_cs_sig
+	.data_in(ADC_L) ,	// input [DATA_WIDTH-1:0] data_in_sig
+	.rd_en(signed_data2) ,	// input  rd_en_sig		//primero	
+	.wr_en(signed_data1) ,	// input  wr_en_sig		//segundo
+	.data_out(DAC_L) ,	// output [DATA_WIDTH-1:0] data_out_sig
+	.empty(LEDR[8]) ,	// output  empty_sig
+	.full(LEDR[9]) 	// output  full_sig
 );
 
 endmodule

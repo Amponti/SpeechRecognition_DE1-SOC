@@ -1,6 +1,6 @@
 Analysis & Synthesis report for E_Audio
-Thu Aug 20 11:05:42 2015
-Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
+Fri Apr 22 10:07:48 2016
+Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
 
 
 ---------------------
@@ -13,30 +13,33 @@ Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis IP Cores Summary
-  9. State Machine - |E_Audio|I2C_AV_Config:u3|mSetup_ST
- 10. Registers Removed During Synthesis
- 11. Removed Registers Triggering Further Register Optimizations
- 12. General Register Statistics
- 13. Inverted Register Statistics
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. State Machine - |E_Audio|I2C_AV_Config:u3|mSetup_ST
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
  14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Parameter Settings for User Entity Instance: clk_18_4:clk_18_4_inst|clk_18_4_0002:clk_18_4_inst|altera_pll:altera_pll_i
- 16. Parameter Settings for User Entity Instance: I2C_AV_Config:u3
- 17. Parameter Settings for User Entity Instance: AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst
- 18. Port Connectivity Checks: "I2C_AV_Config:u3|I2C_Controller:u0"
- 19. Port Connectivity Checks: "I2C_AV_Config:u3"
- 20. Port Connectivity Checks: "clk_18_4:clk_18_4_inst"
- 21. Post-Synthesis Netlist Statistics for Top Partition
- 22. Elapsed Time Per Partition
- 23. Analysis & Synthesis Messages
- 24. Analysis & Synthesis Suppressed Messages
+ 15. Source assignments for syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated
+ 16. Parameter Settings for User Entity Instance: clk_18_4:clk_18_4_inst|clk_18_4_0002:clk_18_4_inst|altera_pll:altera_pll_i
+ 17. Parameter Settings for User Entity Instance: I2C_AV_Config:u3
+ 18. Parameter Settings for User Entity Instance: AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst
+ 19. Parameter Settings for User Entity Instance: syn_fifo:syn_fifo_inst
+ 20. Parameter Settings for User Entity Instance: syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component
+ 21. altsyncram Parameter Settings by Entity Instance
+ 22. Port Connectivity Checks: "I2C_AV_Config:u3|I2C_Controller:u0"
+ 23. Port Connectivity Checks: "I2C_AV_Config:u3"
+ 24. Post-Synthesis Netlist Statistics for Top Partition
+ 25. Elapsed Time Per Partition
+ 26. Analysis & Synthesis Messages
+ 27. Analysis & Synthesis Suppressed Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -56,16 +59,16 @@ agreement for further details.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +---------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Aug 20 11:05:42 2015      ;
-; Quartus II 64-Bit Version       ; 14.1.0 Build 186 12/03/2014 SJ Web Edition ;
+; Analysis & Synthesis Status     ; Successful - Fri Apr 22 10:07:48 2016      ;
+; Quartus II 64-Bit Version       ; 15.0.0 Build 145 04/22/2015 SJ Web Edition ;
 ; Revision Name                   ; E_Audio                                    ;
 ; Top-level Entity Name           ; E_Audio                                    ;
 ; Family                          ; Cyclone V                                  ;
 ; Logic utilization (in ALMs)     ; N/A                                        ;
-; Total registers                 ; 157                                        ;
+; Total registers                 ; 212                                        ;
 ; Total pins                      ; 36                                         ;
 ; Total virtual pins              ; 0                                          ;
-; Total block memory bits         ; 0                                          ;
+; Total block memory bits         ; 1,048,576                                  ;
 ; Total DSP Blocks                ; 0                                          ;
 ; Total HSSI RX PCSs              ; 0                                          ;
 ; Total HSSI PMA RX Deserializers ; 0                                          ;
@@ -164,85 +167,125 @@ agreement for further details.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
-+-------------------------------------+
-; Parallel Compilation                ;
-+----------------------------+--------+
-; Processors                 ; Number ;
-+----------------------------+--------+
-; Number detected on machine ; 8      ;
-; Maximum allowed            ; 1      ;
-+----------------------------+--------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ; < 0.1%      ;
+;     Processors 5-8         ;   0.0%      ;
++----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                     ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------+----------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                ; Library  ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------+----------+
-; Modules/I2C_Controller.v         ; yes             ; User Verilog HDL File        ; C:/Proyecto/Ejercicios/Audio/Modules/I2C_Controller.v       ;          ;
-; Modules/I2C_AV_Config.v          ; yes             ; User Verilog HDL File        ; C:/Proyecto/Ejercicios/Audio/Modules/I2C_AV_Config.v        ;          ;
-; Modules/AUDIO_DAC_ADC.v          ; yes             ; User Verilog HDL File        ; C:/Proyecto/Ejercicios/Audio/Modules/AUDIO_DAC_ADC.v        ;          ;
-; clk_18_4.v                       ; yes             ; User Wizard-Generated File   ; C:/Proyecto/Ejercicios/Audio/clk_18_4.v                     ; clk_18_4 ;
-; clk_18_4/clk_18_4_0002.v         ; yes             ; User Verilog HDL File        ; C:/Proyecto/Ejercicios/Audio/clk_18_4/clk_18_4_0002.v       ; clk_18_4 ;
-; e_audio.v                        ; yes             ; Auto-Found Verilog HDL File  ; C:/Proyecto/Ejercicios/Audio/e_audio.v                      ;          ;
-; altera_pll.v                     ; yes             ; Megafunction                 ; c:/altera/14.1/quartus/libraries/megafunctions/altera_pll.v ;          ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------+----------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                              ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+----------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                         ; Library  ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+----------+
+; Modules/syn_fifo.v               ; yes             ; User Verilog HDL File        ; C:/Users/jeffe/Desktop/Audio/Modules/syn_fifo.v                      ;          ;
+; Modules/I2C_Controller.v         ; yes             ; User Verilog HDL File        ; C:/Users/jeffe/Desktop/Audio/Modules/I2C_Controller.v                ;          ;
+; Modules/I2C_AV_Config.v          ; yes             ; User Verilog HDL File        ; C:/Users/jeffe/Desktop/Audio/Modules/I2C_AV_Config.v                 ;          ;
+; Modules/AUDIO_DAC_ADC.v          ; yes             ; User Verilog HDL File        ; C:/Users/jeffe/Desktop/Audio/Modules/AUDIO_DAC_ADC.v                 ;          ;
+; clk_18_4.v                       ; yes             ; User Wizard-Generated File   ; C:/Users/jeffe/Desktop/Audio/clk_18_4.v                              ; clk_18_4 ;
+; clk_18_4/clk_18_4_0002.v         ; yes             ; User Verilog HDL File        ; C:/Users/jeffe/Desktop/Audio/clk_18_4/clk_18_4_0002.v                ; clk_18_4 ;
+; Modules/RAM2_MEMORY.v            ; yes             ; User Wizard-Generated File   ; C:/Users/jeffe/Desktop/Audio/Modules/RAM2_MEMORY.v                   ;          ;
+; e_audio.v                        ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/jeffe/Desktop/Audio/e_audio.v                               ;          ;
+; altera_pll.v                     ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/altera_pll.v          ;          ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/altsyncram.tdf        ;          ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/stratix_ram_block.inc ;          ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/lpm_mux.inc           ;          ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/lpm_decode.inc        ;          ;
+; aglobal150.inc                   ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/aglobal150.inc        ;          ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/a_rdenreg.inc         ;          ;
+; altrom.inc                       ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/altrom.inc            ;          ;
+; altram.inc                       ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/altram.inc            ;          ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/altdpram.inc          ;          ;
+; db/altsyncram_uv02.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/jeffe/Desktop/Audio/db/altsyncram_uv02.tdf                  ;          ;
+; db/decode_dla.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/jeffe/Desktop/Audio/db/decode_dla.tdf                       ;          ;
+; db/mux_chb.tdf                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/jeffe/Desktop/Audio/db/mux_chb.tdf                          ;          ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+----------+
 
 
-+------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                ;
-+---------------------------------------------+--------------+
-; Resource                                    ; Usage        ;
-+---------------------------------------------+--------------+
-; Estimate of Logic utilization (ALMs needed) ; 124          ;
-;                                             ;              ;
-; Combinational ALUT usage for logic          ; 167          ;
-;     -- 7 input functions                    ; 9            ;
-;     -- 6 input functions                    ; 66           ;
-;     -- 5 input functions                    ; 25           ;
-;     -- 4 input functions                    ; 14           ;
-;     -- <=3 input functions                  ; 53           ;
-;                                             ;              ;
-; Dedicated logic registers                   ; 157          ;
-;                                             ;              ;
-; I/O pins                                    ; 36           ;
-;                                             ;              ;
-; Total DSP Blocks                            ; 0            ;
-;                                             ;              ;
-; Total PLLs                                  ; 2            ;
-;     -- PLLs                                 ; 2            ;
-;                                             ;              ;
-; Maximum fan-out node                        ; KEY[0]~input ;
-; Maximum fan-out                             ; 90           ;
-; Total fan-out                               ; 1275         ;
-; Average fan-out                             ; 3.17         ;
-+---------------------------------------------+--------------+
++-----------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                             ;
++---------------------------------------------+-------------------------------------------+
+; Resource                                    ; Usage                                     ;
++---------------------------------------------+-------------------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 189                                       ;
+;                                             ;                                           ;
+; Combinational ALUT usage for logic          ; 273                                       ;
+;     -- 7 input functions                    ; 10                                        ;
+;     -- 6 input functions                    ; 88                                        ;
+;     -- 5 input functions                    ; 24                                        ;
+;     -- 4 input functions                    ; 35                                        ;
+;     -- <=3 input functions                  ; 116                                       ;
+;                                             ;                                           ;
+; Dedicated logic registers                   ; 212                                       ;
+;                                             ;                                           ;
+; I/O pins                                    ; 36                                        ;
+; Total MLAB memory bits                      ; 0                                         ;
+; Total block memory bits                     ; 1048576                                   ;
+;                                             ;                                           ;
+; Total DSP Blocks                            ; 0                                         ;
+;                                             ;                                           ;
+; Total PLLs                                  ; 2                                         ;
+;     -- PLLs                                 ; 2                                         ;
+;                                             ;                                           ;
+; Maximum fan-out node                        ; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|oAUD_BCK ;
+; Maximum fan-out                             ; 237                                       ;
+; Total fan-out                               ; 5711                                      ;
+; Average fan-out                             ; 8.26                                      ;
++---------------------------------------------+-------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                  ;
-+---------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node            ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                 ; Library Name ;
-+---------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------+--------------+
-; |E_Audio                              ; 167 (0)           ; 157 (0)      ; 0                 ; 0          ; 36   ; 0            ; |E_Audio                                                                            ; work         ;
-;    |AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst| ; 70 (70)           ; 82 (82)      ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst                                           ; work         ;
-;    |I2C_AV_Config:u3|                 ; 97 (54)           ; 75 (45)      ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|I2C_AV_Config:u3                                                           ; work         ;
-;       |I2C_Controller:u0|             ; 43 (43)           ; 30 (30)      ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|I2C_AV_Config:u3|I2C_Controller:u0                                         ; work         ;
-;    |clk_18_4:clk_18_4_inst|           ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|clk_18_4:clk_18_4_inst                                                     ; clk_18_4     ;
-;       |clk_18_4_0002:clk_18_4_inst|   ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|clk_18_4:clk_18_4_inst|clk_18_4_0002:clk_18_4_inst                         ; clk_18_4     ;
-;          |altera_pll:altera_pll_i|    ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|clk_18_4:clk_18_4_inst|clk_18_4_0002:clk_18_4_inst|altera_pll:altera_pll_i ; work         ;
-+---------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                          ;
++----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                  ; Library Name ;
++----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |E_Audio                                     ; 273 (0)           ; 212 (0)      ; 1048576           ; 0          ; 36   ; 0            ; |E_Audio                                                                                                                                             ; work         ;
+;    |AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|        ; 70 (70)           ; 82 (82)      ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst                                                                                                            ; work         ;
+;    |I2C_AV_Config:u3|                        ; 80 (46)           ; 59 (37)      ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|I2C_AV_Config:u3                                                                                                                            ; work         ;
+;       |I2C_Controller:u0|                    ; 34 (34)           ; 22 (22)      ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|I2C_AV_Config:u3|I2C_Controller:u0                                                                                                          ; work         ;
+;    |clk_18_4:clk_18_4_inst|                  ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|clk_18_4:clk_18_4_inst                                                                                                                      ; clk_18_4     ;
+;       |clk_18_4_0002:clk_18_4_inst|          ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|clk_18_4:clk_18_4_inst|clk_18_4_0002:clk_18_4_inst                                                                                          ; clk_18_4     ;
+;          |altera_pll:altera_pll_i|           ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|clk_18_4:clk_18_4_inst|clk_18_4_0002:clk_18_4_inst|altera_pll:altera_pll_i                                                                  ; work         ;
+;    |syn_fifo:syn_fifo_inst|                  ; 123 (59)          ; 71 (65)      ; 1048576           ; 0          ; 0    ; 0            ; |E_Audio|syn_fifo:syn_fifo_inst                                                                                                                      ; work         ;
+;       |RAM2_MEMORY:RAM2_MEMORY_inst|         ; 64 (0)            ; 6 (0)        ; 1048576           ; 0          ; 0    ; 0            ; |E_Audio|syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst                                                                                         ; work         ;
+;          |altsyncram:altsyncram_component|   ; 64 (0)            ; 6 (0)        ; 1048576           ; 0          ; 0    ; 0            ; |E_Audio|syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component                                                         ; work         ;
+;             |altsyncram_uv02:auto_generated| ; 64 (0)            ; 6 (6)        ; 1048576           ; 0          ; 0    ; 0            ; |E_Audio|syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated                          ; work         ;
+;                |decode_dla:decode2|          ; 8 (8)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated|decode_dla:decode2       ; work         ;
+;                |decode_dla:rden_decode_b|    ; 8 (8)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated|decode_dla:rden_decode_b ; work         ;
+;                |mux_chb:mux3|                ; 48 (48)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated|mux_chb:mux3             ; work         ;
++----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                             ;
-+--------+--------------+---------+--------------+--------------+---------------------------------+-----------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                 ; IP Include File ;
-+--------+--------------+---------+--------------+--------------+---------------------------------+-----------------+
-; Altera ; altera_pll   ; 14.1    ; N/A          ; N/A          ; |E_Audio|clk_18_4:clk_18_4_inst ; clk_18_4.v      ;
-+--------+--------------+---------+--------------+--------------+---------------------------------+-----------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                     ;
++-------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+------+
+; Name                                                                                                                          ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size    ; MIF  ;
++-------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+------+
+; syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 65536        ; 16           ; 65536        ; 16           ; 1048576 ; None ;
++-------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                ;
++--------+--------------+---------+--------------+--------------+--------------------------------------------------------------+-----------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                              ; IP Include File       ;
++--------+--------------+---------+--------------+--------------+--------------------------------------------------------------+-----------------------+
+; Altera ; altera_pll   ; 14.1    ; N/A          ; N/A          ; |E_Audio|clk_18_4:clk_18_4_inst                              ; clk_18_4.v            ;
+; Altera ; RAM: 2-PORT  ; 15.0    ; N/A          ; N/A          ; |E_Audio|syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst ; Modules/RAM2_MEMORY.v ;
++--------+--------------+---------+--------------+--------------+--------------------------------------------------------------+-----------------------+
 
 
 Encoding Type:  One-Hot
@@ -257,20 +300,28 @@ Encoding Type:  One-Hot
 +----------------+----------------+----------------+----------------+
 
 
-+------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                         ;
-+----------------------------------------------------+-------------------------------------------------------+
-; Register name                                      ; Reason for Removal                                    ;
-+----------------------------------------------------+-------------------------------------------------------+
-; I2C_AV_Config:u3|mI2C_DATA[16,17,19,23]            ; Stuck at GND due to stuck port data_in                ;
-; I2C_AV_Config:u3|I2C_Controller:u0|SD[16,17,19,23] ; Stuck at GND due to stuck port data_in                ;
-; I2C_AV_Config:u3|I2C_Controller:u0|SD[20,21]       ; Merged with I2C_AV_Config:u3|I2C_Controller:u0|SD[18] ;
-; I2C_AV_Config:u3|mI2C_DATA[20,21]                  ; Merged with I2C_AV_Config:u3|mI2C_DATA[18]            ;
-; I2C_AV_Config:u3|mSetup_ST~9                       ; Lost fanout                                           ;
-; I2C_AV_Config:u3|mSetup_ST~10                      ; Lost fanout                                           ;
-; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|BCK_DIV[3]        ; Stuck at GND due to stuck port data_in                ;
-; Total Number of Removed Registers = 15             ;                                                       ;
-+----------------------------------------------------+-------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                       ;
++---------------------------------------------------+------------------------------------------------------+
+; Register name                                     ; Reason for Removal                                   ;
++---------------------------------------------------+------------------------------------------------------+
+; I2C_AV_Config:u3|mI2C_DATA[22,23]                 ; Stuck at GND due to stuck port data_in               ;
+; I2C_AV_Config:u3|mI2C_DATA[20,21]                 ; Stuck at VCC due to stuck port data_in               ;
+; I2C_AV_Config:u3|mI2C_DATA[19]                    ; Stuck at GND due to stuck port data_in               ;
+; I2C_AV_Config:u3|mI2C_DATA[18]                    ; Stuck at VCC due to stuck port data_in               ;
+; I2C_AV_Config:u3|mI2C_DATA[7,8,13..17]            ; Stuck at GND due to stuck port data_in               ;
+; I2C_AV_Config:u3|I2C_Controller:u0|SD[22,23]      ; Stuck at GND due to stuck port data_in               ;
+; I2C_AV_Config:u3|I2C_Controller:u0|SD[20,21]      ; Stuck at VCC due to stuck port data_in               ;
+; I2C_AV_Config:u3|I2C_Controller:u0|SD[19]         ; Stuck at GND due to stuck port data_in               ;
+; I2C_AV_Config:u3|I2C_Controller:u0|SD[18]         ; Stuck at VCC due to stuck port data_in               ;
+; I2C_AV_Config:u3|I2C_Controller:u0|SD[7,8,13..17] ; Stuck at GND due to stuck port data_in               ;
+; I2C_AV_Config:u3|I2C_Controller:u0|SD[6]          ; Merged with I2C_AV_Config:u3|I2C_Controller:u0|SD[5] ;
+; I2C_AV_Config:u3|mI2C_DATA[6]                     ; Merged with I2C_AV_Config:u3|mI2C_DATA[5]            ;
+; I2C_AV_Config:u3|mSetup_ST~9                      ; Lost fanout                                          ;
+; I2C_AV_Config:u3|mSetup_ST~10                     ; Lost fanout                                          ;
+; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|BCK_DIV[3]       ; Stuck at GND due to stuck port data_in               ;
+; Total Number of Removed Registers = 31            ;                                                      ;
++---------------------------------------------------+------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------+
@@ -280,11 +331,29 @@ Encoding Type:  One-Hot
 +--------------------------------+---------------------------+-------------------------------------------+
 ; I2C_AV_Config:u3|mI2C_DATA[23] ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[23] ;
 ;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u3|mI2C_DATA[22] ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[22] ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u3|mI2C_DATA[21] ; Stuck at VCC              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[21] ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u3|mI2C_DATA[20] ; Stuck at VCC              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[20] ;
+;                                ; due to stuck port data_in ;                                           ;
 ; I2C_AV_Config:u3|mI2C_DATA[19] ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[19] ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u3|mI2C_DATA[18] ; Stuck at VCC              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[18] ;
 ;                                ; due to stuck port data_in ;                                           ;
 ; I2C_AV_Config:u3|mI2C_DATA[17] ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[17] ;
 ;                                ; due to stuck port data_in ;                                           ;
 ; I2C_AV_Config:u3|mI2C_DATA[16] ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[16] ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u3|mI2C_DATA[15] ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[15] ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u3|mI2C_DATA[14] ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[14] ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u3|mI2C_DATA[13] ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[13] ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u3|mI2C_DATA[8]  ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[8]  ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u3|mI2C_DATA[7]  ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[7]  ;
 ;                                ; due to stuck port data_in ;                                           ;
 +--------------------------------+---------------------------+-------------------------------------------+
 
@@ -294,32 +363,14 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 157   ;
+; Total registers                              ; 212   ;
 ; Number of registers using Synchronous Clear  ; 57    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 57    ;
+; Number of registers using Asynchronous Clear ; 110   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 40    ;
+; Number of registers using Clock Enable       ; 92    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+------------------------------------------------------------+
-; Inverted Register Statistics                               ;
-+--------------------------------------------------+---------+
-; Inverted Register                                ; Fan out ;
-+--------------------------------------------------+---------+
-; I2C_AV_Config:u3|I2C_Controller:u0|SCLK          ; 2       ;
-; I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[5] ; 20      ;
-; I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[4] ; 19      ;
-; I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[3] ; 27      ;
-; I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[2] ; 22      ;
-; I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[1] ; 21      ;
-; I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[0] ; 25      ;
-; I2C_AV_Config:u3|I2C_Controller:u0|END           ; 5       ;
-; I2C_AV_Config:u3|I2C_Controller:u0|SDO           ; 2       ;
-; Total number of inverted registers = 9           ;         ;
-+--------------------------------------------------+---------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -327,8 +378,19 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |E_Audio|I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[3] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |E_Audio|I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[5] ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |E_Audio|syn_fifo:syn_fifo_inst|status_cnt[8]             ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; Yes        ; |E_Audio|syn_fifo:syn_fifo_inst|data_out[6]               ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                          ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                           ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------+
@@ -614,11 +676,105 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: syn_fifo:syn_fifo_inst ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; DATA_WIDTH     ; 16    ; Signed Integer                             ;
+; ADDR_WIDTH     ; 16    ; Signed Integer                             ;
+; RAM_DEPTH      ; 65536 ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+----------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                 ;
++------------------------------------+----------------------+----------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                              ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                           ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                         ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                         ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                       ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                              ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                                              ;
+; WIDTH_A                            ; 16                   ; Signed Integer                                                       ;
+; WIDTHAD_A                          ; 16                   ; Signed Integer                                                       ;
+; NUMWORDS_A                         ; 65536                ; Signed Integer                                                       ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                              ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                              ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                              ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                              ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                              ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                              ;
+; WIDTH_B                            ; 16                   ; Signed Integer                                                       ;
+; WIDTHAD_B                          ; 16                   ; Signed Integer                                                       ;
+; NUMWORDS_B                         ; 65536                ; Signed Integer                                                       ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                              ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                              ;
+; RDCONTROL_REG_B                    ; CLOCK0               ; Untyped                                                              ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                                              ;
+; OUTDATA_REG_B                      ; CLOCK0               ; Untyped                                                              ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                              ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                              ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                              ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                              ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                              ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                              ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                              ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                                       ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                              ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                              ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                              ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                              ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                              ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                              ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                                              ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                              ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                              ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                              ;
+; CLOCK_ENABLE_INPUT_B               ; BYPASS               ; Untyped                                                              ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                                              ;
+; CLOCK_ENABLE_OUTPUT_B              ; BYPASS               ; Untyped                                                              ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                              ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                              ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                              ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                              ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                              ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                              ;
+; CBXI_PARAMETER                     ; altsyncram_uv02      ; Untyped                                                              ;
++------------------------------------+----------------------+----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                                ;
++-------------------------------------------+-------------------------------------------------------------------------------------+
+; Name                                      ; Value                                                                               ;
++-------------------------------------------+-------------------------------------------------------------------------------------+
+; Number of entity instances                ; 1                                                                                   ;
+; Entity Instance                           ; syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                                           ;
+;     -- WIDTH_A                            ; 16                                                                                  ;
+;     -- NUMWORDS_A                         ; 65536                                                                               ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                        ;
+;     -- WIDTH_B                            ; 16                                                                                  ;
+;     -- NUMWORDS_B                         ; 65536                                                                               ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                                              ;
+;     -- OUTDATA_REG_B                      ; CLOCK0                                                                              ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                           ;
++-------------------------------------------+-------------------------------------------------------------------------------------+
+
+
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "I2C_AV_Config:u3|I2C_Controller:u0"                                                                                                                ;
 +------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port       ; Type   ; Severity ; Details                                                                                                                                      ;
 +------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; RESET      ; Input  ; Info     ; Stuck at VCC                                                                                                                                 ;
 ; W_R        ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
 ; SD_COUNTER ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
 ; SDO        ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
@@ -634,46 +790,39 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------+
-; Port Connectivity Checks: "clk_18_4:clk_18_4_inst" ;
-+------+-------+----------+--------------------------+
-; Port ; Type  ; Severity ; Details                  ;
-+------+-------+----------+--------------------------+
-; rst  ; Input ; Info     ; Stuck at GND             ;
-+------+-------+----------+--------------------------+
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 157                         ;
-;     CLR               ; 28                          ;
+; arriav_ff             ; 212                         ;
+;     CLR               ; 16                          ;
 ;     CLR SCLR          ; 25                          ;
-;     ENA               ; 36                          ;
-;     ENA CLR           ; 4                           ;
+;     ENA               ; 23                          ;
+;     ENA CLR           ; 69                          ;
 ;     SCLR              ; 32                          ;
-;     plain             ; 32                          ;
+;     plain             ; 47                          ;
 ; arriav_io_obuf        ; 4                           ;
-; arriav_lcell_comb     ; 168                         ;
-;     arith             ; 25                          ;
-;         1 data inputs ; 25                          ;
-;     extend            ; 9                           ;
-;         7 data inputs ; 9                           ;
-;     normal            ; 134                         ;
+; arriav_lcell_comb     ; 274                         ;
+;     arith             ; 72                          ;
+;         1 data inputs ; 54                          ;
+;         2 data inputs ; 18                          ;
+;     extend            ; 10                          ;
+;         7 data inputs ; 10                          ;
+;     normal            ; 192                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 12                          ;
-;         3 data inputs ; 14                          ;
-;         4 data inputs ; 14                          ;
-;         5 data inputs ; 25                          ;
-;         6 data inputs ; 66                          ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 11                          ;
+;         3 data inputs ; 30                          ;
+;         4 data inputs ; 35                          ;
+;         5 data inputs ; 24                          ;
+;         6 data inputs ; 88                          ;
 ; boundary_port         ; 36                          ;
 ; generic_pll           ; 2                           ;
+; stratixv_ram_block    ; 128                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 1.81                        ;
+; Max LUT depth         ; 4.50                        ;
+; Average LUT depth     ; 2.00                        ;
 +-----------------------+-----------------------------+
 
 
@@ -682,7 +831,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -691,10 +840,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
-    Info: Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
-    Info: Processing started: Thu Aug 20 11:05:22 2015
+    Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
+    Info: Processing started: Fri Apr 22 10:07:28 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off E_Audio -c E_Audio
-Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Info (12021): Found 1 design units, including 1 entities, in source file modules/ram_dp_ar_aw.v
+    Info (12023): Found entity 1: ram_dp_ar_aw
+Info (12021): Found 1 design units, including 1 entities, in source file modules/syn_fifo.v
+    Info (12023): Found entity 1: syn_fifo
 Info (12021): Found 1 design units, including 1 entities, in source file modules/reset_delay.v
     Info (12023): Found entity 1: Reset_Delay
 Info (12021): Found 1 design units, including 1 entities, in source file modules/i2c_controller.v
@@ -711,10 +864,14 @@ Info (12021): Found 1 design units, including 1 entities, in source file clk_18_
     Info (12023): Found entity 1: clk_18_4
 Info (12021): Found 1 design units, including 1 entities, in source file clk_18_4/clk_18_4_0002.v
     Info (12023): Found entity 1: clk_18_4_0002
+Info (12021): Found 1 design units, including 1 entities, in source file modules/ram_memory.v
+    Info (12023): Found entity 1: RAM_MEMORY
+Info (12021): Found 1 design units, including 1 entities, in source file modules/ram2_memory.v
+    Info (12023): Found entity 1: RAM2_MEMORY
 Warning (12125): Using design file e_audio.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: E_Audio
 Info (12127): Elaborating entity "E_Audio" for the top level hierarchy
-Warning (10034): Output port "LEDR" at e_audio.v(30) has no driver
+Warning (10034): Output port "LEDR[7..3]" at e_audio.v(30) has no driver
 Warning (10665): Bidirectional port "AUD_DACLRCK" at e_audio.v(13) has a one-way connection to bidirectional port "AUD_ADCLRCK"
 Info (12128): Elaborating entity "clk_18_4" for hierarchy "clk_18_4:clk_18_4_inst"
 Info (12128): Elaborating entity "clk_18_4_0002" for hierarchy "clk_18_4:clk_18_4_inst|clk_18_4_0002:clk_18_4_inst"
@@ -783,7 +940,7 @@ Info (12133): Instantiated megafunction "clk_18_4:clk_18_4_inst|clk_18_4_0002:cl
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
 Info (12128): Elaborating entity "I2C_AV_Config" for hierarchy "I2C_AV_Config:u3"
-Warning (10230): Verilog HDL assignment warning at I2C_AV_Config.v(58): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at I2C_AV_Config.v(61): truncated value with size 32 to match size of target (16)
 Warning (10230): Verilog HDL assignment warning at I2C_AV_Config.v(111): truncated value with size 32 to match size of target (6)
 Info (12128): Elaborating entity "I2C_Controller" for hierarchy "I2C_AV_Config:u3|I2C_Controller:u0"
 Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(78): truncated value with size 32 to match size of target (1)
@@ -795,71 +952,95 @@ Warning (10230): Verilog HDL assignment warning at AUDIO_DAC_ADC.v(105): truncat
 Warning (10230): Verilog HDL assignment warning at AUDIO_DAC_ADC.v(113): truncated value with size 32 to match size of target (8)
 Warning (10230): Verilog HDL assignment warning at AUDIO_DAC_ADC.v(121): truncated value with size 32 to match size of target (7)
 Warning (10230): Verilog HDL assignment warning at AUDIO_DAC_ADC.v(140): truncated value with size 32 to match size of target (4)
-Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276004): RAM logic "I2C_AV_Config:u3|Ram0" is uninferred due to inappropriate RAM size
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Proyecto/Ejercicios/Audio/db/E_Audio.rom0_I2C_AV_Config_fe53227f.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (12128): Elaborating entity "syn_fifo" for hierarchy "syn_fifo:syn_fifo_inst"
+Warning (10230): Verilog HDL assignment warning at syn_fifo.v(53): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at syn_fifo.v(62): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at syn_fifo.v(82): truncated value with size 32 to match size of target (17)
+Warning (10230): Verilog HDL assignment warning at syn_fifo.v(86): truncated value with size 32 to match size of target (17)
+Info (12128): Elaborating entity "RAM2_MEMORY" for hierarchy "syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component"
+Info (12130): Elaborated megafunction instantiation "syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component"
+Info (12133): Instantiated megafunction "syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component" with the following parameter:
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK0"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "65536"
+    Info (12134): Parameter "numwords_b" = "65536"
+    Info (12134): Parameter "operation_mode" = "DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_b" = "CLOCK0"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK0"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "widthad_a" = "16"
+    Info (12134): Parameter "widthad_b" = "16"
+    Info (12134): Parameter "width_a" = "16"
+    Info (12134): Parameter "width_b" = "16"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_uv02.tdf
+    Info (12023): Found entity 1: altsyncram_uv02
+Info (12128): Elaborating entity "altsyncram_uv02" for hierarchy "syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated"
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_dla.tdf
+    Info (12023): Found entity 1: decode_dla
+Info (12128): Elaborating entity "decode_dla" for hierarchy "syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated|decode_dla:decode2"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_chb.tdf
+    Info (12023): Found entity 1: mux_chb
+Info (12128): Elaborating entity "mux_chb" for hierarchy "syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated|mux_chb:mux3"
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
     Warning (13035): Inserted always-enabled tri-state buffer between "AUD_BCLK" and its non-tri-state driver.
     Warning (13035): Inserted always-enabled tri-state buffer between "AUD_DACLRCK" and its non-tri-state driver.
-Info (13060): One or more bidirs are fed by always enabled tri-state buffers
-    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidir "AUD_DACLRCK" is moved to its source
+Info (13060): One or more bidirectional pins are fed by always enabled tri-state buffers
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "AUD_BCLK" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "AUD_DACLRCK" is moved to its source
 Warning (13009): TRI or OPNDRN buffers permanently enabled
     Warning (13010): Node "AUD_ADCLRCK~synth"
     Warning (13010): Node "AUD_BCLK~synth"
     Warning (13010): Node "AUD_DACLRCK~synth"
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[0]" is stuck at GND
-    Warning (13410): Pin "LEDR[1]" is stuck at GND
-    Warning (13410): Pin "LEDR[2]" is stuck at GND
     Warning (13410): Pin "LEDR[3]" is stuck at GND
     Warning (13410): Pin "LEDR[4]" is stuck at GND
     Warning (13410): Pin "LEDR[5]" is stuck at GND
     Warning (13410): Pin "LEDR[6]" is stuck at GND
     Warning (13410): Pin "LEDR[7]" is stuck at GND
-    Warning (13410): Pin "LEDR[8]" is stuck at GND
-    Warning (13410): Pin "LEDR[9]" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 2 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file C:/Proyecto/Ejercicios/Audio/E_Audio.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/jeffe/Desktop/Audio/E_Audio.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 6 node(s), including 0 DDIO, 2 PLL, 0 transceiver and 0 LCELL
-Warning: RST port on the PLL is not properly connected on instance clk_18_4:clk_18_4_inst|clk_18_4_0002:clk_18_4_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock.
-    Info: Must be connected
-Warning: RST port on the PLL is not properly connected on instance clk_18_4:clk_18_4_inst|clk_18_4_0002:clk_18_4_inst|altera_pll:altera_pll_i|general[1].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock.
-    Info: Must be connected
-Warning (21074): Design contains 15 input pin(s) that do not drive logic
+    Info (16011): Adding 8 node(s), including 0 DDIO, 2 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 11 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "CLOCK2_50"
     Warning (15610): No output dependent on input pin "CLOCK3_50"
     Warning (15610): No output dependent on input pin "CLOCK4_50"
     Warning (15610): No output dependent on input pin "KEY[1]"
     Warning (15610): No output dependent on input pin "KEY[2]"
     Warning (15610): No output dependent on input pin "KEY[3]"
-    Warning (15610): No output dependent on input pin "SW[1]"
-    Warning (15610): No output dependent on input pin "SW[2]"
     Warning (15610): No output dependent on input pin "SW[3]"
     Warning (15610): No output dependent on input pin "SW[4]"
     Warning (15610): No output dependent on input pin "SW[5]"
     Warning (15610): No output dependent on input pin "SW[6]"
     Warning (15610): No output dependent on input pin "SW[7]"
-    Warning (15610): No output dependent on input pin "SW[8]"
-    Warning (15610): No output dependent on input pin "SW[9]"
-Info (21057): Implemented 256 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 487 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 19 input pins
     Info (21059): Implemented 13 output pins
     Info (21060): Implemented 4 bidirectional pins
-    Info (21061): Implemented 218 logic cells
+    Info (21061): Implemented 321 logic cells
+    Info (21064): Implemented 128 RAM segments
     Info (21065): Implemented 2 PLLs
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 52 warnings
-    Info: Peak virtual memory: 698 megabytes
-    Info: Processing ended: Thu Aug 20 11:05:42 2015
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 43 warnings
+    Info: Peak virtual memory: 796 megabytes
+    Info: Processing ended: Fri Apr 22 10:07:48 2016
     Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:33
+    Info: Total CPU time (on all processors): 00:00:46
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Proyecto/Ejercicios/Audio/E_Audio.map.smsg.
+The suppressed messages can be found in C:/Users/jeffe/Desktop/Audio/E_Audio.map.smsg.
 
 

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;FFT_LIB/FFT_includes.c&apos; to &apos;FFT_include.c&apos;" description="Rename resource &apos;FFT_includes.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="FFT_includes.c" name="FFT_include.c" stamp="1458153853210" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;FFT_LIB/FFT_includes.h&apos; to &apos;FFT_include.h&apos;" description="Rename resource &apos;FFT_includes.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="FFT_includes.h" name="FFT_include.h" stamp="1458153860294" updateReferences="true"/>
+</session>

@@ -1,0 +1,24 @@
+LINKS DE INTERES!!
+
+DATAMOVER
+http://rocketboards.org/foswiki/view/Projects/Datamover
+
+BOOT FROM EPCS
+https://www.altera.com/support/support-resources/knowledge-base/solutions/rd11192013_118.html
+
+CORNELL
+http://people.ece.cornell.edu/land/courses/ece5760/FinalProjects/f2010/np276_ksp55_aj355/np276_ksp55_aj355/
+https://courses.cit.cornell.edu/ece576/FinalProjects/f2008/pae26_jsc59/pae26_jsc59/
+
+OVERLAPPING
+http://blog.prosig.com/2009/07/20/data-windows-what-why-and-when/
+http://blog.prosig.com/2011/08/30/understanding-windowing-and-overlapping-analysis/
+
+WINDOWING
+http://dmr.ath.cx/sound/window/
+
+FFT LIBRARY
+http://userpages.umbc.edu/~squire/cs455_l18.html
+
+// MEL
+http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/

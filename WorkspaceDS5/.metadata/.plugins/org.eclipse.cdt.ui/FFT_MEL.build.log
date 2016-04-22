@@ -1,0 +1,80 @@
+22:53:58 **** Build of configuration Debug for project FFT_MEL ****
+make all 
+'Building file: ../FFT_includes.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O1 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FFT_includes.d" -MT"FFT_includes.d" -o "FFT_includes.o" "../FFT_includes.c"
+../FFT_includes.c: In function 'save_type':
+../FFT_includes.c:54:2: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  length = strlen(inpfile);
+  ^
+../FFT_includes.c:54:11: warning: incompatible implicit declaration of built-in function 'strlen' [enabled by default]
+  length = strlen(inpfile);
+           ^
+../FFT_includes.c: In function 'melcepstrum_conversion':
+../FFT_includes.c:95:9: warning: implicit declaration of function 'log10' [-Wimplicit-function-declaration]
+         mel[i] = log10(mel[i]);
+         ^
+../FFT_includes.c:95:18: warning: incompatible implicit declaration of built-in function 'log10' [enabled by default]
+         mel[i] = log10(mel[i]);
+                  ^
+../FFT_includes.c: In function 'dct':
+../FFT_includes.c:127:13: warning: implicit declaration of function 'cos' [-Wimplicit-function-declaration]
+             out[i] += in[j]*cos(i*pn*(j+0.5));
+             ^
+../FFT_includes.c:127:29: warning: incompatible implicit declaration of built-in function 'cos' [enabled by default]
+             out[i] += in[j]*cos(i*pn*(j+0.5));
+                             ^
+../FFT_includes.c: At top level:
+../FFT_includes.c:31:14: warning: 'A' defined but not used [-Wunused-variable]
+ static float A[2*N];
+              ^
+../FFT_includes.c:32:14: warning: 'Z' defined but not used [-Wunused-variable]
+ static float Z[2*N];
+              ^
+'Finished building: ../FFT_includes.c'
+' '
+'Building file: ../fft256.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O1 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fft256.d" -MT"fft256.d" -o "fft256.o" "../fft256.c"
+'Finished building: ../fft256.c'
+' '
+'Building file: ../main.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O1 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:108:3: warning: passing argument 3 of 'save_type' makes pointer from integer without a cast [enabled by default]
+   save_type(argv[2], type, enable);
+   ^
+In file included from ../main.c:19:0:
+../FFT_includes.h:38:6: note: expected 'int *' but argument is of type 'int'
+ void save_type(char * inpfile, char * outpfile, int * enb);
+      ^
+../main.c:249:4: warning: implicit declaration of function 'fft256' [-Wimplicit-function-declaration]
+    fft256(Z); /* transform */
+    ^
+../main.c:371:2: warning: implicit declaration of function 'fabs' [-Wimplicit-function-declaration]
+  sum_mel = (mfcc[0] + fabs(mfcc[1]));
+  ^
+../main.c:371:23: warning: incompatible implicit declaration of built-in function 'fabs' [enabled by default]
+  sum_mel = (mfcc[0] + fabs(mfcc[1]));
+                       ^
+../main.c:64:12: warning: variable 'swrite' set but not used [-Wunused-but-set-variable]
+  int sread,swrite,k,i,sect,sectcnt,first;
+            ^
+../main.c:108:12: warning: 'enable' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   save_type(argv[2], type, enable);
+            ^
+../main.c:326:8: warning: 'smax' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  printf("smin=%f, smax=%f, savg=%f \n", smin, smax, savg);
+        ^
+../main.c:326:8: warning: 'smin' may be used uninitialized in this function [-Wmaybe-uninitialized]
+'Finished building: ../main.c'
+' '
+'Building target: FFT_MEL'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -lm -lpthread -o "FFT_MEL"  ./FFT_includes.o ./fft256.o ./main.o   
+'Finished building target: FFT_MEL'
+' '
+
+22:53:59 Build Finished (took 887ms)
+

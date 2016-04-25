@@ -43,14 +43,17 @@ wire		   AUD_CTRL_CLK;	//	For Audio Controller
  
 wire [15:0]ADC_L; //= 16'hffff;
 wire [15:0]ADC_R;
-wire [15:0]DAC_L;
+wire  [15:0]DAC_L;
+wire [15:0]DAC_L_sync;
 wire [15:0]DAC_R;
 wire clock_50;
 wire clk_18_4;
 wire signed_data;
 wire signed_data1;
 wire signed_data2;
-
+wire clk_fifo_read;
+wire clk_fifo_write;
+wire clk_fifo_read_sync,AUD_BCLK_sync,clk_fifo_write_sync;
 assign AUD_XCK	       =	clk_18_4;
 assign AUD_ADCLRCK	 =	AUD_DACLRCK;
 
@@ -58,19 +61,6 @@ assign AUD_ADCLRCK	 =	AUD_DACLRCK;
 //.iAUD_extR((SW[1]==0)? 16'd0:ADC_R) ,			// input [DATA_WIDTH-1:0] iAUD_extR_sig
 //.iAUD_extL((SW[2]==0)? 16'd0:ADC_L) ,			// input [DATA_WIDTH-1:0] iAUD_extL_sig
 
-
-assign signed_data =(SW[0]==0)? 1'b0: 
-							1'b1;
-							
-assign signed_data1 =(SW[1]==0)? 1'b0: ////ESCRITURA 
-							1'b1;
-
-assign signed_data2 =(SW[2]==0)? 1'b0: //LECTURA
-							1'b1;
-						  					
-assign LEDR[0]= signed_data;
-assign LEDR[1]= signed_data1;
-assign LEDR[2]= signed_data2;
 
 //=======================================================
 //  Structural coding
@@ -93,38 +83,862 @@ I2C_AV_Config 		u3			//	Host Side
 	.I2C_SDAT	( FPGA_I2C_SDAT )		
 );
 
+wire readyADC;
+wire DAC_sampler;
+// de alta a baja
+reg [15:0]DAC_L_d;
+wire [15:0]DAC_L_d2;
+wire [15:0]DAC_L_d3;
 AUDIO_DAC_ADC AUDIO_DAC_ADC_inst
 (
 	.oAUD_BCK(AUD_BCLK) ,		// output  oAUD_BCK_sig
 	.oAUD_DATA(AUD_DACDAT) ,	// output  oAUD_DATA_sig
 	.oAUD_LRCK(AUD_DACLRCK) ,	// output  oAUD_LRCK_sig
 	.iAUD_ADCDAT(AUD_ADCDAT) ,	// input  iAUD_ADCDAT_sig
-	
+	.readyADC(	readyADC),
 	//ADC L and R
-	.oAUD_inL(ADC_L) ,			// output [DATA_WIDTH-1:0] oAUD_inL_sig
-	.oAUD_inR(ADC_R) ,			// output [DATA_WIDTH-1:0] oAUD_inR_sig
+	.oAUD_inL(ADC_L[15:0]) ,			// output [DATA_WIDTH-1:0] oAUD_inL_sig
+	.oAUD_inR(ADC_R[15:0]) ,			// output [DATA_WIDTH-1:0] oAUD_inR_sig
 	
 	// DAC L and R
-	.iAUD_extR((SW[8]==0)? 16'd0:ADC_R) ,			// input [DATA_WIDTH-1:0] iAUD_extR_sig
-	.iAUD_extL((SW[9]==0)? 16'd0:DAC_L) ,			// input [DATA_WIDTH-1:0] iAUD_extL_sig
+	.DAC_sampler(DAC_sampler),
+	.iAUD_extR(DAC_L_d3[15:0]) ,			// input [DATA_WIDTH-1:0] iAUD_extR_sig
+	.iAUD_extL(DAC_L_d3[15:0]) ,			// input [DATA_WIDTH-1:0] iAUD_extL_sig
 
 	.iCLK_18_4(clk_18_4) ,		// input  iCLK_18_4_sig
 	.iRST_N(KEY[0]) 				// input  iRST_N_sig
 );
 
+//Filter: cutoff=0.100000 
+//Filter: cutoff=0.200000 
+IIR4 filter1( 
+     .audio_out (DAC_L_d3[15:0]), 
+     .audio_in (ADC_L[15:0]), 
+     .scale (3'd2), 
+     .b1 (18'h149), 
+     .b2 (18'h0), 
+     .b3 (18'h3FD6E), 
+     .b4 (18'h0), 
+     .b5 (18'h149), 
+     .a2 (18'hCD98), 
+     .a3 (18'h2F54E), 
+     .a4 (18'hA42E), 
+     .a5 (18'h3D6F5), 
+     .state_clk(clk_18_4), 
+     .lr_clk(AUD_DACLRCK),  
+     .reset(reset) 
+) ; //end filter 
 
-syn_fifo syn_fifo_inst
+
+//syn_fifo syn_fifo_in st
+//(
+//	.clk(clock_50) ,	// input  clk_sig
+//	.rst(~KEY[0]) ,	// input  rst_sig //si se reinicia emite ruido
+//	.wr_cs(clk_fifo_write) ,	// input  wr_cs_sig
+//	.rd_cs(clk_fifo_read_sync) ,	// input  rd_cs_sig
+//	.data_in(ADC_L[15:0]) ,	// input [DATA_WIDTH-1:0] data_in_sig
+//	.rd_en(1'b1) ,	// input  rd_en_sig		//primero	
+//	.wr_en(1'b1) ,	// input  wr_en_sig		//segundo
+//	.data_out(DAC_L[15:0]) ,	// output [DATA_WIDTH-1:0] data_out_sig
+//	.empty(LEDR[8]) ,	// output  empty_sig
+//	.full(LEDR[9]) 	// output  full_sig
+//);
+ 
+
+frecGen frecGen_inst
 (
-	.clk(AUD_BCLK) ,	// input  clk_sig
-	.rst(~KEY[0]) ,	// input  rst_sig //si se reinicia emite ruido
-	.wr_cs(signed_data1) ,	// input  wr_cs_sig
-	.rd_cs(signed_data2) ,	// input  rd_cs_sig
-	.data_in(ADC_L) ,	// input [DATA_WIDTH-1:0] data_in_sig
-	.rd_en(signed_data2) ,	// input  rd_en_sig		//primero	
-	.wr_en(signed_data1) ,	// input  wr_en_sig		//segundo
-	.data_out(DAC_L) ,	// output [DATA_WIDTH-1:0] data_out_sig
-	.empty(LEDR[8]) ,	// output  empty_sig
-	.full(LEDR[9]) 	// output  full_sig
+	.clock(CLOCK_50) ,	// input  clock_sig
+	.IN(32'd520) ,	// input [31:0] IN_sig
+	.OUT(clk_fifo_write) 	// output  OUT_sig
+); 
+
+frecGen frecGen_inst1
+(
+	.clock(CLOCK_50) ,	// input  clock_sig
+	.IN(32'd1562) ,	// input [31:0] IN_sig
+	.OUT(clk_fifo_read) 	// output  OUT_sig
+);
+
+
+wire full;
+wire empty;
+
+fifoaudio	fifoaudio_inst (
+	.aclr ( 1'b0 ),
+	.clock ( AUD_BCLK ),
+	.data (  ADC_L),
+	.rdreq (empty? 0 :clk_fifo_read_sync),
+	.wrreq (full? 0 : clk_fifo_write_sync ),
+	.empty (  ),
+	.full ( ),
+	
+	.almost_empty ( empty ),
+	.almost_full ( full ),
+	.q ( DAC_L_d2 ),
+	.usedw (  ) 
+);  
+
+async_trap_and_reset async_trap_and_reset_inst
+(
+	.async_sig(readyADC) ,	// input  async_sig_sig
+	.outclk(AUD_BCLK) ,	// input  outclk_sig
+	.out_sync_sig(clk_fifo_write_sync) ,	// output  out_sync_sig_sig
+	.auto_reset(1'b1) ,	// input  auto_reset_sig
+	.reset(1'b1) 	// input  reset_sig
+);
+
+
+async_trap_and_reset async_trap_and_reset_inst2
+(
+	.async_sig(DAC_sampler) ,	// input  async_sig_sig
+	.outclk(AUD_BCLK) ,	// input  outclk_sig
+	.out_sync_sig(clk_fifo_read_sync) ,	// output  out_sync_sig_sig
+	.auto_reset(1'b1) ,	// input  auto_reset_sig
+	.reset(1'b1) 	// input  reset_sig
 );
 
 endmodule
+
+
+///////////////////////////////////////////////////////////////////
+/// Second order IIR filter ///////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+module IIR2 (audio_out, audio_in, 
+			scale, 
+			b1, b2, b3, 
+			a2, a3, 
+			state_clk, lr_clk, reset) ;
+// The filter is a "Direct Form II Transposed"
+// 
+//    a(1)*y(n) = b(1)*x(n) + b(2)*x(n-1) + ... + b(nb+1)*x(n-nb)
+//                          - a(2)*y(n-1) - ... - a(na+1)*y(n-na)
+// 
+//    If a(1) is not equal to 1, FILTER normalizes the filter
+//    coefficients by a(1). 
+//
+// one audio sample, 16 bit, 2's complement
+output reg signed [15:0] audio_out ;
+// one audio sample, 16 bit, 2's complement
+input wire signed [15:0] audio_in ;
+// shift factor for output
+input wire [2:0] scale ;
+// filter coefficients
+input wire signed [17:0] b1, b2, b3, a2, a3 ;
+input wire state_clk, lr_clk, reset ;
+
+/// filter vars //////////////////////////////////////////////////
+wire signed [17:0] f1_mac_new, f1_coeff_x_value ;
+reg signed [17:0] f1_coeff, f1_mac_old, f1_value ;
+
+// input to filter
+reg signed [17:0] x_n ;
+// input history x(n-1), x(n-2)
+reg signed [17:0] x_n1, x_n2 ; 
+
+// output history: y_n is the new filter output, BUT it is
+// immediately stored in f1_y_n1 for the next loop through 
+// the filter state machine
+reg signed [17:0] f1_y_n1, f1_y_n2 ; 
+
+// MAC operation
+signed_mult f1_c_x_v (f1_coeff_x_value, f1_coeff, f1_value);
+assign f1_mac_new = f1_mac_old + f1_coeff_x_value ;
+
+// state variable 
+reg [3:0] state ;
+//oneshot gen to sync to audio clock
+reg last_clk ; 
+///////////////////////////////////////////////////////////////////
+
+//Run the filter state machine FAST so that it completes in one 
+//audio cycle
+always @ (posedge state_clk) 
+begin
+	if (reset)
+	begin
+		state <= 4'd15 ; //turn off the state machine	
+	end
+	
+	else begin
+		case (state)
+	
+			1: 
+			begin
+				// set up b1*x(n)
+				f1_mac_old <= 18'd0 ;
+				f1_coeff <= b1 ;
+				f1_value <= {audio_in, 2'b0} ;				
+				//register input
+				x_n <= {audio_in, 2'b0} ;				
+				// next state
+				state <= 4'd2;
+			end
+	
+			2: 
+			begin
+				// set up b2*x(n-1) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= b2 ;
+				f1_value <= x_n1 ;				
+				// next state
+				state <= 4'd3;
+			end
+			
+			3:
+			begin
+				// set up b3*x(n-2) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= b3 ;
+				f1_value <= x_n2 ;
+				// next state
+				state <= 4'd6;
+			end
+						
+			6: 
+			begin
+				// set up -a2*y(n-1) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= a2 ;
+				f1_value <= f1_y_n1 ; 
+				//next state 
+				state <= 4'd7;
+			end
+			
+			7: 
+			begin
+				// set up -a3*y(n-2) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= a3 ;
+				f1_value <= f1_y_n2 ; 				
+				//next state 
+				state <= 4'd10;
+			end
+			
+			10: 
+			begin
+				// get the output 
+				// and put it in the LAST output var
+				// for the next pass thru the state machine
+				//mult by four because of coeff scaling
+				// to prevent overflow
+				f1_y_n1 <= f1_mac_new<<scale ; 
+				audio_out <= f1_y_n1[17:2] ;				
+				// update output history
+				f1_y_n2 <= f1_y_n1 ;				
+				// update input history
+				x_n1 <= x_n ;
+				x_n2 <= x_n1 ;
+				//next state 
+				state <= 4'd15;
+			end
+			
+			15:
+			begin
+				// wait for the audio clock and one-shot it
+				if (lr_clk && last_clk==1)
+				begin
+					state <= 4'd1 ;
+					last_clk <= 1'h0 ;
+				end
+				// reset the one-shot memory
+				else if (~lr_clk && last_clk==0)
+				begin
+					last_clk <= 1'h1 ;				
+				end	
+			end
+			
+			default:
+			begin
+				// default state is end state
+				state <= 4'd15 ;
+			end
+		endcase
+	end
+end	
+
+endmodule
+
+
+///////////////////////////////////////////////////////////////////
+/// Fourth order IIR filter ///////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+module IIR4 (audio_out, audio_in, 
+			scale, 
+			b1, b2, b3, b4, b5, 
+			a2, a3, a4, a5, 
+			state_clk, lr_clk, reset) ;
+// The filter is a "Direct Form II Transposed"
+// 
+//    a(1)*y(n) = b(1)*x(n) + b(2)*x(n-1) + ... + b(nb+1)*x(n-nb)
+//                          - a(2)*y(n-1) - ... - a(na+1)*y(n-na)
+// 
+//    If a(1) is not equal to 1, FILTER normalizes the filter
+//    coefficients by a(1). 
+//
+// one audio sample, 16 bit, 2's complement
+output reg signed [15:0] audio_out ;
+// one audio sample, 16 bit, 2's complement
+input wire signed [15:0] audio_in ;
+// shift factor for output
+input wire [2:0] scale ;
+// filter coefficients
+input wire signed [17:0] b1, b2, b3, b4, b5, a2, a3, a4, a5 ;
+input wire state_clk, lr_clk, reset ;
+
+/// filter vars //////////////////////////////////////////////////
+wire signed [17:0] f1_mac_new, f1_coeff_x_value ;
+reg signed [17:0] f1_coeff, f1_mac_old, f1_value ;
+
+// input to filter
+reg signed [17:0] x_n ;
+// input history x(n-1), x(n-2)
+reg signed [17:0] x_n1, x_n2, x_n3, x_n4 ; 
+
+// output history: y_n is the new filter output, BUT it is
+// immediately stored in f1_y_n1 for the next loop through 
+// the filter state machine
+reg signed [17:0] f1_y_n1, f1_y_n2, f1_y_n3, f1_y_n4 ; 
+
+// MAC operation
+signed_mult f1_c_x_v (f1_coeff_x_value, f1_coeff, f1_value);
+assign f1_mac_new = f1_mac_old + f1_coeff_x_value ;
+
+// state variable 
+reg [3:0] state ;
+//oneshot gen to sync to audio clock
+reg last_clk ; 
+///////////////////////////////////////////////////////////////////
+
+//Run the filter state machine FAST so that it completes in one 
+//audio cycle
+always @ (posedge state_clk) 
+begin
+	if (reset)
+	begin
+		state <= 4'd15 ; //turn off the state machine	
+	end
+	
+	else begin
+		case (state)
+	
+			1: 
+			begin
+				// set up b1*x(n)
+				f1_mac_old <= 18'd0 ;
+				f1_coeff <= b1 ;
+				f1_value <= {audio_in, 2'b0} ;				
+				//register input
+				x_n <= {audio_in, 2'b0} ;				
+				// next state
+				state <= 4'd2;
+			end
+	
+			2: 
+			begin
+				// set up b2*x(n-1) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= b2 ;
+				f1_value <= x_n1 ;				
+				// next state
+				state <= 4'd3;
+			end
+			
+			3:
+			begin
+				// set up b3*x(n-2) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= b3 ;
+				f1_value <= x_n2 ;
+				// next state
+				state <= 4'd4;
+			end
+			
+			4:
+			begin
+				// set up b4*x(n-3) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= b4 ;
+				f1_value <= x_n3 ;
+				// next state
+				state <= 4'd5;
+			end
+			
+			5:
+			begin
+				// set up b5*x(n-4) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= b5 ;
+				f1_value <= x_n4 ;
+				// next state
+				state <= 4'd6;
+			end
+						
+			6: 
+			begin
+				// set up -a2*y(n-1) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= a2 ;
+				f1_value <= f1_y_n1 ; 
+				//next state 
+				state <= 4'd7;
+			end
+			
+			7: 
+			begin
+				// set up -a3*y(n-2) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= a3 ;
+				f1_value <= f1_y_n2 ; 				
+				//next state 
+				state <= 4'd8;
+			end
+			
+			8: 
+			begin
+				// set up -a4*y(n-3) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= a4 ;
+				f1_value <= f1_y_n3 ; 				
+				//next state 
+				state <= 4'd9;
+			end
+			
+			9: 
+			begin
+				// set up -a5*y(n-4) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= a5 ;
+				f1_value <= f1_y_n4 ; 				
+				//next state 
+				state <= 4'd10;
+			end
+			
+			10: 
+			begin
+				// get the output 
+				// and put it in the LAST output var
+				// for the next pass thru the state machine
+				//mult by four because of coeff scaling
+				// to prevent overflow
+				f1_y_n1 <= f1_mac_new<<scale ; 
+				audio_out <= f1_y_n1[17:2] ;				
+				// update output history
+				f1_y_n2 <= f1_y_n1 ;
+				f1_y_n3 <= f1_y_n2 ;
+				f1_y_n4 <= f1_y_n3 ;				
+				// update input history
+				x_n1 <= x_n ;
+				x_n2 <= x_n1 ;
+				x_n3 <= x_n2 ;
+				x_n4 <= x_n3 ;
+				//next state 
+				state <= 4'd15;
+			end
+			
+			15:
+			begin
+				// wait for the audio clock and one-shot it
+				if (lr_clk && last_clk==1)
+				begin
+					state <= 4'd1 ;
+					last_clk <= 1'h0 ;
+				end
+				// reset the one-shot memory
+				else if (~lr_clk && last_clk==0)
+				begin
+					last_clk <= 1'h1 ;				
+				end	
+			end
+			
+			default:
+			begin
+				// default state is end state
+				state <= 4'd15 ;
+			end
+		endcase
+	end
+end	
+
+endmodule
+
+///////////////////////////////////////////////////////////////////
+/// Sixth order IIR filter ///////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+module IIR6 (audio_out, audio_in, 
+			scale, 
+			b1, b2, b3, b4, b5, b6, b7,
+			a2, a3, a4, a5, a6, a7,
+			state_clk, lr_clk, reset) ;
+// The filter is a "Direct Form II Transposed"
+// 
+//    a(1)*y(n) = b(1)*x(n) + b(2)*x(n-1) + ... + b(nb+1)*x(n-nb)
+//                          - a(2)*y(n-1) - ... - a(na+1)*y(n-na)
+// 
+//    If a(1) is not equal to 1, FILTER normalizes the filter
+//    coefficients by a(1). 
+//
+// one audio sample, 16 bit, 2's complement
+output reg signed [15:0] audio_out ;
+// one audio sample, 16 bit, 2's complement
+input wire signed [15:0] audio_in ;
+// shift factor for output
+input wire [2:0] scale ;
+// filter coefficients
+input wire signed [17:0] b1, b2, b3, b4, b5, b6, b7, a2, a3, a4, a5, a6, a7 ;
+input wire state_clk, lr_clk, reset ;
+
+/// filter vars //////////////////////////////////////////////////
+wire signed [17:0] f1_mac_new, f1_coeff_x_value ;
+reg signed [17:0] f1_coeff, f1_mac_old, f1_value ;
+
+// input to filter
+reg signed [17:0] x_n ;
+// input history x(n-1), x(n-2)
+reg signed [17:0] x_n1, x_n2, x_n3, x_n4, x_n5, x_n6 ; 
+
+// output history: y_n is the new filter output, BUT it is
+// immediately stored in f1_y_n1 for the next loop through 
+// the filter state machine
+reg signed [17:0] f1_y_n1, f1_y_n2, f1_y_n3, f1_y_n4, f1_y_n5, f1_y_n6 ; 
+
+// MAC operation
+signed_mult f1_c_x_v (f1_coeff_x_value, f1_coeff, f1_value);
+assign f1_mac_new = f1_mac_old + f1_coeff_x_value ;
+
+// state variable 
+reg [3:0] state ;
+//oneshot gen to sync to audio clock
+reg last_clk ; 
+///////////////////////////////////////////////////////////////////
+
+//Run the filter state machine FAST so that it completes in one 
+//audio cycle
+always @ (posedge state_clk) 
+begin
+	if (reset)
+	begin
+		state <= 4'd15 ; //turn off the state machine	
+	end
+	
+	else begin
+		case (state)
+	
+			1: 
+			begin
+				// set up b1*x(n)
+				f1_mac_old <= 18'd0 ;
+				f1_coeff <= b1 ;
+				f1_value <= {audio_in, 2'b0} ;				
+				//register input
+				x_n <= {audio_in, 2'b0} ;				
+				// next state
+				state <= 4'd2;
+			end
+	
+			2: 
+			begin
+				// set up b2*x(n-1) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= b2 ;
+				f1_value <= x_n1 ;				
+				// next state
+				state <= 4'd3;
+			end
+			
+			3:
+			begin
+				// set up b3*x(n-2) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= b3 ;
+				f1_value <= x_n2 ;
+				// next state
+				state <= 4'd4;
+			end
+			
+			4:
+			begin
+				// set up b4*x(n-3) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= b4 ;
+				f1_value <= x_n3 ;
+				// next state
+				state <= 4'd5;
+			end
+			
+			5:
+			begin
+				// set up b5*x(n-4) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= b5 ;
+				f1_value <= x_n4 ;
+				// next state
+				state <= 4'd6;
+			end
+						
+			6: 
+			begin
+				// set up b6*x(n-5) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= b6 ;
+				f1_value <= x_n5 ;
+				// next state
+				state <= 4'd7;
+			
+			end
+			
+			7: 
+			begin
+				// set up b7*x(n-6) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= b7 ;
+				f1_value <= x_n6 ;
+				// next state
+				state <= 4'd8;
+			
+			end
+			
+			8:
+			begin
+				// set up -a2*y(n-1) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= a2 ;
+				f1_value <= f1_y_n1 ; 
+				//next state 
+				state <= 4'd9;
+			end
+			
+			9: 
+			begin
+				// set up -a3*y(n-2) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= a3 ;
+				f1_value <= f1_y_n2 ; 				
+				//next state 
+				state <= 4'd10;
+			end
+			
+			4'd10: 
+			begin
+				// set up -a4*y(n-3) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= a4 ;
+				f1_value <= f1_y_n3 ; 				
+				//next state 
+				state <= 4'd11;
+			end
+			
+			4'd11: 
+			begin
+				// set up -a5*y(n-4) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= a5 ;
+				f1_value <= f1_y_n4 ; 				
+				//next state 
+				state <= 4'd12;
+			end
+			
+			4'd12: 
+			begin
+				// set up -a6*y(n-5) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= a6 ;
+				f1_value <= f1_y_n5 ; 				
+				//next state 
+				state <= 4'd13;
+			end
+			
+			13: 
+			begin
+				// set up -a7*y(n-6) 
+				f1_mac_old <= f1_mac_new ;
+				f1_coeff <= a7 ;
+				f1_value <= f1_y_n6 ; 				
+				//next state 
+				state <= 4'd14;
+			end
+			
+			14: 
+			begin
+				// get the output 
+				// and put it in the LAST output var
+				// for the next pass thru the state machine
+				//mult by four because of coeff scaling
+				// to prevent overflow
+				f1_y_n1 <= f1_mac_new<<scale ; 
+				audio_out <= f1_y_n1[17:2] ;				
+				// update output history
+				f1_y_n2 <= f1_y_n1 ;
+				f1_y_n3 <= f1_y_n2 ;
+				f1_y_n4 <= f1_y_n3 ;
+				f1_y_n5 <= f1_y_n4 ;
+				f1_y_n6 <= f1_y_n5 ;				
+				// update input history
+				x_n1 <= x_n ;
+				x_n2 <= x_n1 ;
+				x_n3 <= x_n2 ;
+				x_n4 <= x_n3 ;
+				x_n5 <= x_n4 ;
+				x_n6 <= x_n5 ;
+				//next state 
+				state <= 4'd15;
+			end
+			
+			15:
+			begin
+				// wait for the audio clock and one-shot it
+				if (lr_clk && last_clk==1)
+				begin
+					state <= 4'd1 ;
+					last_clk <= 1'h0 ;
+				end
+				// reset the one-shot memory
+				else if (~lr_clk && last_clk==0)
+				begin
+					last_clk <= 1'h1 ;				
+				end	
+			end
+			
+			default:
+			begin
+				// default state is end state
+				state <= 4'd15 ;
+			end
+		endcase
+	end
+end	
+
+endmodule
+
+///////////////////////////////////////////////////
+//// signed mult of 2.16 format 2'comp ////////////
+///////////////////////////////////////////////////
+module signed_mult (out, a, b);
+
+	output 		[17:0]	out;
+	input 	signed	[17:0] 	a;
+	input 	signed	[17:0] 	b;
+	
+	wire	signed	[17:0]	out;
+	wire 	signed	[35:0]	mult_out;
+
+	assign mult_out = a * b;
+	//assign out = mult_out[33:17];
+	assign out = {mult_out[35], mult_out[32:16]};
+endmodule
+//////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////
+//// Time weighted average amplitude (2'comp) ///////
+/////////////////////////////////////////////////////
+// dk_const    e-folding time of average			         
+// 3			~8 samples
+// 4			15 
+// 5			32
+// 6			64
+// 7			128 -- 2.7 mSec at 48kHz
+// 8			256 -- 5.3 mSec (useful for music/voice)
+// 9			512 -- 10.5 mSec (useful for music/voice)
+// 10			1024 -- 21 mSec (useful for music/voice)
+// 11			2048 -- 42 mSec
+module average (out, in, dk_const, clk);
+
+	output reg signed [15:0] out ;
+	input wire signed [15:0] in ;
+	input wire [3:0] dk_const ;
+	input wire clk;
+	
+	wire signed  [17:0] new_out ;
+	//first order lowpass of absolute value of input
+	assign new_out = out - (out>>>dk_const) + ((in[15]?-in:in)>>>dk_const) ;
+	always @(posedge clk)
+	begin
+		 out <= new_out ;
+	end
+endmodule
+//////////////////////////////////////////////////
+
+/* matlab program to generate the filter header 
+%18-bit, 16-bit fraction,  2's comp conversion
+clear all
+figure(1);clf;
+clc
+
+%The scale has to be adjusted so that filter coefficients are
+% -1.0<coeff<1.0
+%Scaling performed is 2^(-scale)
+scale = 2;
+%For lowpass, set equal to normalized Freq (cutoff/(Fs/2))
+%For bandpass, set equal to normalized Freq vector ([low high]/(Fs/2))
+freq = [0.25] ;
+%Filter order:
+%    use 2,4 for lowpass 
+%        1,2 for bandpass
+%NOTE that for a bandpass filter (order) poles are generated for the high
+%and low cutoffs, so the total order is (order)*2
+order = 6;
+
+%could also use butter, or cheby1 or cheby2 or besself
+% but note that besself is lowpass only!
+[b, a] = butter(order, freq) ;
+%[b, a] = cheby1(order, 0.1, freq) ;
+%[b, a] = besself(order, freq) ;
+b = b * (2^-scale) ;
+a = -a * (2^-scale) ;
+
+disp(' ')
+fprintf('//Filter: cutoff=%f \n',freq)
+sorder = order*length(freq);
+if sorder==2
+    scstr = 'IIR2 filter(';
+elseif sorder==4
+    scstr = 'IIR4 filter('; 
+elseif sorder==6
+    scstr = 'IIR6 filter('; 
+else
+    error('order*length(freq) must equal 2 4 or 6')
+end
+fprintf('%s \n',scstr); 
+fprintf('     .audio_out (your_out), \n')
+fprintf('     .audio_in (your_in), \n')
+fprintf('     .scale (3''d%1d), \n', scale)
+for i=1:length(b)
+    if b(i)>=0
+        fprintf('     .b%1d (18''h%s), \n', i, dec2hex(fix(2^16*b(i)))) ;
+    else
+        fprintf('     .b%1d (18''h%s), \n', i, dec2hex(bitcmp(fix(2^16*-b(i)),18)+1));
+    end
+end
+
+for i=2:length(a)
+    if a(i)>=0
+        fprintf('     .a%1d (18''h%s), \n', i, dec2hex(fix(2^16*a(i))))
+    else
+        fprintf('     .a%1d (18''h%s), \n', i,dec2hex(bitcmp(fix(2^16*-a(i)),18)+1))
+    end
+end
+fprintf('     .state_clk(AUD_CTRL_CLK), \n');
+fprintf('     .lr_clk(AUD_DACLRCK), \n');
+fprintf('     .reset(reset) \n');
+fprintf(') ; //end filter \n');
+
+disp(' ')
+disp('CHECK scaling! all b''s and a''s <1 absolute value?') 
+disp('BUT as big as possible?')
+b
+a
+
+%sampling rate on DE2 board
+Fs = 48000;
+[b,a] = butter(order, freq) ;
+[fresponse, ffreq] = freqz(b,a,300);
+plot(ffreq/pi*Fs/2,abs(fresponse), 'b', 'linewidth',2);
+xlabel('frequency'); ylabel('filter amplitude');
+hold on
+b = fix((b*(2^-scale))*2^16) ;
+a = fix((a*(2^-scale))*2^16) ;
+[fresponse, ffreq] = freqz(b,a,300);
+plot(ffreq/pi*Fs/2,abs(fresponse), 'r', 'linewidth',2);
+legend('exact','scaled 16-bit')
+
+*/

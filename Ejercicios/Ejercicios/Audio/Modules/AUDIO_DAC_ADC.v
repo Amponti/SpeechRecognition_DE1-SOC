@@ -15,6 +15,8 @@ module AUDIO_DAC_ADC (
 					iAUD_ADCDAT,
 					iAUD_extR,
 					iAUD_extL,
+					readyADC,
+					DAC_sampler,
 					//	Control Signals
 				    iCLK_18_4,
 					iRST_N	
@@ -34,6 +36,8 @@ output signed [DATA_WIDTH-1:0]	oAUD_inL, oAUD_inR;
 output			oAUD_DATA;
 output			oAUD_LRCK;
 output	reg		oAUD_BCK;
+output reg readyADC;
+output DAC_sampler;
 input			iAUD_ADCDAT;
 //	Control Signals
 //input	[1:0]	iSrc_Select;
@@ -77,6 +81,7 @@ begin
 		BCK_DIV		<=	BCK_DIV+1;
 	end
 end
+
 
 //////////////////////////////////////////////////
 ////////////	AUD_LRCK Generator	//////////////
@@ -143,7 +148,22 @@ begin
 		else
 			AUD_inR[~(SEL_Cont)] <= iAUD_ADCDAT;
 	end
+	
 end
+
+
+
+always@(negedge oAUD_BCK)
+begin
+	readyADC<=1'b0;
+	if(SEL_Cont>=15)
+	begin
+		readyADC<=1'b1;
+	end
+	
+end
+
+
 assign oAUD_inL = AUD_inL;
 assign oAUD_inR = AUD_inR;
 
@@ -158,7 +178,7 @@ begin
 	AUD_outR <= iAUD_extR; 
 	AUD_outL <= iAUD_extL ;
  end 
-
+assign DAC_sampler=LRCK_1X;
 //assign AUD_outR = iAUD_extR ; 
 //assign AUD_outL = iAUD_extL ;
 

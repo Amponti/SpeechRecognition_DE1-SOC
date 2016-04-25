@@ -1,5 +1,5 @@
 Analysis & Synthesis report for E_Audio
-Fri Apr 22 10:07:48 2016
+Mon Apr 25 14:51:00 2016
 Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
 
 
@@ -13,26 +13,35 @@ Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis RAM Summary
+  8. Analysis & Synthesis DSP Block Usage Summary
   9. Analysis & Synthesis IP Cores Summary
- 10. State Machine - |E_Audio|I2C_AV_Config:u3|mSetup_ST
- 11. Registers Removed During Synthesis
- 12. Removed Registers Triggering Further Register Optimizations
- 13. General Register Statistics
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Source assignments for syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated
- 16. Parameter Settings for User Entity Instance: clk_18_4:clk_18_4_inst|clk_18_4_0002:clk_18_4_inst|altera_pll:altera_pll_i
- 17. Parameter Settings for User Entity Instance: I2C_AV_Config:u3
- 18. Parameter Settings for User Entity Instance: AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst
- 19. Parameter Settings for User Entity Instance: syn_fifo:syn_fifo_inst
- 20. Parameter Settings for User Entity Instance: syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component
- 21. altsyncram Parameter Settings by Entity Instance
- 22. Port Connectivity Checks: "I2C_AV_Config:u3|I2C_Controller:u0"
- 23. Port Connectivity Checks: "I2C_AV_Config:u3"
- 24. Post-Synthesis Netlist Statistics for Top Partition
- 25. Elapsed Time Per Partition
- 26. Analysis & Synthesis Messages
- 27. Analysis & Synthesis Suppressed Messages
+ 10. State Machine - |E_Audio|IIR4:filter1|state
+ 11. State Machine - |E_Audio|IIR6:filter2|state
+ 12. State Machine - |E_Audio|I2C_AV_Config:u3|mSetup_ST
+ 13. Registers Removed During Synthesis
+ 14. Removed Registers Triggering Further Register Optimizations
+ 15. General Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Source assignments for fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1
+ 18. Parameter Settings for User Entity Instance: clk_18_4:clk_18_4_inst|clk_18_4_0002:clk_18_4_inst|altera_pll:altera_pll_i
+ 19. Parameter Settings for User Entity Instance: I2C_AV_Config:u3
+ 20. Parameter Settings for User Entity Instance: AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst
+ 21. Parameter Settings for User Entity Instance: fifoaudio:fifoaudio_inst|scfifo:scfifo_component
+ 22. scfifo Parameter Settings by Entity Instance
+ 23. Port Connectivity Checks: "async_trap_and_reset:async_trap_and_reset_inst2"
+ 24. Port Connectivity Checks: "async_trap_and_reset:async_trap_and_reset_inst"
+ 25. Port Connectivity Checks: "fifoaudio:fifoaudio_inst"
+ 26. Port Connectivity Checks: "frecGen:frecGen_inst1"
+ 27. Port Connectivity Checks: "frecGen:frecGen_inst"
+ 28. Port Connectivity Checks: "IIR4:filter1"
+ 29. Port Connectivity Checks: "IIR6:filter2"
+ 30. Port Connectivity Checks: "AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst"
+ 31. Port Connectivity Checks: "I2C_AV_Config:u3|I2C_Controller:u0"
+ 32. Port Connectivity Checks: "I2C_AV_Config:u3"
+ 33. Post-Synthesis Netlist Statistics for Top Partition
+ 34. Elapsed Time Per Partition
+ 35. Analysis & Synthesis Messages
+ 36. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -59,17 +68,17 @@ agreement for further details.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +---------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Apr 22 10:07:48 2016      ;
+; Analysis & Synthesis Status     ; Successful - Mon Apr 25 14:50:59 2016      ;
 ; Quartus II 64-Bit Version       ; 15.0.0 Build 145 04/22/2015 SJ Web Edition ;
 ; Revision Name                   ; E_Audio                                    ;
 ; Top-level Entity Name           ; E_Audio                                    ;
 ; Family                          ; Cyclone V                                  ;
 ; Logic utilization (in ALMs)     ; N/A                                        ;
-; Total registers                 ; 212                                        ;
+; Total registers                 ; 311                                        ;
 ; Total pins                      ; 36                                         ;
 ; Total virtual pins              ; 0                                          ;
-; Total block memory bits         ; 1,048,576                                  ;
-; Total DSP Blocks                ; 0                                          ;
+; Total block memory bits         ; 0                                          ;
+; Total DSP Blocks                ; 1                                          ;
 ; Total HSSI RX PCSs              ; 0                                          ;
 ; Total HSSI PMA RX Deserializers ; 0                                          ;
 ; Total HSSI TX PCSs              ; 0                                          ;
@@ -176,116 +185,160 @@ agreement for further details.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ; < 0.1%      ;
-;     Processors 5-8         ;   0.0%      ;
+;     Processors 2-8         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                              ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+----------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                         ; Library  ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+----------+
-; Modules/syn_fifo.v               ; yes             ; User Verilog HDL File        ; C:/Users/jeffe/Desktop/Audio/Modules/syn_fifo.v                      ;          ;
-; Modules/I2C_Controller.v         ; yes             ; User Verilog HDL File        ; C:/Users/jeffe/Desktop/Audio/Modules/I2C_Controller.v                ;          ;
-; Modules/I2C_AV_Config.v          ; yes             ; User Verilog HDL File        ; C:/Users/jeffe/Desktop/Audio/Modules/I2C_AV_Config.v                 ;          ;
-; Modules/AUDIO_DAC_ADC.v          ; yes             ; User Verilog HDL File        ; C:/Users/jeffe/Desktop/Audio/Modules/AUDIO_DAC_ADC.v                 ;          ;
-; clk_18_4.v                       ; yes             ; User Wizard-Generated File   ; C:/Users/jeffe/Desktop/Audio/clk_18_4.v                              ; clk_18_4 ;
-; clk_18_4/clk_18_4_0002.v         ; yes             ; User Verilog HDL File        ; C:/Users/jeffe/Desktop/Audio/clk_18_4/clk_18_4_0002.v                ; clk_18_4 ;
-; Modules/RAM2_MEMORY.v            ; yes             ; User Wizard-Generated File   ; C:/Users/jeffe/Desktop/Audio/Modules/RAM2_MEMORY.v                   ;          ;
-; e_audio.v                        ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/jeffe/Desktop/Audio/e_audio.v                               ;          ;
-; altera_pll.v                     ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/altera_pll.v          ;          ;
-; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/altsyncram.tdf        ;          ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/stratix_ram_block.inc ;          ;
-; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/lpm_mux.inc           ;          ;
-; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/lpm_decode.inc        ;          ;
-; aglobal150.inc                   ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/aglobal150.inc        ;          ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/a_rdenreg.inc         ;          ;
-; altrom.inc                       ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/altrom.inc            ;          ;
-; altram.inc                       ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/altram.inc            ;          ;
-; altdpram.inc                     ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/altdpram.inc          ;          ;
-; db/altsyncram_uv02.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/jeffe/Desktop/Audio/db/altsyncram_uv02.tdf                  ;          ;
-; db/decode_dla.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/jeffe/Desktop/Audio/db/decode_dla.tdf                       ;          ;
-; db/mux_chb.tdf                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/jeffe/Desktop/Audio/db/mux_chb.tdf                          ;          ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+----------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                       ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------+----------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                  ; Library  ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------+----------+
+; Modules/frecGen.v                ; yes             ; User Verilog HDL File        ; C:/Users/jeffe/Desktop/Audio/Modules/frecGen.v                ;          ;
+; Modules/async_trap_and_reset.v   ; yes             ; User Verilog HDL File        ; C:/Users/jeffe/Desktop/Audio/Modules/async_trap_and_reset.v   ;          ;
+; Modules/I2C_Controller.v         ; yes             ; User Verilog HDL File        ; C:/Users/jeffe/Desktop/Audio/Modules/I2C_Controller.v         ;          ;
+; Modules/I2C_AV_Config.v          ; yes             ; User Verilog HDL File        ; C:/Users/jeffe/Desktop/Audio/Modules/I2C_AV_Config.v          ;          ;
+; Modules/AUDIO_DAC_ADC.v          ; yes             ; User Verilog HDL File        ; C:/Users/jeffe/Desktop/Audio/Modules/AUDIO_DAC_ADC.v          ;          ;
+; clk_18_4.v                       ; yes             ; User Wizard-Generated File   ; C:/Users/jeffe/Desktop/Audio/clk_18_4.v                       ; clk_18_4 ;
+; clk_18_4/clk_18_4_0002.v         ; yes             ; User Verilog HDL File        ; C:/Users/jeffe/Desktop/Audio/clk_18_4/clk_18_4_0002.v         ; clk_18_4 ;
+; fifoaudio.v                      ; yes             ; User Wizard-Generated File   ; C:/Users/jeffe/Desktop/Audio/fifoaudio.v                      ;          ;
+; e_audio.v                        ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/jeffe/Desktop/Audio/e_audio.v                        ;          ;
+; altera_pll.v                     ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/altera_pll.v   ;          ;
+; scfifo.tdf                       ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/scfifo.tdf     ;          ;
+; a_regfifo.inc                    ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/a_regfifo.inc  ;          ;
+; a_dpfifo.inc                     ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/a_dpfifo.inc   ;          ;
+; a_i2fifo.inc                     ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/a_i2fifo.inc   ;          ;
+; a_fffifo.inc                     ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/a_fffifo.inc   ;          ;
+; a_f2fifo.inc                     ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/a_f2fifo.inc   ;          ;
+; aglobal150.inc                   ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/aglobal150.inc ;          ;
+; db/scfifo_h1h1.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/jeffe/Desktop/Audio/db/scfifo_h1h1.tdf               ;          ;
+; db/a_dpfifo_tfa1.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/jeffe/Desktop/Audio/db/a_dpfifo_tfa1.tdf             ;          ;
+; db/a_fefifo_mcf.tdf              ; yes             ; Auto-Generated Megafunction  ; C:/Users/jeffe/Desktop/Audio/db/a_fefifo_mcf.tdf              ;          ;
+; db/cntr_ei7.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/jeffe/Desktop/Audio/db/cntr_ei7.tdf                  ;          ;
+; db/dpram_2971.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/jeffe/Desktop/Audio/db/dpram_2971.tdf                ;          ;
+; db/altsyncram_4dq1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/jeffe/Desktop/Audio/db/altsyncram_4dq1.tdf           ;          ;
+; db/decode_s07.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/jeffe/Desktop/Audio/db/decode_s07.tdf                ;          ;
+; db/mux_rs7.tdf                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/jeffe/Desktop/Audio/db/mux_rs7.tdf                   ;          ;
+; db/cntr_2ib.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/jeffe/Desktop/Audio/db/cntr_2ib.tdf                  ;          ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------+----------+
 
 
-+-----------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                             ;
-+---------------------------------------------+-------------------------------------------+
-; Resource                                    ; Usage                                     ;
-+---------------------------------------------+-------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 189                                       ;
-;                                             ;                                           ;
-; Combinational ALUT usage for logic          ; 273                                       ;
-;     -- 7 input functions                    ; 10                                        ;
-;     -- 6 input functions                    ; 88                                        ;
-;     -- 5 input functions                    ; 24                                        ;
-;     -- 4 input functions                    ; 35                                        ;
-;     -- <=3 input functions                  ; 116                                       ;
-;                                             ;                                           ;
-; Dedicated logic registers                   ; 212                                       ;
-;                                             ;                                           ;
-; I/O pins                                    ; 36                                        ;
-; Total MLAB memory bits                      ; 0                                         ;
-; Total block memory bits                     ; 1048576                                   ;
-;                                             ;                                           ;
-; Total DSP Blocks                            ; 0                                         ;
-;                                             ;                                           ;
-; Total PLLs                                  ; 2                                         ;
-;     -- PLLs                                 ; 2                                         ;
-;                                             ;                                           ;
-; Maximum fan-out node                        ; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|oAUD_BCK ;
-; Maximum fan-out                             ; 237                                       ;
-; Total fan-out                               ; 5711                                      ;
-; Average fan-out                             ; 8.26                                      ;
-+---------------------------------------------+-------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                          ;
-+----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                  ; Library Name ;
-+----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |E_Audio                                     ; 273 (0)           ; 212 (0)      ; 1048576           ; 0          ; 36   ; 0            ; |E_Audio                                                                                                                                             ; work         ;
-;    |AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|        ; 70 (70)           ; 82 (82)      ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst                                                                                                            ; work         ;
-;    |I2C_AV_Config:u3|                        ; 80 (46)           ; 59 (37)      ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|I2C_AV_Config:u3                                                                                                                            ; work         ;
-;       |I2C_Controller:u0|                    ; 34 (34)           ; 22 (22)      ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|I2C_AV_Config:u3|I2C_Controller:u0                                                                                                          ; work         ;
-;    |clk_18_4:clk_18_4_inst|                  ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|clk_18_4:clk_18_4_inst                                                                                                                      ; clk_18_4     ;
-;       |clk_18_4_0002:clk_18_4_inst|          ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|clk_18_4:clk_18_4_inst|clk_18_4_0002:clk_18_4_inst                                                                                          ; clk_18_4     ;
-;          |altera_pll:altera_pll_i|           ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|clk_18_4:clk_18_4_inst|clk_18_4_0002:clk_18_4_inst|altera_pll:altera_pll_i                                                                  ; work         ;
-;    |syn_fifo:syn_fifo_inst|                  ; 123 (59)          ; 71 (65)      ; 1048576           ; 0          ; 0    ; 0            ; |E_Audio|syn_fifo:syn_fifo_inst                                                                                                                      ; work         ;
-;       |RAM2_MEMORY:RAM2_MEMORY_inst|         ; 64 (0)            ; 6 (0)        ; 1048576           ; 0          ; 0    ; 0            ; |E_Audio|syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst                                                                                         ; work         ;
-;          |altsyncram:altsyncram_component|   ; 64 (0)            ; 6 (0)        ; 1048576           ; 0          ; 0    ; 0            ; |E_Audio|syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component                                                         ; work         ;
-;             |altsyncram_uv02:auto_generated| ; 64 (0)            ; 6 (6)        ; 1048576           ; 0          ; 0    ; 0            ; |E_Audio|syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated                          ; work         ;
-;                |decode_dla:decode2|          ; 8 (8)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated|decode_dla:decode2       ; work         ;
-;                |decode_dla:rden_decode_b|    ; 8 (8)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated|decode_dla:rden_decode_b ; work         ;
-;                |mux_chb:mux3|                ; 48 (48)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated|mux_chb:mux3             ; work         ;
-+----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                                                             ;
++---------------------------------------------+-------------------------------------------------------------------------------------------+
+; Resource                                    ; Usage                                                                                     ;
++---------------------------------------------+-------------------------------------------------------------------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 191                                                                                       ;
+;                                             ;                                                                                           ;
+; Combinational ALUT usage for logic          ; 238                                                                                       ;
+;     -- 7 input functions                    ; 1                                                                                         ;
+;     -- 6 input functions                    ; 58                                                                                        ;
+;     -- 5 input functions                    ; 54                                                                                        ;
+;     -- 4 input functions                    ; 57                                                                                        ;
+;     -- <=3 input functions                  ; 68                                                                                        ;
+;                                             ;                                                                                           ;
+; Dedicated logic registers                   ; 311                                                                                       ;
+;                                             ;                                                                                           ;
+; I/O pins                                    ; 36                                                                                        ;
+;                                             ;                                                                                           ;
+; Total DSP Blocks                            ; 1                                                                                         ;
+;                                             ;                                                                                           ;
+; Total PLLs                                  ; 2                                                                                         ;
+;     -- PLLs                                 ; 2                                                                                         ;
+;                                             ;                                                                                           ;
+; Maximum fan-out node                        ; clk_18_4:clk_18_4_inst|clk_18_4_0002:clk_18_4_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
+; Maximum fan-out                             ; 219                                                                                       ;
+; Total fan-out                               ; 2000                                                                                      ;
+; Average fan-out                             ; 3.18                                                                                      ;
++---------------------------------------------+-------------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                                                     ;
-+-------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+------+
-; Name                                                                                                                          ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size    ; MIF  ;
-+-------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+------+
-; syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 65536        ; 16           ; 65536        ; 16           ; 1048576 ; None ;
-+-------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                  ;
++---------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node            ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                 ; Library Name ;
++---------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------+--------------+
+; |E_Audio                              ; 238 (1)           ; 311 (0)      ; 0                 ; 1          ; 36   ; 0            ; |E_Audio                                                                            ; work         ;
+;    |AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst| ; 45 (45)           ; 50 (50)      ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst                                           ; work         ;
+;    |I2C_AV_Config:u3|                 ; 80 (46)           ; 59 (37)      ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|I2C_AV_Config:u3                                                           ; work         ;
+;       |I2C_Controller:u0|             ; 34 (34)           ; 22 (22)      ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|I2C_AV_Config:u3|I2C_Controller:u0                                         ; work         ;
+;    |IIR4:filter1|                     ; 112 (112)         ; 202 (202)    ; 0                 ; 1          ; 0    ; 0            ; |E_Audio|IIR4:filter1                                                               ; work         ;
+;       |signed_mult:f1_c_x_v|          ; 0 (0)             ; 0 (0)        ; 0                 ; 1          ; 0    ; 0            ; |E_Audio|IIR4:filter1|signed_mult:f1_c_x_v                                          ; work         ;
+;    |clk_18_4:clk_18_4_inst|           ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|clk_18_4:clk_18_4_inst                                                     ; clk_18_4     ;
+;       |clk_18_4_0002:clk_18_4_inst|   ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|clk_18_4:clk_18_4_inst|clk_18_4_0002:clk_18_4_inst                         ; clk_18_4     ;
+;          |altera_pll:altera_pll_i|    ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |E_Audio|clk_18_4:clk_18_4_inst|clk_18_4_0002:clk_18_4_inst|altera_pll:altera_pll_i ; work         ;
++---------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                                                                ;
-+--------+--------------+---------+--------------+--------------+--------------------------------------------------------------+-----------------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                              ; IP Include File       ;
-+--------+--------------+---------+--------------+--------------+--------------------------------------------------------------+-----------------------+
-; Altera ; altera_pll   ; 14.1    ; N/A          ; N/A          ; |E_Audio|clk_18_4:clk_18_4_inst                              ; clk_18_4.v            ;
-; Altera ; RAM: 2-PORT  ; 15.0    ; N/A          ; N/A          ; |E_Audio|syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst ; Modules/RAM2_MEMORY.v ;
-+--------+--------------+---------+--------------+--------------+--------------------------------------------------------------+-----------------------+
++----------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary ;
++-------------------------------+--------------+
+; Statistic                     ; Number Used  ;
++-------------------------------+--------------+
+; Independent 18x18             ; 1            ;
+; Total number of DSP blocks    ; 1            ;
+;                               ;              ;
+; Fixed Point Signed Multiplier ; 1            ;
++-------------------------------+--------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                               ;
++--------+--------------+---------+--------------+--------------+-----------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                   ; IP Include File ;
++--------+--------------+---------+--------------+--------------+-----------------------------------+-----------------+
+; Altera ; altera_pll   ; 14.1    ; N/A          ; N/A          ; |E_Audio|clk_18_4:clk_18_4_inst   ; clk_18_4.v      ;
+; Altera ; FIFO         ; 15.0    ; N/A          ; N/A          ; |E_Audio|fifoaudio:fifoaudio_inst ; fifoaudio.v     ;
++--------+--------------+---------+--------------+--------------+-----------------------------------+-----------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |E_Audio|IIR4:filter1|state                                                                                                               ;
++------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+
+; Name       ; state.0001 ; state.1010 ; state.1001 ; state.1000 ; state.0111 ; state.0110 ; state.0101 ; state.0100 ; state.0011 ; state.0010 ; state.1111 ;
++------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+
+; state.1111 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ;
+; state.0010 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 1          ;
+; state.0011 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 1          ;
+; state.0100 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 1          ;
+; state.0101 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 1          ;
+; state.0110 ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.0111 ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.1000 ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.1001 ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.1010 ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.0001 ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
++------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |E_Audio|IIR6:filter2|state                                                                                                                                                                   ;
++------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+
+; Name       ; state.0001 ; state.1110 ; state.1101 ; state.1100 ; state.1011 ; state.1010 ; state.1001 ; state.1000 ; state.0111 ; state.0110 ; state.0101 ; state.0100 ; state.0011 ; state.0010 ; state.1111 ;
++------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+
+; state.1111 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ;
+; state.0010 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 1          ;
+; state.0011 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 1          ;
+; state.0100 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 1          ;
+; state.0101 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 1          ;
+; state.0110 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.0111 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.1000 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.1001 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.1010 ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.1011 ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.1100 ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.1101 ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.1110 ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.0001 ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
++------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+
 
 
 Encoding Type:  One-Hot
@@ -300,62 +353,171 @@ Encoding Type:  One-Hot
 +----------------+----------------+----------------+----------------+
 
 
-+----------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                       ;
-+---------------------------------------------------+------------------------------------------------------+
-; Register name                                     ; Reason for Removal                                   ;
-+---------------------------------------------------+------------------------------------------------------+
-; I2C_AV_Config:u3|mI2C_DATA[22,23]                 ; Stuck at GND due to stuck port data_in               ;
-; I2C_AV_Config:u3|mI2C_DATA[20,21]                 ; Stuck at VCC due to stuck port data_in               ;
-; I2C_AV_Config:u3|mI2C_DATA[19]                    ; Stuck at GND due to stuck port data_in               ;
-; I2C_AV_Config:u3|mI2C_DATA[18]                    ; Stuck at VCC due to stuck port data_in               ;
-; I2C_AV_Config:u3|mI2C_DATA[7,8,13..17]            ; Stuck at GND due to stuck port data_in               ;
-; I2C_AV_Config:u3|I2C_Controller:u0|SD[22,23]      ; Stuck at GND due to stuck port data_in               ;
-; I2C_AV_Config:u3|I2C_Controller:u0|SD[20,21]      ; Stuck at VCC due to stuck port data_in               ;
-; I2C_AV_Config:u3|I2C_Controller:u0|SD[19]         ; Stuck at GND due to stuck port data_in               ;
-; I2C_AV_Config:u3|I2C_Controller:u0|SD[18]         ; Stuck at VCC due to stuck port data_in               ;
-; I2C_AV_Config:u3|I2C_Controller:u0|SD[7,8,13..17] ; Stuck at GND due to stuck port data_in               ;
-; I2C_AV_Config:u3|I2C_Controller:u0|SD[6]          ; Merged with I2C_AV_Config:u3|I2C_Controller:u0|SD[5] ;
-; I2C_AV_Config:u3|mI2C_DATA[6]                     ; Merged with I2C_AV_Config:u3|mI2C_DATA[5]            ;
-; I2C_AV_Config:u3|mSetup_ST~9                      ; Lost fanout                                          ;
-; I2C_AV_Config:u3|mSetup_ST~10                     ; Lost fanout                                          ;
-; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|BCK_DIV[3]       ; Stuck at GND due to stuck port data_in               ;
-; Total Number of Removed Registers = 31            ;                                                      ;
-+---------------------------------------------------+------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                                               ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+
+; Register name                                                                                                                                                        ; Reason for Removal                                        ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+
+; async_trap_and_reset:async_trap_and_reset_inst2|actual_auto_reset_signal                                                                                             ; Lost fanout                                               ;
+; async_trap_and_reset:async_trap_and_reset_inst2|async_trap                                                                                                           ; Lost fanout                                               ;
+; async_trap_and_reset:async_trap_and_reset_inst2|sync1                                                                                                                ; Lost fanout                                               ;
+; async_trap_and_reset:async_trap_and_reset_inst2|sync2                                                                                                                ; Lost fanout                                               ;
+; async_trap_and_reset:async_trap_and_reset_inst|actual_auto_reset_signal                                                                                              ; Lost fanout                                               ;
+; async_trap_and_reset:async_trap_and_reset_inst|async_trap                                                                                                            ; Lost fanout                                               ;
+; async_trap_and_reset:async_trap_and_reset_inst|sync1                                                                                                                 ; Lost fanout                                               ;
+; async_trap_and_reset:async_trap_and_reset_inst|sync2                                                                                                                 ; Lost fanout                                               ;
+; fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|dffe_af                                                                                  ; Lost fanout                                               ;
+; fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|dffe_nae                                                                                 ; Lost fanout                                               ;
+; fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|cntr_2ib:wr_ptr|counter_reg_bit[0..13]                              ; Lost fanout                                               ;
+; fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|cntr_2ib:rd_ptr_count|counter_reg_bit[0..13]                        ; Lost fanout                                               ;
+; fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|a_fefifo_mcf:fifo_state|b_full                                      ; Lost fanout                                               ;
+; fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|a_fefifo_mcf:fifo_state|b_non_empty                                 ; Lost fanout                                               ;
+; fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|a_fefifo_mcf:fifo_state|cntr_ei7:count_usedw|counter_reg_bit[0..13] ; Lost fanout                                               ;
+; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|readyADC                                                                                                                            ; Lost fanout                                               ;
+; IIR4:filter1|x_n[0,1]                                                                                                                                                ; Stuck at GND due to stuck port data_in                    ;
+; I2C_AV_Config:u3|mI2C_DATA[22,23]                                                                                                                                    ; Stuck at GND due to stuck port data_in                    ;
+; I2C_AV_Config:u3|mI2C_DATA[20,21]                                                                                                                                    ; Stuck at VCC due to stuck port data_in                    ;
+; I2C_AV_Config:u3|mI2C_DATA[19]                                                                                                                                       ; Stuck at GND due to stuck port data_in                    ;
+; I2C_AV_Config:u3|mI2C_DATA[18]                                                                                                                                       ; Stuck at VCC due to stuck port data_in                    ;
+; I2C_AV_Config:u3|mI2C_DATA[7,8,13..17]                                                                                                                               ; Stuck at GND due to stuck port data_in                    ;
+; I2C_AV_Config:u3|I2C_Controller:u0|SD[22,23]                                                                                                                         ; Stuck at GND due to stuck port data_in                    ;
+; I2C_AV_Config:u3|I2C_Controller:u0|SD[20,21]                                                                                                                         ; Stuck at VCC due to stuck port data_in                    ;
+; I2C_AV_Config:u3|I2C_Controller:u0|SD[19]                                                                                                                            ; Stuck at GND due to stuck port data_in                    ;
+; I2C_AV_Config:u3|I2C_Controller:u0|SD[18]                                                                                                                            ; Stuck at VCC due to stuck port data_in                    ;
+; I2C_AV_Config:u3|I2C_Controller:u0|SD[7,8,13..17]                                                                                                                    ; Stuck at GND due to stuck port data_in                    ;
+; IIR4:filter1|x_n1[0,1]                                                                                                                                               ; Stuck at GND due to stuck port data_in                    ;
+; IIR4:filter1|x_n2[0,1]                                                                                                                                               ; Stuck at GND due to stuck port data_in                    ;
+; IIR4:filter1|x_n3[0,1]                                                                                                                                               ; Stuck at GND due to stuck port data_in                    ;
+; IIR4:filter1|x_n4[0,1]                                                                                                                                               ; Stuck at GND due to stuck port data_in                    ;
+; IIR4:filter1|audio_out[0]                                                                                                                                            ; Merged with IIR4:filter1|f1_y_n2[2]                       ;
+; IIR4:filter1|audio_out[1]                                                                                                                                            ; Merged with IIR4:filter1|f1_y_n2[3]                       ;
+; IIR4:filter1|audio_out[2]                                                                                                                                            ; Merged with IIR4:filter1|f1_y_n2[4]                       ;
+; IIR4:filter1|audio_out[3]                                                                                                                                            ; Merged with IIR4:filter1|f1_y_n2[5]                       ;
+; IIR4:filter1|audio_out[4]                                                                                                                                            ; Merged with IIR4:filter1|f1_y_n2[6]                       ;
+; IIR4:filter1|audio_out[5]                                                                                                                                            ; Merged with IIR4:filter1|f1_y_n2[7]                       ;
+; IIR4:filter1|audio_out[6]                                                                                                                                            ; Merged with IIR4:filter1|f1_y_n2[8]                       ;
+; IIR4:filter1|audio_out[7]                                                                                                                                            ; Merged with IIR4:filter1|f1_y_n2[9]                       ;
+; IIR4:filter1|audio_out[8]                                                                                                                                            ; Merged with IIR4:filter1|f1_y_n2[10]                      ;
+; IIR4:filter1|audio_out[9]                                                                                                                                            ; Merged with IIR4:filter1|f1_y_n2[11]                      ;
+; IIR4:filter1|audio_out[10]                                                                                                                                           ; Merged with IIR4:filter1|f1_y_n2[12]                      ;
+; IIR4:filter1|audio_out[11]                                                                                                                                           ; Merged with IIR4:filter1|f1_y_n2[13]                      ;
+; IIR4:filter1|audio_out[12]                                                                                                                                           ; Merged with IIR4:filter1|f1_y_n2[14]                      ;
+; IIR4:filter1|audio_out[13]                                                                                                                                           ; Merged with IIR4:filter1|f1_y_n2[15]                      ;
+; IIR4:filter1|audio_out[14]                                                                                                                                           ; Merged with IIR4:filter1|f1_y_n2[16]                      ;
+; IIR4:filter1|audio_out[15]                                                                                                                                           ; Merged with IIR4:filter1|f1_y_n2[17]                      ;
+; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outR[0]                                                                                                                         ; Merged with AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outL[0]  ;
+; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outR[1]                                                                                                                         ; Merged with AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outL[1]  ;
+; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outR[2]                                                                                                                         ; Merged with AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outL[2]  ;
+; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outR[3]                                                                                                                         ; Merged with AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outL[3]  ;
+; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outR[4]                                                                                                                         ; Merged with AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outL[4]  ;
+; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outR[5]                                                                                                                         ; Merged with AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outL[5]  ;
+; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outR[6]                                                                                                                         ; Merged with AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outL[6]  ;
+; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outR[7]                                                                                                                         ; Merged with AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outL[7]  ;
+; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outR[8]                                                                                                                         ; Merged with AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outL[8]  ;
+; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outR[9]                                                                                                                         ; Merged with AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outL[9]  ;
+; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outR[10]                                                                                                                        ; Merged with AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outL[10] ;
+; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outR[11]                                                                                                                        ; Merged with AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outL[11] ;
+; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outR[12]                                                                                                                        ; Merged with AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outL[12] ;
+; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outR[13]                                                                                                                        ; Merged with AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outL[13] ;
+; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outR[14]                                                                                                                        ; Merged with AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outL[14] ;
+; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outR[15]                                                                                                                        ; Merged with AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|AUD_outL[15] ;
+; I2C_AV_Config:u3|I2C_Controller:u0|SD[6]                                                                                                                             ; Merged with I2C_AV_Config:u3|I2C_Controller:u0|SD[5]      ;
+; IIR4:filter1|f1_coeff[1]                                                                                                                                             ; Merged with IIR4:filter1|f1_coeff[13]                     ;
+; IIR4:filter1|f1_coeff[7]                                                                                                                                             ; Merged with IIR4:filter1|f1_coeff[4]                      ;
+; IIR4:filter1|f1_coeff[15]                                                                                                                                            ; Merged with IIR4:filter1|f1_coeff[10]                     ;
+; IIR4:filter1|f1_coeff[17]                                                                                                                                            ; Merged with IIR4:filter1|f1_coeff[12]                     ;
+; I2C_AV_Config:u3|mI2C_DATA[6]                                                                                                                                        ; Merged with I2C_AV_Config:u3|mI2C_DATA[5]                 ;
+; IIR4:filter1|f1_y_n1[0]                                                                                                                                              ; Stuck at GND due to stuck port data_in                    ;
+; IIR4:filter1|f1_y_n2[0]                                                                                                                                              ; Stuck at GND due to stuck port data_in                    ;
+; IIR4:filter1|f1_y_n3[0]                                                                                                                                              ; Stuck at GND due to stuck port data_in                    ;
+; IIR4:filter1|f1_y_n4[0]                                                                                                                                              ; Stuck at GND due to stuck port data_in                    ;
+; IIR4:filter1|f1_y_n1[1]                                                                                                                                              ; Stuck at GND due to stuck port data_in                    ;
+; IIR4:filter1|f1_y_n2[1]                                                                                                                                              ; Stuck at GND due to stuck port data_in                    ;
+; IIR4:filter1|f1_y_n3[1]                                                                                                                                              ; Stuck at GND due to stuck port data_in                    ;
+; IIR4:filter1|f1_y_n4[1]                                                                                                                                              ; Stuck at GND due to stuck port data_in                    ;
+; IIR4:filter1|f1_value[0,1]                                                                                                                                           ; Stuck at GND due to stuck port data_in                    ;
+; IIR4:filter1|state~13                                                                                                                                                ; Lost fanout                                               ;
+; IIR4:filter1|state~14                                                                                                                                                ; Lost fanout                                               ;
+; IIR4:filter1|state~15                                                                                                                                                ; Lost fanout                                               ;
+; IIR4:filter1|state~16                                                                                                                                                ; Lost fanout                                               ;
+; IIR6:filter2|state~17                                                                                                                                                ; Lost fanout                                               ;
+; IIR6:filter2|state~18                                                                                                                                                ; Lost fanout                                               ;
+; IIR6:filter2|state~19                                                                                                                                                ; Lost fanout                                               ;
+; IIR6:filter2|state~20                                                                                                                                                ; Lost fanout                                               ;
+; I2C_AV_Config:u3|mSetup_ST~9                                                                                                                                         ; Lost fanout                                               ;
+; I2C_AV_Config:u3|mSetup_ST~10                                                                                                                                        ; Lost fanout                                               ;
+; IIR6:filter2|last_clk                                                                                                                                                ; Lost fanout                                               ;
+; IIR6:filter2|state.1111                                                                                                                                              ; Lost fanout                                               ;
+; IIR6:filter2|state.0010                                                                                                                                              ; Lost fanout                                               ;
+; IIR6:filter2|state.0011                                                                                                                                              ; Lost fanout                                               ;
+; IIR6:filter2|state.0100                                                                                                                                              ; Lost fanout                                               ;
+; IIR6:filter2|state.0101                                                                                                                                              ; Lost fanout                                               ;
+; IIR6:filter2|state.0110                                                                                                                                              ; Lost fanout                                               ;
+; IIR6:filter2|state.0111                                                                                                                                              ; Lost fanout                                               ;
+; IIR6:filter2|state.1000                                                                                                                                              ; Lost fanout                                               ;
+; IIR6:filter2|state.1001                                                                                                                                              ; Lost fanout                                               ;
+; IIR6:filter2|state.1010                                                                                                                                              ; Lost fanout                                               ;
+; IIR6:filter2|state.1011                                                                                                                                              ; Lost fanout                                               ;
+; IIR6:filter2|state.1100                                                                                                                                              ; Lost fanout                                               ;
+; IIR6:filter2|state.1101                                                                                                                                              ; Lost fanout                                               ;
+; IIR6:filter2|state.1110                                                                                                                                              ; Lost fanout                                               ;
+; IIR6:filter2|state.0001                                                                                                                                              ; Lost fanout                                               ;
+; IIR4:filter1|f1_mac_old[16,17]                                                                                                                                       ; Lost fanout                                               ;
+; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|BCK_DIV[3]                                                                                                                          ; Stuck at GND due to stuck port data_in                    ;
+; Total Number of Removed Registers = 168                                                                                                                              ;                                                           ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                            ;
-+--------------------------------+---------------------------+-------------------------------------------+
-; Register name                  ; Reason for Removal        ; Registers Removed due to This Register    ;
-+--------------------------------+---------------------------+-------------------------------------------+
-; I2C_AV_Config:u3|mI2C_DATA[23] ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[23] ;
-;                                ; due to stuck port data_in ;                                           ;
-; I2C_AV_Config:u3|mI2C_DATA[22] ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[22] ;
-;                                ; due to stuck port data_in ;                                           ;
-; I2C_AV_Config:u3|mI2C_DATA[21] ; Stuck at VCC              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[21] ;
-;                                ; due to stuck port data_in ;                                           ;
-; I2C_AV_Config:u3|mI2C_DATA[20] ; Stuck at VCC              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[20] ;
-;                                ; due to stuck port data_in ;                                           ;
-; I2C_AV_Config:u3|mI2C_DATA[19] ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[19] ;
-;                                ; due to stuck port data_in ;                                           ;
-; I2C_AV_Config:u3|mI2C_DATA[18] ; Stuck at VCC              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[18] ;
-;                                ; due to stuck port data_in ;                                           ;
-; I2C_AV_Config:u3|mI2C_DATA[17] ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[17] ;
-;                                ; due to stuck port data_in ;                                           ;
-; I2C_AV_Config:u3|mI2C_DATA[16] ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[16] ;
-;                                ; due to stuck port data_in ;                                           ;
-; I2C_AV_Config:u3|mI2C_DATA[15] ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[15] ;
-;                                ; due to stuck port data_in ;                                           ;
-; I2C_AV_Config:u3|mI2C_DATA[14] ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[14] ;
-;                                ; due to stuck port data_in ;                                           ;
-; I2C_AV_Config:u3|mI2C_DATA[13] ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[13] ;
-;                                ; due to stuck port data_in ;                                           ;
-; I2C_AV_Config:u3|mI2C_DATA[8]  ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[8]  ;
-;                                ; due to stuck port data_in ;                                           ;
-; I2C_AV_Config:u3|mI2C_DATA[7]  ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[7]  ;
-;                                ; due to stuck port data_in ;                                           ;
-+--------------------------------+---------------------------+-------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                       ;
++--------------------------------------------------------------------------+---------------------------+----------------------------------------------------------------------------+
+; Register name                                                            ; Reason for Removal        ; Registers Removed due to This Register                                     ;
++--------------------------------------------------------------------------+---------------------------+----------------------------------------------------------------------------+
+; IIR6:filter2|state~17                                                    ; Lost Fanouts              ; IIR6:filter2|state.0011, IIR6:filter2|state.0101, IIR6:filter2|state.0111, ;
+;                                                                          ;                           ; IIR6:filter2|state.1001, IIR6:filter2|state.1011, IIR6:filter2|state.1101  ;
+; IIR6:filter2|state~18                                                    ; Lost Fanouts              ; IIR6:filter2|last_clk, IIR6:filter2|state.1111, IIR6:filter2|state.0100,   ;
+;                                                                          ;                           ; IIR6:filter2|state.1000, IIR6:filter2|state.1100                           ;
+; IIR6:filter2|state~19                                                    ; Lost Fanouts              ; IIR6:filter2|state.0010, IIR6:filter2|state.1010, IIR6:filter2|state.0001  ;
+; IIR4:filter1|x_n[0]                                                      ; Stuck at GND              ; IIR4:filter1|x_n1[0], IIR4:filter1|f1_value[0]                             ;
+;                                                                          ; due to stuck port data_in ;                                                                            ;
+; IIR4:filter1|x_n[1]                                                      ; Stuck at GND              ; IIR4:filter1|x_n1[1], IIR4:filter1|f1_value[1]                             ;
+;                                                                          ; due to stuck port data_in ;                                                                            ;
+; IIR4:filter1|f1_y_n2[0]                                                  ; Stuck at GND              ; IIR4:filter1|f1_y_n3[0], IIR4:filter1|f1_y_n4[0]                           ;
+;                                                                          ; due to stuck port data_in ;                                                                            ;
+; IIR4:filter1|f1_y_n2[1]                                                  ; Stuck at GND              ; IIR4:filter1|f1_y_n3[1], IIR4:filter1|f1_y_n4[1]                           ;
+;                                                                          ; due to stuck port data_in ;                                                                            ;
+; async_trap_and_reset:async_trap_and_reset_inst2|actual_auto_reset_signal ; Lost Fanouts              ; async_trap_and_reset:async_trap_and_reset_inst2|sync2                      ;
+; async_trap_and_reset:async_trap_and_reset_inst|actual_auto_reset_signal  ; Lost Fanouts              ; async_trap_and_reset:async_trap_and_reset_inst|sync2                       ;
+; async_trap_and_reset:async_trap_and_reset_inst|async_trap                ; Lost Fanouts              ; AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst|readyADC                                  ;
+; I2C_AV_Config:u3|mI2C_DATA[23]                                           ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[23]                                  ;
+;                                                                          ; due to stuck port data_in ;                                                                            ;
+; I2C_AV_Config:u3|mI2C_DATA[22]                                           ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[22]                                  ;
+;                                                                          ; due to stuck port data_in ;                                                                            ;
+; I2C_AV_Config:u3|mI2C_DATA[21]                                           ; Stuck at VCC              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[21]                                  ;
+;                                                                          ; due to stuck port data_in ;                                                                            ;
+; I2C_AV_Config:u3|mI2C_DATA[20]                                           ; Stuck at VCC              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[20]                                  ;
+;                                                                          ; due to stuck port data_in ;                                                                            ;
+; I2C_AV_Config:u3|mI2C_DATA[19]                                           ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[19]                                  ;
+;                                                                          ; due to stuck port data_in ;                                                                            ;
+; I2C_AV_Config:u3|mI2C_DATA[18]                                           ; Stuck at VCC              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[18]                                  ;
+;                                                                          ; due to stuck port data_in ;                                                                            ;
+; I2C_AV_Config:u3|mI2C_DATA[17]                                           ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[17]                                  ;
+;                                                                          ; due to stuck port data_in ;                                                                            ;
+; I2C_AV_Config:u3|mI2C_DATA[16]                                           ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[16]                                  ;
+;                                                                          ; due to stuck port data_in ;                                                                            ;
+; I2C_AV_Config:u3|mI2C_DATA[15]                                           ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[15]                                  ;
+;                                                                          ; due to stuck port data_in ;                                                                            ;
+; I2C_AV_Config:u3|mI2C_DATA[14]                                           ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[14]                                  ;
+;                                                                          ; due to stuck port data_in ;                                                                            ;
+; I2C_AV_Config:u3|mI2C_DATA[13]                                           ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[13]                                  ;
+;                                                                          ; due to stuck port data_in ;                                                                            ;
+; I2C_AV_Config:u3|mI2C_DATA[8]                                            ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[8]                                   ;
+;                                                                          ; due to stuck port data_in ;                                                                            ;
+; I2C_AV_Config:u3|mI2C_DATA[7]                                            ; Stuck at GND              ; I2C_AV_Config:u3|I2C_Controller:u0|SD[7]                                   ;
+;                                                                          ; due to stuck port data_in ;                                                                            ;
+; IIR6:filter2|state~20                                                    ; Lost Fanouts              ; IIR6:filter2|state.0110                                                    ;
+; IIR4:filter1|f1_mac_old[17]                                              ; Lost Fanouts              ; IIR4:filter1|f1_mac_old[16]                                                ;
++--------------------------------------------------------------------------+---------------------------+----------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -363,12 +525,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 212   ;
-; Number of registers using Synchronous Clear  ; 57    ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 110   ;
+; Total registers                              ; 311   ;
+; Number of registers using Synchronous Clear  ; 28    ;
+; Number of registers using Synchronous Load   ; 10    ;
+; Number of registers using Asynchronous Clear ; 45    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 92    ;
+; Number of registers using Clock Enable       ; 194   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -378,19 +540,19 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |E_Audio|I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[5] ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |E_Audio|syn_fifo:syn_fifo_inst|status_cnt[8]             ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; Yes        ; |E_Audio|syn_fifo:syn_fifo_inst|data_out[6]               ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |E_Audio|I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[2] ;
+; 10:1               ; 10 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; Yes        ; |E_Audio|IIR4:filter1|f1_coeff[0]                         ;
+; 10:1               ; 16 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; Yes        ; |E_Audio|IIR4:filter1|f1_value[4]                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated ;
-+---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                                          ;
-+---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                           ;
-+---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1 ;
++---------------------------------+--------------------+------+----------------------------------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                                                       ;
++---------------------------------+--------------------+------+----------------------------------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                                                        ;
++---------------------------------+--------------------+------+----------------------------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------+
@@ -676,97 +838,311 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: syn_fifo:syn_fifo_inst ;
-+----------------+-------+--------------------------------------------+
-; Parameter Name ; Value ; Type                                       ;
-+----------------+-------+--------------------------------------------+
-; DATA_WIDTH     ; 16    ; Signed Integer                             ;
-; ADDR_WIDTH     ; 16    ; Signed Integer                             ;
-; RAM_DEPTH      ; 65536 ; Signed Integer                             ;
-+----------------+-------+--------------------------------------------+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fifoaudio:fifoaudio_inst|scfifo:scfifo_component ;
++-------------------------+-------------+-------------------------------------------------------+
+; Parameter Name          ; Value       ; Type                                                  ;
++-------------------------+-------------+-------------------------------------------------------+
+; AUTO_CARRY_CHAINS       ; ON          ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS    ; OFF         ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS     ; ON          ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS  ; OFF         ; IGNORE_CASCADE                                        ;
+; lpm_width               ; 16          ; Signed Integer                                        ;
+; LPM_NUMWORDS            ; 16384       ; Signed Integer                                        ;
+; LPM_WIDTHU              ; 14          ; Signed Integer                                        ;
+; LPM_SHOWAHEAD           ; OFF         ; Untyped                                               ;
+; UNDERFLOW_CHECKING      ; ON          ; Untyped                                               ;
+; OVERFLOW_CHECKING       ; ON          ; Untyped                                               ;
+; ALLOW_RWCYCLE_WHEN_FULL ; OFF         ; Untyped                                               ;
+; ADD_RAM_OUTPUT_REGISTER ; OFF         ; Untyped                                               ;
+; ALMOST_FULL_VALUE       ; 16000       ; Signed Integer                                        ;
+; ALMOST_EMPTY_VALUE      ; 200         ; Signed Integer                                        ;
+; USE_EAB                 ; ON          ; Untyped                                               ;
+; MAXIMIZE_SPEED          ; 5           ; Untyped                                               ;
+; DEVICE_FAMILY           ; Cyclone V   ; Untyped                                               ;
+; OPTIMIZE_FOR_SPEED      ; 5           ; Untyped                                               ;
+; CBXI_PARAMETER          ; scfifo_h1h1 ; Untyped                                               ;
++-------------------------+-------------+-------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component ;
-+------------------------------------+----------------------+----------------------------------------------------------------------+
-; Parameter Name                     ; Value                ; Type                                                                 ;
-+------------------------------------+----------------------+----------------------------------------------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                              ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                           ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                         ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                         ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                       ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                              ;
-; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                                              ;
-; WIDTH_A                            ; 16                   ; Signed Integer                                                       ;
-; WIDTHAD_A                          ; 16                   ; Signed Integer                                                       ;
-; NUMWORDS_A                         ; 65536                ; Signed Integer                                                       ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                              ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                              ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                              ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                              ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                              ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                              ;
-; WIDTH_B                            ; 16                   ; Signed Integer                                                       ;
-; WIDTHAD_B                          ; 16                   ; Signed Integer                                                       ;
-; NUMWORDS_B                         ; 65536                ; Signed Integer                                                       ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                              ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                              ;
-; RDCONTROL_REG_B                    ; CLOCK0               ; Untyped                                                              ;
-; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                                              ;
-; OUTDATA_REG_B                      ; CLOCK0               ; Untyped                                                              ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                              ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                              ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                              ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                              ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                              ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                              ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                              ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                                       ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                              ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                              ;
-; BYTE_SIZE                          ; 8                    ; Untyped                                                              ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                              ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                              ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                              ;
-; INIT_FILE                          ; UNUSED               ; Untyped                                                              ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                              ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                              ;
-; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                              ;
-; CLOCK_ENABLE_INPUT_B               ; BYPASS               ; Untyped                                                              ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                                              ;
-; CLOCK_ENABLE_OUTPUT_B              ; BYPASS               ; Untyped                                                              ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                              ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                              ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                                                              ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                              ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                              ;
-; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                              ;
-; CBXI_PARAMETER                     ; altsyncram_uv02      ; Untyped                                                              ;
-+------------------------------------+----------------------+----------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++-------------------------------------------------------------------------------+
+; scfifo Parameter Settings by Entity Instance                                  ;
++----------------------------+--------------------------------------------------+
+; Name                       ; Value                                            ;
++----------------------------+--------------------------------------------------+
+; Number of entity instances ; 1                                                ;
+; Entity Instance            ; fifoaudio:fifoaudio_inst|scfifo:scfifo_component ;
+;     -- FIFO Type           ; Single Clock                                     ;
+;     -- lpm_width           ; 16                                               ;
+;     -- LPM_NUMWORDS        ; 16384                                            ;
+;     -- LPM_SHOWAHEAD       ; OFF                                              ;
+;     -- USE_EAB             ; ON                                               ;
++----------------------------+--------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                                                                ;
-+-------------------------------------------+-------------------------------------------------------------------------------------+
-; Name                                      ; Value                                                                               ;
-+-------------------------------------------+-------------------------------------------------------------------------------------+
-; Number of entity instances                ; 1                                                                                   ;
-; Entity Instance                           ; syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                                                                           ;
-;     -- WIDTH_A                            ; 16                                                                                  ;
-;     -- NUMWORDS_A                         ; 65536                                                                               ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                        ;
-;     -- WIDTH_B                            ; 16                                                                                  ;
-;     -- NUMWORDS_B                         ; 65536                                                                               ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                                                                              ;
-;     -- OUTDATA_REG_B                      ; CLOCK0                                                                              ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                           ;
-+-------------------------------------------+-------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+; Port Connectivity Checks: "async_trap_and_reset:async_trap_and_reset_inst2" ;
++------------+-------+----------+---------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                     ;
++------------+-------+----------+---------------------------------------------+
+; auto_reset ; Input ; Info     ; Stuck at VCC                                ;
+; reset      ; Input ; Info     ; Stuck at VCC                                ;
++------------+-------+----------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------+
+; Port Connectivity Checks: "async_trap_and_reset:async_trap_and_reset_inst" ;
++------------+-------+----------+--------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                    ;
++------------+-------+----------+--------------------------------------------+
+; auto_reset ; Input ; Info     ; Stuck at VCC                               ;
+; reset      ; Input ; Info     ; Stuck at VCC                               ;
++------------+-------+----------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fifoaudio:fifoaudio_inst"                                                                                                                                                           ;
++-------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                                                                                                                            ;
++-------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; aclr  ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; rdreq ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; wrreq ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; empty ; Output ; Info     ; Explicitly unconnected                                                                                                                                                             ;
+; full  ; Output ; Info     ; Explicitly unconnected                                                                                                                                                             ;
+; q     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
+; usedw ; Output ; Info     ; Explicitly unconnected                                                                                                                                                             ;
++-------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "frecGen:frecGen_inst1"                                                                    ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; IN[10..9]  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; IN[4..3]   ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; IN[31..11] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; IN[8..5]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; IN[2]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; IN[1]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; IN[0]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; OUT        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "frecGen:frecGen_inst"                                                                     ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; IN[31..10] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; IN[8..4]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; IN[2..0]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; IN[9]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; IN[3]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; OUT        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------+
+; Port Connectivity Checks: "IIR4:filter1"     ;
++------------+-------+----------+--------------+
+; Port       ; Type  ; Severity ; Details      ;
++------------+-------+----------+--------------+
+; scale[2]   ; Input ; Info     ; Stuck at GND ;
+; scale[1]   ; Input ; Info     ; Stuck at VCC ;
+; scale[0]   ; Input ; Info     ; Stuck at GND ;
+; b1[17..9]  ; Input ; Info     ; Stuck at GND ;
+; b1[5..4]   ; Input ; Info     ; Stuck at GND ;
+; b1[2..1]   ; Input ; Info     ; Stuck at GND ;
+; b1[8]      ; Input ; Info     ; Stuck at VCC ;
+; b1[7]      ; Input ; Info     ; Stuck at GND ;
+; b1[6]      ; Input ; Info     ; Stuck at VCC ;
+; b1[3]      ; Input ; Info     ; Stuck at VCC ;
+; b1[0]      ; Input ; Info     ; Stuck at VCC ;
+; b2         ; Input ; Info     ; Stuck at GND ;
+; b3[17..10] ; Input ; Info     ; Stuck at VCC ;
+; b3[6..5]   ; Input ; Info     ; Stuck at VCC ;
+; b3[3..1]   ; Input ; Info     ; Stuck at VCC ;
+; b3[9]      ; Input ; Info     ; Stuck at GND ;
+; b3[8]      ; Input ; Info     ; Stuck at VCC ;
+; b3[7]      ; Input ; Info     ; Stuck at GND ;
+; b3[4]      ; Input ; Info     ; Stuck at GND ;
+; b3[0]      ; Input ; Info     ; Stuck at GND ;
+; b4         ; Input ; Info     ; Stuck at GND ;
+; b5[17..9]  ; Input ; Info     ; Stuck at GND ;
+; b5[5..4]   ; Input ; Info     ; Stuck at GND ;
+; b5[2..1]   ; Input ; Info     ; Stuck at GND ;
+; b5[8]      ; Input ; Info     ; Stuck at VCC ;
+; b5[7]      ; Input ; Info     ; Stuck at GND ;
+; b5[6]      ; Input ; Info     ; Stuck at VCC ;
+; b5[3]      ; Input ; Info     ; Stuck at VCC ;
+; b5[0]      ; Input ; Info     ; Stuck at VCC ;
+; a2[15..14] ; Input ; Info     ; Stuck at VCC ;
+; a2[11..10] ; Input ; Info     ; Stuck at VCC ;
+; a2[8..7]   ; Input ; Info     ; Stuck at VCC ;
+; a2[4..3]   ; Input ; Info     ; Stuck at VCC ;
+; a2[17..16] ; Input ; Info     ; Stuck at GND ;
+; a2[13..12] ; Input ; Info     ; Stuck at GND ;
+; a2[6..5]   ; Input ; Info     ; Stuck at GND ;
+; a2[2..0]   ; Input ; Info     ; Stuck at GND ;
+; a2[9]      ; Input ; Info     ; Stuck at GND ;
+; a3[15..12] ; Input ; Info     ; Stuck at VCC ;
+; a3[3..1]   ; Input ; Info     ; Stuck at VCC ;
+; a3[5..4]   ; Input ; Info     ; Stuck at GND ;
+; a3[17]     ; Input ; Info     ; Stuck at VCC ;
+; a3[16]     ; Input ; Info     ; Stuck at GND ;
+; a3[11]     ; Input ; Info     ; Stuck at GND ;
+; a3[10]     ; Input ; Info     ; Stuck at VCC ;
+; a3[9]      ; Input ; Info     ; Stuck at GND ;
+; a3[8]      ; Input ; Info     ; Stuck at VCC ;
+; a3[7]      ; Input ; Info     ; Stuck at GND ;
+; a3[6]      ; Input ; Info     ; Stuck at VCC ;
+; a3[0]      ; Input ; Info     ; Stuck at GND ;
+; a4[3..1]   ; Input ; Info     ; Stuck at VCC ;
+; a4[17..16] ; Input ; Info     ; Stuck at GND ;
+; a4[12..11] ; Input ; Info     ; Stuck at GND ;
+; a4[9..6]   ; Input ; Info     ; Stuck at GND ;
+; a4[15]     ; Input ; Info     ; Stuck at VCC ;
+; a4[14]     ; Input ; Info     ; Stuck at GND ;
+; a4[13]     ; Input ; Info     ; Stuck at VCC ;
+; a4[10]     ; Input ; Info     ; Stuck at VCC ;
+; a4[5]      ; Input ; Info     ; Stuck at VCC ;
+; a4[4]      ; Input ; Info     ; Stuck at GND ;
+; a4[0]      ; Input ; Info     ; Stuck at GND ;
+; a5[17..14] ; Input ; Info     ; Stuck at VCC ;
+; a5[10..9]  ; Input ; Info     ; Stuck at VCC ;
+; a5[7..4]   ; Input ; Info     ; Stuck at VCC ;
+; a5[13]     ; Input ; Info     ; Stuck at GND ;
+; a5[12]     ; Input ; Info     ; Stuck at VCC ;
+; a5[11]     ; Input ; Info     ; Stuck at GND ;
+; a5[8]      ; Input ; Info     ; Stuck at GND ;
+; a5[3]      ; Input ; Info     ; Stuck at GND ;
+; a5[2]      ; Input ; Info     ; Stuck at VCC ;
+; a5[1]      ; Input ; Info     ; Stuck at GND ;
+; a5[0]      ; Input ; Info     ; Stuck at VCC ;
++------------+-------+----------+--------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IIR6:filter2"                                                                                                                                                                             ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                                                                                            ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; audio_out   ; Output ; Info     ; Explicitly unconnected                                                                                                                                                             ;
+; scale[1..0] ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; scale[2]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; b1          ; Input  ; Warning  ; Input port expression (27 bits) is wider than the input port (18 bits) it drives.  The 9 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; b1[7..6]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; b1[17..8]   ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; b1[5..4]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; b1[2..0]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; b1[3]       ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; b2          ; Input  ; Warning  ; Input port expression (27 bits) is wider than the input port (18 bits) it drives.  The 9 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; b2[17..0]   ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; b3          ; Input  ; Warning  ; Input port expression (27 bits) is wider than the input port (18 bits) it drives.  The 9 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; b3[17..10]  ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; b3[8..7]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; b3[2..0]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; b3[9]       ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; b3[6]       ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; b3[5]       ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; b3[4]       ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; b3[3]       ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; b4          ; Input  ; Warning  ; Input port expression (27 bits) is wider than the input port (18 bits) it drives.  The 9 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; b4[17..0]   ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; b5          ; Input  ; Warning  ; Input port expression (27 bits) is wider than the input port (18 bits) it drives.  The 9 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; b5[4..3]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; b5[17..10]  ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; b5[8..7]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; b5[2..0]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; b5[9]       ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; b5[6]       ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; b5[5]       ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; b6          ; Input  ; Warning  ; Input port expression (27 bits) is wider than the input port (18 bits) it drives.  The 9 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; b6[17..0]   ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; b7          ; Input  ; Warning  ; Input port expression (27 bits) is wider than the input port (18 bits) it drives.  The 9 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; b7[17..8]   ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; b7[5..3]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; b7[7..6]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; b7[2..0]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a2          ; Input  ; Warning  ; Input port expression (27 bits) is wider than the input port (18 bits) it drives.  The 9 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; a2[6..0]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a2[16..14]  ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a2[10..7]   ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a2[17]      ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a2[13]      ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a2[12]      ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a2[11]      ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a3          ; Input  ; Warning  ; Input port expression (27 bits) is wider than the input port (18 bits) it drives.  The 9 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; a3[16..13]  ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a3[11..10]  ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a3[5..4]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a3[7..6]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a3[3..1]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a3[17]      ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a3[12]      ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a3[9]       ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a3[8]       ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a3[0]       ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a4          ; Input  ; Warning  ; Input port expression (27 bits) is wider than the input port (18 bits) it drives.  The 9 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; a4[12..11]  ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a4[16..13]  ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a4[6..4]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a4[2..0]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a4[17]      ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a4[10]      ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a4[9]       ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a4[8]       ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a4[7]       ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a4[3]       ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a5          ; Input  ; Warning  ; Input port expression (27 bits) is wider than the input port (18 bits) it drives.  The 9 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; a5[9..4]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a5[3..0]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a5[17]      ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a5[16]      ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a5[15]      ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a5[14]      ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a5[13]      ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a5[12]      ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a5[11]      ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a5[10]      ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a6          ; Input  ; Warning  ; Input port expression (27 bits) is wider than the input port (18 bits) it drives.  The 9 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; a6[16..15]  ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a6[5..3]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a6[1..0]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a6[14..13]  ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a6[9..8]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a6[17]      ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a6[12]      ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a6[11]      ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a6[10]      ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a6[7]       ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a6[6]       ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a6[2]       ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a7          ; Input  ; Warning  ; Input port expression (27 bits) is wider than the input port (18 bits) it drives.  The 9 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; a7[14..6]   ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a7[1..0]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a7[17]      ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a7[16]      ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a7[15]      ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a7[5]       ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a7[4]       ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; a7[3]       ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; a7[2]       ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; reset       ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst"                                                       ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; oAUD_inR ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -795,34 +1171,35 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 212                         ;
+; arriav_ff             ; 311                         ;
 ;     CLR               ; 16                          ;
 ;     CLR SCLR          ; 25                          ;
-;     ENA               ; 23                          ;
-;     ENA CLR           ; 69                          ;
-;     SCLR              ; 32                          ;
-;     plain             ; 47                          ;
+;     ENA               ; 180                         ;
+;     ENA CLR           ; 4                           ;
+;     ENA SCLR SLD      ; 3                           ;
+;     ENA SLD           ; 7                           ;
+;     plain             ; 76                          ;
 ; arriav_io_obuf        ; 4                           ;
-; arriav_lcell_comb     ; 274                         ;
-;     arith             ; 72                          ;
-;         1 data inputs ; 54                          ;
-;         2 data inputs ; 18                          ;
-;     extend            ; 10                          ;
-;         7 data inputs ; 10                          ;
-;     normal            ; 192                         ;
+; arriav_lcell_comb     ; 238                         ;
+;     arith             ; 41                          ;
+;         1 data inputs ; 25                          ;
+;         2 data inputs ; 16                          ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 196                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 11                          ;
-;         3 data inputs ; 30                          ;
-;         4 data inputs ; 35                          ;
-;         5 data inputs ; 24                          ;
-;         6 data inputs ; 88                          ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 7                           ;
+;         3 data inputs ; 18                          ;
+;         4 data inputs ; 57                          ;
+;         5 data inputs ; 54                          ;
+;         6 data inputs ; 58                          ;
+; arriav_mac            ; 1                           ;
 ; boundary_port         ; 36                          ;
 ; generic_pll           ; 2                           ;
-; stratixv_ram_block    ; 128                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.50                        ;
-; Average LUT depth     ; 2.00                        ;
+; Max LUT depth         ; 3.50                        ;
+; Average LUT depth     ; 1.83                        ;
 +-----------------------+-----------------------------+
 
 
@@ -841,11 +1218,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
-    Info: Processing started: Fri Apr 22 10:07:28 2016
+    Info: Processing started: Mon Apr 25 14:50:39 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off E_Audio -c E_Audio
+Warning (125092): Tcl Script File Modules/RAM_MEMORY.qip not found
+    Info (125063): set_global_assignment -name QIP_FILE Modules/RAM_MEMORY.qip
 Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
-Info (12021): Found 1 design units, including 1 entities, in source file modules/ram_dp_ar_aw.v
-    Info (12023): Found entity 1: ram_dp_ar_aw
+Info (12021): Found 1 design units, including 1 entities, in source file modules/ltoh.v
+    Info (12023): Found entity 1: LtoH
+Info (12021): Found 1 design units, including 1 entities, in source file modules/to_slow_clk_interface.v
+    Info (12023): Found entity 1: to_slow_clk_interface
+Info (12021): Found 1 design units, including 1 entities, in source file modules/frecgen.v
+    Info (12023): Found entity 1: frecGen
+Info (12021): Found 1 design units, including 1 entities, in source file modules/async_trap_and_reset.v
+    Info (12023): Found entity 1: async_trap_and_reset
+Warning (12019): Can't analyze file -- file Modules/ram_dp_ar_aw.v is missing
 Info (12021): Found 1 design units, including 1 entities, in source file modules/syn_fifo.v
     Info (12023): Found entity 1: syn_fifo
 Info (12021): Found 1 design units, including 1 entities, in source file modules/reset_delay.v
@@ -864,14 +1250,20 @@ Info (12021): Found 1 design units, including 1 entities, in source file clk_18_
     Info (12023): Found entity 1: clk_18_4
 Info (12021): Found 1 design units, including 1 entities, in source file clk_18_4/clk_18_4_0002.v
     Info (12023): Found entity 1: clk_18_4_0002
-Info (12021): Found 1 design units, including 1 entities, in source file modules/ram_memory.v
-    Info (12023): Found entity 1: RAM_MEMORY
 Info (12021): Found 1 design units, including 1 entities, in source file modules/ram2_memory.v
     Info (12023): Found entity 1: RAM2_MEMORY
-Warning (12125): Using design file e_audio.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file fifoaudio.v
+    Info (12023): Found entity 1: fifoaudio
+Warning (12125): Using design file e_audio.v, which is not specified as a design file for the current project, but contains definitions for 6 design units and 6 entities in project
     Info (12023): Found entity 1: E_Audio
+    Info (12023): Found entity 2: IIR2
+    Info (12023): Found entity 3: IIR4
+    Info (12023): Found entity 4: IIR6
+    Info (12023): Found entity 5: signed_mult
+    Info (12023): Found entity 6: average
+Warning (10236): Verilog HDL Implicit Net warning at e_audio.v(153): created implicit net for "reset"
 Info (12127): Elaborating entity "E_Audio" for the top level hierarchy
-Warning (10034): Output port "LEDR[7..3]" at e_audio.v(30) has no driver
+Warning (10034): Output port "LEDR" at e_audio.v(30) has no driver
 Warning (10665): Bidirectional port "AUD_DACLRCK" at e_audio.v(13) has a one-way connection to bidirectional port "AUD_ADCLRCK"
 Info (12128): Elaborating entity "clk_18_4" for hierarchy "clk_18_4:clk_18_4_inst"
 Info (12128): Elaborating entity "clk_18_4_0002" for hierarchy "clk_18_4:clk_18_4_inst|clk_18_4_0002:clk_18_4_inst"
@@ -947,95 +1339,148 @@ Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(78): truncat
 Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(77): truncated value with size 32 to match size of target (1)
 Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(90): truncated value with size 32 to match size of target (6)
 Info (12128): Elaborating entity "AUDIO_DAC_ADC" for hierarchy "AUDIO_DAC_ADC:AUDIO_DAC_ADC_inst"
-Warning (10230): Verilog HDL assignment warning at AUDIO_DAC_ADC.v(77): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at AUDIO_DAC_ADC.v(105): truncated value with size 32 to match size of target (9)
-Warning (10230): Verilog HDL assignment warning at AUDIO_DAC_ADC.v(113): truncated value with size 32 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at AUDIO_DAC_ADC.v(121): truncated value with size 32 to match size of target (7)
-Warning (10230): Verilog HDL assignment warning at AUDIO_DAC_ADC.v(140): truncated value with size 32 to match size of target (4)
-Info (12128): Elaborating entity "syn_fifo" for hierarchy "syn_fifo:syn_fifo_inst"
-Warning (10230): Verilog HDL assignment warning at syn_fifo.v(53): truncated value with size 32 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at syn_fifo.v(62): truncated value with size 32 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at syn_fifo.v(82): truncated value with size 32 to match size of target (17)
-Warning (10230): Verilog HDL assignment warning at syn_fifo.v(86): truncated value with size 32 to match size of target (17)
-Info (12128): Elaborating entity "RAM2_MEMORY" for hierarchy "syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst"
-Info (12128): Elaborating entity "altsyncram" for hierarchy "syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component"
-Info (12130): Elaborated megafunction instantiation "syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component"
-Info (12133): Instantiated megafunction "syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component" with the following parameter:
-    Info (12134): Parameter "address_aclr_b" = "NONE"
-    Info (12134): Parameter "address_reg_b" = "CLOCK0"
-    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
-    Info (12134): Parameter "clock_enable_input_b" = "BYPASS"
-    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+Warning (10230): Verilog HDL assignment warning at AUDIO_DAC_ADC.v(81): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at AUDIO_DAC_ADC.v(110): truncated value with size 32 to match size of target (9)
+Warning (10230): Verilog HDL assignment warning at AUDIO_DAC_ADC.v(118): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at AUDIO_DAC_ADC.v(126): truncated value with size 32 to match size of target (7)
+Warning (10230): Verilog HDL assignment warning at AUDIO_DAC_ADC.v(145): truncated value with size 32 to match size of target (4)
+Info (12128): Elaborating entity "IIR6" for hierarchy "IIR6:filter2"
+Info (12128): Elaborating entity "signed_mult" for hierarchy "IIR6:filter2|signed_mult:f1_c_x_v"
+Info (12128): Elaborating entity "IIR4" for hierarchy "IIR4:filter1"
+Info (12128): Elaborating entity "frecGen" for hierarchy "frecGen:frecGen_inst"
+Info (12128): Elaborating entity "fifoaudio" for hierarchy "fifoaudio:fifoaudio_inst"
+Info (12128): Elaborating entity "scfifo" for hierarchy "fifoaudio:fifoaudio_inst|scfifo:scfifo_component"
+Info (12130): Elaborated megafunction instantiation "fifoaudio:fifoaudio_inst|scfifo:scfifo_component"
+Info (12133): Instantiated megafunction "fifoaudio:fifoaudio_inst|scfifo:scfifo_component" with the following parameter:
+    Info (12134): Parameter "add_ram_output_register" = "OFF"
+    Info (12134): Parameter "almost_empty_value" = "200"
+    Info (12134): Parameter "almost_full_value" = "16000"
     Info (12134): Parameter "intended_device_family" = "Cyclone V"
-    Info (12134): Parameter "lpm_type" = "altsyncram"
-    Info (12134): Parameter "numwords_a" = "65536"
-    Info (12134): Parameter "numwords_b" = "65536"
-    Info (12134): Parameter "operation_mode" = "DUAL_PORT"
-    Info (12134): Parameter "outdata_aclr_b" = "NONE"
-    Info (12134): Parameter "outdata_reg_b" = "CLOCK0"
-    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
-    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK0"
-    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
-    Info (12134): Parameter "widthad_a" = "16"
-    Info (12134): Parameter "widthad_b" = "16"
-    Info (12134): Parameter "width_a" = "16"
-    Info (12134): Parameter "width_b" = "16"
-    Info (12134): Parameter "width_byteena_a" = "1"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_uv02.tdf
-    Info (12023): Found entity 1: altsyncram_uv02
-Info (12128): Elaborating entity "altsyncram_uv02" for hierarchy "syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated"
-Info (12021): Found 1 design units, including 1 entities, in source file db/decode_dla.tdf
-    Info (12023): Found entity 1: decode_dla
-Info (12128): Elaborating entity "decode_dla" for hierarchy "syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated|decode_dla:decode2"
-Info (12021): Found 1 design units, including 1 entities, in source file db/mux_chb.tdf
-    Info (12023): Found entity 1: mux_chb
-Info (12128): Elaborating entity "mux_chb" for hierarchy "syn_fifo:syn_fifo_inst|RAM2_MEMORY:RAM2_MEMORY_inst|altsyncram:altsyncram_component|altsyncram_uv02:auto_generated|mux_chb:mux3"
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+    Info (12134): Parameter "lpm_numwords" = "16384"
+    Info (12134): Parameter "lpm_showahead" = "OFF"
+    Info (12134): Parameter "lpm_type" = "scfifo"
+    Info (12134): Parameter "lpm_width" = "16"
+    Info (12134): Parameter "lpm_widthu" = "14"
+    Info (12134): Parameter "overflow_checking" = "ON"
+    Info (12134): Parameter "underflow_checking" = "ON"
+    Info (12134): Parameter "use_eab" = "ON"
+Info (12021): Found 1 design units, including 1 entities, in source file db/scfifo_h1h1.tdf
+    Info (12023): Found entity 1: scfifo_h1h1
+Info (12128): Elaborating entity "scfifo_h1h1" for hierarchy "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated"
+Info (12021): Found 1 design units, including 1 entities, in source file db/a_dpfifo_tfa1.tdf
+    Info (12023): Found entity 1: a_dpfifo_tfa1
+Info (12128): Elaborating entity "a_dpfifo_tfa1" for hierarchy "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo"
+Info (12021): Found 1 design units, including 1 entities, in source file db/a_fefifo_mcf.tdf
+    Info (12023): Found entity 1: a_fefifo_mcf
+Info (12128): Elaborating entity "a_fefifo_mcf" for hierarchy "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|a_fefifo_mcf:fifo_state"
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_ei7.tdf
+    Info (12023): Found entity 1: cntr_ei7
+Info (12128): Elaborating entity "cntr_ei7" for hierarchy "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|a_fefifo_mcf:fifo_state|cntr_ei7:count_usedw"
+Info (12021): Found 1 design units, including 1 entities, in source file db/dpram_2971.tdf
+    Info (12023): Found entity 1: dpram_2971
+Info (12128): Elaborating entity "dpram_2971" for hierarchy "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_4dq1.tdf
+    Info (12023): Found entity 1: altsyncram_4dq1
+Info (12128): Elaborating entity "altsyncram_4dq1" for hierarchy "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_s07.tdf
+    Info (12023): Found entity 1: decode_s07
+Info (12128): Elaborating entity "decode_s07" for hierarchy "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|decode_s07:decode3"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_rs7.tdf
+    Info (12023): Found entity 1: mux_rs7
+Info (12128): Elaborating entity "mux_rs7" for hierarchy "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|mux_rs7:mux4"
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_2ib.tdf
+    Info (12023): Found entity 1: cntr_2ib
+Info (12128): Elaborating entity "cntr_2ib" for hierarchy "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|cntr_2ib:rd_ptr_count"
+Info (12128): Elaborating entity "async_trap_and_reset" for hierarchy "async_trap_and_reset:async_trap_and_reset_inst"
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a0"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a1"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a2"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a3"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a4"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a5"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a6"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a7"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a8"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a9"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a10"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a11"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a12"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a13"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a14"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a15"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a16"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a17"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a18"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a19"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a20"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a21"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a22"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a23"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a24"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a25"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a26"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a27"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a28"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a29"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a30"
+        Warning (14320): Synthesized away node "fifoaudio:fifoaudio_inst|scfifo:scfifo_component|scfifo_h1h1:auto_generated|a_dpfifo_tfa1:dpfifo|dpram_2971:FIFOram|altsyncram_4dq1:altsyncram1|ram_block2a31"
+Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
     Warning (13035): Inserted always-enabled tri-state buffer between "AUD_BCLK" and its non-tri-state driver.
     Warning (13035): Inserted always-enabled tri-state buffer between "AUD_DACLRCK" and its non-tri-state driver.
 Info (13060): One or more bidirectional pins are fed by always enabled tri-state buffers
-    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "AUD_BCLK" is moved to its source
     Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "AUD_DACLRCK" is moved to its source
 Warning (13009): TRI or OPNDRN buffers permanently enabled
     Warning (13010): Node "AUD_ADCLRCK~synth"
     Warning (13010): Node "AUD_BCLK~synth"
     Warning (13010): Node "AUD_DACLRCK~synth"
 Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND
+    Warning (13410): Pin "LEDR[1]" is stuck at GND
+    Warning (13410): Pin "LEDR[2]" is stuck at GND
     Warning (13410): Pin "LEDR[3]" is stuck at GND
     Warning (13410): Pin "LEDR[4]" is stuck at GND
     Warning (13410): Pin "LEDR[5]" is stuck at GND
     Warning (13410): Pin "LEDR[6]" is stuck at GND
     Warning (13410): Pin "LEDR[7]" is stuck at GND
+    Warning (13410): Pin "LEDR[8]" is stuck at GND
+    Warning (13410): Pin "LEDR[9]" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (17049): 83 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/jeffe/Desktop/Audio/E_Audio.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 8 node(s), including 0 DDIO, 2 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 11 input pin(s) that do not drive logic
+Warning (21074): Design contains 16 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "CLOCK2_50"
     Warning (15610): No output dependent on input pin "CLOCK3_50"
     Warning (15610): No output dependent on input pin "CLOCK4_50"
     Warning (15610): No output dependent on input pin "KEY[1]"
     Warning (15610): No output dependent on input pin "KEY[2]"
     Warning (15610): No output dependent on input pin "KEY[3]"
+    Warning (15610): No output dependent on input pin "SW[0]"
+    Warning (15610): No output dependent on input pin "SW[1]"
+    Warning (15610): No output dependent on input pin "SW[2]"
     Warning (15610): No output dependent on input pin "SW[3]"
     Warning (15610): No output dependent on input pin "SW[4]"
     Warning (15610): No output dependent on input pin "SW[5]"
     Warning (15610): No output dependent on input pin "SW[6]"
     Warning (15610): No output dependent on input pin "SW[7]"
-Info (21057): Implemented 487 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "SW[8]"
+    Warning (15610): No output dependent on input pin "SW[9]"
+Info (21057): Implemented 460 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 19 input pins
     Info (21059): Implemented 13 output pins
     Info (21060): Implemented 4 bidirectional pins
-    Info (21061): Implemented 321 logic cells
-    Info (21064): Implemented 128 RAM segments
+    Info (21061): Implemented 421 logic cells
     Info (21065): Implemented 2 PLLs
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 43 warnings
-    Info: Peak virtual memory: 796 megabytes
-    Info: Processing ended: Fri Apr 22 10:07:48 2016
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:46
+    Info (21062): Implemented 1 DSP elements
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 86 warnings
+    Info: Peak virtual memory: 790 megabytes
+    Info: Processing ended: Mon Apr 25 14:51:00 2016
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:47
 
 
 +------------------------------------------+

@@ -1,0 +1,82 @@
+set_global_assignment -entity "ASs" -library "ASs" -name IP_TOOL_NAME "altera_fir_compiler_ii"
+set_global_assignment -entity "ASs" -library "ASs" -name IP_TOOL_VERSION "15.0"
+set_global_assignment -entity "ASs" -library "ASs" -name IP_TOOL_ENV "mwpim"
+set_global_assignment -library "ASs" -name MISC_FILE [file join $::quartus(qip_path) "ASs.cmp"]
+set_global_assignment -entity "ASs" -library "ASs" -name IP_TARGETED_DEVICE_FAMILY "Cyclone V"
+set_global_assignment -entity "ASs" -library "ASs" -name IP_GENERATED_DEVICE_FAMILY "{Cyclone V}"
+set_global_assignment -entity "ASs" -library "ASs" -name IP_QSYS_MODE "UNKNOWN"
+set_global_assignment -name SYNTHESIS_ONLY_QIP ON
+set_global_assignment -entity "ASs" -library "ASs" -name IP_COMPONENT_NAME "QVNz"
+set_global_assignment -entity "ASs" -library "ASs" -name IP_COMPONENT_DISPLAY_NAME "RklSIElJ"
+set_global_assignment -entity "ASs" -library "ASs" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
+set_global_assignment -entity "ASs" -library "ASs" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "ASs" -library "ASs" -name IP_COMPONENT_AUTHOR "QWx0ZXJhIENvcnBvcmF0aW9u"
+set_global_assignment -entity "ASs" -library "ASs" -name IP_COMPONENT_VERSION "MTUuMA=="
+set_global_assignment -entity "ASs" -library "ASs" -name IP_COMPONENT_DESCRIPTION "QWx0ZXJhIEZJUiBJSQ=="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_NAME "QVNzXzAwMDI="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_DISPLAY_NAME "RklSIElJ"
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_AUTHOR "QWx0ZXJhIENvcnBvcmF0aW9u"
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_VERSION "MTUuMA=="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_DESCRIPTION "QWx0ZXJhIEZJUiBJSQ=="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "ZmlsdGVyVHlwZQ==::aW50ZXJw::RmlsdGVyIFR5cGU="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "aW50ZXJwRmFjdG9y::Mg==::SW50ZXJwb2xhdGlvbiBGYWN0b3I="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "ZGVjaW1GYWN0b3I=::MQ==::RGVjaW1hdGlvbiBGYWN0b3I="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "c3ltbWV0cnlNb2Rl::bnN5bQ==::U3ltbWV0cnk="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "TF9iYW5kc0ZpbHRlcg==::MQ==::TC10aCBCYW5kIEZpbHRlcg=="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "aW5wdXRDaGFubmVsTnVt::MQ==::TnVtYmVyIG9mIENoYW5uZWxz"
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "Y2xvY2tSYXRl::NTA=::Q2xvY2sgUmF0ZQ=="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "Y2xvY2tTbGFjaw==::MA==::Q2xvY2sgU2xhY2s="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "aW5wdXRSYXRl::MC4wNDg=::SW5wdXQgU2FtcGxlIFJhdGUgKE1TUFMp"
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "Y29lZmZSZWxvYWQ=::ZmFsc2U=::Q29lZmZpY2llbnRzIFJlbG9hZA=="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "YmFja1ByZXNzdXJl::ZmFsc2U=::QmFjayBQcmVzc3VyZSBTdXBwb3J0"
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "ZGV2aWNlRmFtaWx5::Q3ljbG9uZSBW::RGV2aWNlIEZhbWlseQ=="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "c3BlZWRHcmFkZQ==::bWVkaXVt::U3BlZWQgR3JhZGU="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "ZGVsYXlSQU1CbG9ja1RocmVzaG9sZA==::MjA=::TWVtb3J5IEJsb2NrIFRocmVzaG9sZA=="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "ZHVhbE1lbURpc3RSQU1UaHJlc2hvbGQ=::MTI4MA==::RHVhbCBQb3J0IFJBTSBUaHJlc2hvbGQ="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "bVJBTVRocmVzaG9sZA==::MTAwMDAwMA==::TGFyZ2UgUkFNIFRocmVzaG9sZA=="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "aGFyZE11bHRpcGxpZXJUaHJlc2hvbGQ=::LTE=::SGFyZCBNdWx0aXBsaWVyIFRocmVzaG9sZA=="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "aW5wdXRUeXBl::aW50::SW5wdXQgVHlwZQ=="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "aW5wdXRCaXRXaWR0aA==::MTY=::SW5wdXQgV2lkdGg="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "Y29lZmZTZXRSZWFsVmFsdWU=::LTAuMCwxLjZFLTUsNS4xRS01LDAuMCwtMy42NkUtNCwtMC4wMDEzNjYsLTAuMDAzMzA0LC0wLjAwNjI3MywtMC4wMDk5MTksLTAuMDEzMjcsLTAuMDE0NzIsLTAuMDEyMjk5LC0wLjAwNDE4MiwwLjAxMDY0MSwwLjAzMTc3NywwLjA1NzE1OCwwLjA4MzIzNiwwLjEwNTY4MiwwLjEyMDQxLDAuMTI0NjMxLDAuMTE3NTkxLDAuMTAwNzcxLDAuMDc3NDY0LDAuMDUxODg2LDAuMDI4MTEyLDAuMDA5MTYzLC0wLjAwMzUsLTAuMDA5OTg2LC0wLjAxMTU2NiwtMC4wMTAwNTUsLTAuMDA3MjE0LC0wLjAwNDM0NywtMC4wMDIxNTYsLTguMjJFLTQsLTEuOTVFLTQsMC4wLDEuMkUtNSwtMC4w::UmVhbCBDb2VmZmljaWVudCBWYWx1ZXM="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "Y29lZmZOdW0=::Mzg=::TnVtYmVyIG9mIENvZWZmaWNpZW50cw=="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "Y29lZmZTZXRTY2FsZVZhbHVl::MC4wLDEuNTIxNDIwOTQxODAxMjAyN2UtNSw0Ljk0NDYxODA2MDg1MzkwODRlLTUsMC4wLC0wLjAwMDM2NTE0MTAyNjAzMjI4ODYsLTAuMDAxMzY1NDc1Mjk1MjY2NTc5MywtMC4wMDMzMDE0ODM0NDM3MDg2MSwtMC4wMDYyNzIwNTc4MzI1NzU0NTc1LC0wLjAwOTkxNTg2MDk4ODE4OTMzOCwtMC4wMTMyNjY3OTA2MTI1MDY0ODcsLTAuMDE0NzE5NzQ3NjExOTI2NjM2LC0wLjAxMjI5Njg4NDc2MjEwODIyLC0wLjAwNDE4MDEwNDAzNzU5ODgwNCwwLjAxMDYzODUzNTkzNTU0NDkxLDAuMDMxNzc0ODc2MzY5NTE4MTIsMC4wNTcxNTU5ODEyMzExMTY2OCwwLjA4MzIzMzEzNjE3MzU4OTMsMC4xMDU2ODE3MDIxNjk4NjYwNCwwLjEyMDQwOTA1Njg4NjUwMTY4LDAuMTI0NjI3MTk2NDQ3NjQ1NTEsMC4xMTc1OTA2MjQ1OTE4MTQ5NSwwLjEwMDc2NzUxMjUyNzg0ODE2LDAuMDc3NDYzMTQ3MjUxODA4MjQsMC4wNTE4ODQyNTc2Njc3NzU1MSwwLjAyODEwODI1MTg5OTc3NzIyLDAuMDA5MTYyNzU3NjIxOTk3NzQ0LC0wLjAwMzQ5OTI2ODE2NjE0Mjc2NiwtMC4wMDk5ODQzMjQ5MzA1NzAzOTMsLTAuMDExNTYyNzk5MTU3Njg5MTQsLTAuMDEwMDUyNzg4ODcyOTUxNDQ3LC0wLjAwNzIxMTUzNTI2NDEzNzcsLTAuMDA0MzQzNjU2Nzg4ODQyNDM0LC0wLjAwMjE1MjgxMDYzMjY0ODcwMiwtMC4wMDA4MjE1NjczMDg1NzI2NDk1LC0wLjAwMDE5Mzk4MTE3MDA3OTY1MzM1LDAuMCwxLjE0MTA2NTcwNjM1MDkwMTllLTUsMC4w::U2NhbGVkIENvZWZmaWNpZW50IFZhbHVlcw=="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "Y29lZmZTZXRGaXhlZFZhbHVl::MCw0LDEzLDAsLTk2LC0zNTksLTg2OCwtMTY0OSwtMjYwNywtMzQ4OCwtMzg3MCwtMzIzMywtMTA5OSwyNzk3LDgzNTQsMTUwMjcsMjE4ODMsMjc3ODUsMzE2NTcsMzI3NjYsMzA5MTYsMjY0OTMsMjAzNjYsMTM2NDEsNzM5MCwyNDA5LC05MjAsLTI2MjUsLTMwNDAsLTI2NDMsLTE4OTYsLTExNDIsLTU2NiwtMjE2LC01MSwwLDMsMA==::Rml4ZWQtcG9pbnQgQ29lZmZpY2llbnQgVmFsdWVz"
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "Y29lZmZTY2FsaW5n::YXV0bw==::Q29lZmZpY2llbnQgU2NhbGluZw=="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "Y29lZmZUeXBl::aW50::Q29lZmZpY2llbnQgRGF0YSBUeXBl"
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "Y29lZmZCaXRXaWR0aA==::MTY=::Q29lZmZpY2llbnQgV2lkdGg="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "b3V0VHlwZQ==::aW50::T3V0cHV0IFR5cGU="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "b3V0TVNCUm91bmQ=::dHJ1bmM=::TVNCIFJvdW5kaW5n"
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "b3V0TXNiQml0UmVt::MA==::TVNCIEJpdHMgdG8gUmVtb3Zl"
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "b3V0TFNCUm91bmQ=::dHJ1bmM=::TFNCIFJvdW5kaW5n"
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "b3V0THNiQml0UmVt::MA==::TFNCIEJpdHMgdG8gUmVtb3Zl"
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "aW5wdXRJbnRlcmZhY2VOdW0=::MQ==::TnVtYmVyIG9mIFBhcmFsbGVsIElucHV0IFN5bWJvbHM="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "b3V0cHV0SW50ZXJmYWNlTnVt::MQ==::TnVtYmVyIG9mIFBhcmFsbGVsIE91dHB1dCBTeW1ib2xz"
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "Y2hhblBlcklucHV0SW50ZXJmYWNl::MQ==::TnVtYmVyIG9mIENoYW5uZWxzIHBlciBJbnB1dCBJbnRlcmZhY2U="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "Y2hhblBlck91dHB1dEludGVyZmFjZQ==::MQ==::TnVtYmVyIG9mIENoYW5uZWxzIHBlciBPdXRwdXQgSW50ZXJmYWNl"
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "YmFua0NvdW50::MQ==::TnVtYmVyIG9mIENvZWZmaWNpZW50IEJhbmtz"
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "YmFua0Rpc3BsYXk=::MA==::YmFua0Rpc3BsYXk="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "bHV0Q291bnQ=::MjQ5::TnVtYmVyIG9mIExVVHM="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "ZHNwQ291bnQ=::MQ==::TnVtYmVyIG9mIERTUHM="
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "bWVtQml0Q291bnQ=::MA==::TnVtYmVyIG9mIE1lbW9yeSBCaXRz"
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_COMPONENT_PARAMETER "ZXJyb3JMaXN0::MA==::ZXJyb3JMaXN0"
+
+set_global_assignment -library "ASs" -name VERILOG_FILE [file join $::quartus(qip_path) "ASs.v"]
+set_global_assignment -library "ASs" -name VHDL_FILE [file join $::quartus(qip_path) "ASs/dspba_library_package.vhd"]
+set_global_assignment -library "ASs" -name VHDL_FILE [file join $::quartus(qip_path) "ASs/dspba_library.vhd"]
+set_global_assignment -library "ASs" -name VHDL_FILE [file join $::quartus(qip_path) "ASs/auk_dspip_math_pkg_hpfir.vhd"]
+set_global_assignment -library "ASs" -name VHDL_FILE [file join $::quartus(qip_path) "ASs/auk_dspip_lib_pkg_hpfir.vhd"]
+set_global_assignment -library "ASs" -name VHDL_FILE [file join $::quartus(qip_path) "ASs/auk_dspip_avalon_streaming_controller_hpfir.vhd"]
+set_global_assignment -library "ASs" -name VHDL_FILE [file join $::quartus(qip_path) "ASs/auk_dspip_avalon_streaming_sink_hpfir.vhd"]
+set_global_assignment -library "ASs" -name VHDL_FILE [file join $::quartus(qip_path) "ASs/auk_dspip_avalon_streaming_source_hpfir.vhd"]
+set_global_assignment -library "ASs" -name VHDL_FILE [file join $::quartus(qip_path) "ASs/auk_dspip_roundsat_hpfir.vhd"]
+set_global_assignment -library "ASs" -name VERILOG_FILE [file join $::quartus(qip_path) "ASs/altera_avalon_sc_fifo.v"]
+set_global_assignment -library "ASs" -name VHDL_FILE [file join $::quartus(qip_path) "ASs/ASs_0002_rtl.vhd"]
+set_global_assignment -library "ASs" -name VHDL_FILE [file join $::quartus(qip_path) "ASs/ASs_0002_ast.vhd"]
+set_global_assignment -library "ASs" -name VHDL_FILE [file join $::quartus(qip_path) "ASs/ASs_0002.vhd"]
+set_global_assignment -library "ASs" -name SDC_FILE [file join $::quartus(qip_path) "ASs/ASs_0002.sdc"]
+
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_TOOL_NAME "altera_fir_compiler_ii"
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_TOOL_VERSION "15.0"
+set_global_assignment -entity "ASs_0002" -library "ASs" -name IP_TOOL_ENV "mwpim"

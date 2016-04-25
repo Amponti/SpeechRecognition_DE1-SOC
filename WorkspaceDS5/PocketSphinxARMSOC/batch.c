@@ -57,7 +57,8 @@
     }
 #endif
 
-static const arg_t ps_args_def[] = {
+static const arg_t ps_args_def[] =
+{
     POCKETSPHINX_OPTIONS,
     /* Various options specific to batch-mode processing. */
     /* Argument file. */
@@ -788,8 +789,6 @@ done:
         fclose(ctmfh);
 }
 
-
-
 static void
 process_ctl2(ps_decoder_t *ps, cmd_ln_t *config, FILE *ctlfh, char * hypfh)
 {
@@ -819,6 +818,7 @@ process_ctl2(ps_decoder_t *ps, cmd_ln_t *config, FILE *ctlfh, char * hypfh)
             goto done;
         }
     }
+
     if ((str = cmd_ln_str_r(config, "-fsgctl"))) {
         fsgfh = fopen(str, "r");
         if (fsgfh == NULL) {
@@ -826,6 +826,7 @@ process_ctl2(ps_decoder_t *ps, cmd_ln_t *config, FILE *ctlfh, char * hypfh)
             goto done;
         }
     }
+
     if ((str = cmd_ln_str_r(config, "-lmnamectl"))) {
         lmfh = fopen(str, "r");
         if (lmfh == NULL) {
@@ -844,15 +845,19 @@ process_ctl2(ps_decoder_t *ps, cmd_ln_t *config, FILE *ctlfh, char * hypfh)
     }
 
     i = 0;
-    while ((line = fread_line(ctlfh, &len))) {
+
+    while ((line = fread_line(ctlfh, &len)))
+    {
         char *wptr[4];
         int32 nf, sf, ef;
         char *mllrline = NULL, *lmline = NULL, *fsgline = NULL;
         char *fsgfile = NULL, *lmname = NULL, *mllrfile = NULL;
 
-        if (mllrfh) {
+        if (mllrfh)
+        {
             mllrline = fread_line(mllrfh, &len);
-            if (mllrline == NULL) {
+            if (mllrline == NULL)
+            {
 
                 ckd_free(line);
                 ckd_free(mllrline);
@@ -860,20 +865,22 @@ process_ctl2(ps_decoder_t *ps, cmd_ln_t *config, FILE *ctlfh, char * hypfh)
             }
             mllrfile = string_trim(mllrline, STRING_BOTH);
         }
-        if (lmfh) {
+        if (lmfh)
+        {
             lmline = fread_line(lmfh, &len);
-            if (lmline == NULL) {
-
+            if (lmline == NULL)
+            {
                 ckd_free(line);
                 ckd_free(lmline);
                 goto done;
             }
             lmname = string_trim(lmline, STRING_BOTH);
         }
-        if (fsgfh) {
+        if (fsgfh)
+        {
             fsgline = fread_line(fsgfh, &len);
-            if (fsgline == NULL) {
-
+            if (fsgline == NULL)
+            {
                 ckd_free(line);
                 ckd_free(fsgline);
                 goto done;
@@ -881,11 +888,14 @@ process_ctl2(ps_decoder_t *ps, cmd_ln_t *config, FILE *ctlfh, char * hypfh)
             fsgfile = string_trim(fsgline, STRING_BOTH);
         }
 
-        if (i < ctloffset) {
+        if (i < ctloffset)
+        {
             i += ctlincr;
             goto nextline;
         }
-        if (ctlcount != -1 && i >= ctloffset + ctlcount) {
+
+        if (ctlcount != -1 && i >= ctloffset + ctlcount)
+        {
             goto nextline;
         }
 
@@ -895,10 +905,11 @@ process_ctl2(ps_decoder_t *ps, cmd_ln_t *config, FILE *ctlfh, char * hypfh)
         if (nf == 0) {
             /* Do nothing. */
         }
-        else if (nf < 0) {
-
+        else if (nf < 0)
+        {
         }
-        else {
+        else
+        {
             char const *hyp, *file, *uttid;
             int32 score;
 
@@ -911,8 +922,6 @@ process_ctl2(ps_decoder_t *ps, cmd_ln_t *config, FILE *ctlfh, char * hypfh)
                 uttid = wptr[3];
             else
         	uttid = file;
-
-
 
             /* Do actual decoding. */
             if(process_mllrctl_line(ps, config, mllrfile) < 0)
@@ -933,9 +942,9 @@ process_ctl2(ps_decoder_t *ps, cmd_ln_t *config, FILE *ctlfh, char * hypfh)
             {
             	printf("Silla moviendose adelante\n");
             }
-            else if (strcmp(hypfh,"atr\xe1s")==0)
+            else if (strcmp(hypfh,"atras")==0)
             {
-            	printf("Silla moviendose atrás\n");
+            	printf("Silla moviendose atras\n");
             }
             else if (strcmp(hypfh,"derecha")==0)
             {
@@ -953,13 +962,9 @@ process_ctl2(ps_decoder_t *ps, cmd_ln_t *config, FILE *ctlfh, char * hypfh)
             {
             	printf("Hable claro y fuerte\n");
             }
-
-
-
-
         }
         i += ctlincr;
-    nextline:
+        nextline:
         ckd_free(mllrline);
         ckd_free(fsgline);
         ckd_free(lmline);
@@ -967,16 +972,19 @@ process_ctl2(ps_decoder_t *ps, cmd_ln_t *config, FILE *ctlfh, char * hypfh)
     }
 
 
-done:
+    done:
     if (hypsegfh)
-    {}
-
+    {
+    }
 }
-
 
 int
 main(int32 argc, char *argv[])
 {
+	/* Set Timer */
+	struct timeval t1, t2;
+	double elapsedTime;
+
 	char text[100];
     ps_decoder_t *ps;
     cmd_ln_t *config;
@@ -986,30 +994,47 @@ main(int32 argc, char *argv[])
     config = cmd_ln_parse_r(NULL, ps_args_def, argc, argv, TRUE);
 
     /* Handle argument file as -argfile. */
-    if (config && (ctl = cmd_ln_str_r(config, "-argfile")) != NULL) {
+    if (config && (ctl = cmd_ln_str_r(config, "-argfile")) != NULL)
+    {
         config = cmd_ln_parse_file_r(config, ps_args_def, ctl, FALSE);
     }
 
-    if (config == NULL) {
+    if (config == NULL)
+    {
         /* This probably just means that we got no arguments. */
         return 1;
     }
 
-    if ((ctl = cmd_ln_str_r(config, "-ctl")) == NULL) {
+    if ((ctl = cmd_ln_str_r(config, "-ctl")) == NULL)
+    {
         //E_FATAL("-ctl argument not present, nothing to do in batch mode!\n");
     }
-    if ((ctlfh = fopen(ctl, "r")) == NULL) {
+
+    if ((ctlfh = fopen(ctl, "r")) == NULL)
+    {
         E_FATAL_SYSTEM("Failed to open control file '%s'", ctl);
     }
 
     ps_default_search_args(config);
-    if (!(ps = ps_init(config))) {
+    if (!(ps = ps_init(config)))
+    {
         cmd_ln_free_r(config);
         fclose(ctlfh);
         //E_FATAL("PocketSphinx decoder init failed\n");
     }
 
+    // start timer
+    gettimeofday(&t1, NULL);
+
     process_ctl2(ps, config, ctlfh, &text[0]);
+
+    // stop timer
+    gettimeofday(&t2, NULL);
+
+	// compute and print the elapsed time in millisec
+	elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;      // sec to ms
+	elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;   // us to ms
+	printf ("%f ms.\n",elapsedTime);
 
     fclose(ctlfh);
     ps_free(ps);

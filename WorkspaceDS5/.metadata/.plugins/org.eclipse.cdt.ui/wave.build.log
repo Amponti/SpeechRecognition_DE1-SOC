@@ -1,0 +1,19 @@
+21:37:14 **** Build of configuration Debug for project wave ****
+make all 
+'Building file: ../wave.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"wave.d" -MT"wave.d" -o "wave.o" "../wave.c"
+../wave.c: In function 'main':
+../wave.c:203:6: warning: this decimal constant is unsigned only in ISO C90 [enabled by default]
+      low_limit = -2147483648;
+      ^
+'Finished building: ../wave.c'
+' '
+'Building target: wave'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -lm -lpthread -o "wave"  ./wave.o   
+'Finished building target: wave'
+' '
+
+21:37:14 Build Finished (took 484ms)
+

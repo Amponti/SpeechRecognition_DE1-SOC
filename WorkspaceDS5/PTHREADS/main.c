@@ -95,8 +95,6 @@ int main()
 	struct timeval t1, t2;
     double elapsedTime;
 	
-	int time_cont=0;
-
 //	init_system();
 
 	FIR_filter filtro;
@@ -136,9 +134,6 @@ int main()
 
 	apply_FIR_whole_signal(&filtro, &signal1, &signal1_output);
 	
-    // do something
-    // ...
-
     // stop timer
     gettimeofday(&t2, NULL);
 
@@ -152,9 +147,6 @@ int main()
 	
 	apply_FIR_whole_signal_pthreads(&filtro, &signal1, &signal2_output);
 
-	// do something
-    // ...
-
     // stop timer
     gettimeofday(&t2, NULL);
 
@@ -163,27 +155,11 @@ int main()
     elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;   // us to ms
     printf ("%f ms.\n",elapsedTime);
 
-	// start timer
-    gettimeofday(&t1, NULL);
+	normalize_signal(&signal1_output, 128);
+	normalize_signal(&signal2_output, 128);
 
-	apply_FIR_whole_signal_pthreads(&filtro, &signal1, &signal2_output);
-
-	// do something
-    // ...
-
-    // stop timer
-    gettimeofday(&t2, NULL);
-
-    // compute and print the elapsed time in millisec
-    elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;      // sec to ms
-    elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;   // us to ms
-    printf ("%f ms.\n",elapsedTime);
-
-	normalize_signal( &signal1_output, 128);
-	normalize_signal( &signal2_output, 128);
-
-	save_signal( &signal1_output, "nonpthreads.bin");
-	save_signal( &signal2_output, "pthreads.bin");
+	save_signal(&signal1_output,"nonpthreads.bin");
+	save_signal(&signal2_output,"pthreads.bin");
 
 	printf("Finalizando Ejecucion.\n");
 	return 0;

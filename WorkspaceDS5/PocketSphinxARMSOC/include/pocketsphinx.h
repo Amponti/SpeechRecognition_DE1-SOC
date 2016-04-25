@@ -41,6 +41,7 @@
 
 /* System headers we need. */
 #include <stdio.h>
+#include <time.h>			// Timing
 
 /* SphinxBase headers we need. */
 #include "../sphinxbase/cmd_ln.h"

@@ -1,4 +1,4 @@
-19:34:14 **** Build of configuration Debug for project PocketSphinxARMSOC ****
+16:11:23 **** Build of configuration Debug for project PocketSphinxARMSOC ****
 make all 
 'Building file: ../sphinxbase/agc.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
@@ -454,26 +454,30 @@ arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwli
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
 arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"batch.d" -MT"batch.d" -o "batch.o" "../batch.c"
 ../batch.c: In function 'process_ctl2':
-../batch.c:806:9: warning: variable 'frate' set but not used [-Wunused-but-set-variable]
+../batch.c:805:9: warning: variable 'frate' set but not used [-Wunused-but-set-variable]
      int frate;
          ^
-../batch.c:804:17: warning: variable 'nbestdir' set but not used [-Wunused-but-set-variable]
+../batch.c:803:17: warning: variable 'nbestdir' set but not used [-Wunused-but-set-variable]
      char const *nbestdir;
                  ^
-../batch.c:803:17: warning: variable 'outlatdir' set but not used [-Wunused-but-set-variable]
+../batch.c:802:17: warning: variable 'outlatdir' set but not used [-Wunused-but-set-variable]
      char const *outlatdir;
                  ^
-../batch.c:802:29: warning: unused variable 'n_wall' [-Wunused-variable]
+../batch.c:801:29: warning: unused variable 'n_wall' [-Wunused-variable]
      double n_speech, n_cpu, n_wall;
                              ^
-../batch.c:802:22: warning: unused variable 'n_cpu' [-Wunused-variable]
+../batch.c:801:22: warning: unused variable 'n_cpu' [-Wunused-variable]
      double n_speech, n_cpu, n_wall;
                       ^
-../batch.c:802:12: warning: unused variable 'n_speech' [-Wunused-variable]
+../batch.c:801:12: warning: unused variable 'n_speech' [-Wunused-variable]
      double n_speech, n_cpu, n_wall;
             ^
+../batch.c: In function 'main':
+../batch.c:1027:5: warning: implicit declaration of function 'gettimeofday' [-Wimplicit-function-declaration]
+     gettimeofday(&t1, NULL);
+     ^
 ../batch.c: At top level:
-../batch.c:593:1: warning: 'process_ctl' defined but not used [-Wunused-function]
+../batch.c:594:1: warning: 'process_ctl' defined but not used [-Wunused-function]
  process_ctl(ps_decoder_t *ps, cmd_ln_t *config, FILE *ctlfh)
  ^
 'Finished building: ../batch.c'
@@ -484,5 +488,5 @@ arm-linux-gnueabihf-gcc -lm -lpthread -o "PocketSphinxARMSOC"  ./sphinxbase/agc.
 'Finished building target: PocketSphinxARMSOC'
 ' '
 
-19:34:44 Build Finished (took 29s.166ms)
+16:11:53 Build Finished (took 29s.400ms)
 

@@ -1,485 +1,74 @@
-19:34:14 **** Build of configuration Debug for project PocketSphinxARMSOC ****
+15:05:45 **** Build of configuration Debug for project FFTthreads ****
 make all 
-'Building file: ../sphinxbase/agc.c'
+'Building file: ../filtroFIR.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/agc.d" -MT"sphinxbase/agc.d" -o "sphinxbase/agc.o" "../sphinxbase/agc.c"
-'Finished building: ../sphinxbase/agc.c'
-' '
-'Building file: ../sphinxbase/bio.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/bio.d" -MT"sphinxbase/bio.d" -o "sphinxbase/bio.o" "../sphinxbase/bio.c"
-'Finished building: ../sphinxbase/bio.c'
-' '
-'Building file: ../sphinxbase/bitarr.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/bitarr.d" -MT"sphinxbase/bitarr.d" -o "sphinxbase/bitarr.o" "../sphinxbase/bitarr.c"
-'Finished building: ../sphinxbase/bitarr.c'
-' '
-'Building file: ../sphinxbase/bitvec.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/bitvec.d" -MT"sphinxbase/bitvec.d" -o "sphinxbase/bitvec.o" "../sphinxbase/bitvec.c"
-'Finished building: ../sphinxbase/bitvec.c'
-' '
-'Building file: ../sphinxbase/blas_lite.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/blas_lite.d" -MT"sphinxbase/blas_lite.d" -o "sphinxbase/blas_lite.o" "../sphinxbase/blas_lite.c"
-../sphinxbase/blas_lite.c: In function 'lsame_':
-../sphinxbase/blas_lite.c:101:18: warning: suggest parentheses around '&&' within '||' [-Wparentheses]
-  if (inta >= 129 && inta <= 137 || inta >= 145 && inta <= 153 || inta
-                  ^
-../sphinxbase/blas_lite.c:102:10: warning: suggest parentheses around '&&' within '||' [-Wparentheses]
-   >= 162 && inta <= 169) {
-          ^
-../sphinxbase/blas_lite.c:105:18: warning: suggest parentheses around '&&' within '||' [-Wparentheses]
-  if (intb >= 129 && intb <= 137 || intb >= 145 && intb <= 153 || intb
-                  ^
-../sphinxbase/blas_lite.c:106:10: warning: suggest parentheses around '&&' within '||' [-Wparentheses]
-   >= 162 && intb <= 169) {
-          ^
-../sphinxbase/blas_lite.c: In function 'sgemm_':
-../sphinxbase/blas_lite.c:425:58: warning: suggest parentheses around '&&' within '||' [-Wparentheses]
-     if (*m == 0 || *n == 0 || (*alpha == 0.f || *k == 0) && *beta == 1.f) {
-                                                          ^
-../sphinxbase/blas_lite.c:237:20: warning: variable 'ncola' set but not used [-Wunused-but-set-variable]
-     static integer ncola;
-                    ^
-../sphinxbase/blas_lite.c: In function 'sgemv_':
-../sphinxbase/blas_lite.c:726:45: warning: suggest parentheses around '&&' within '||' [-Wparentheses]
-     if (*m == 0 || *n == 0 || *alpha == 0.f && *beta == 1.f) {
-                                             ^
-../sphinxbase/blas_lite.c: In function 'ssymm_':
-../sphinxbase/blas_lite.c:1138:45: warning: suggest parentheses around '&&' within '||' [-Wparentheses]
-     if (*m == 0 || *n == 0 || *alpha == 0.f && *beta == 1.f) {
-                                             ^
-../sphinxbase/blas_lite.c: In function 'ssyrk_':
-../sphinxbase/blas_lite.c:1450:47: warning: suggest parentheses around '&&' within '||' [-Wparentheses]
-     if (*n == 0 || (*alpha == 0.f || *k == 0) && *beta == 1.f) {
-                                               ^
-'Finished building: ../sphinxbase/blas_lite.c'
-' '
-'Building file: ../sphinxbase/case.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/case.d" -MT"sphinxbase/case.d" -o "sphinxbase/case.o" "../sphinxbase/case.c"
-'Finished building: ../sphinxbase/case.c'
-' '
-'Building file: ../sphinxbase/ckd_alloc.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/ckd_alloc.d" -MT"sphinxbase/ckd_alloc.d" -o "sphinxbase/ckd_alloc.o" "../sphinxbase/ckd_alloc.c"
-'Finished building: ../sphinxbase/ckd_alloc.c'
-' '
-'Building file: ../sphinxbase/cmd_ln.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/cmd_ln.d" -MT"sphinxbase/cmd_ln.d" -o "sphinxbase/cmd_ln.o" "../sphinxbase/cmd_ln.c"
-'Finished building: ../sphinxbase/cmd_ln.c'
-' '
-'Building file: ../sphinxbase/cmn.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/cmn.d" -MT"sphinxbase/cmn.d" -o "sphinxbase/cmn.o" "../sphinxbase/cmn.c"
-'Finished building: ../sphinxbase/cmn.c'
-' '
-'Building file: ../sphinxbase/cmn_prior.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/cmn_prior.d" -MT"sphinxbase/cmn_prior.d" -o "sphinxbase/cmn_prior.o" "../sphinxbase/cmn_prior.c"
-'Finished building: ../sphinxbase/cmn_prior.c'
-' '
-'Building file: ../sphinxbase/dtoa.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/dtoa.d" -MT"sphinxbase/dtoa.d" -o "sphinxbase/dtoa.o" "../sphinxbase/dtoa.c"
-'Finished building: ../sphinxbase/dtoa.c'
-' '
-'Building file: ../sphinxbase/err.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/err.d" -MT"sphinxbase/err.d" -o "sphinxbase/err.o" "../sphinxbase/err.c"
-'Finished building: ../sphinxbase/err.c'
-' '
-'Building file: ../sphinxbase/errno.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/errno.d" -MT"sphinxbase/errno.d" -o "sphinxbase/errno.o" "../sphinxbase/errno.c"
-'Finished building: ../sphinxbase/errno.c'
-' '
-'Building file: ../sphinxbase/f2c_lite.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/f2c_lite.d" -MT"sphinxbase/f2c_lite.d" -o "sphinxbase/f2c_lite.o" "../sphinxbase/f2c_lite.c"
-'Finished building: ../sphinxbase/f2c_lite.c'
-' '
-'Building file: ../sphinxbase/fe_interface.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/fe_interface.d" -MT"sphinxbase/fe_interface.d" -o "sphinxbase/fe_interface.o" "../sphinxbase/fe_interface.c"
-'Finished building: ../sphinxbase/fe_interface.c'
-' '
-'Building file: ../sphinxbase/fe_noise.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/fe_noise.d" -MT"sphinxbase/fe_noise.d" -o "sphinxbase/fe_noise.o" "../sphinxbase/fe_noise.c"
-'Finished building: ../sphinxbase/fe_noise.c'
-' '
-'Building file: ../sphinxbase/fe_prespch_buf.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/fe_prespch_buf.d" -MT"sphinxbase/fe_prespch_buf.d" -o "sphinxbase/fe_prespch_buf.o" "../sphinxbase/fe_prespch_buf.c"
-'Finished building: ../sphinxbase/fe_prespch_buf.c'
-' '
-'Building file: ../sphinxbase/fe_sigproc.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/fe_sigproc.d" -MT"sphinxbase/fe_sigproc.d" -o "sphinxbase/fe_sigproc.o" "../sphinxbase/fe_sigproc.c"
-'Finished building: ../sphinxbase/fe_sigproc.c'
-' '
-'Building file: ../sphinxbase/fe_warp.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/fe_warp.d" -MT"sphinxbase/fe_warp.d" -o "sphinxbase/fe_warp.o" "../sphinxbase/fe_warp.c"
-'Finished building: ../sphinxbase/fe_warp.c'
-' '
-'Building file: ../sphinxbase/fe_warp_affine.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/fe_warp_affine.d" -MT"sphinxbase/fe_warp_affine.d" -o "sphinxbase/fe_warp_affine.o" "../sphinxbase/fe_warp_affine.c"
-'Finished building: ../sphinxbase/fe_warp_affine.c'
-' '
-'Building file: ../sphinxbase/fe_warp_inverse_linear.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/fe_warp_inverse_linear.d" -MT"sphinxbase/fe_warp_inverse_linear.d" -o "sphinxbase/fe_warp_inverse_linear.o" "../sphinxbase/fe_warp_inverse_linear.c"
-'Finished building: ../sphinxbase/fe_warp_inverse_linear.c'
-' '
-'Building file: ../sphinxbase/fe_warp_piecewise_linear.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/fe_warp_piecewise_linear.d" -MT"sphinxbase/fe_warp_piecewise_linear.d" -o "sphinxbase/fe_warp_piecewise_linear.o" "../sphinxbase/fe_warp_piecewise_linear.c"
-'Finished building: ../sphinxbase/fe_warp_piecewise_linear.c'
-' '
-'Building file: ../sphinxbase/feat.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/feat.d" -MT"sphinxbase/feat.d" -o "sphinxbase/feat.o" "../sphinxbase/feat.c"
-'Finished building: ../sphinxbase/feat.c'
-' '
-'Building file: ../sphinxbase/filename.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/filename.d" -MT"sphinxbase/filename.d" -o "sphinxbase/filename.o" "../sphinxbase/filename.c"
-'Finished building: ../sphinxbase/filename.c'
-' '
-'Building file: ../sphinxbase/fixlog.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/fixlog.d" -MT"sphinxbase/fixlog.d" -o "sphinxbase/fixlog.o" "../sphinxbase/fixlog.c"
-'Finished building: ../sphinxbase/fixlog.c'
-' '
-'Building file: ../sphinxbase/fsg_model.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/fsg_model.d" -MT"sphinxbase/fsg_model.d" -o "sphinxbase/fsg_model.o" "../sphinxbase/fsg_model.c"
-'Finished building: ../sphinxbase/fsg_model.c'
-' '
-'Building file: ../sphinxbase/genrand.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/genrand.d" -MT"sphinxbase/genrand.d" -o "sphinxbase/genrand.o" "../sphinxbase/genrand.c"
-'Finished building: ../sphinxbase/genrand.c'
-' '
-'Building file: ../sphinxbase/glist.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/glist.d" -MT"sphinxbase/glist.d" -o "sphinxbase/glist.o" "../sphinxbase/glist.c"
-'Finished building: ../sphinxbase/glist.c'
-' '
-'Building file: ../sphinxbase/hash_table.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/hash_table.d" -MT"sphinxbase/hash_table.d" -o "sphinxbase/hash_table.o" "../sphinxbase/hash_table.c"
-'Finished building: ../sphinxbase/hash_table.c'
-' '
-'Building file: ../sphinxbase/heap.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/heap.d" -MT"sphinxbase/heap.d" -o "sphinxbase/heap.o" "../sphinxbase/heap.c"
-'Finished building: ../sphinxbase/heap.c'
-' '
-'Building file: ../sphinxbase/jsgf.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/jsgf.d" -MT"sphinxbase/jsgf.d" -o "sphinxbase/jsgf.o" "../sphinxbase/jsgf.c"
-'Finished building: ../sphinxbase/jsgf.c'
-' '
-'Building file: ../sphinxbase/jsgf_parser.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/jsgf_parser.d" -MT"sphinxbase/jsgf_parser.d" -o "sphinxbase/jsgf_parser.o" "../sphinxbase/jsgf_parser.c"
-'Finished building: ../sphinxbase/jsgf_parser.c'
-' '
-'Building file: ../sphinxbase/jsgf_scanner.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/jsgf_scanner.d" -MT"sphinxbase/jsgf_scanner.d" -o "sphinxbase/jsgf_scanner.o" "../sphinxbase/jsgf_scanner.c"
-'Finished building: ../sphinxbase/jsgf_scanner.c'
-' '
-'Building file: ../sphinxbase/lda.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/lda.d" -MT"sphinxbase/lda.d" -o "sphinxbase/lda.o" "../sphinxbase/lda.c"
-'Finished building: ../sphinxbase/lda.c'
-' '
-'Building file: ../sphinxbase/listelem_alloc.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/listelem_alloc.d" -MT"sphinxbase/listelem_alloc.d" -o "sphinxbase/listelem_alloc.o" "../sphinxbase/listelem_alloc.c"
-'Finished building: ../sphinxbase/listelem_alloc.c'
-' '
-'Building file: ../sphinxbase/lm_trie.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/lm_trie.d" -MT"sphinxbase/lm_trie.d" -o "sphinxbase/lm_trie.o" "../sphinxbase/lm_trie.c"
-'Finished building: ../sphinxbase/lm_trie.c'
-' '
-'Building file: ../sphinxbase/lm_trie_quant.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/lm_trie_quant.d" -MT"sphinxbase/lm_trie_quant.d" -o "sphinxbase/lm_trie_quant.o" "../sphinxbase/lm_trie_quant.c"
-'Finished building: ../sphinxbase/lm_trie_quant.c'
-' '
-'Building file: ../sphinxbase/logmath.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/logmath.d" -MT"sphinxbase/logmath.d" -o "sphinxbase/logmath.o" "../sphinxbase/logmath.c"
-'Finished building: ../sphinxbase/logmath.c'
-' '
-'Building file: ../sphinxbase/matrix.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/matrix.d" -MT"sphinxbase/matrix.d" -o "sphinxbase/matrix.o" "../sphinxbase/matrix.c"
-'Finished building: ../sphinxbase/matrix.c'
-' '
-'Building file: ../sphinxbase/mmio.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/mmio.d" -MT"sphinxbase/mmio.d" -o "sphinxbase/mmio.o" "../sphinxbase/mmio.c"
-'Finished building: ../sphinxbase/mmio.c'
-' '
-'Building file: ../sphinxbase/ngram_model.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/ngram_model.d" -MT"sphinxbase/ngram_model.d" -o "sphinxbase/ngram_model.o" "../sphinxbase/ngram_model.c"
-'Finished building: ../sphinxbase/ngram_model.c'
-' '
-'Building file: ../sphinxbase/ngram_model_set.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/ngram_model_set.d" -MT"sphinxbase/ngram_model_set.d" -o "sphinxbase/ngram_model_set.o" "../sphinxbase/ngram_model_set.c"
-'Finished building: ../sphinxbase/ngram_model_set.c'
-' '
-'Building file: ../sphinxbase/ngram_model_trie.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/ngram_model_trie.d" -MT"sphinxbase/ngram_model_trie.d" -o "sphinxbase/ngram_model_trie.o" "../sphinxbase/ngram_model_trie.c"
-'Finished building: ../sphinxbase/ngram_model_trie.c'
-' '
-'Building file: ../sphinxbase/ngrams_raw.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/ngrams_raw.d" -MT"sphinxbase/ngrams_raw.d" -o "sphinxbase/ngrams_raw.o" "../sphinxbase/ngrams_raw.c"
-'Finished building: ../sphinxbase/ngrams_raw.c'
-' '
-'Building file: ../sphinxbase/pio.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/pio.d" -MT"sphinxbase/pio.d" -o "sphinxbase/pio.o" "../sphinxbase/pio.c"
-'Finished building: ../sphinxbase/pio.c'
-' '
-'Building file: ../sphinxbase/priority_queue.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/priority_queue.d" -MT"sphinxbase/priority_queue.d" -o "sphinxbase/priority_queue.o" "../sphinxbase/priority_queue.c"
-'Finished building: ../sphinxbase/priority_queue.c'
-' '
-'Building file: ../sphinxbase/profile.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/profile.d" -MT"sphinxbase/profile.d" -o "sphinxbase/profile.o" "../sphinxbase/profile.c"
-'Finished building: ../sphinxbase/profile.c'
-' '
-'Building file: ../sphinxbase/sbthread.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/sbthread.d" -MT"sphinxbase/sbthread.d" -o "sphinxbase/sbthread.o" "../sphinxbase/sbthread.c"
-'Finished building: ../sphinxbase/sbthread.c'
-' '
-'Building file: ../sphinxbase/slamch.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/slamch.d" -MT"sphinxbase/slamch.d" -o "sphinxbase/slamch.o" "../sphinxbase/slamch.c"
-'Finished building: ../sphinxbase/slamch.c'
-' '
-'Building file: ../sphinxbase/slapack_lite.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/slapack_lite.d" -MT"sphinxbase/slapack_lite.d" -o "sphinxbase/slapack_lite.o" "../sphinxbase/slapack_lite.c"
-../sphinxbase/slapack_lite.c: In function 'ilaenv_':
-../sphinxbase/slapack_lite.c:346:16: warning: suggest parentheses around '&&' within '||' [-Wparentheses]
-  if (ic >= 129 && ic <= 137 || ic >= 145 && ic <= 153 || ic >= 162 &&
-                ^
-../sphinxbase/slapack_lite.c:346:68: warning: suggest parentheses around '&&' within '||' [-Wparentheses]
-  if (ic >= 129 && ic <= 137 || ic >= 145 && ic <= 153 || ic >= 162 &&
-                                                                    ^
-../sphinxbase/slapack_lite.c:351:17: warning: suggest parentheses around '&&' within '||' [-Wparentheses]
-   if (ic >= 129 && ic <= 137 || ic >= 145 && ic <= 153 || ic >=
-                 ^
-../sphinxbase/slapack_lite.c:352:8: warning: suggest parentheses around '&&' within '||' [-Wparentheses]
-    162 && ic <= 169) {
+arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"filtroFIR.d" -MT"filtroFIR.d" -o "filtroFIR.o" "../filtroFIR.c"
+../filtroFIR.c: In function 'calc_FIR_coefs':
+../filtroFIR.c:109:5: warning: implicit declaration of function 'cos' [-Wimplicit-function-declaration]
+     window_mask = (0.5*(1-cos((2*PI*n)/(N-1))));
+     ^
+../filtroFIR.c:109:27: warning: incompatible implicit declaration of built-in function 'cos' [enabled by default]
+     window_mask = (0.5*(1-cos((2*PI*n)/(N-1))));
+                           ^
+../filtroFIR.c:118:5: warning: implicit declaration of function 'sin' [-Wimplicit-function-declaration]
+     window_mask = ((1-((n-((N-1)/2))/((N-1)/2)))*cos(PI*((n-((N-1)/2))/((N-1)/2)))+(1/PI)*sin(PI*((n-((N-1)/2))/((N-1)/2))));
+     ^
+../filtroFIR.c:118:91: warning: incompatible implicit declaration of built-in function 'sin' [enabled by default]
+     window_mask = ((1-((n-((N-1)/2))/((N-1)/2)))*cos(PI*((n-((N-1)/2))/((N-1)/2)))+(1/PI)*sin(PI*((n-((N-1)/2))/((N-1)/2))));
+                                                                                           ^
+../filtroFIR.c:134:30: warning: incompatible implicit declaration of built-in function 'sin' [enabled by default]
+     not_equal_filter_mask = (sin(Wc1*(n-M))/(PI*(n-M)));
+                              ^
+../filtroFIR.c: In function 'save_signal':
+../filtroFIR.c:246:6: warning: variable 'swrite' set but not used [-Wunused-but-set-variable]
+  int swrite;
+      ^
+../filtroFIR.c: In function 'acc_multi':
+../filtroFIR.c:324:8: warning: assignment from incompatible pointer type [enabled by default]
+   data1=(float*)&FIR_signal->signal[i+offset+offset2];
         ^
-'Finished building: ../sphinxbase/slapack_lite.c'
-' '
-'Building file: ../sphinxbase/strfuncs.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/strfuncs.d" -MT"sphinxbase/strfuncs.d" -o "sphinxbase/strfuncs.o" "../sphinxbase/strfuncs.c"
-'Finished building: ../sphinxbase/strfuncs.c'
-' '
-'Building file: ../sphinxbase/yin.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sphinxbase/yin.d" -MT"sphinxbase/yin.d" -o "sphinxbase/yin.o" "../sphinxbase/yin.c"
-'Finished building: ../sphinxbase/yin.c'
-' '
-'Building file: ../libpocketsphinx/acmod.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/acmod.d" -MT"libpocketsphinx/acmod.d" -o "libpocketsphinx/acmod.o" "../libpocketsphinx/acmod.c"
-'Finished building: ../libpocketsphinx/acmod.c'
-' '
-'Building file: ../libpocketsphinx/allphone_search.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/allphone_search.d" -MT"libpocketsphinx/allphone_search.d" -o "libpocketsphinx/allphone_search.o" "../libpocketsphinx/allphone_search.c"
-'Finished building: ../libpocketsphinx/allphone_search.c'
-' '
-'Building file: ../libpocketsphinx/bin_mdef.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/bin_mdef.d" -MT"libpocketsphinx/bin_mdef.d" -o "libpocketsphinx/bin_mdef.o" "../libpocketsphinx/bin_mdef.c"
-'Finished building: ../libpocketsphinx/bin_mdef.c'
-' '
-'Building file: ../libpocketsphinx/blkarray_list.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/blkarray_list.d" -MT"libpocketsphinx/blkarray_list.d" -o "libpocketsphinx/blkarray_list.o" "../libpocketsphinx/blkarray_list.c"
-'Finished building: ../libpocketsphinx/blkarray_list.c'
-' '
-'Building file: ../libpocketsphinx/dict.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/dict.d" -MT"libpocketsphinx/dict.d" -o "libpocketsphinx/dict.o" "../libpocketsphinx/dict.c"
-'Finished building: ../libpocketsphinx/dict.c'
-' '
-'Building file: ../libpocketsphinx/dict2pid.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/dict2pid.d" -MT"libpocketsphinx/dict2pid.d" -o "libpocketsphinx/dict2pid.o" "../libpocketsphinx/dict2pid.c"
-'Finished building: ../libpocketsphinx/dict2pid.c'
-' '
-'Building file: ../libpocketsphinx/fsg_history.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/fsg_history.d" -MT"libpocketsphinx/fsg_history.d" -o "libpocketsphinx/fsg_history.o" "../libpocketsphinx/fsg_history.c"
-'Finished building: ../libpocketsphinx/fsg_history.c'
-' '
-'Building file: ../libpocketsphinx/fsg_lextree.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/fsg_lextree.d" -MT"libpocketsphinx/fsg_lextree.d" -o "libpocketsphinx/fsg_lextree.o" "../libpocketsphinx/fsg_lextree.c"
-'Finished building: ../libpocketsphinx/fsg_lextree.c'
-' '
-'Building file: ../libpocketsphinx/fsg_search.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/fsg_search.d" -MT"libpocketsphinx/fsg_search.d" -o "libpocketsphinx/fsg_search.o" "../libpocketsphinx/fsg_search.c"
-'Finished building: ../libpocketsphinx/fsg_search.c'
-' '
-'Building file: ../libpocketsphinx/hmm.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/hmm.d" -MT"libpocketsphinx/hmm.d" -o "libpocketsphinx/hmm.o" "../libpocketsphinx/hmm.c"
-'Finished building: ../libpocketsphinx/hmm.c'
-' '
-'Building file: ../libpocketsphinx/kws_detections.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/kws_detections.d" -MT"libpocketsphinx/kws_detections.d" -o "libpocketsphinx/kws_detections.o" "../libpocketsphinx/kws_detections.c"
-'Finished building: ../libpocketsphinx/kws_detections.c'
-' '
-'Building file: ../libpocketsphinx/kws_search.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/kws_search.d" -MT"libpocketsphinx/kws_search.d" -o "libpocketsphinx/kws_search.o" "../libpocketsphinx/kws_search.c"
-'Finished building: ../libpocketsphinx/kws_search.c'
-' '
-'Building file: ../libpocketsphinx/mdef.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/mdef.d" -MT"libpocketsphinx/mdef.d" -o "libpocketsphinx/mdef.o" "../libpocketsphinx/mdef.c"
-'Finished building: ../libpocketsphinx/mdef.c'
-' '
-'Building file: ../libpocketsphinx/ms_gauden.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/ms_gauden.d" -MT"libpocketsphinx/ms_gauden.d" -o "libpocketsphinx/ms_gauden.o" "../libpocketsphinx/ms_gauden.c"
-'Finished building: ../libpocketsphinx/ms_gauden.c'
-' '
-'Building file: ../libpocketsphinx/ms_mgau.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/ms_mgau.d" -MT"libpocketsphinx/ms_mgau.d" -o "libpocketsphinx/ms_mgau.o" "../libpocketsphinx/ms_mgau.c"
-'Finished building: ../libpocketsphinx/ms_mgau.c'
-' '
-'Building file: ../libpocketsphinx/ms_senone.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/ms_senone.d" -MT"libpocketsphinx/ms_senone.d" -o "libpocketsphinx/ms_senone.o" "../libpocketsphinx/ms_senone.c"
-'Finished building: ../libpocketsphinx/ms_senone.c'
-' '
-'Building file: ../libpocketsphinx/ngram_search.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/ngram_search.d" -MT"libpocketsphinx/ngram_search.d" -o "libpocketsphinx/ngram_search.o" "../libpocketsphinx/ngram_search.c"
-'Finished building: ../libpocketsphinx/ngram_search.c'
-' '
-'Building file: ../libpocketsphinx/ngram_search_fwdflat.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/ngram_search_fwdflat.d" -MT"libpocketsphinx/ngram_search_fwdflat.d" -o "libpocketsphinx/ngram_search_fwdflat.o" "../libpocketsphinx/ngram_search_fwdflat.c"
-'Finished building: ../libpocketsphinx/ngram_search_fwdflat.c'
-' '
-'Building file: ../libpocketsphinx/ngram_search_fwdtree.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/ngram_search_fwdtree.d" -MT"libpocketsphinx/ngram_search_fwdtree.d" -o "libpocketsphinx/ngram_search_fwdtree.o" "../libpocketsphinx/ngram_search_fwdtree.c"
-'Finished building: ../libpocketsphinx/ngram_search_fwdtree.c'
-' '
-'Building file: ../libpocketsphinx/phone_loop_search.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/phone_loop_search.d" -MT"libpocketsphinx/phone_loop_search.d" -o "libpocketsphinx/phone_loop_search.o" "../libpocketsphinx/phone_loop_search.c"
-'Finished building: ../libpocketsphinx/phone_loop_search.c'
-' '
-'Building file: ../libpocketsphinx/pocketsphinx.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/pocketsphinx.d" -MT"libpocketsphinx/pocketsphinx.d" -o "libpocketsphinx/pocketsphinx.o" "../libpocketsphinx/pocketsphinx.c"
-'Finished building: ../libpocketsphinx/pocketsphinx.c'
-' '
-'Building file: ../libpocketsphinx/ps_alignment.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/ps_alignment.d" -MT"libpocketsphinx/ps_alignment.d" -o "libpocketsphinx/ps_alignment.o" "../libpocketsphinx/ps_alignment.c"
-'Finished building: ../libpocketsphinx/ps_alignment.c'
-' '
-'Building file: ../libpocketsphinx/ps_lattice.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/ps_lattice.d" -MT"libpocketsphinx/ps_lattice.d" -o "libpocketsphinx/ps_lattice.o" "../libpocketsphinx/ps_lattice.c"
-'Finished building: ../libpocketsphinx/ps_lattice.c'
-' '
-'Building file: ../libpocketsphinx/ps_mllr.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/ps_mllr.d" -MT"libpocketsphinx/ps_mllr.d" -o "libpocketsphinx/ps_mllr.o" "../libpocketsphinx/ps_mllr.c"
-'Finished building: ../libpocketsphinx/ps_mllr.c'
-' '
-'Building file: ../libpocketsphinx/ptm_mgau.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/ptm_mgau.d" -MT"libpocketsphinx/ptm_mgau.d" -o "libpocketsphinx/ptm_mgau.o" "../libpocketsphinx/ptm_mgau.c"
-'Finished building: ../libpocketsphinx/ptm_mgau.c'
-' '
-'Building file: ../libpocketsphinx/s2_semi_mgau.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/s2_semi_mgau.d" -MT"libpocketsphinx/s2_semi_mgau.d" -o "libpocketsphinx/s2_semi_mgau.o" "../libpocketsphinx/s2_semi_mgau.c"
-'Finished building: ../libpocketsphinx/s2_semi_mgau.c'
-' '
-'Building file: ../libpocketsphinx/state_align_search.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/state_align_search.d" -MT"libpocketsphinx/state_align_search.d" -o "libpocketsphinx/state_align_search.o" "../libpocketsphinx/state_align_search.c"
-'Finished building: ../libpocketsphinx/state_align_search.c'
-' '
-'Building file: ../libpocketsphinx/tmat.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/tmat.d" -MT"libpocketsphinx/tmat.d" -o "libpocketsphinx/tmat.o" "../libpocketsphinx/tmat.c"
-'Finished building: ../libpocketsphinx/tmat.c'
-' '
-'Building file: ../libpocketsphinx/vector.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"libpocketsphinx/vector.d" -MT"libpocketsphinx/vector.d" -o "libpocketsphinx/vector.o" "../libpocketsphinx/vector.c"
-'Finished building: ../libpocketsphinx/vector.c'
-' '
-'Building file: ../batch.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"batch.d" -MT"batch.d" -o "batch.o" "../batch.c"
-../batch.c: In function 'process_ctl2':
-../batch.c:806:9: warning: variable 'frate' set but not used [-Wunused-but-set-variable]
-     int frate;
-         ^
-../batch.c:804:17: warning: variable 'nbestdir' set but not used [-Wunused-but-set-variable]
-     char const *nbestdir;
-                 ^
-../batch.c:803:17: warning: variable 'outlatdir' set but not used [-Wunused-but-set-variable]
-     char const *outlatdir;
-                 ^
-../batch.c:802:29: warning: unused variable 'n_wall' [-Wunused-variable]
-     double n_speech, n_cpu, n_wall;
-                             ^
-../batch.c:802:22: warning: unused variable 'n_cpu' [-Wunused-variable]
-     double n_speech, n_cpu, n_wall;
-                      ^
-../batch.c:802:12: warning: unused variable 'n_speech' [-Wunused-variable]
-     double n_speech, n_cpu, n_wall;
-            ^
-../batch.c: At top level:
-../batch.c:593:1: warning: 'process_ctl' defined but not used [-Wunused-function]
- process_ctl(ps_decoder_t *ps, cmd_ln_t *config, FILE *ctlfh)
+../filtroFIR.c:325:8: warning: assignment from incompatible pointer type [enabled by default]
+   data2=(float*)&filtro->coefs[i+offset2];
+        ^
+In file included from ../filtroFIR.c:13:0:
+C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal/socal.h:126:81: warning: assignment makes integer from pointer without a cast [enabled by default]
+ #define alt_write_word(dest, src)       (*ALT_CAST(volatile uint32_t *, (dest)) = (src))
+                                                                                 ^
+../filtroFIR.c:326:3: note: in expansion of macro 'alt_write_word'
+   alt_write_word(val1_addr, data1);
+   ^
+C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal/socal.h:126:81: warning: assignment makes integer from pointer without a cast [enabled by default]
+ #define alt_write_word(dest, src)       (*ALT_CAST(volatile uint32_t *, (dest)) = (src))
+                                                                                 ^
+../filtroFIR.c:327:3: note: in expansion of macro 'alt_write_word'
+   alt_write_word(val1_addr,data2);
+   ^
+../filtroFIR.c:332:13: warning: assignment from incompatible pointer type [enabled by default]
+  data_result=(float*)&resultado;
+             ^
+../filtroFIR.c: In function 'apply_FIR_whole_signal_pthreads':
+../filtroFIR.c:428:2: warning: implicit declaration of function 'pthread_create' [-Wimplicit-function-declaration]
+  pthread_create(&thr[0], NULL, fir_thread, (void *)&tempThreads[0]);
+  ^
+../filtroFIR.c:433:2: warning: implicit declaration of function 'pthread_join' [-Wimplicit-function-declaration]
+  pthread_join(thr[0], NULL);
+  ^
+../filtroFIR.c:398:7: warning: unused variable 'N' [-Wunused-variable]
+  int  N = filtro->order+1;
+       ^
+../filtroFIR.c: In function 'fir_thread':
+../filtroFIR.c:393:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
  ^
-'Finished building: ../batch.c'
+'Finished building: ../filtroFIR.c'
 ' '
-'Building target: PocketSphinxARMSOC'
+'Building file: ../main.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+'Finished building: ../main.c'
+' '
+'Building target: FFTthreads'
 'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -lm -lpthread -o "PocketSphinxARMSOC"  ./sphinxbase/agc.o ./sphinxbase/bio.o ./sphinxbase/bitarr.o ./sphinxbase/bitvec.o ./sphinxbase/blas_lite.o ./sphinxbase/case.o ./sphinxbase/ckd_alloc.o ./sphinxbase/cmd_ln.o ./sphinxbase/cmn.o ./sphinxbase/cmn_prior.o ./sphinxbase/dtoa.o ./sphinxbase/err.o ./sphinxbase/errno.o ./sphinxbase/f2c_lite.o ./sphinxbase/fe_interface.o ./sphinxbase/fe_noise.o ./sphinxbase/fe_prespch_buf.o ./sphinxbase/fe_sigproc.o ./sphinxbase/fe_warp.o ./sphinxbase/fe_warp_affine.o ./sphinxbase/fe_warp_inverse_linear.o ./sphinxbase/fe_warp_piecewise_linear.o ./sphinxbase/feat.o ./sphinxbase/filename.o ./sphinxbase/fixlog.o ./sphinxbase/fsg_model.o ./sphinxbase/genrand.o ./sphinxbase/glist.o ./sphinxbase/hash_table.o ./sphinxbase/heap.o ./sphinxbase/jsgf.o ./sphinxbase/jsgf_parser.o ./sphinxbase/jsgf_scanner.o ./sphinxbase/lda.o ./sphinxbase/listelem_alloc.o ./sphinxbase/lm_trie.o ./sphinxbase/lm_trie_quant.o ./sphinxbase/logmath.o ./sphinxbase/matrix.o ./sphinxbase/mmio.o ./sphinxbase/ngram_model.o ./sphinxbase/ngram_model_set.o ./sphinxbase/ngram_model_trie.o ./sphinxbase/ngrams_raw.o ./sphinxbase/pio.o ./sphinxbase/priority_queue.o ./sphinxbase/profile.o ./sphinxbase/sbthread.o ./sphinxbase/slamch.o ./sphinxbase/slapack_lite.o ./sphinxbase/strfuncs.o ./sphinxbase/yin.o  ./libpocketsphinx/acmod.o ./libpocketsphinx/allphone_search.o ./libpocketsphinx/bin_mdef.o ./libpocketsphinx/blkarray_list.o ./libpocketsphinx/dict.o ./libpocketsphinx/dict2pid.o ./libpocketsphinx/fsg_history.o ./libpocketsphinx/fsg_lextree.o ./libpocketsphinx/fsg_search.o ./libpocketsphinx/hmm.o ./libpocketsphinx/kws_detections.o ./libpocketsphinx/kws_search.o ./libpocketsphinx/mdef.o ./libpocketsphinx/ms_gauden.o ./libpocketsphinx/ms_mgau.o ./libpocketsphinx/ms_senone.o ./libpocketsphinx/ngram_search.o ./libpocketsphinx/ngram_search_fwdflat.o ./libpocketsphinx/ngram_search_fwdtree.o ./libpocketsphinx/phone_loop_search.o ./libpocketsphinx/pocketsphinx.o ./libpocketsphinx/ps_alignment.o ./libpocketsphinx/ps_lattice.o ./libpocketsphinx/ps_mllr.o ./libpocketsphinx/ptm_mgau.o ./libpocketsphinx/s2_semi_mgau.o ./libpocketsphinx/state_align_search.o ./libpocketsphinx/tmat.o ./libpocketsphinx/vector.o  ./batch.o   
-'Finished building target: PocketSphinxARMSOC'
+arm-linux-gnueabihf-gcc -lm -lpthread -o "FFTthreads"  ./filtroFIR.o ./main.o   
+'Finished building target: FFTthreads'
 ' '

@@ -325,7 +325,7 @@ void * fir_thread(void *shared)
 	
 	printf("Thread[%d] %d %d\n",tempThreads->id,tempThreads->offset,size);
 	
-	for(i=(tempThreads->offset);i<((tempThreads->offset+(size/NTHREADS))-N);i++)
+	for(i=(tempThreads->offset);i<(tempThreads->offset+(size/NTHREADS));i++)
 	{
 		filter=0;
 		for(j=0;j<N;j++)
@@ -355,19 +355,19 @@ void apply_FIR_whole_signal_pthreads(FIR_filter * filtro, SIGNAL * FIR_signal, S
 	tempThreads[1].signal_in=FIR_signal;
 	tempThreads[1].signal_out=FIR_output;
 	tempThreads[1].filter=filtro;
-	tempThreads[1].offset=(size/NTHREADS)+N;
+	tempThreads[1].offset=(size/NTHREADS);
 	tempThreads[1].id=2;
 	
 	tempThreads[2].signal_in=FIR_signal;
 	tempThreads[2].signal_out=FIR_output;
 	tempThreads[2].filter=filtro;
-	tempThreads[2].offset=tempThreads[1].offset+(size/NTHREADS)+N;
+	tempThreads[2].offset=tempThreads[1].offset+(size/NTHREADS);
 	tempThreads[2].id=3;
 
 	tempThreads[3].signal_in=FIR_signal;
 	tempThreads[3].signal_out=FIR_output;
 	tempThreads[3].filter=filtro;
-	tempThreads[3].offset=tempThreads[2].offset+(size/NTHREADS)+N;
+	tempThreads[3].offset=tempThreads[2].offset+(size/NTHREADS);
 	tempThreads[3].id=4;
 	
 	printf("size real %d \n",size);

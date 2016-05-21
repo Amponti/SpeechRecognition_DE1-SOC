@@ -42,6 +42,7 @@ void* key_addr;
 void* audio_addr;
 void* empty_addr;
 void* fclk_addr;
+void* fifow_addr;
 
 int fd;
 int sw;
@@ -49,6 +50,7 @@ int key;
 char audio;
 int empty;
 int fclk;
+int fifow;
 
 //=======================================================================================
 // RUTINA: INICIO DEL SISTEMA
@@ -84,6 +86,7 @@ void init_system()
 	audio_addr		= virtual_base + (( unsigned long )( REG_BASE + AUDIO_L_BASE ) & (unsigned long)( REG_SPAN-1 ));
 	empty_addr		= virtual_base + (( unsigned long )( REG_BASE + FIFO_EMPTY_BASE ) & (unsigned long)( REG_SPAN-1 ));
 	fclk_addr		= virtual_base + (( unsigned long )( REG_BASE + FIFO_CLK_BASE ) & (unsigned long)( REG_SPAN-1 ));
+	fifow_addr		= virtual_base + (( unsigned long )( REG_BASE + AUDIO_R_BASE ) & (unsigned long)( REG_SPAN-1 ));
 }
 
 unsigned char finish=0;
@@ -112,11 +115,16 @@ int main()
 		key=*(unsigned int*)key_addr;
 		empty=*(unsigned int*)empty_addr;
 		audio=*(unsigned int*)audio_addr;
-		fclk=*(unsigned int*)fclk_addr;
-
+		fifow=*(unsigned int*)fifow_addr;
+		*(unsigned int *)fclk_addr=0;
 		switch(sw)
 		{
 			case 0:
+				*(unsigned int *)fclk_addr=0;
+								usleep(1000000);
+								*(unsigned int *)fclk_addr=1;
+								usleep(1000000);
+
 				led=*(unsigned int*)led_addr;
 				*(unsigned int *)led_addr = led+1;
 				usleep(100000);
@@ -164,16 +172,30 @@ int main()
 				break;
 
 			case 512:
+				empty=*(unsigned int*)empty_addr;
 
-				while(!empty)
+				while(!empty && i<600000)
 				{
-					*(unsigned int *)fclk=0;
+
+					fifow=*(unsigned int*)fifow_addr;
+					empty=*(unsigned int*)empty_addr;
+					sw=*(unsigned int*)sw_addr;
+
+					if(sw==4){break;}
+
+					*(unsigned int *)fclk_addr=0;
 					usleep(1);
-					*(unsigned int *)fclk=1;
+					*(unsigned int *)fclk_addr=1;
 					usleep(1);
+					*(unsigned int *)fclk_addr=0;
+					audio=*(unsigned int*)audio_addr;
 					buffer[i] = audio;
 					audio_signal.signal[i]=(int)buffer[i];
 					i++;
+					if(i>600000)
+					{
+						break;
+					}
 				}
 				break;
 
@@ -182,7 +204,6 @@ int main()
 				usleep(100000);
 				break;
 		}
-
 		if(finish)
 		{
 			save_signal(&audio_signal,"audio.bin");

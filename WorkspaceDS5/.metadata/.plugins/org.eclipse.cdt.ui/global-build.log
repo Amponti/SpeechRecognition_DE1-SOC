@@ -1,4 +1,4 @@
-11:37:29 **** Incremental Build of configuration Debug for project prueba_hps ****
+11:43:12 **** Incremental Build of configuration Debug for project prueba_hps ****
 make all 
 'Building file: ../main.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'

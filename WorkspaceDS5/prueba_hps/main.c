@@ -184,9 +184,9 @@ int main()
 					if(sw==4){break;}
 
 					*(unsigned int *)fclk_addr=0;
-					usleep(1);
+					usleep(100);
 					*(unsigned int *)fclk_addr=1;
-					usleep(1);
+					usleep(100);
 					*(unsigned int *)fclk_addr=0;
 					audio=*(unsigned int*)audio_addr;
 					buffer[i] = audio;

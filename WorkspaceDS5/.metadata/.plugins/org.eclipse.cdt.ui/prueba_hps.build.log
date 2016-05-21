@@ -1,0 +1,15 @@
+09:37:16 **** Incremental Build of configuration Debug for project prueba_hps ****
+make all 
+'Building file: ../main.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+'Finished building: ../main.c'
+' '
+'Building target: prueba_hps'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -lm -lpthread -o "prueba_hps"  ./include.o ./main.o   
+'Finished building target: prueba_hps'
+' '
+
+09:37:19 Build Finished (took 3s.147ms)
+

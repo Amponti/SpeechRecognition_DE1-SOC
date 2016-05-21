@@ -1,74 +1,12 @@
-15:05:45 **** Build of configuration Debug for project FFTthreads ****
+09:37:16 **** Incremental Build of configuration Debug for project prueba_hps ****
 make all 
-'Building file: ../filtroFIR.c'
-'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"filtroFIR.d" -MT"filtroFIR.d" -o "filtroFIR.o" "../filtroFIR.c"
-../filtroFIR.c: In function 'calc_FIR_coefs':
-../filtroFIR.c:109:5: warning: implicit declaration of function 'cos' [-Wimplicit-function-declaration]
-     window_mask = (0.5*(1-cos((2*PI*n)/(N-1))));
-     ^
-../filtroFIR.c:109:27: warning: incompatible implicit declaration of built-in function 'cos' [enabled by default]
-     window_mask = (0.5*(1-cos((2*PI*n)/(N-1))));
-                           ^
-../filtroFIR.c:118:5: warning: implicit declaration of function 'sin' [-Wimplicit-function-declaration]
-     window_mask = ((1-((n-((N-1)/2))/((N-1)/2)))*cos(PI*((n-((N-1)/2))/((N-1)/2)))+(1/PI)*sin(PI*((n-((N-1)/2))/((N-1)/2))));
-     ^
-../filtroFIR.c:118:91: warning: incompatible implicit declaration of built-in function 'sin' [enabled by default]
-     window_mask = ((1-((n-((N-1)/2))/((N-1)/2)))*cos(PI*((n-((N-1)/2))/((N-1)/2)))+(1/PI)*sin(PI*((n-((N-1)/2))/((N-1)/2))));
-                                                                                           ^
-../filtroFIR.c:134:30: warning: incompatible implicit declaration of built-in function 'sin' [enabled by default]
-     not_equal_filter_mask = (sin(Wc1*(n-M))/(PI*(n-M)));
-                              ^
-../filtroFIR.c: In function 'save_signal':
-../filtroFIR.c:246:6: warning: variable 'swrite' set but not used [-Wunused-but-set-variable]
-  int swrite;
-      ^
-../filtroFIR.c: In function 'acc_multi':
-../filtroFIR.c:324:8: warning: assignment from incompatible pointer type [enabled by default]
-   data1=(float*)&FIR_signal->signal[i+offset+offset2];
-        ^
-../filtroFIR.c:325:8: warning: assignment from incompatible pointer type [enabled by default]
-   data2=(float*)&filtro->coefs[i+offset2];
-        ^
-In file included from ../filtroFIR.c:13:0:
-C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal/socal.h:126:81: warning: assignment makes integer from pointer without a cast [enabled by default]
- #define alt_write_word(dest, src)       (*ALT_CAST(volatile uint32_t *, (dest)) = (src))
-                                                                                 ^
-../filtroFIR.c:326:3: note: in expansion of macro 'alt_write_word'
-   alt_write_word(val1_addr, data1);
-   ^
-C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal/socal.h:126:81: warning: assignment makes integer from pointer without a cast [enabled by default]
- #define alt_write_word(dest, src)       (*ALT_CAST(volatile uint32_t *, (dest)) = (src))
-                                                                                 ^
-../filtroFIR.c:327:3: note: in expansion of macro 'alt_write_word'
-   alt_write_word(val1_addr,data2);
-   ^
-../filtroFIR.c:332:13: warning: assignment from incompatible pointer type [enabled by default]
-  data_result=(float*)&resultado;
-             ^
-../filtroFIR.c: In function 'apply_FIR_whole_signal_pthreads':
-../filtroFIR.c:428:2: warning: implicit declaration of function 'pthread_create' [-Wimplicit-function-declaration]
-  pthread_create(&thr[0], NULL, fir_thread, (void *)&tempThreads[0]);
-  ^
-../filtroFIR.c:433:2: warning: implicit declaration of function 'pthread_join' [-Wimplicit-function-declaration]
-  pthread_join(thr[0], NULL);
-  ^
-../filtroFIR.c:398:7: warning: unused variable 'N' [-Wunused-variable]
-  int  N = filtro->order+1;
-       ^
-../filtroFIR.c: In function 'fir_thread':
-../filtroFIR.c:393:1: warning: control reaches end of non-void function [-Wreturn-type]
- }
- ^
-'Finished building: ../filtroFIR.c'
-' '
 'Building file: ../main.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O2 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+arm-linux-gnueabihf-gcc -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"C:\altera\15.0\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av\socal" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
 'Finished building: ../main.c'
 ' '
-'Building target: FFTthreads'
+'Building target: prueba_hps'
 'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
-arm-linux-gnueabihf-gcc -lm -lpthread -o "FFTthreads"  ./filtroFIR.o ./main.o   
-'Finished building target: FFTthreads'
+arm-linux-gnueabihf-gcc -lm -lpthread -o "prueba_hps"  ./include.o ./main.o   
+'Finished building target: prueba_hps'
 ' '

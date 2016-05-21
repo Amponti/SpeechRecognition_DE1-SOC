@@ -85,9 +85,9 @@ int main(int argc, char *argv[])
 	SIGNAL signal1_output;
 	SIGNAL signal2_output;
 
-	filtro.F1=300;
-	filtro.F2=3300;
-	filtro.order=37;
+	filtro.F1=100;
+	filtro.F2=4000;
+	filtro.order=12;
 	filtro.FS=48000;
 	filtro.window_type=4;
 	filtro.filter_type=2;

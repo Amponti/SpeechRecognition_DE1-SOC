@@ -1,4 +1,4 @@
-15:05:45 **** Build of configuration Debug for project FFTthreads ****
+09:52:59 **** Build of configuration Debug for project FFTthreads ****
 make all 
 'Building file: ../filtroFIR.c'
 'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
@@ -73,5 +73,5 @@ arm-linux-gnueabihf-gcc -lm -lpthread -o "FFTthreads"  ./filtroFIR.o ./main.o
 'Finished building target: FFTthreads'
 ' '
 
-15:05:46 Build Finished (took 880ms)
+09:53:00 Build Finished (took 1s.432ms)
 

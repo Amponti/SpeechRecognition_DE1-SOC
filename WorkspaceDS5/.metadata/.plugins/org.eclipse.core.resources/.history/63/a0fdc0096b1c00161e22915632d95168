@@ -1,0 +1,71 @@
+//=======================================================================================
+//=======================================================================================
+// PROGRAMA 		: Prueba FIFO-WAV
+// FUNCIÓN 			: Práctica Proyecto de Grado
+// REALIZADO POR	: Holguer A. Becerra D. - Jefferson M. García P. - Juan D. Prieto A.
+// ORGANIZACIÓN		: Universidad pontificia Bolivariana
+// FECHA 			: Mayo 2016
+//=======================================================================================
+//=======================================================================================
+
+//=======================================================================================
+// LIBRERIAS
+//=======================================================================================
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/mman.h>
+#include "hwlib.h"
+#include "socal.h"
+#include "hps.h"
+#include "alt_gpio.h"
+
+#include "hps_0.h"
+#include "include.h"
+
+//=======================================================================================
+// PARÁMETROS
+//=======================================================================================
+#define REG_BASE 0xC0000000
+#define REG_SPAN 0x00100000
+
+#define REG_BASE_LW 0xFF200000
+#define REG_SPAN_LW 0x00200000
+
+
+//=======================================================================================
+// RUTINA: INICIO DEL SISTEMA
+//=======================================================================================
+void init_system()
+{
+	if(( fd = open( "/dev/mem", ( O_RDWR | O_SYNC ))) == -1 )
+	{
+		printf( "ERROR: could not open \"/dev/mem\"...\n" );
+		return;
+	}
+
+	virtual_base = mmap( NULL, REG_SPAN, ( PROT_READ | PROT_WRITE ), MAP_SHARED, fd, REG_BASE );
+	if( virtual_base == MAP_FAILED )
+	{
+		printf( "ERROR: mmap() failed...\n" );
+		close( fd );
+		return;
+	}
+
+	h2p_start_timer_addr 	= virtual_base + (( unsigned long )( REG_BASE + TIMER_START_BASE ) & ( unsigned long)( REG_SPAN-1 ));
+	p2h_div_time_addr 		= virtual_base + (( unsigned long )( REG_BASE + TIMER_DIV_BASE ) & ( unsigned long)( REG_SPAN-1 ));
+	p2h_get_tick_addr 		= virtual_base + (( unsigned long )( REG_BASE + GETTICK_BASE ) & ( unsigned long)( REG_SPAN-1 ));
+
+
+	///acc para el filtro HW
+	val1_addr 		= virtual_base + (( unsigned long )( REG_BASE + VAL1_BASE ) & ( unsigned long)( REG_SPAN-1 ));
+	val2_addr 		= virtual_base + (( unsigned long )( REG_BASE + VAL2_BASE ) & ( unsigned long)( REG_SPAN-1 ));
+	select_addr 	= virtual_base + (( unsigned long )( REG_BASE + SELECTOR_BASE ) & ( unsigned long)( REG_SPAN-1 ));
+	wr_addr 		= virtual_base + (( unsigned long )( REG_BASE + WR_BASE ) & ( unsigned long)( REG_SPAN-1 ));
+	result_addr 	= virtual_base + (( unsigned long )( REG_BASE + RESULT_SPAN ) & ( unsigned long)( REG_SPAN-1 ));
+
+	alt_write_word( p2h_div_time_addr, 24 );
+	alt_write_word( h2p_start_timer_addr, 0 );
+
+}

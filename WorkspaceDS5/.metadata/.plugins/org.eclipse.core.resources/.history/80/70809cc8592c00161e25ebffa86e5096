@@ -1,0 +1,230 @@
+//=======================================================================================
+//=======================================================================================
+// PROGRAMA 		: Prueba FIFO-WAV
+// FUNCIÓN 			: Práctica Proyecto de Grado
+// REALIZADO POR	: Holguer A. Becerra D. - Jefferson M. García P. - Juan D. Prieto A.
+// ORGANIZACIÓN		: Universidad pontificia Bolivariana
+// FECHA 			: Mayo 2016
+//=======================================================================================
+//=======================================================================================
+
+//=======================================================================================
+// LIBRERIAS
+//=======================================================================================
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/mman.h>
+#include "hwlib.h"
+#include "socal.h"
+#include "hps.h"
+#include "alt_gpio.h"
+
+#include "hps.h"
+#include "include.h"
+
+//=======================================================================================
+// PARÁMETROS
+//=======================================================================================
+#define REG_BASE 0xC0000000
+#define REG_SPAN 0x00100000
+
+#define REG_BASE_LW 0xFF200000
+#define REG_SPAN_LW 0x00200000
+
+void* virtual_base;
+void* virtual_base_lw;
+
+void* led_addr;
+void* sw_addr;
+void* key_addr;
+void* audio_addr;
+void* empty_addr;
+void* audio_read_addr;
+void* config_audio;
+void* record_audio;
+void* play_audio;
+
+int fd;
+int sw;
+int key;
+char audio;
+int empty;
+int fclk;
+int fifow;
+
+
+
+//=======================================================================================
+// RUTINA: INICIO DEL SISTEMA
+//=======================================================================================
+void init_system()
+{
+	if((fd=open("/dev/mem",(O_RDWR|O_SYNC)))==-1)
+	{
+		printf( "ERROR: could not open \"/dev/mem\"...\n" );
+		exit (1);
+	}
+
+	virtual_base = mmap(NULL,REG_SPAN,(PROT_READ|PROT_WRITE),MAP_SHARED,fd,REG_BASE);
+	if(virtual_base==MAP_FAILED)
+	{
+		printf( "ERROR: mmap h2f() failed...\n" );
+		close(fd);
+		exit (2);
+	}
+
+	virtual_base_lw = mmap(NULL,REG_SPAN_LW,(PROT_READ|PROT_WRITE),MAP_SHARED,fd,REG_BASE_LW);
+
+	if(virtual_base_lw==MAP_FAILED)
+	{
+		printf( "ERROR: mmap lw_h2f() failed...\n" );
+		close(fd);
+		exit (3);
+	}
+
+	led_addr 		= virtual_base_lw + (( unsigned long )( REG_BASE_LW + LED_BASE ) & (unsigned long)( REG_SPAN_LW-1 ));
+	sw_addr 		= virtual_base_lw + (( unsigned long )( REG_BASE_LW + SW_BASE ) & (unsigned long)( REG_SPAN_LW-1 ));
+	key_addr		= virtual_base + (( unsigned long )( REG_BASE + KEY_BASE ) & (unsigned long)( REG_SPAN-1 ));
+	audio_addr		= virtual_base + (( unsigned long )( REG_BASE + AUDIO_BASE ) & (unsigned long)( REG_SPAN-1 ));
+	empty_addr		= virtual_base + (( unsigned long )( REG_BASE + FIFO_EMPTY_BASE ) & (unsigned long)( REG_SPAN-1 ));
+	audio_read_addr		= virtual_base + (( unsigned long )( REG_BASE + FIFO_READ_BASE ) & (unsigned long)( REG_SPAN-1 ));
+	config_audio= virtual_base_lw + (( unsigned long )( REG_BASE_LW + CONFIG_AUDIO_BASE ) & (unsigned long)( REG_SPAN_LW-1 ));
+	record_audio=virtual_base_lw + (( unsigned long )( REG_BASE_LW +RECORD_D_BASE ) & (unsigned long)( REG_SPAN_LW-1 ));
+	play_audio=virtual_base_lw + (( unsigned long )( REG_BASE_LW + PLAY_D_BASE ) & (unsigned long)( REG_SPAN_LW-1 ));
+
+}
+
+unsigned char finish=0;
+unsigned int led=0;
+SIGNAL audio_signal;
+
+int main()
+{
+	//<><><><><><><><><><><><><><><><><>//
+	// 		SYSTEM INITIALIZING			//
+	//<><><><><><><><><><><><><><><><><>//
+	init_system();
+	printf("dsas\n");
+	int i=0;
+	long lSize = 600000;
+	int * buffer;
+
+	buffer = (int*) malloc (sizeof(int)*lSize);
+
+	audio_signal.lenght=lSize;
+	audio_signal.signal=(int*) malloc (sizeof(int)*audio_signal.lenght);
+
+	printf("dsas1\n");
+	*(unsigned int *)config_audio=18;
+	printf("dsas2\n");
+	*(unsigned int *)record_audio=1;
+	printf("dsas3\n");
+	*(unsigned int *)play_audio=0;
+	while(1)
+	{
+		sw=*(unsigned int*)sw_addr;
+		key=*(unsigned int*)key_addr;
+		empty=*(unsigned int*)empty_addr;
+		audio=*(unsigned int*)audio_addr;
+		*(unsigned int *)audio_read_addr=0;
+		switch(sw)
+		{
+			case 0:
+
+				led=*(unsigned int*)led_addr;
+				*(unsigned int *)led_addr = led+1;
+				usleep(100000);
+				break;
+
+			case 1:
+				led=*(unsigned int*)led_addr;
+				*(unsigned int *)led_addr = led-1;
+				usleep(100000);
+				break;
+
+			case 2:
+				if(led<=0)
+				{
+					led=512;
+				}
+				else
+				{
+					led=*(unsigned int*) led_addr;
+				}
+				*(unsigned int *)led_addr = led>>1;
+				usleep(100000);
+				break;
+
+			case 3:
+				if(led>=512)
+				{
+					led=1;
+				}
+				else
+				{
+					led=*(unsigned int*) led_addr;
+				}
+				*(unsigned int *)led_addr = led<<1;
+				usleep(100000);
+				break;
+
+			case 4:
+				finish=1;
+				break;
+
+			case 256:
+
+				i=0;
+				break;
+
+			case 512:
+				empty=*(unsigned int*)empty_addr;
+				*(unsigned int *)record_audio=0;
+				*(unsigned int *)play_audio=1;
+				while(!empty && i<600000)
+				{
+
+
+					empty=*(unsigned int*)empty_addr;
+					sw=*(unsigned int*)sw_addr;
+
+					if(sw==4){break;}
+
+					*(unsigned int *)audio_read_addr=0;
+					usleep(10);
+					*(unsigned int *)audio_read_addr=1;
+					usleep(10);
+					*(unsigned int *)audio_read_addr=0;
+					audio=*(unsigned int*)audio_addr;
+					buffer[i] = audio;
+					audio_signal.signal[i]=(int)buffer[i];
+					i++;
+					if(i>600000)
+					{
+						break;
+					}
+				}
+				break;
+
+			default:
+				*(unsigned int *)led_addr = sw;
+				usleep(100000);
+				break;
+		}
+		if(finish)
+		{
+			save_signal(&audio_signal,"audio.bin");
+
+			//desmotar memoria virtual
+			munmap(virtual_base_lw,REG_SPAN_LW);
+			munmap(virtual_base,REG_SPAN);
+
+			//cerrar arvhivo
+			close(fd);
+			printf("fin\n");
+			return 0;
+		}
+	}
+}

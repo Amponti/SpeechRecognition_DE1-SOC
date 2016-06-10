@@ -1,0 +1,78 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst hps_fpga.hps.i2c2 -pg 1
+preplace inst hps_fpga.hps.rstmgr -pg 1
+preplace inst hps_fpga.hps.L2 -pg 1
+preplace inst hps_fpga.hps.i2c3 -pg 1
+preplace inst hps_fpga.hps -pg 1 -lvl 2 -y 640
+preplace inst hps_fpga.hps.arm_a9_0 -pg 1
+preplace inst hps_fpga.hps.sdrctl -pg 1
+preplace inst hps_fpga.hps.uart0 -pg 1
+preplace inst hps_fpga.hps.arm_a9_1 -pg 1
+preplace inst hps_fpga.sw -pg 1 -lvl 2 -y 470
+preplace inst hps_fpga.hps.gpio0 -pg 1
+preplace inst hps_fpga.hps.uart1 -pg 1
+preplace inst hps_fpga.key -pg 1 -lvl 2 -y 230
+preplace inst hps_fpga.hps.timer -pg 1
+preplace inst hps_fpga.hps.qspi -pg 1
+preplace inst hps_fpga.hps.spim0 -pg 1
+preplace inst hps_fpga.hps.gpio1 -pg 1
+preplace inst hps_fpga.hps.fpgamgr -pg 1
+preplace inst hps_fpga.hps.eosc1 -pg 1
+preplace inst hps_fpga.hps.hps_io -pg 1
+preplace inst hps_fpga.hps.axi_sdram -pg 1
+preplace inst hps_fpga.hps.gmac0 -pg 1
+preplace inst hps_fpga.hps.spim1 -pg 1
+preplace inst hps_fpga.hps.gpio2 -pg 1
+preplace inst hps_fpga.hps.eosc2 -pg 1
+preplace inst hps_fpga.audio -pg 1 -lvl 3 -y 190
+preplace inst hps_fpga.hps.l3regs -pg 1
+preplace inst hps_fpga.hps.dcan0 -pg 1
+preplace inst hps_fpga.hps.gmac1 -pg 1
+preplace inst hps_fpga.hps.f2s_periph_ref_clk -pg 1
+preplace inst hps_fpga.hps.bridges -pg 1
+preplace inst hps_fpga.hps.dcan1 -pg 1
+preplace inst hps_fpga.hps.timer0 -pg 1
+preplace inst hps_fpga.hps.arm_gic_0 -pg 1
+preplace inst hps_fpga.hps.fpga_interfaces -pg 1
+preplace inst hps_fpga -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst hps_fpga.hps.sdmmc -pg 1
+preplace inst hps_fpga.hps.nand0 -pg 1
+preplace inst hps_fpga.hps.timer1 -pg 1
+preplace inst hps_fpga.hps.dma -pg 1
+preplace inst hps_fpga.hps.hps_io.border -pg 1
+preplace inst hps_fpga.hps.wd_timer0 -pg 1
+preplace inst hps_fpga.hps.timer2 -pg 1
+preplace inst hps_fpga.hps.sysmgr -pg 1
+preplace inst hps_fpga.fifo_read -pg 1 -lvl 3 -y 30
+preplace inst hps_fpga.fifo_empty -pg 1 -lvl 2 -y 70
+preplace inst hps_fpga.clk_0 -pg 1 -lvl 1 -y 330
+preplace inst hps_fpga.hps.axi_ocram -pg 1
+preplace inst hps_fpga.hps.usb0 -pg 1
+preplace inst hps_fpga.hps.i2c0 -pg 1
+preplace inst hps_fpga.hps.wd_timer1 -pg 1
+preplace inst hps_fpga.hps.timer3 -pg 1
+preplace inst hps_fpga.hps.clkmgr -pg 1
+preplace inst hps_fpga.hps.clk_0 -pg 1
+preplace inst hps_fpga.led -pg 1 -lvl 2 -y 370
+preplace inst hps_fpga.hps.usb1 -pg 1
+preplace inst hps_fpga.hps.i2c1 -pg 1
+preplace inst hps_fpga.hps.f2s_sdram_ref_clk -pg 1
+preplace netloc FAN_OUT<net_container>hps_fpga</net_container>(SLAVE)fifo_read.s1,(SLAVE)audio.s1,(SLAVE)fifo_empty.s1,(MASTER)hps.h2f_axi_master,(SLAVE)key.s1) 1 1 2 400 340 770
+preplace netloc EXPORT<net_container>hps_fpga</net_container>(SLAVE)hps_fpga.memory,(SLAVE)hps.memory) 1 0 2 NJ 750 NJ
+preplace netloc EXPORT<net_container>hps_fpga</net_container>(SLAVE)clk_0.clk_in,(SLAVE)hps_fpga.clk) 1 0 1 NJ
+preplace netloc FAN_OUT<net_container>hps_fpga</net_container>(SLAVE)fifo_empty.reset,(SLAVE)key.reset,(SLAVE)sw.reset,(MASTER)clk_0.clk_reset,(SLAVE)led.reset,(SLAVE)audio.reset,(SLAVE)fifo_read.reset) 1 1 2 380 200 730
+preplace netloc EXPORT<net_container>hps_fpga</net_container>(SLAVE)hps_fpga.led_external_connection,(SLAVE)led.external_connection) 1 0 2 NJ 400 NJ
+preplace netloc EXPORT<net_container>hps_fpga</net_container>(SLAVE)hps_fpga.audio_external,(SLAVE)audio.external_connection) 1 0 3 NJ 220 NJ 220 NJ
+preplace netloc EXPORT<net_container>hps_fpga</net_container>(SLAVE)hps_fpga.hps_uart1,(SLAVE)hps.uart1) 1 0 2 NJ 770 NJ
+preplace netloc EXPORT<net_container>hps_fpga</net_container>(SLAVE)sw.external_connection,(SLAVE)hps_fpga.sw_external_connection) 1 0 2 NJ 500 NJ
+preplace netloc EXPORT<net_container>hps_fpga</net_container>(MASTER)hps.h2f_reset,(MASTER)hps_fpga.hps_h2f_reset) 1 2 2 NJ 730 NJ
+preplace netloc FAN_OUT<net_container>hps_fpga</net_container>(MASTER)hps.h2f_lw_axi_master,(SLAVE)sw.s1,(SLAVE)led.s1) 1 1 2 400 820 750
+preplace netloc FAN_OUT<net_container>hps_fpga</net_container>(SLAVE)hps.h2f_axi_clock,(MASTER)clk_0.clk,(SLAVE)led.clk,(SLAVE)key.clk,(SLAVE)hps.h2f_lw_axi_clock,(SLAVE)sw.clk,(SLAVE)fifo_read.clk,(SLAVE)audio.clk,(SLAVE)fifo_empty.clk,(SLAVE)hps.f2h_axi_clock) 1 1 2 360 180 750
+preplace netloc EXPORT<net_container>hps_fpga</net_container>(SLAVE)hps_fpga.fifo_empty_external,(SLAVE)fifo_empty.external_connection) 1 0 2 NJ 100 NJ
+preplace netloc EXPORT<net_container>hps_fpga</net_container>(SLAVE)hps_fpga.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>hps_fpga</net_container>(SLAVE)key.external_connection,(SLAVE)hps_fpga.key_external_connection) 1 0 2 NJ 260 NJ
+preplace netloc EXPORT<net_container>hps_fpga</net_container>(SLAVE)hps.hps_io,(SLAVE)hps_fpga.hps_io) 1 0 2 NJ 690 NJ
+preplace netloc EXPORT<net_container>hps_fpga</net_container>(SLAVE)hps_fpga.fifo_clk_external,(SLAVE)fifo_read.external_connection) 1 0 3 NJ 60 NJ 60 NJ
+levelinfo -pg 1 0 150 1060
+levelinfo -hier hps_fpga 160 190 540 800 950

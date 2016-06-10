@@ -5,3 +5,4 @@ config_db_path1_defaultid=com.arm.ds\:0
 config_db_path1_enabled=true
 eclipse.preferences.version=1
 enabled_config_db_path=C%3A\\altera\\15.0\\embedded\\ds-5\\sw\\eclipse\\dropins\\plugins\\com.arm.debug.configdatabase.data.community_5.20.0.20150218_040933;C%3A\\altera\\15.0\\embedded\\ds-5\\sw\\debugger\\configdb;
+last_connection_browser_settings=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<section name\="prefs">\r\n\t<item value\="700" key\="DIALOG_WIDTH"/>\r\n\t<item value\="101" key\="DIALOG_Y_ORIGIN"/>\r\n\t<item value\="223" key\="DIALOG_X_ORIGIN"/>\r\n\t<item value\="375" key\="DIALOG_HEIGHT"/>\r\n\t<item value\="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key\="DIALOG_FONT_NAME"/>\r\n</section>\r\n

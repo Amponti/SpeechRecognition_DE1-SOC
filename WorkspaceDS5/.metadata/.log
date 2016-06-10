@@ -12581,3 +12581,679 @@ Caused by: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; El con
 	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:648)
 	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:453)
 	... 6 more
+!SESSION 2016-06-02 12:12:19.514 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CO
+Framework arguments:  -product com.arm.ds.altera
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.arm.ds.altera
+
+!ENTRY com.arm.newsfeed 4 0 2016-06-02 12:12:43.820
+!MESSAGE Error when reading RSS feed "http://community.arm.com/view-browse-feed.jspa?containerType=700&userID=-1&browseSite=place-content&filterID=contentstatus[published]~objecttype~objecttype[blogpost]&browseViewID=placeContent&containerID=1060"
+!STACK 0
+com.sun.syndication.io.ParsingFeedException: Invalid XML: Error on line 1: El contenido no está permitido en el prólogo.
+	at com.sun.syndication.io.WireFeedInput.build(WireFeedInput.java:182)
+	at com.sun.syndication.io.SyndFeedInput.build(SyndFeedInput.java:122)
+	at com.arm.newsfeed.rss.AggregatedFeed.fetch(AggregatedFeed.java:226)
+	at com.arm.newsfeed.rss.AggregatedFeed.access$3(AggregatedFeed.java:222)
+	at com.arm.newsfeed.rss.AggregatedFeed$3.run(AggregatedFeed.java:201)
+Caused by: org.jdom.input.JDOMParseException: Error on line 1: El contenido no está permitido en el prólogo.
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:468)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:851)
+	at com.sun.syndication.io.WireFeedInput.build(WireFeedInput.java:178)
+	... 4 more
+Caused by: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; El contenido no está permitido en el prólogo.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:198)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:177)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:441)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:368)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1436)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:999)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:117)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:648)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:453)
+	... 6 more
+
+!ENTRY com.arm.newsfeed 4 0 2016-06-02 14:12:43.625
+!MESSAGE Error when reading RSS feed "http://community.arm.com/view-browse-feed.jspa?containerType=700&userID=-1&browseSite=place-content&filterID=contentstatus[published]~objecttype~objecttype[blogpost]&browseViewID=placeContent&containerID=1060"
+!STACK 0
+com.sun.syndication.io.ParsingFeedException: Invalid XML: Error on line 1: El contenido no está permitido en el prólogo.
+	at com.sun.syndication.io.WireFeedInput.build(WireFeedInput.java:182)
+	at com.sun.syndication.io.SyndFeedInput.build(SyndFeedInput.java:122)
+	at com.arm.newsfeed.rss.AggregatedFeed.fetch(AggregatedFeed.java:226)
+	at com.arm.newsfeed.rss.AggregatedFeed.access$3(AggregatedFeed.java:222)
+	at com.arm.newsfeed.rss.AggregatedFeed$3.run(AggregatedFeed.java:201)
+Caused by: org.jdom.input.JDOMParseException: Error on line 1: El contenido no está permitido en el prólogo.
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:468)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:851)
+	at com.sun.syndication.io.WireFeedInput.build(WireFeedInput.java:178)
+	... 4 more
+Caused by: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; El contenido no está permitido en el prólogo.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:198)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:177)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:441)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:368)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1436)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:999)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:117)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:648)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:453)
+	... 6 more
+!SESSION 2016-06-06 21:09:26.554 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CO
+Framework arguments:  -product com.arm.ds.altera
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.arm.ds.altera
+
+!ENTRY com.arm.newsfeed 4 0 2016-06-06 21:09:50.500
+!MESSAGE Error when reading RSS feed "http://community.arm.com/view-browse-feed.jspa?containerType=700&userID=-1&browseSite=place-content&filterID=contentstatus[published]~objecttype~objecttype[blogpost]&browseViewID=placeContent&containerID=1060"
+!STACK 0
+com.sun.syndication.io.ParsingFeedException: Invalid XML: Error on line 1: El contenido no está permitido en el prólogo.
+	at com.sun.syndication.io.WireFeedInput.build(WireFeedInput.java:182)
+	at com.sun.syndication.io.SyndFeedInput.build(SyndFeedInput.java:122)
+	at com.arm.newsfeed.rss.AggregatedFeed.fetch(AggregatedFeed.java:226)
+	at com.arm.newsfeed.rss.AggregatedFeed.access$3(AggregatedFeed.java:222)
+	at com.arm.newsfeed.rss.AggregatedFeed$3.run(AggregatedFeed.java:201)
+Caused by: org.jdom.input.JDOMParseException: Error on line 1: El contenido no está permitido en el prólogo.
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:468)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:851)
+	at com.sun.syndication.io.WireFeedInput.build(WireFeedInput.java:178)
+	... 4 more
+Caused by: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; El contenido no está permitido en el prólogo.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:198)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:177)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:441)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:368)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1436)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:999)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:117)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:648)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:453)
+	... 6 more
+
+!ENTRY org.eclipse.jface 2 0 2016-06-06 21:09:58.930
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-06-06 21:09:58.930
+!MESSAGE A conflict occurred for ALT+CTRL+I:
+Binding(ALT+CTRL+I,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.include.browser,Open Include Browser,
+		Open an include browser on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7c135957,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(ALT+CTRL+I,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.include.browser,Open Include Browser,
+		Open an include browser on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7c135957,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-06-06 21:09:58.930
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.text.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.cdt.ui.category.refactoring,Refactor - C++,C/C++ Refactorings,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5a4e9e64,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.text.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.cdt.ui.category.refactoring,Refactor - C++,C/C++ Refactorings,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5a4e9e64,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5f80e58d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-06-06 21:09:58.930
+!MESSAGE A conflict occurred for F3:
+Binding(F3,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.opendecl,Open Declaration,
+		Open an editor on the selected element's declaration(s),
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@75ebcf7,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(F3,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.opendecl,Open Declaration,
+		Open an editor on the selected element's declaration(s),
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@75ebcf7,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+Binding(F3,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.open.editor,Open Declaration,
+		Open an editor on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5cc7ffe8,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-06-06 21:09:58.930
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.opentype,Open Element,
+		Open an element in an Editor,
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4e7207ee,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.opentype,Open Element,
+		Open an element in an Editor,
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4e7207ee,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2066c27e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-06-06 21:09:58.930
+!MESSAGE A conflict occurred for F4:
+Binding(F4,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.type.hierarchy,Open Type Hierarchy,
+		Open a type hierarchy on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3a6aeed0,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(F4,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.type.hierarchy,Open Type Hierarchy,
+		Open a type hierarchy on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3a6aeed0,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+Binding(F4,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.open.type.hierarchy,Open Type Hierarchy,
+		Open a type hierarchy on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4264b7a6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-06-06 21:09:58.930
+!MESSAGE A conflict occurred for CTRL+G:
+Binding(CTRL+G,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.search.finddecl,Declaration,
+		Search for declarations of the selected element in the workspace,
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@62551557,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(CTRL+G,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.search.finddecl,Declaration,
+		Search for declarations of the selected element in the workspace,
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@62551557,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+Binding(CTRL+G,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.search.declarations.in.workspace,Declaration in Workspace,
+		Search for declarations of the selected element in the workspace,
+		Category(org.eclipse.search.ui.category.search,Search,Search command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3fec3530,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-06-06 21:09:58.930
+!MESSAGE A conflict occurred for CTRL+SHIFT+G:
+Binding(CTRL+SHIFT+G,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.search.findrefs,References,
+		Search for references to the selected element in the workspace,
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2c980319,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(CTRL+SHIFT+G,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.search.findrefs,References,
+		Search for references to the selected element in the workspace,
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2c980319,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+Binding(CTRL+SHIFT+G,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.search.references.in.workspace,References in Workspace,
+		Search for references to the selected element in the workspace,
+		Category(org.eclipse.search.ui.category.search,Search,Search command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2ff3752e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-06-06 21:09:58.945
+!MESSAGE A conflict occurred for ALT+CTRL+H:
+Binding(ALT+CTRL+H,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.call.hierarchy,Open Call Hierarchy,
+		Open the call hierarchy for the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1892379a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(ALT+CTRL+H,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.call.hierarchy,Open Call Hierarchy,
+		Open the call hierarchy for the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1892379a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+Binding(ALT+CTRL+H,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.open.call.hierarchy,Open Call Hierarchy,
+		Open a call hierarchy on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@27806c10,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-06-06 21:09:58.945
+!MESSAGE A conflict occurred for CTRL+SHIFT+H:
+Binding(CTRL+SHIFT+H,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.open.type.in.hierarchy,Open Type in Hierarchy,
+		Open a type in the type hierarchy view,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6036a2b2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(CTRL+SHIFT+H,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.open.type.in.hierarchy,Open Type in Hierarchy,
+		Open a type in the type hierarchy view,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6036a2b2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+Binding(CTRL+SHIFT+H,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type.in.hierarchy,Open Type in Hierarchy,
+		Open a type in the type hierarchy view,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@22f38577,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.arm.debugger.launcher2 4 0 2016-06-06 21:35:49.966
+!MESSAGE The platform "ARM FVP/Cortex-A8" is not licensed for use
+!STACK 0
+com.arm.debug.configdatabase.interfaces.ConfigDatabaseException: The platform "ARM FVP/Cortex-A8" is not licensed for use
+	at com.arm.debug.configdatabase.internal.Manufacturer.getPlatform(Manufacturer.java:94)
+	at com.arm.debug.configdatabase.internal.PlatformFactory.getInternalName(PlatformFactory.java:365)
+	at com.arm.debug.configdatabase.ConfigDatabase.getInternalName(ConfigDatabase.java:195)
+	at com.arm.debug.configdatabase.ConfigDatabase.getSourceFileForPlatform(ConfigDatabase.java:214)
+	at com.arm.debug.configdatabase.ConfigDatabase.getPlatformData(ConfigDatabase.java:249)
+	at com.arm.debug.configdatabase.ConfigDatabase.getPlatform(ConfigDatabase.java:232)
+	at com.arm.debugger.launcher2.databasewrapper.ConfigurationDatabaseWrapper.getPlatform(ConfigurationDatabaseWrapper.java:194)
+	at com.arm.debugger.launcher2.databasewrapper.ConfigurationDatabaseWrapper.getDefaultPlatformName(ConfigurationDatabaseWrapper.java:140)
+	at com.arm.debugger.launcher2.tabs.connection.ConnectionTab.setDefaults(ConnectionTab.java:231)
+	at org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup.setDefaults(AbstractLaunchConfigurationTabGroup.java:74)
+	at com.arm.debugger.launcher2.LaunchTabGroup.setDefaults(LaunchTabGroup.java:94)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchConfigurationTabGroupWrapper.setDefaults(LaunchConfigurationTabGroupWrapper.java:237)
+	at org.eclipse.debug.internal.ui.launchConfigurations.CreateLaunchConfigurationAction.performAction(CreateLaunchConfigurationAction.java:79)
+	at org.eclipse.debug.internal.ui.launchConfigurations.AbstractLaunchConfigurationAction$1.run(AbstractLaunchConfigurationAction.java:105)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.debug.internal.ui.launchConfigurations.AbstractLaunchConfigurationAction.run(AbstractLaunchConfigurationAction.java:108)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchConfigurationsDialog$1.run(LaunchConfigurationsDialog.java:533)
+	at org.eclipse.debug.ui.AbstractDebugView.doubleClick(AbstractDebugView.java:734)
+	at org.eclipse.jface.viewers.StructuredViewer$1.run(StructuredViewer.java:845)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.StructuredViewer.fireDoubleClick(StructuredViewer.java:843)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.handleDoubleSelect(AbstractTreeViewer.java:1477)
+	at org.eclipse.jface.viewers.StructuredViewer$4.widgetDefaultSelected(StructuredViewer.java:1246)
+	at org.eclipse.jface.util.OpenStrategy.fireDefaultSelectionEvent(OpenStrategy.java:249)
+	at org.eclipse.jface.util.OpenStrategy.access$0(OpenStrategy.java:246)
+	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:307)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1057)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4170)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3759)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:826)
+	at org.eclipse.jface.window.Window.open(Window.java:802)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchConfigurationsDialog.open(LaunchConfigurationsDialog.java:1134)
+	at org.eclipse.debug.ui.DebugUITools$2.run(DebugUITools.java:604)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.debug.ui.DebugUITools.openLaunchConfigurationDialogOnGroup(DebugUITools.java:612)
+	at org.eclipse.debug.ui.DebugUITools.openLaunchConfigurationDialogOnGroup(DebugUITools.java:546)
+	at org.eclipse.debug.ui.actions.OpenLaunchDialogAction.run(OpenLaunchDialogAction.java:81)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:499)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1057)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4170)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3759)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1113)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:997)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:140)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:611)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:567)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:354)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:181)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:636)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1450)
+	at com.arm.workbench.Hook.run(Hook.java:438)
+
+!ENTRY com.arm.debugger.ux 4 0 2016-06-06 21:37:16.154
+!MESSAGE Unable to connect to New_configuration. Unable to connect to TCP:localhost
+Unable to connect to device AHB1
+Target failure. Please check and retry.
+!STACK 0
+com.arm.debug.dtsl.DTSLException: Unable to connect to TCP:localhost
+	at com.arm.debug.dtsl.configurations.ConfigurationBase.connect(ConfigurationBase.java:426)
+	at com.arm.debug.dtsl.impl.ConfigurationConnection.connect(ConfigurationConnection.java:50)
+	at com.arm.debugger.control.ConnectionController.doSetupDTSL(ConnectionController.java:687)
+	at com.arm.debugger.control.ConnectionController.doSetupDTSLIfRequired(ConnectionController.java:675)
+	at com.arm.debugger.control.ConnectionController.doInitialize(ConnectionController.java:558)
+	at com.arm.debugger.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:539)
+	at com.arm.debugger.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:484)
+	at com.arm.debugger.control.ConnectionController.initialize(ConnectionController.java:432)
+	at com.arm.debugger.control.ConnectionManager.createConnection(ConnectionManager.java:360)
+	at com.arm.debugger.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: com.arm.debug.dtsl.DTSLException: Unable to connect to device AHB1
+	at com.arm.debug.dtsl.components.ConnectableDevice.connect(ConnectableDevice.java:60)
+	at com.arm.debug.dtsl.configurations.ConfigurationBase$2.call(ConfigurationBase.java:919)
+	at com.arm.debug.dtsl.configurations.ConfigurationBase$2.call(ConfigurationBase.java:1)
+	at com.arm.debug.dtsl.components.SysControlRegisterWrapper.forEachDeviceOfCluster(SysControlRegisterWrapper.java:40)
+	at com.arm.debug.dtsl.configurations.ConfigurationBase.connectManagedDevices(ConfigurationBase.java:915)
+	at com.arm.debug.dtsl.configurations.ConfigurationBase.connect(ConfigurationBase.java:413)
+	... 14 more
+Caused by: com.arm.debug.dtsl.nativelayer.NativeException: Target failure. Please check and retry.
+	at com.arm.debug.dtsl.components.Device.openConn(Device.java:403)
+	at com.arm.debug.dtsl.components.ConnectableDevice.connect(ConnectableDevice.java:55)
+	... 19 more
+Caused by: com.arm.rddi.RDDIException: Target failure. Please check and retry.
+	at com.arm.rddi.RDDI.checkResult(RDDI.java:1616)
+	at com.arm.rddi.RDDI.access$1(RDDI.java:1603)
+	at com.arm.rddi.RDDI$Debug.openConn(RDDI.java:231)
+	at com.arm.debug.dtsl.components.Device.openConn(Device.java:401)
+	... 20 more
+
+!ENTRY com.arm.debugger.ux 4 0 2016-06-06 21:37:40.614
+!MESSAGE Unable to connect to New_configuration. Unable to connect to TCP:localhost
+Unable to connect to device AHB1
+Target failure. Please check and retry.
+!STACK 0
+com.arm.debug.dtsl.DTSLException: Unable to connect to TCP:localhost
+	at com.arm.debug.dtsl.configurations.ConfigurationBase.connect(ConfigurationBase.java:426)
+	at com.arm.debug.dtsl.impl.ConfigurationConnection.connect(ConfigurationConnection.java:50)
+	at com.arm.debugger.control.ConnectionController.doSetupDTSL(ConnectionController.java:687)
+	at com.arm.debugger.control.ConnectionController.doSetupDTSLIfRequired(ConnectionController.java:675)
+	at com.arm.debugger.control.ConnectionController.doInitialize(ConnectionController.java:558)
+	at com.arm.debugger.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:539)
+	at com.arm.debugger.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:484)
+	at com.arm.debugger.control.ConnectionController.initialize(ConnectionController.java:432)
+	at com.arm.debugger.control.ConnectionManager.createConnection(ConnectionManager.java:360)
+	at com.arm.debugger.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: com.arm.debug.dtsl.DTSLException: Unable to connect to device AHB1
+	at com.arm.debug.dtsl.components.ConnectableDevice.connect(ConnectableDevice.java:60)
+	at com.arm.debug.dtsl.configurations.ConfigurationBase$2.call(ConfigurationBase.java:919)
+	at com.arm.debug.dtsl.configurations.ConfigurationBase$2.call(ConfigurationBase.java:1)
+	at com.arm.debug.dtsl.components.SysControlRegisterWrapper.forEachDeviceOfCluster(SysControlRegisterWrapper.java:40)
+	at com.arm.debug.dtsl.configurations.ConfigurationBase.connectManagedDevices(ConfigurationBase.java:915)
+	at com.arm.debug.dtsl.configurations.ConfigurationBase.connect(ConfigurationBase.java:413)
+	... 14 more
+Caused by: com.arm.debug.dtsl.nativelayer.NativeException: Target failure. Please check and retry.
+	at com.arm.debug.dtsl.components.Device.openConn(Device.java:403)
+	at com.arm.debug.dtsl.components.ConnectableDevice.connect(ConnectableDevice.java:55)
+	... 19 more
+Caused by: com.arm.rddi.RDDIException: Target failure. Please check and retry.
+	at com.arm.rddi.RDDI.checkResult(RDDI.java:1616)
+	at com.arm.rddi.RDDI.access$1(RDDI.java:1603)
+	at com.arm.rddi.RDDI$Debug.openConn(RDDI.java:231)
+	at com.arm.debug.dtsl.components.Device.openConn(Device.java:401)
+	... 20 more
+
+!ENTRY com.arm.debugger.ux 4 0 2016-06-06 21:38:52.116
+!MESSAGE Unable to connect to New_configuration. Unable to connect to TCP:localhost
+Unable to connect to device AHB1
+Target failure. Please check and retry.
+!STACK 0
+com.arm.debug.dtsl.DTSLException: Unable to connect to TCP:localhost
+	at com.arm.debug.dtsl.configurations.ConfigurationBase.connect(ConfigurationBase.java:426)
+	at com.arm.debug.dtsl.impl.ConfigurationConnection.connect(ConfigurationConnection.java:50)
+	at com.arm.debugger.control.ConnectionController.doSetupDTSL(ConnectionController.java:687)
+	at com.arm.debugger.control.ConnectionController.doSetupDTSLIfRequired(ConnectionController.java:675)
+	at com.arm.debugger.control.ConnectionController.doInitialize(ConnectionController.java:558)
+	at com.arm.debugger.control.ConnectionController.manageThreadModelAndInitialize(ConnectionController.java:539)
+	at com.arm.debugger.control.ConnectionController.manageProgressResourceAndInitialize(ConnectionController.java:484)
+	at com.arm.debugger.control.ConnectionController.initialize(ConnectionController.java:432)
+	at com.arm.debugger.control.ConnectionManager.createConnection(ConnectionManager.java:360)
+	at com.arm.debugger.launcher.TargetLauncher.launch(TargetLauncher.java:20)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: com.arm.debug.dtsl.DTSLException: Unable to connect to device AHB1
+	at com.arm.debug.dtsl.components.ConnectableDevice.connect(ConnectableDevice.java:60)
+	at com.arm.debug.dtsl.configurations.ConfigurationBase$2.call(ConfigurationBase.java:919)
+	at com.arm.debug.dtsl.configurations.ConfigurationBase$2.call(ConfigurationBase.java:1)
+	at com.arm.debug.dtsl.components.SysControlRegisterWrapper.forEachDeviceOfCluster(SysControlRegisterWrapper.java:40)
+	at com.arm.debug.dtsl.configurations.ConfigurationBase.connectManagedDevices(ConfigurationBase.java:915)
+	at com.arm.debug.dtsl.configurations.ConfigurationBase.connect(ConfigurationBase.java:413)
+	... 14 more
+Caused by: com.arm.debug.dtsl.nativelayer.NativeException: Target failure. Please check and retry.
+	at com.arm.debug.dtsl.components.Device.openConn(Device.java:403)
+	at com.arm.debug.dtsl.components.ConnectableDevice.connect(ConnectableDevice.java:55)
+	... 19 more
+Caused by: com.arm.rddi.RDDIException: Target failure. Please check and retry.
+	at com.arm.rddi.RDDI.checkResult(RDDI.java:1616)
+	at com.arm.rddi.RDDI.access$1(RDDI.java:1603)
+	at com.arm.rddi.RDDI$Debug.openConn(RDDI.java:231)
+	at com.arm.debug.dtsl.components.Device.openConn(Device.java:401)
+	... 20 more
+!SESSION 2016-06-09 08:48:32.825 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CO
+Framework arguments:  -product com.arm.ds.altera
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.arm.ds.altera
+
+!ENTRY com.arm.newsfeed 4 0 2016-06-09 08:52:00.469
+!MESSAGE Error when reading RSS feed "http://community.arm.com/view-browse-feed.jspa?containerType=700&userID=-1&browseSite=place-content&filterID=contentstatus[published]~objecttype~objecttype[blogpost]&browseViewID=placeContent&containerID=1060"
+!STACK 0
+com.sun.syndication.io.ParsingFeedException: Invalid XML: Error on line 1: El contenido no está permitido en el prólogo.
+	at com.sun.syndication.io.WireFeedInput.build(WireFeedInput.java:182)
+	at com.sun.syndication.io.SyndFeedInput.build(SyndFeedInput.java:122)
+	at com.arm.newsfeed.rss.AggregatedFeed.fetch(AggregatedFeed.java:226)
+	at com.arm.newsfeed.rss.AggregatedFeed.access$3(AggregatedFeed.java:222)
+	at com.arm.newsfeed.rss.AggregatedFeed$3.run(AggregatedFeed.java:201)
+Caused by: org.jdom.input.JDOMParseException: Error on line 1: El contenido no está permitido en el prólogo.
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:468)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:851)
+	at com.sun.syndication.io.WireFeedInput.build(WireFeedInput.java:178)
+	... 4 more
+Caused by: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; El contenido no está permitido en el prólogo.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:198)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:177)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:441)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:368)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1436)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:999)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:117)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:648)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:453)
+	... 6 more
+
+!ENTRY com.arm.newsfeed 4 0 2016-06-09 10:52:00.049
+!MESSAGE Error when reading RSS feed "http://community.arm.com/view-browse-feed.jspa?containerType=700&userID=-1&browseSite=place-content&filterID=contentstatus[published]~objecttype~objecttype[blogpost]&browseViewID=placeContent&containerID=1060"
+!STACK 0
+com.sun.syndication.io.ParsingFeedException: Invalid XML: Error on line 1: El contenido no está permitido en el prólogo.
+	at com.sun.syndication.io.WireFeedInput.build(WireFeedInput.java:182)
+	at com.sun.syndication.io.SyndFeedInput.build(SyndFeedInput.java:122)
+	at com.arm.newsfeed.rss.AggregatedFeed.fetch(AggregatedFeed.java:226)
+	at com.arm.newsfeed.rss.AggregatedFeed.access$3(AggregatedFeed.java:222)
+	at com.arm.newsfeed.rss.AggregatedFeed$3.run(AggregatedFeed.java:201)
+Caused by: org.jdom.input.JDOMParseException: Error on line 1: El contenido no está permitido en el prólogo.
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:468)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:851)
+	at com.sun.syndication.io.WireFeedInput.build(WireFeedInput.java:178)
+	... 4 more
+Caused by: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; El contenido no está permitido en el prólogo.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:198)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:177)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:441)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:368)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1436)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:999)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:117)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:648)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:453)
+	... 6 more
+
+!ENTRY com.arm.newsfeed 4 0 2016-06-09 12:51:59.529
+!MESSAGE Error when reading RSS feed "http://community.arm.com/view-browse-feed.jspa?containerType=700&userID=-1&browseSite=place-content&filterID=contentstatus[published]~objecttype~objecttype[blogpost]&browseViewID=placeContent&containerID=1060"
+!STACK 0
+com.sun.syndication.io.ParsingFeedException: Invalid XML: Error on line 1: El contenido no está permitido en el prólogo.
+	at com.sun.syndication.io.WireFeedInput.build(WireFeedInput.java:182)
+	at com.sun.syndication.io.SyndFeedInput.build(SyndFeedInput.java:122)
+	at com.arm.newsfeed.rss.AggregatedFeed.fetch(AggregatedFeed.java:226)
+	at com.arm.newsfeed.rss.AggregatedFeed.access$3(AggregatedFeed.java:222)
+	at com.arm.newsfeed.rss.AggregatedFeed$3.run(AggregatedFeed.java:201)
+Caused by: org.jdom.input.JDOMParseException: Error on line 1: El contenido no está permitido en el prólogo.
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:468)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:851)
+	at com.sun.syndication.io.WireFeedInput.build(WireFeedInput.java:178)
+	... 4 more
+Caused by: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; El contenido no está permitido en el prólogo.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:198)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:177)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:441)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:368)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1436)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:999)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:117)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:648)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:453)
+	... 6 more
+!SESSION 2016-06-10 12:04:12.371 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CO
+Framework arguments:  -product com.arm.ds.altera
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.arm.ds.altera
+
+!ENTRY com.arm.newsfeed 4 0 2016-06-10 12:04:56.318
+!MESSAGE Error when reading RSS feed "http://community.arm.com/view-browse-feed.jspa?containerType=700&userID=-1&browseSite=place-content&filterID=contentstatus[published]~objecttype~objecttype[blogpost]&browseViewID=placeContent&containerID=1060"
+!STACK 0
+com.sun.syndication.io.ParsingFeedException: Invalid XML: Error on line 1: El contenido no está permitido en el prólogo.
+	at com.sun.syndication.io.WireFeedInput.build(WireFeedInput.java:182)
+	at com.sun.syndication.io.SyndFeedInput.build(SyndFeedInput.java:122)
+	at com.arm.newsfeed.rss.AggregatedFeed.fetch(AggregatedFeed.java:226)
+	at com.arm.newsfeed.rss.AggregatedFeed.access$3(AggregatedFeed.java:222)
+	at com.arm.newsfeed.rss.AggregatedFeed$3.run(AggregatedFeed.java:201)
+Caused by: org.jdom.input.JDOMParseException: Error on line 1: El contenido no está permitido en el prólogo.
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:468)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:851)
+	at com.sun.syndication.io.WireFeedInput.build(WireFeedInput.java:178)
+	... 4 more
+Caused by: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; El contenido no está permitido en el prólogo.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:198)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:177)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:441)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:368)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1436)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:999)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:117)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:648)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:453)
+	... 6 more

@@ -1,0 +1,49 @@
+!SESSION 2013-09-03 11:22:22.995 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.cdt.core 1 0 2013-09-03 11:23:48.080
+!MESSAGE Indexed 'DE1_SoC_Audio_bsp' (81 sources, 60 headers) in 2.76 sec: 951 declarations; 2,354 references; 117 unresolved inclusions; 5 syntax errors; 197 unresolved names (5.63%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2013-09-03 11:24:43.910
+!MESSAGE Indexed 'DE1_SoC_Audio' (0 sources, 13 headers) in 0.01 sec: 0 declarations; 0 references; 13 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+
+!ENTRY com.altera.sbtgui.core 4 0 2013-09-03 11:26:19.104
+!MESSAGE Error executing 'nios2-bsp-generate-files --bsp-dir . --settings settings.bsp', unexpected return code 1.
+
+Error message:
+
+SEVERE: File not found: ..\..\DE1_SoC_Audio\audio_nios.sopcinfo
+SEVERE: File not found: ..\..\DE1_SoC_Audio\audio_nios.sopcinfo
+SEVERE: nios2-bsp-generate-files failed.
+
+!SESSION 2013-09-16 17:04:46.668 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.epp.usagedata.recording 1 0 2013-09-16 17:05:07.104
+!MESSAGE Usage data uploaded to http://udc.eclipse.org/upload.php in 5773 milliseconds.
+
+!ENTRY org.eclipse.cdt.core 1 0 2013-09-16 17:06:19.168
+!MESSAGE Indexed 'DE1_SoC_Audio' (6 sources, 102 headers) in 0.83 sec: 4,288 declarations; 4,934 references; 0 unresolved inclusions; 2 syntax errors; 6 unresolved names (0.07%)
+!SESSION 2013-11-07 15:07:11.819 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.epp.usagedata.recording 1 0 2013-11-07 15:07:32.320
+!MESSAGE Usage data upload to http://udc.eclipse.org/upload.php failed with error code 404.
+
+!ENTRY org.eclipse.core.jobs 2 2 2013-11-07 15:11:14.616
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.internal.core.pdom.PDOMIndexerJob$ProgressUpdateJob

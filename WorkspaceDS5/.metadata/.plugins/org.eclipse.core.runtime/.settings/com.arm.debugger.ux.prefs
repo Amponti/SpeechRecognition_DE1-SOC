@@ -1,2 +1,4 @@
+ConnectionManager.savedConnections=<?xml version\="1.0" encoding\="UTF-8"?>\n<connections>\n\t<connection current\="yes" mode\="debug" type\="com.arm.debugger.launcher2">New_configuration</connection>\n</connections>\n
 PreferredTargetHasBeenSet=true
+UXContextManager.savedContexts=<?xml version\="1.0" encoding\="UTF-8"?>\n<contexts>\n\t<context color\="65280">Connection|7pvaere3wh\:1fnb8u07p413|1465267128483|workspace\:\:New_configuration|New_configuration</context>\n</contexts>\n
 eclipse.preferences.version=1

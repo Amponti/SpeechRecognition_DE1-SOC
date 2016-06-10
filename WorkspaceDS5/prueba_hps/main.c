@@ -83,10 +83,10 @@ void init_system()
 	led_addr 		= virtual_base_lw + (( unsigned long )( REG_BASE_LW + LED_BASE ) & (unsigned long)( REG_SPAN_LW-1 ));
 	sw_addr 		= virtual_base_lw + (( unsigned long )( REG_BASE_LW + SW_BASE ) & (unsigned long)( REG_SPAN_LW-1 ));
 	key_addr		= virtual_base + (( unsigned long )( REG_BASE + KEY_BASE ) & (unsigned long)( REG_SPAN-1 ));
-	audio_addr		= virtual_base + (( unsigned long )( REG_BASE + AUDIO_L_BASE ) & (unsigned long)( REG_SPAN-1 ));
+//	audio_addr		= virtual_base + (( unsigned long )( REG_BASE + AUDIO_L_BASE ) & (unsigned long)( REG_SPAN-1 ));
 	empty_addr		= virtual_base + (( unsigned long )( REG_BASE + FIFO_EMPTY_BASE ) & (unsigned long)( REG_SPAN-1 ));
-	fclk_addr		= virtual_base + (( unsigned long )( REG_BASE + FIFO_CLK_BASE ) & (unsigned long)( REG_SPAN-1 ));
-	fifow_addr		= virtual_base + (( unsigned long )( REG_BASE + AUDIO_R_BASE ) & (unsigned long)( REG_SPAN-1 ));
+//	fclk_addr		= virtual_base + (( unsigned long )( REG_BASE + FIFO_CLK_BASE ) & (unsigned long)( REG_SPAN-1 ));
+//	fifow_addr		= virtual_base + (( unsigned long )( REG_BASE + AUDIO_R_BASE ) & (unsigned long)( REG_SPAN-1 ));
 }
 
 unsigned char finish=0;
@@ -114,25 +114,21 @@ int main()
 		sw=*(unsigned int*)sw_addr;
 		key=*(unsigned int*)key_addr;
 		empty=*(unsigned int*)empty_addr;
-		audio=*(unsigned int*)audio_addr;
-		fifow=*(unsigned int*)fifow_addr;
-		*(unsigned int *)fclk_addr=0;
+//		audio=*(unsigned int*)audio_addr;
+
+//		*(unsigned int *)fclk_addr=0;
 		switch(sw)
 		{
 			case 0:
-				*(unsigned int *)fclk_addr=0;
-								usleep(1000000);
-								*(unsigned int *)fclk_addr=1;
-								usleep(1000000);
 
-				led=*(unsigned int*)led_addr;
-				*(unsigned int *)led_addr = led+1;
+//				led=*(unsigned int*)led_addr;
+//				*(unsigned int *)led_addr = led+1;
 				usleep(100000);
 				break;
 
 			case 1:
-				led=*(unsigned int*)led_addr;
-				*(unsigned int *)led_addr = led-1;
+//				led=*(unsigned int*)led_addr;
+//				*(unsigned int *)led_addr = led-1;
 				usleep(100000);
 				break;
 
@@ -143,9 +139,9 @@ int main()
 				}
 				else
 				{
-					led=*(unsigned int*) led_addr;
+//					led=*(unsigned int*) led_addr;
 				}
-				*(unsigned int *)led_addr = led>>1;
+//				*(unsigned int *)led_addr = led>>1;
 				usleep(100000);
 				break;
 
@@ -156,9 +152,9 @@ int main()
 				}
 				else
 				{
-					led=*(unsigned int*) led_addr;
+//					led=*(unsigned int*) led_addr;
 				}
-				*(unsigned int *)led_addr = led<<1;
+//				*(unsigned int *)led_addr = led<<1;
 				usleep(100000);
 				break;
 
@@ -177,18 +173,17 @@ int main()
 				while(!empty && i<600000)
 				{
 
-					fifow=*(unsigned int*)fifow_addr;
 					empty=*(unsigned int*)empty_addr;
 					sw=*(unsigned int*)sw_addr;
 
 					if(sw==4){break;}
 
-					*(unsigned int *)fclk_addr=0;
-					usleep(100);
-					*(unsigned int *)fclk_addr=1;
-					usleep(100);
-					*(unsigned int *)fclk_addr=0;
-					audio=*(unsigned int*)audio_addr;
+//					*(unsigned int *)fclk_addr=0;
+//					usleep(100);
+//					*(unsigned int *)fclk_addr=1;
+//					usleep(100);
+//					*(unsigned int *)fclk_addr=0;
+//					audio=*(unsigned int*)audio_addr;
 					buffer[i] = audio;
 					audio_signal.signal[i]=(int)buffer[i];
 					i++;
@@ -200,7 +195,7 @@ int main()
 				break;
 
 			default:
-				*(unsigned int *)led_addr = sw;
+//				*(unsigned int *)led_addr = sw;
 				usleep(100000);
 				break;
 		}
